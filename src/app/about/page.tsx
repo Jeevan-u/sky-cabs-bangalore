@@ -1,12 +1,21 @@
-import rightImg from "@/images/about-hero-right.png";
 import React, { FC } from "react";
+import { Metadata } from "next";
 import SectionFounder from "./SectionFounder";
 import SectionStatistic from "./SectionStatistic";
 import SectionHero from "./SectionHero";
 import BgGlassmorphism from "@/components/BgGlassmorphism";
 import BackgroundSection from "@/components/BackgroundSection";
 import SectionClientSay from "@/components/SectionClientSay";
-import SectionSubscribe2 from "@/components/SectionSubscribe2";
+import SectionFleetOverview from "@/components/SectionFleetOverview";
+
+export const metadata: Metadata = {
+  title: "About Us - 24x7 Cab & Bus Travel Service in Hyderabad",
+  description:
+    "Learn about Sri Sadhguru Tours & Travels, founded and managed by Sri Rathan Kanna. 50+ commercial vehicles across Kukatpally, KPHB, Miyapur, Hitec City & Gandhari.",
+  alternates: {
+    canonical: "https://srisadgurutoursandtravels.com/about",
+  },
+};
 
 export interface PageAboutProps {}
 
@@ -16,23 +25,24 @@ const PageAbout: FC<PageAboutProps> = ({}) => {
       {/* ======== BG GLASS ======== */}
       <BgGlassmorphism />
 
-      <div className="container py-16 lg:py-28 space-y-16 lg:space-y-28">
+      <div className="container py-16 lg:py-24 space-y-16 lg:space-y-24">
         <SectionHero
-          rightImg={rightImg}
-          heading="👋 About Us."
+          rightImg="/images/sri-sadhguru-travels-banner.jpg"
+          heading="About Sri Sadhguru Tours & Travels"
           btnText=""
-          subHeading="We’re impartial and independent, and every day we create distinctive, world-class programmes and content which inform, educate and entertain millions of people in the around the world."
+          subHeading="Founded with central hubs in Kukatpally (Hyderabad) and Gandhari (Kamareddy), Sri Sadhguru Tours & Travels is committed to passenger safety, punctuality, and fair transparent pricing. Led by proprietor Rathan Kanna, we provide 5-seater sedans to 50-seater luxury coaches across South India."
         />
-
-        <SectionFounder />
-        <div className="relative py-16">
-          <BackgroundSection />
-          <SectionClientSay />
-        </div>
 
         <SectionStatistic />
 
-        <SectionSubscribe2 />
+        <SectionFleetOverview />
+
+        <SectionFounder />
+
+        <div className="relative py-12">
+          <BackgroundSection />
+          <SectionClientSay />
+        </div>
       </div>
     </div>
   );

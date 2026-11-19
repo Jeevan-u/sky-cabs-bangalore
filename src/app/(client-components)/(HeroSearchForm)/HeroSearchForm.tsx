@@ -16,10 +16,10 @@ export interface HeroSearchFormProps {
 
 const HeroSearchForm: FC<HeroSearchFormProps> = ({
   className = "",
-  currentTab = "Stays",
+  currentTab = "Cars",
   currentPage,
 }) => {
-  const tabs: SearchTab[] = ["Stays", "Experiences", "Cars", "Flights"];
+  const tabs: SearchTab[] = ["Cars", "Stays", "Experiences", "Flights"];
   const [tabActive, setTabActive] = useState<SearchTab>(currentTab);
 
   const renderTab = () => {
@@ -68,8 +68,7 @@ const HeroSearchForm: FC<HeroSearchFormProps> = ({
     <div
       className={`nc-HeroSearchForm w-full max-w-6xl py-5 lg:py-0 ${className}`}
     >
-      {renderTab()}
-      {renderForm()}
+      <RentalCarSearchForm />
     </div>
   );
 };

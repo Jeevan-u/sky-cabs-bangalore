@@ -66,7 +66,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
     return (
       <Popover
         as="li"
-        className={`menu-item flex items-center menu-megamenu ${classPopover}`}
+        className={`menu-item flex items-center menu-megamenu flex-shrink-0 whitespace-nowrap ${classPopover}`}
         onMouseEnter={() => onMouseEnterMenu(menu.id)}
         onMouseLeave={() => onMouseLeaveMenu(menu.id)}
       >
@@ -136,7 +136,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
     return (
       <Popover
         as="li"
-        className={`menu-item flex items-center menu-dropdown relative ${
+        className={`menu-item flex items-center menu-dropdown relative flex-shrink-0 whitespace-nowrap ${
           menuDropdown.isNew ? "menuIsNew_lv1" : ""
         }`}
         onMouseEnter={() => onMouseEnterMenu(menuDropdown.id)}
@@ -157,9 +157,9 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
             >
               <Popover.Panel
                 static
-                className="sub-menu will-change-transform absolute transform z-10 w-56 top-full left-0"
+                className="sub-menu will-change-transform absolute transform z-50 w-72 sm:w-80 top-full left-0 pt-2"
               >
-                <ul className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-white dark:ring-opacity-10 text-sm relative bg-white dark:bg-neutral-900 py-4 grid space-y-1">
+                <ul className="rounded-2xl shadow-2xl ring-1 ring-black/10 dark:ring-white/10 text-sm relative bg-white dark:bg-neutral-900 p-2 grid space-y-1 border border-neutral-200/80 dark:border-neutral-800">
                   {menuDropdown.children?.map((i) => {
                     if (i.type) {
                       return renderDropdownMenuNavlinkHasChild(i);
@@ -232,17 +232,19 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
   };
 
   const renderDropdownMenuNavlink = (item: NavItemType) => {
+    const isHash = !item.href || String(item.href).includes("#");
     return (
       <Link
+        prefetch={!isHash}
         target={item.targetBlank ? "_blank" : undefined}
         rel="noopener noreferrer"
-        className="flex items-center font-normal text-neutral-6000 dark:text-neutral-300 py-2 px-4 rounded-md hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 "
+        className="flex items-center font-semibold text-neutral-700 dark:text-neutral-300 py-2.5 px-3.5 rounded-xl hover:text-primary-600 hover:bg-neutral-50 dark:hover:bg-neutral-800 dark:hover:text-amber-400 transition-colors whitespace-nowrap text-xs sm:text-sm"
         href={item.href || ""}
       >
-        {item.name}
-        {item.type && (
+        <span>{item.name}</span>
+        {(item.type === "dropdown" || item.type === "megaMenu") && (
           <ChevronDownIcon
-            className="ml-2 h-4 w-4 text-neutral-500"
+            className="ml-2 h-4 w-4 text-neutral-400 flex-shrink-0"
             aria-hidden="true"
           />
         )}
@@ -252,16 +254,18 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
 
   // ===================== MENU MAIN MENU =====================
   const renderMainItem = (item: NavItemType) => {
+    const isHash = !item.href || String(item.href).includes("#");
     return (
       <Link
+        prefetch={!isHash}
         rel="noopener noreferrer"
-        className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-300 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+        className="inline-flex items-center text-xs xl:text-sm font-bold text-neutral-700 dark:text-neutral-200 py-2 px-2.5 xl:px-3 rounded-full hover:text-primary-600 hover:bg-neutral-100/80 dark:hover:bg-neutral-800 dark:hover:text-white whitespace-nowrap flex-shrink-0 transition-all duration-200 group"
         href={item.href || "/"}
       >
-        {item.name}
-        {item.type && (
+        <span>{item.name}</span>
+        {(item.type === "dropdown" || item.type === "megaMenu") && (
           <ChevronDownIcon
-            className="ml-1 -mr-1 h-4 w-4 text-neutral-400"
+            className="ml-1 -mr-0.5 h-3.5 w-3.5 text-neutral-400 group-hover:text-primary-600 group-hover:rotate-180 transition-transform duration-200 flex-shrink-0"
             aria-hidden="true"
           />
         )}
@@ -276,7 +280,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
       return renderDropdownMenu(menuItem);
     default:
       return (
-        <li className="menu-item flex items-center">
+        <li className="menu-item flex items-center flex-shrink-0 whitespace-nowrap">
           {renderMainItem(menuItem)}
         </li>
       );

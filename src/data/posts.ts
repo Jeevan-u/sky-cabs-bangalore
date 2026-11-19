@@ -1,20 +1,200 @@
-import __posts from "./jsons/__posts.json";
-import { DEMO_CATEGORIES } from "./taxonomies";
 import { PostDataType } from "./types";
-import { DEMO_AUTHORS } from "./authors";
 
-// FOR MAIN DEMO
-const DEMO_POSTS = __posts.map((post): PostDataType => {
-  //  ##########  GET CATEGORY BY CAT ID ######## //
-  const categories = post.categoriesId.map(
-    (id) => DEMO_CATEGORIES.filter((taxonomy) => taxonomy.id === id)[0]
-  );
+const REAL_POSTS: Partial<PostDataType>[] = [
+  {
+    id: "blog-srisailam-guide",
+    title: "Complete Guide to Srisailam Jyotirlinga Road Trip from Hyderabad",
+    desc: "Everything you need to know when planning a 1 or 2-day Srisailam pilgrimage from Kukatpally, including ghat road safety, Nallamala forest timings, and dam view points.",
+    date: "Nov 15, 2026",
+    featuredImage: "/images/srisailam-dam.jpg" as any,
+    href: "/blog/srisailam-guide" as any,
+    commentCount: 14,
+    viewdCount: 3420,
+    readingTime: 4,
+    author: {
+      id: "1",
+      firstName: "Sri Sadhguru",
+      lastName: "Travel Desk",
+      displayName: "Sri Sadhguru Travel Desk",
+      avatar: "/images/sri-sadhguru-travels-banner.jpg",
+      count: 12,
+      href: "/about" as any,
+      desc: "Local travel experts based in Kukatpally, Hyderabad.",
+      jobName: "Travel Expert",
+      bgImage: "/images/Airport-hyderabad.jpg",
+    },
+    categories: [
+      {
+        id: "cat-1",
+        name: "Pilgrimage Guide",
+        href: "/blog" as any,
+        taxonomy: "category",
+        count: 8,
+      },
+    ],
+  },
+  {
+    id: "blog-tirupati-balaji",
+    title: "Hyderabad to Tirupati Balaji: Safe Highway Routes & Family Stoppages",
+    desc: "Planning a Tirupati Balaji darshan trip with family and senior citizens? Discover optimal travel timings, toll estimates, and verified Innova Crysta services.",
+    date: "Nov 10, 2026",
+    featuredImage: "/images/Tirupati.jpg" as any,
+    href: "/blog/tirupati-balaji" as any,
+    commentCount: 22,
+    viewdCount: 4180,
+    readingTime: 5,
+    author: {
+      id: "1",
+      firstName: "Rathan",
+      lastName: "Kanna",
+      displayName: "Rathan Kanna",
+      avatar: "/images/sri-sadhguru-travels-banner.jpg",
+      count: 15,
+      href: "/about" as any,
+      desc: "Proprietor, Sri Sadhguru Tours & Travels",
+      jobName: "Proprietor",
+      bgImage: "/images/Airport-cabs.jpg",
+    },
+    categories: [
+      {
+        id: "cat-2",
+        name: "Temple Tours",
+        href: "/blog" as any,
+        taxonomy: "category",
+        count: 12,
+      },
+    ],
+  },
+  {
+    id: "blog-airport-taxi-guide",
+    title: "Shamshabad Airport Taxi: Why Fixed Fare Doorstep Pickups Beat App Surge",
+    desc: "Avoid early morning cancellations and sudden 2x surge pricing. How Sri Sadhguru's 24x7 Kukatpally & Miyapur airport cabs guarantee punctual flight departures.",
+    date: "Nov 05, 2026",
+    featuredImage: "/images/Airport-hyderabad.jpg" as any,
+    href: "/blog/airport-taxi-guide" as any,
+    commentCount: 18,
+    viewdCount: 2980,
+    readingTime: 3,
+    author: {
+      id: "1",
+      firstName: "Sri Sadhguru",
+      lastName: "Fleet",
+      displayName: "Airport Dispatch Team",
+      avatar: "/images/Airport-cabs.jpg",
+      count: 24,
+      href: "/shamshabad-airport-taxi" as any,
+      desc: "24x7 Airport Transfers Desk",
+      jobName: "Dispatch Lead",
+      bgImage: "/images/Airport-cabs.jpg",
+    },
+    categories: [
+      {
+        id: "cat-3",
+        name: "Airport Transfers",
+        href: "/shamshabad-airport-taxi" as any,
+        taxonomy: "category",
+        count: 6,
+      },
+    ],
+  },
+  {
+    id: "blog-south-india-circuits",
+    title: "Top South India Pilgrimage Circuits by Tempo Traveller & Tourist Bus",
+    desc: "A comprehensive itinerary for grand family yatras covering Hampi, Dharmasthala, Udupi, and Rameswaram with dedicated AC coaches.",
+    date: "Oct 28, 2026",
+    featuredImage: "/images/Hampi.jpg" as any,
+    href: "/blog/south-india-circuits" as any,
+    commentCount: 9,
+    viewdCount: 2150,
+    readingTime: 6,
+    author: {
+      id: "1",
+      firstName: "Sri Sadhguru",
+      lastName: "Travel Desk",
+      displayName: "Sri Sadhguru Travel Desk",
+      avatar: "/images/sri-sadhguru-travels-banner.jpg",
+      count: 12,
+      href: "/about" as any,
+      desc: "Local travel experts based in Kukatpally, Hyderabad.",
+      jobName: "Travel Expert",
+      bgImage: "/images/Airport-hyderabad.jpg",
+    },
+    categories: [
+      {
+        id: "cat-4",
+        name: "Group Tourism",
+        href: "/blog" as any,
+        taxonomy: "category",
+        count: 10,
+      },
+    ],
+  },
+  {
+    id: "blog-vijayawada-trip",
+    title: "Hyderabad to Vijayawada: Kanaka Durga Temple & NH65 Highway Guide",
+    desc: "Distance, highway toll costs, and scenic stops along the Krishna river for a peaceful day trip from Hyderabad.",
+    date: "Oct 20, 2026",
+    featuredImage: "/images/Vijayawada.avif" as any,
+    href: "/blog/vijayawada-trip" as any,
+    commentCount: 11,
+    viewdCount: 1890,
+    readingTime: 4,
+    author: {
+      id: "1",
+      firstName: "Rathan",
+      lastName: "Kanna",
+      displayName: "Rathan Kanna",
+      avatar: "/images/sri-sadhguru-travels-banner.jpg",
+      count: 15,
+      href: "/about" as any,
+      desc: "Proprietor, Sri Sadhguru Tours & Travels",
+      jobName: "Proprietor",
+      bgImage: "/images/Airport-cabs.jpg",
+    },
+    categories: [
+      {
+        id: "cat-2",
+        name: "Temple Tours",
+        href: "/blog" as any,
+        taxonomy: "category",
+        count: 12,
+      },
+    ],
+  },
+  {
+    id: "blog-shirdi-yatra",
+    title: "Hyderabad to Shirdi Sai Baba Road Pilgrimage: Route & Best Practices",
+    desc: "Detailed driving route via Nizamabad and Nanded to Shirdi. Advice on driver rotation, night stay halts, and darshan pass timings.",
+    date: "Oct 15, 2026",
+    featuredImage: "/images/shirdi.jpeg" as any,
+    href: "/blog/shirdi-yatra" as any,
+    commentCount: 16,
+    viewdCount: 3120,
+    readingTime: 5,
+    author: {
+      id: "1",
+      firstName: "Sri Sadhguru",
+      lastName: "Travel Desk",
+      displayName: "Sri Sadhguru Travel Desk",
+      avatar: "/images/sri-sadhguru-travels-banner.jpg",
+      count: 12,
+      href: "/about" as any,
+      desc: "Local travel experts based in Kukatpally, Hyderabad.",
+      jobName: "Travel Expert",
+      bgImage: "/images/Airport-hyderabad.jpg",
+    },
+    categories: [
+      {
+        id: "cat-1",
+        name: "Pilgrimage Guide",
+        href: "/blog" as any,
+        taxonomy: "category",
+        count: 8,
+      },
+    ],
+  },
+];
 
-  return {
-    ...post,
-    author: DEMO_AUTHORS.filter((user) => user.id === post.authorId)[0],
-    categories: [categories[0]],
-  } as PostDataType;
-});
+const DEMO_POSTS = REAL_POSTS as PostDataType[];
 
 export { DEMO_POSTS };

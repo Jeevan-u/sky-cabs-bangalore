@@ -1,5 +1,13 @@
 import React, { FC } from "react";
+import { Metadata } from "next";
 import { Nav } from "./(components)/Nav";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export interface CommonLayoutProps {
   children?: React.ReactNode;

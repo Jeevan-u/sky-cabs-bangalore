@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <BgGlassmorphism />
 
       {/* SECTION HERO */}
-      <div className="container pt-10 pb-24 lg:pt-16 lg:pb-28">
+      <div className="container pt-8 pb-4 lg:pt-12 lg:pb-6">
         <SectionHeroArchivePage
           rightImage={heroRightImage}
           currentPage="Cars"
@@ -21,7 +21,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
           listingType={
             <>
               <i className="text-2xl las la-car"></i>
-              <span className="ml-2.5">1512 cars</span>
+              <span className="ml-2.5">50+ Commercial Cabs & Buses</span>
             </>
           }
         />
@@ -29,29 +29,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
       {/* SECTION */}
       {children}
-
-      <div className="container overflow-hidden">
-        {/* SECTION 1 */}
-        <div className="relative py-16">
-          <BackgroundSection />
-          <SectionSliderNewCategories
-            heading="Explore by types of stays"
-            subHeading="Explore houses based on 10 types of stays"
-            categoryCardType="card5"
-            itemPerRow={5}
-            sliderStyle="style2"
-          />
-        </div>
-
-        {/* SECTION */}
-        <SectionSubscribe2 className="py-24 lg:py-28" />
-
-        {/* SECTION */}
-        <div className="relative py-16 mb-24 lg:mb-28">
-          <BackgroundSection className="bg-orange-50 dark:bg-black dark:bg-opacity-20 " />
-          <SectionGridAuthorBox />
-        </div>
-      </div>
     </div>
   );
 };

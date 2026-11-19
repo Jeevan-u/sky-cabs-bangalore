@@ -1,29 +1,34 @@
+"use client";
+
 import React, { FC } from "react";
 import Heading from "@/shared/Heading";
+import { SpotlightCard, AnimatedCounter, ShinyText } from "@/components/reactbits";
 
 export interface Statistic {
   id: string;
-  heading: string;
+  val: number;
+  suffix: string;
   subHeading: string;
 }
 
-const FOUNDER_DEMO: Statistic[] = [
+const STATS_DATA: Statistic[] = [
   {
     id: "1",
-    heading: "10 million",
-    subHeading:
-      "Articles have been public around the world (as of Sept. 30, 2021)",
+    val: 5000,
+    suffix: "+",
+    subHeading: "Happy passengers and families served across Telangana and Andhra Pradesh",
   },
   {
     id: "2",
-    heading: "100,000",
-    subHeading: "Registered users account (as of Sept. 30, 2021)",
+    val: 50,
+    suffix: "+",
+    subHeading: "Maintained fleet: 5-seater sedans, Ertigas, Innovas, Tempo Travellers & 50-seater buses",
   },
   {
     id: "3",
-    heading: "220+",
-    subHeading:
-      "Countries and regions have our presence (as of Sept. 30, 2021)",
+    val: 10,
+    suffix: "+ Years",
+    subHeading: "Of passenger trust, transparent per-km billing, and zero surge pricing",
   },
 ];
 
@@ -35,24 +40,25 @@ const SectionStatistic: FC<SectionStatisticProps> = ({ className = "" }) => {
   return (
     <div className={`nc-SectionStatistic relative ${className}`}>
       <Heading
-        desc=" We’re impartial and independent, and every day we create distinctive,
-          world-class programmes and content"
+        desc="Numbers that reflect our dedication to passenger safety, punctuality, and service quality"
       >
-        🚀 Fast Facts
+        <ShinyText text="Sri Sadhguru at a Glance" speed={3.5} />
       </Heading>
-      <div className="grid md:grid-cols-2 gap-6 lg:grid-cols-3 xl:gap-8">
-        {FOUNDER_DEMO.map((item) => (
-          <div
+      <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {STATS_DATA.map((item) => (
+          <SpotlightCard
             key={item.id}
-            className="p-6 bg-neutral-50 dark:bg-neutral-800 rounded-2xl dark:border-neutral-800"
+            className="p-8 !rounded-3xl hover:border-amber-400/40 text-center transition-all duration-300"
+            spotlightColor="rgba(245, 158, 11, 0.2)"
           >
-            <h3 className="text-2xl font-semibold leading-none text-neutral-900 md:text-3xl dark:text-neutral-200">
-              {item.heading}
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-primary-6000 dark:text-primary-400 font-mono flex items-center justify-center">
+              <AnimatedCounter to={item.val} duration={1.8} />
+              <span className="text-amber-500 ml-1">{item.suffix}</span>
             </h3>
-            <span className="block text-sm text-neutral-500 mt-3 sm:text-base dark:text-neutral-400">
+            <span className="block mt-3 text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
               {item.subHeading}
             </span>
-          </div>
+          </SpotlightCard>
         ))}
       </div>
     </div>

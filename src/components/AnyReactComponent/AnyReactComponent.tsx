@@ -2,16 +2,13 @@
 
 import { Transition } from "@headlessui/react";
 import CarCard from "@/components/CarCard";
-import ExperiencesCard from "@/components/ExperiencesCard";
-import StayCard from "@/components/StayCard";
-import { CarDataType, ExperiencesDataType, StayDataType } from "@/data/types";
-import React, { FC, Fragment } from "react";
-import { useState } from "react";
+import { CarDataType } from "@/data/types";
+import React, { FC, Fragment, useState } from "react";
 
 export interface AnyReactComponentProps {
   className?: string;
-  listing?: StayDataType;
-  experiences?: ExperiencesDataType;
+  listing?: any;
+  experiences?: any;
   car?: CarDataType;
   isSelected?: boolean;
   lat: number;
@@ -20,16 +17,14 @@ export interface AnyReactComponentProps {
 
 const AnyReactComponent: FC<AnyReactComponentProps> = ({
   className = "",
-  listing,
   car,
-  experiences,
   isSelected,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
-      className={`nc-AnyReactComponent relative  ${className}`}
+      className={`nc-AnyReactComponent relative ${className}`}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -40,7 +35,7 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
             : ""
         }`}
       >
-        {listing?.price || experiences?.price || car?.price}
+        {car?.price}
       </span>
       <Transition
         show={isOpen}
@@ -53,17 +48,6 @@ const AnyReactComponent: FC<AnyReactComponentProps> = ({
         leaveTo="opacity-0"
       >
         <div className="absolute z-50 bottom-full pb-3 -left-12 w-[260px] aspect-w-1">
-          {listing && (
-            <StayCard size="small" data={listing} className="shadow-2xl" />
-          )}
-          {experiences && (
-            <ExperiencesCard
-              size="small"
-              data={experiences}
-              ratioClass="aspect-w-12 aspect-h-10"
-              className="shadow-2xl bg-white dark:bg-neutral-900 rounded-3xl"
-            />
-          )}
           {car && <CarCard size="small" data={car} className="shadow-2xl " />}
         </div>
       </Transition>

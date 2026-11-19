@@ -1,7 +1,16 @@
 import { CheckIcon } from "@heroicons/react/24/solid";
 import React, { FC } from "react";
+import { Metadata } from "next";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
+import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export interface PageSubcriptionProps {}
 
@@ -17,37 +26,47 @@ export interface PricingItem {
 const pricings: PricingItem[] = [
   {
     isPopular: false,
-    name: "Starter",
-    pricing: "$5",
+    name: "Daily Executive Commute",
+    pricing: "₹24,999",
     per: "/mo",
-    features: ["Automated Reporting", "Faster Processing", "Customizations"],
-    desc: ` Literally you probably haven't heard of them jean shorts.`,
+    features: [
+      "AC Sedan (Swift Dzire / Etios)",
+      "Dedicated Chauffeur & Sanitized Cab",
+      "Daily Home-to-Office Pickup & Drop",
+      "Priority Hitec City / Madhapur Routing",
+      "GST Invoice & Monthly Billing",
+    ],
+    desc: "Fixed monthly transportation for business executives and IT professionals in Hyderabad.",
   },
   {
     isPopular: true,
-    name: "Basic",
-    pricing: "$15",
+    name: "Corporate SUV Contract",
+    pricing: "₹44,999",
     per: "/mo",
     features: [
-      "Everything in Starter",
-      "100 Builds",
-      "Progress Reports",
-      "Premium Support",
+      "Toyota Innova Crysta / Maruti Ertiga",
+      "2,000 KM Monthly Allowance Included",
+      "VIP Client & Airport Reception Service",
+      "Zero Surge & Guaranteed Availability",
+      "Digital Duty Slips & Mileage Logs",
+      "24x7 Dedicated Relationship Manager",
     ],
-    desc: ` Literally you probably haven't heard of them jean shorts.`,
+    desc: "Ideal for senior management, frequent airport commutes, and inter-city corporate travel.",
   },
   {
     isPopular: false,
-    name: "Plus",
-    pricing: "$25",
+    name: "Staff Shuttle Transport",
+    pricing: "₹69,999",
     per: "/mo",
     features: [
-      "Everything in Basic",
-      "Unlimited Builds",
-      "Advanced Analytics",
-      "Company Evaluations",
+      "Force Tempo Traveller / Mini Bus",
+      "12 to 26 Seater Configuration",
+      "Shift-Based Timed Employee Transit",
+      "GPS Monitored Routes & Safety Assured",
+      "Police Verified Professional Drivers",
+      "Custom Flexible Routes Across Hyderabad",
     ],
-    desc: ` Literally you probably haven't heard of them jean shorts.`,
+    desc: "Comprehensive employee transit solution for offices, tech parks, hospitals, and schools.",
   },
 ];
 
@@ -56,72 +75,82 @@ const PageSubcription: FC<PageSubcriptionProps> = () => {
     return (
       <div
         key={index}
-        className={`h-full relative px-6 py-8 rounded-3xl border-2 flex flex-col overflow-hidden ${
+        className={`h-full relative px-6 py-8 rounded-3xl border-2 flex flex-col justify-between overflow-hidden bg-white dark:bg-neutral-900 ${
           pricing.isPopular
-            ? "border-primary-500"
-            : "border-neutral-100 dark:border-neutral-700"
+            ? "border-primary-500 shadow-xl"
+            : "border-neutral-200 dark:border-neutral-700 shadow-sm"
         }`}
       >
         {pricing.isPopular && (
-          <span className="bg-primary-500 text-white px-3 py-1 tracking-widest text-xs absolute right-3 top-3 rounded-full z-10">
-            POPULAR
+          <span className="bg-primary-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full absolute top-4 right-4">
+            Most Popular
           </span>
         )}
-        <div className="mb-8">
-          <h3 className="block text-sm uppercase tracking-widest text-neutral-6000 dark:text-neutral-300 mb-2 font-medium">
+
+        <div>
+          <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
             {pricing.name}
           </h3>
-          <h2 className="text-5xl leading-none flex items-center text-neutral-900 dark:text-neutral-300">
-            <span>{pricing.pricing}</span>
-            <span className="text-lg ml-1 font-normal text-neutral-500">
-              {pricing.per}
-            </span>
-          </h2>
-        </div>
-        <nav className="space-y-4 mb-8">
-          {pricing.features.map((item, index) => (
-            <li className="flex items-center" key={index}>
-              <span className="mr-4 inline-flex flex-shrink-0 text-primary-6000">
-                <CheckIcon className="w-5 h-5" aria-hidden="true" />
-              </span>
-              <span className="text-neutral-700 dark:text-neutral-300">
-                {item}
-              </span>
-            </li>
-          ))}
-        </nav>
-        <div className="flex flex-col mt-auto">
-          {pricing.isPopular ? (
-            <ButtonPrimary>Submit</ButtonPrimary>
-          ) : (
-            <ButtonSecondary>
-              <span className="font-medium">Submit</span>
-            </ButtonSecondary>
-          )}
-          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-3">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-2 font-medium">
             {pricing.desc}
           </p>
+
+          <div className="mt-6 flex items-baseline">
+            <span className="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100">
+              {pricing.pricing}
+            </span>
+            <span className="text-neutral-500 dark:text-neutral-400 ml-1 font-semibold text-sm">
+              {pricing.per}
+            </span>
+          </div>
+
+          <div className="my-6 border-b border-neutral-100 dark:border-neutral-800" />
+
+          <ul className="space-y-3">
+            {pricing.features.map((item, i) => (
+              <li key={i} className="flex items-start text-xs font-medium text-neutral-700 dark:text-neutral-300">
+                <CheckIcon className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8 pt-4">
+          <a
+            href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20am%20interested%20in%20the%20${encodeURIComponent(pricing.name)}%20monthly%20package.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`w-full py-3 rounded-full text-xs font-bold text-center block transition ${
+              pricing.isPopular
+                ? "bg-primary-6000 hover:bg-primary-700 text-white shadow-md"
+                : "bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-100"
+            }`}
+          >
+            Enquire via WhatsApp
+          </a>
         </div>
       </div>
     );
   };
 
   return (
-    <div className={`nc-PageSubcription container pb-24 lg:pb-32 `}>
-      <header className="text-center max-w-2xl mx-auto my-20">
-        <h2 className="flex items-center text-3xl leading-[115%] md:text-5xl md:leading-[115%] font-semibold text-neutral-900 dark:text-neutral-100 justify-center">
-          <span className="mr-4 text-3xl md:text-4xl leading-none">💎</span>
-          Subscription
-        </h2>
-        <span className="block text-sm mt-2 text-neutral-700 sm:text-base dark:text-neutral-200">
-          Pricing to fit the needs of any companie size.
+    <div className="nc-PageSubcription container py-16 lg:py-24">
+      <div className="max-w-2xl mx-auto text-center mb-16">
+        <span className="text-xs uppercase font-bold tracking-widest text-primary-6000 bg-primary-50 dark:bg-neutral-800 px-3 py-1.5 rounded-full">
+          Corporate & Monthly Contracts
         </span>
-      </header>
-      <section className="text-neutral-600 text-sm md:text-base overflow-hidden">
-        <div className="grid lg:grid-cols-3 gap-5 xl:gap-8">
-          {pricings.map(renderPricingItem)}
-        </div>
-      </section>
+        <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-neutral-900 dark:text-neutral-100">
+          Monthly Travel Packages
+        </h2>
+        <p className="mt-3 text-neutral-600 dark:text-neutral-400 text-sm md:text-base font-medium">
+          Reliable monthly cab contracts and staff shuttle transport across Kukatpally, Hitec City, Madhapur, and Hyderabad.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {pricings.map((pricing, index) => renderPricingItem(pricing, index))}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,15 @@
+name = "sri-sadhguru-travels"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Cloudflare D1 Database Binding
+# Run: npx wrangler d1 create sadhguru-db
+# Then replace database_id with your Cloudflare D1 ID
+[[d1_databases]]
+binding = "DB"
+database_name = "sadhguru-db"
+database_id = "your-d1-database-id-here"
+
+[vars]
+NEXTAUTH_URL = "https://srisadgurutoursandtravels.com"
+NEXTAUTH_SECRET = "production-sadhguru-travels-secret-key-2026"

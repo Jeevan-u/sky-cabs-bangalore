@@ -1,224 +1,202 @@
 "use client";
 
-import { Tab } from "@headlessui/react";
-import CarCard from "@/components/CarCard";
-import CommentListing from "@/components/CommentListing";
-import ExperiencesCard from "@/components/ExperiencesCard";
-import StartRating from "@/components/StartRating";
-import StayCard from "@/components/StayCard2";
+import React, { FC, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
-  DEMO_CAR_LISTINGS,
-  DEMO_EXPERIENCES_LISTINGS,
-  DEMO_STAY_LISTINGS,
-} from "@/data/listings";
-import React, { FC, Fragment, useState } from "react";
-import Avatar from "@/shared/Avatar";
-import ButtonSecondary from "@/shared/ButtonSecondary";
-import SocialsList from "@/shared/SocialsList";
+  ShieldCheckIcon,
+  PhoneIcon,
+  MapPinIcon,
+  CheckBadgeIcon,
+  StarIcon,
+  TruckIcon,
+  DocumentCheckIcon,
+} from "@heroicons/react/24/outline";
+import { WhatsAppIcon } from "@/components/icons";
+import CarCard from "@/components/CarCard";
+import StartRating from "@/components/StartRating";
+import { DEMO_CAR_LISTINGS } from "@/data/listings";
+import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import {
+  SpotlightCard,
+  StarBorder,
+  MagneticButton,
+  ShinyText,
+} from "@/components/reactbits";
 
 export interface AuthorPageProps {}
 
-const AuthorPage: FC<AuthorPageProps> = ({}) => {
-  let [categories] = useState(["Stays", "Experiences", "Car for rent"]);
-
-  const renderSidebar = () => {
-    return (
-      <div className=" w-full flex flex-col items-center text-center sm:rounded-2xl sm:border border-neutral-200 dark:border-neutral-700 space-y-6 sm:space-y-7 px-0 sm:p-6 xl:p-8">
-        <Avatar
-          hasChecked
-          hasCheckedClass="w-6 h-6 -top-0.5 right-2"
-          sizeClass="w-28 h-28"
-        />
-
-        {/* ---- */}
-        <div className="space-y-3 text-center flex flex-col items-center">
-          <h2 className="text-3xl font-semibold">Kevin Francis</h2>
-          <StartRating className="!text-base" />
-        </div>
-
-        {/* ---- */}
-        <p className="text-neutral-500 dark:text-neutral-400">
-          Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides
-          accommodation, an outdoor.
-        </p>
-
-        {/* ---- */}
-        <SocialsList
-          className="!space-x-3"
-          itemClass="flex items-center justify-center w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 text-xl"
-        />
-
-        {/* ---- */}
-        <div className="border-b border-neutral-200 dark:border-neutral-700 w-14"></div>
-
-        {/* ---- */}
-        <div className="space-y-4">
-          <div className="flex items-center space-x-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-neutral-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-            <span className="text-neutral-6000 dark:text-neutral-300">
-              Ha Noi, Viet Nam
-            </span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-neutral-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-              />
-            </svg>
-            <span className="text-neutral-6000 dark:text-neutral-300">
-              Speaking English
-            </span>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-neutral-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            <span className="text-neutral-6000 dark:text-neutral-300">
-              Joined in March 2016
-            </span>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderSection1 = () => {
-    return (
-      <div className="listingSection__wrap">
-        <div>
-          <h2 className="text-2xl font-semibold">{`Kevin Francis's listings`}</h2>
-          <span className="block mt-2 text-neutral-500 dark:text-neutral-400">
-            {`Kevin Francis's listings is very rich, 5 star reviews help him to be
-            more branded.`}
-          </span>
-        </div>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-
-        <div>
-          <Tab.Group>
-            <Tab.List className="flex space-x-1 overflow-x-auto">
-              {categories.map((item) => (
-                <Tab key={item} as={Fragment}>
-                  {({ selected }) => (
-                    <button
-                      className={`flex-shrink-0 block !leading-none font-medium px-5 py-2.5 text-sm sm:text-base sm:px-6 sm:py-3 capitalize rounded-full focus:outline-none ${
-                        selected
-                          ? "bg-secondary-900 text-secondary-50 "
-                          : "text-neutral-500 dark:text-neutral-400 dark:hover:text-neutral-100 hover:text-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                      } `}
-                    >
-                      {item}
-                    </button>
-                  )}
-                </Tab>
-              ))}
-            </Tab.List>
-            <Tab.Panels>
-              <Tab.Panel className="">
-                <div className="mt-8 grid grid-cols-1 gap-6 md:gap-7 sm:grid-cols-2">
-                  {DEMO_STAY_LISTINGS.filter((_, i) => i < 4).map((stay) => (
-                    <StayCard key={stay.id} data={stay} />
-                  ))}
-                </div>
-                <div className="flex mt-11 justify-center items-center">
-                  <ButtonSecondary>Show me more</ButtonSecondary>
-                </div>
-              </Tab.Panel>
-              <Tab.Panel className="">
-                <div className="mt-8 grid grid-cols-1 gap-6 md:gap-7 sm:grid-cols-2">
-                  {DEMO_EXPERIENCES_LISTINGS.filter((_, i) => i < 4).map(
-                    (stay) => (
-                      <ExperiencesCard key={stay.id} data={stay} />
-                    )
-                  )}
-                </div>
-                <div className="flex mt-11 justify-center items-center">
-                  <ButtonSecondary>Show me more</ButtonSecondary>
-                </div>
-              </Tab.Panel>
-              <Tab.Panel className="">
-                <div className="mt-8 grid grid-cols-1 gap-6 md:gap-7 sm:grid-cols-2">
-                  {DEMO_CAR_LISTINGS.filter((_, i) => i < 4).map((stay) => (
-                    <CarCard key={stay.id} data={stay} />
-                  ))}
-                </div>
-                <div className="flex mt-11 justify-center items-center">
-                  <ButtonSecondary>Show me more</ButtonSecondary>
-                </div>
-              </Tab.Panel>
-            </Tab.Panels>
-          </Tab.Group>
-        </div>
-      </div>
-    );
-  };
-
-  const renderSection2 = () => {
-    return (
-      <div className="listingSection__wrap">
-        {/* HEADING */}
-        <h2 className="text-2xl font-semibold">Reviews (23 reviews)</h2>
-        <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
-
-        {/* comment */}
-        <div className="divide-y divide-neutral-100 dark:divide-neutral-800">
-          <CommentListing hasListingTitle className="pb-8" />
-          <CommentListing hasListingTitle className="py-8" />
-          <CommentListing hasListingTitle className="py-8" />
-          <CommentListing hasListingTitle className="py-8" />
-          <div className="pt-8">
-            <ButtonSecondary>View more 20 reviews</ButtonSecondary>
-          </div>
-        </div>
-      </div>
-    );
-  };
+const AuthorPage: FC<AuthorPageProps> = () => {
+  const [activeTab, setActiveTab] = useState<"fleet" | "about" | "reviews">("fleet");
 
   return (
-    <div className={`nc-AuthorPage `}>
-      <main className="container mt-12 mb-24 lg:mb-32 flex flex-col lg:flex-row">
-        <div className="block flex-grow mb-24 lg:mb-0">
-          <div className="lg:sticky lg:top-24">{renderSidebar()}</div>
+    <div className="nc-AuthorPage min-h-screen bg-neutral-50/60 dark:bg-neutral-950 py-12 font-sans">
+      <div className="container max-w-6xl mx-auto px-4">
+        {/* PROPRIETOR HERO CARD WITH SPOTLIGHT */}
+        <SpotlightCard
+          spotlightColor="rgba(217, 119, 6, 0.16)"
+          className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xl flex flex-col md:flex-row items-center md:items-start gap-8"
+        >
+          {/* Avatar with verified badge */}
+          <div className="relative shrink-0">
+            <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden border-4 border-amber-500/30 shadow-2xl bg-neutral-900 relative">
+              <Image
+                src="/images/sri-sadhguru-travels-banner.jpg"
+                alt="Sri Rathan Kanna"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <span className="absolute -bottom-2 -right-2 p-1.5 rounded-full bg-emerald-500 text-white shadow-md" title="Verified Operator">
+              <CheckBadgeIcon className="w-5 h-5" />
+            </span>
+          </div>
+
+          {/* Bio & Details */}
+          <div className="flex-1 text-center md:text-left space-y-3">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+              <StarBorder as="div" color="#d97706" speed="4s" className="inline-block">
+                <span className="px-3 py-0.5 text-xs font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                  Proprietor & Fleet Director
+                </span>
+              </StarBorder>
+              <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+                10+ Years Trust
+              </span>
+            </div>
+
+            <div className="flex flex-wrap items-baseline gap-3 justify-center md:justify-start">
+              <h1 className="text-2xl sm:text-4xl font-black text-neutral-950 dark:text-white tracking-tight">
+                Sri Rathan Kanna
+              </h1>
+              <ShinyText text="Verified Fleet Owner" speed={3} className="text-xs font-bold text-emerald-600 dark:text-emerald-400" />
+            </div>
+
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 max-w-2xl font-medium leading-relaxed">
+              Founder & Proprietor of <strong className="text-neutral-900 dark:text-white">Sri Sadhguru Tours & Travels</strong>. Under his dedicated leadership, Sri Sadhguru operates an extensive commercial fleet of 50+ vehicles spanning 5-seater sedans to 50-seater luxury coaches across Hyderabad, Kukatpally, Gandhari, and all of South India.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-1 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+              <span className="flex items-center gap-1.5">
+                <MapPinIcon className="w-4 h-4 text-primary-6000" />
+                Kukatpally (HQ) & Gandhari Hub
+              </span>
+              <span className="flex items-center gap-1.5">
+                <StarIcon className="w-4 h-4 text-amber-500 fill-amber-500" />
+                4.9 Google Verified Rating
+              </span>
+              <span className="flex items-center gap-1.5">
+                <TruckIcon className="w-4 h-4 text-emerald-500" />
+                50+ Commercial Yellow-Board Vehicles
+              </span>
+            </div>
+
+            {/* Direct Contact CTAs */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-3">
+              <MagneticButton distance={0.2}>
+                <a
+                  href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                  className="px-5 py-2.5 rounded-full bg-primary-6000 hover:bg-primary-700 text-white font-bold text-xs shadow-md shadow-primary-6000/25 active:scale-95 transition-all flex items-center gap-2"
+                >
+                  <PhoneIcon className="w-4 h-4" />
+                  <span>Call: +91 {SADHGURU_CONTACT.primaryPhone}</span>
+                </a>
+              </MagneticButton>
+
+              <MagneticButton distance={0.2}>
+                <a
+                  href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Rathan%20Kanna,%20I%20would%20like%20to%20inquire%20about%20a%20travel%20booking.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center gap-2"
+                >
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
+                  <span>WhatsApp Direct</span>
+                </a>
+              </MagneticButton>
+
+              <Link
+                href="/track-booking"
+                className="px-5 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold text-xs transition"
+              >
+                Track My Trip
+              </Link>
+            </div>
+          </div>
+        </SpotlightCard>
+
+        {/* TABS NAVIGATION */}
+        <div className="flex items-center gap-3 border-b border-neutral-200 dark:border-neutral-800 mt-10 mb-8">
+          <button
+            onClick={() => setActiveTab("fleet")}
+            className={`pb-4 px-2 text-sm font-bold border-b-2 transition-all ${
+              activeTab === "fleet"
+                ? "border-primary-6000 text-primary-6000"
+                : "border-transparent text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
+            }`}
+          >
+            Commercial Fleet ({DEMO_CAR_LISTINGS.length})
+          </button>
+          <button
+            onClick={() => setActiveTab("about")}
+            className={`pb-4 px-2 text-sm font-bold border-b-2 transition-all ${
+              activeTab === "about"
+                ? "border-primary-6000 text-primary-6000"
+                : "border-transparent text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
+            }`}
+          >
+            Fleet Operations & Standards
+          </button>
         </div>
-        <div className="w-full lg:w-3/5 xl:w-2/3 space-y-8 lg:space-y-10 lg:pl-10 flex-shrink-0">
-          {renderSection1()}
-          {renderSection2()}
-        </div>
-      </main>
+
+        {/* TAB 1: FLEET SHOWCASE */}
+        {activeTab === "fleet" && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {DEMO_CAR_LISTINGS.map((car) => (
+              <CarCard key={car.id} data={car} />
+            ))}
+          </div>
+        )}
+
+        {/* TAB 2: STANDARDS & ABOUT */}
+        {activeTab === "about" && (
+          <div className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-sm space-y-6 text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
+            <h3 className="text-xl font-bold text-neutral-950 dark:text-white">
+              The Sri Sadhguru Promise · Personal Supervision by Rathan Kanna
+            </h3>
+            <p>
+              Founded with the vision to deliver dependable, safe, and transparent transportation across Telangana and South India, Sri Sadhguru Tours & Travels prioritizes customer peace of mind above all else. Unlike aggregator apps with fluctuating surge prices and random driver assignments, every trip booked through Sri Sadhguru is personally scheduled, verified, and tracked by our central operations desk.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              <div className="p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200/60 dark:border-neutral-700/60">
+                <ShieldCheckIcon className="w-8 h-8 text-primary-6000 mb-2" />
+                <h4 className="font-bold text-neutral-900 dark:text-white text-base">Verified Chauffeurs</h4>
+                <p className="text-xs text-neutral-500 mt-1">
+                  Experienced highway drivers with background verification and deep knowledge of pilgrim routes.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200/60 dark:border-neutral-700/60">
+                <DocumentCheckIcon className="w-8 h-8 text-emerald-600 mb-2" />
+                <h4 className="font-bold text-neutral-900 dark:text-white text-base">Transparent Billing</h4>
+                <p className="text-xs text-neutral-500 mt-1">
+                  Digital duty slips with starting & ending odometer readings, Fastag toll receipts, and no hidden bata.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200/60 dark:border-neutral-700/60">
+                <TruckIcon className="w-8 h-8 text-amber-500 mb-2" />
+                <h4 className="font-bold text-neutral-900 dark:text-white text-base">24x7 Rapid Dispatch</h4>
+                <p className="text-xs text-neutral-500 mt-1">
+                  15-minute doorstep dispatch across Kukatpally, KPHB, Miyapur, Hitec City, and Shamshabad Airport.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

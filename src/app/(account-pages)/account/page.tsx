@@ -46,7 +46,7 @@ const AccountPage = () => {
         <div className="flex-grow mt-10 md:mt-0 md:pl-16 max-w-3xl space-y-6">
           <div>
             <Label>Name</Label>
-            <Input className="mt-1.5" defaultValue="Eden Tuan" />
+            <Input className="mt-1.5" defaultValue="Sri Rathan Kanna" />
           </div>
           {/* ---- */}
           <div>
@@ -60,32 +60,32 @@ const AccountPage = () => {
           {/* ---- */}
           <div>
             <Label>Username</Label>
-            <Input className="mt-1.5" defaultValue="@eden_tuan" />
+            <Input className="mt-1.5" defaultValue="@rathankanna" />
           </div>
           {/* ---- */}
           <div>
             <Label>Email</Label>
-            <Input className="mt-1.5" defaultValue="example@email.com" />
+            <Input className="mt-1.5" defaultValue="contact@srisadgurutoursandtravels.com" />
           </div>
           {/* ---- */}
           <div className="max-w-lg">
             <Label>Date of birth</Label>
-            <Input className="mt-1.5" type="date" defaultValue="1990-07-22" />
+            <Input className="mt-1.5" type="date" defaultValue="1988-06-15" />
           </div>
           {/* ---- */}
           <div>
-            <Label>Addess</Label>
-            <Input className="mt-1.5" defaultValue="New york, USA" />
+            <Label>Address</Label>
+            <Input className="mt-1.5" defaultValue="Kukatpally Housing Board (KPHB), Hyderabad, Telangana - 500072" />
           </div>
           {/* ---- */}
           <div>
             <Label>Phone number</Label>
-            <Input className="mt-1.5" defaultValue="003 888 232" />
+            <Input className="mt-1.5" defaultValue="+91 81061 17704" />
           </div>
           {/* ---- */}
           <div>
             <Label>About you</Label>
-            <Textarea className="mt-1.5" defaultValue="..." />
+            <Textarea className="mt-1.5" defaultValue="Proprietor of Sri Sadhguru Tours & Travels. Managing 50+ commercial vehicles across Hyderabad, Kamareddy, and South India pilgrimage circuits." />
           </div>
           <div className="pt-2">
             <ButtonPrimary>Update info</ButtonPrimary>

@@ -1,261 +1,667 @@
 "use client";
 
-import { Tab } from "@headlessui/react";
-import { PencilSquareIcon } from "@heroicons/react/24/outline";
-import React, { FC, Fragment, useState } from "react";
-import visaPng from "@/images/vis.png";
-import mastercardPng from "@/images/mastercard.svg";
-import Input from "@/shared/Input";
-import Label from "@/components/Label";
-import Textarea from "@/shared/Textarea";
-import ButtonPrimary from "@/shared/ButtonPrimary";
-import StartRating from "@/components/StartRating";
-import NcModal from "@/shared/NcModal";
-import ModalSelectDate from "@/components/ModalSelectDate";
-import converSelectedDateToString from "@/utils/converSelectedDateToString";
-import ModalSelectGuests from "@/components/ModalSelectGuests";
+import React, { FC, useState } from "react";
 import Image from "next/image";
-import { GuestsObject } from "../(client-components)/type";
+import { useRouter, useSearchParams } from "next/navigation";
+import {
+  MapPinIcon,
+  CalendarDaysIcon,
+  ClockIcon,
+  UserIcon,
+  PhoneIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
+import { SparklesIcon, ExclamationTriangleIcon, ShieldCheckIcon } from "@/components/icons";
+import ButtonPrimary from "@/shared/ButtonPrimary";
+import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import {
+  SpotlightCard,
+  AnimatedCounter,
+  MagneticButton,
+  ShinyText,
+  StarBorder,
+  BorderBeam,
+  ShimmerButton,
+} from "@/components/reactbits";
 
-export interface CheckOutPagePageMainProps {
-  className?: string;
-}
+const POPULAR_PICKUPS = [
+  "Kukatpally (HQ / Y-Junction)",
+  "KPHB Colony Phase 1-9",
+  "Miyapur Metro Station",
+  "Hitec City / Madhapur",
+  "Gachibowli / Financial Dist",
+  "Shamshabad RGIA Airport",
+  "Secunderabad Railway Station",
+];
 
-const CheckOutPagePageMain: FC<CheckOutPagePageMainProps> = ({
-  className = "",
-}) => {
-  const [startDate, setStartDate] = useState<Date | null>(
-    new Date("2023/02/06")
-  );
-  const [endDate, setEndDate] = useState<Date | null>(new Date("2023/02/23"));
+const POPULAR_DROPS = [
+  "Shamshabad Airport (RGIA)",
+  "Srisailam Mallikarjuna Temple",
+  "Tirupati Balaji Darshan",
+  "Vijayawada Kanaka Durga",
+  "Shirdi Sai Baba Temple",
+  "Warangal / Yadagirigutta",
+  "Local City Travel (8h/80km)",
+];
 
-  const [guests, setGuests] = useState<GuestsObject>({
-    guestAdults: 2,
-    guestChildren: 1,
-    guestInfants: 1,
-  });
+const CheckOutPagePageMain: FC = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const renderSidebar = () => {
-    return (
-      <div className="w-full flex flex-col sm:rounded-2xl lg:border border-neutral-200 dark:border-neutral-700 space-y-6 sm:space-y-8 px-0 sm:p-6 xl:p-8">
-        <div className="flex flex-col sm:flex-row sm:items-center">
-          <div className="flex-shrink-0 w-full sm:w-40">
-            <div className=" aspect-w-4 aspect-h-3 sm:aspect-h-4 rounded-2xl overflow-hidden">
-              <Image
-                alt=""
-                fill
-                sizes="200px"
-                src="https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              />
-            </div>
-          </div>
-          <div className="py-5 sm:px-5 space-y-3">
-            <div>
-              <span className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-1">
-                Hotel room in Tokyo, Jappan
-              </span>
-              <span className="text-base font-medium mt-1 block">
-                The Lounge & Bar
-              </span>
-            </div>
-            <span className="block  text-sm text-neutral-500 dark:text-neutral-400">
-              2 beds · 2 baths
-            </span>
-            <div className="w-10 border-b border-neutral-200  dark:border-neutral-700"></div>
-            <StartRating />
-          </div>
-        </div>
-        <div className="flex flex-col space-y-4">
-          <h3 className="text-2xl font-semibold">Price detail</h3>
-          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>$19 x 3 day</span>
-            <span>$57</span>
-          </div>
-          <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
-            <span>Service charge</span>
-            <span>$0</span>
-          </div>
+  // Search params parsing
+  const initialVehicleId = searchParams?.get("vehicle") || "innova-crysta";
+  const initialTripType = searchParams?.get("trip") || "airport";
+  const initialPrice = Number(searchParams?.get("price")) || 0;
 
-          <div className="border-b border-neutral-200 dark:border-neutral-700"></div>
-          <div className="flex justify-between font-semibold">
-            <span>Total</span>
-            <span>$57</span>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // Form State
+  const [vehicleId, setVehicleId] = useState(initialVehicleId);
+  const [tripType, setTripType] = useState<string>(initialTripType);
+  const [pickupAddress, setPickupAddress] = useState(searchParams?.get("pickup") || "Kukatpally, Hyderabad");
+  const [dropAddress, setDropAddress] = useState(searchParams?.get("drop") || "Shamshabad Airport (RGIA)");
+  
+  // Date & Time defaults
+  const todayStr = new Date().toISOString().split("T")[0];
+  const [pickupDate, setPickupDate] = useState(todayStr);
+  const [pickupTime, setPickupTime] = useState("06:00 AM");
 
-  const renderMain = () => {
-    return (
-      <div className="w-full flex flex-col sm:rounded-2xl sm:border border-neutral-200 dark:border-neutral-700 space-y-8 px-0 sm:p-6 xl:p-8">
-        <h2 className="text-3xl lg:text-4xl font-semibold">
-          Confirm and payment
-        </h2>
-        <div className="border-b border-neutral-200 dark:border-neutral-700"></div>
-        <div>
-          <div>
-            <h3 className="text-2xl font-semibold">Your trip</h3>
-            <NcModal
-              renderTrigger={(openModal) => (
-                <span
-                  onClick={() => openModal()}
-                  className="block lg:hidden underline  mt-1 cursor-pointer"
-                >
-                  View booking details
-                </span>
-              )}
-              renderContent={renderSidebar}
-              modalTitle="Booking details"
-            />
-          </div>
-          <div className="mt-6 border border-neutral-200 dark:border-neutral-700 rounded-3xl flex flex-col sm:flex-row divide-y sm:divide-x sm:divide-y-0 divide-neutral-200 dark:divide-neutral-700 overflow-hidden z-10">
-            <ModalSelectDate
-              renderChildren={({ openModal }) => (
-                <button
-                  onClick={openModal}
-                  className="text-left flex-1 p-5 flex justify-between space-x-5 hover:bg-neutral-50 dark:hover:bg-neutral-800"
-                  type="button"
-                >
-                  <div className="flex flex-col">
-                    <span className="text-sm text-neutral-400">Date</span>
-                    <span className="mt-1.5 text-lg font-semibold">
-                      {converSelectedDateToString([startDate, endDate])}
-                    </span>
-                  </div>
-                  <PencilSquareIcon className="w-6 h-6 text-neutral-6000 dark:text-neutral-400" />
-                </button>
-              )}
-            />
+  // Passenger state
+  const [customerName, setCustomerName] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [flightNumber, setFlightNumber] = useState("");
+  const [notes, setNotes] = useState("");
+  const [paymentOption, setPaymentOption] = useState<"cash_on_trip" | "advance_token">("cash_on_trip");
 
-            <ModalSelectGuests
-              renderChildren={({ openModal }) => (
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className="text-left flex-1 p-5 flex justify-between space-x-5 hover:bg-neutral-50 dark:hover:bg-neutral-800"
-                >
-                  <div className="flex flex-col">
-                    <span className="text-sm text-neutral-400">Guests</span>
-                    <span className="mt-1.5 text-lg font-semibold">
-                      <span className="line-clamp-1">
-                        {`${
-                          (guests.guestAdults || 0) +
-                          (guests.guestChildren || 0)
-                        } Guests, ${guests.guestInfants || 0} Infants`}
-                      </span>
-                    </span>
-                  </div>
-                  <PencilSquareIcon className="w-6 h-6 text-neutral-6000 dark:text-neutral-400" />
-                </button>
-              )}
-            />
-          </div>
-        </div>
+  // UI status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-        <div>
-          <h3 className="text-2xl font-semibold">Pay with</h3>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700 my-5"></div>
+  const currentVehicle =
+    SADHGURU_FLEET.find((v) => v.id === vehicleId) || SADHGURU_FLEET[2];
 
-          <div className="mt-6">
-            <Tab.Group>
-              <Tab.List className="flex my-5 gap-1">
-                <Tab as={Fragment}>
-                  {({ selected }) => (
-                    <button
-                      className={`px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full focus:outline-none ${
-                        selected
-                          ? "bg-neutral-800 dark:bg-neutral-200 text-white dark:text-neutral-900"
-                          : "text-neutral-6000 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                      }`}
-                    >
-                      Paypal
-                    </button>
-                  )}
-                </Tab>
-                <Tab as={Fragment}>
-                  {({ selected }) => (
-                    <button
-                      className={`px-4 py-1.5 sm:px-6 sm:py-2.5  rounded-full flex items-center justify-center focus:outline-none  ${
-                        selected
-                          ? "bg-neutral-800 dark:bg-neutral-200 text-white dark:text-neutral-900"
-                          : " text-neutral-6000 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                      }`}
-                    >
-                      <span className="mr-2.5">Credit card</span>
-                      <Image className="w-8" src={visaPng} alt="visa" />
-                      <Image
-                        className="w-8"
-                        src={mastercardPng}
-                        alt="mastercard"
-                      />
-                    </button>
-                  )}
-                </Tab>
-              </Tab.List>
+  // Dynamic price calculation
+  let calculatedPrice = currentVehicle.airportFlatRate;
+  if (tripType === "local") {
+    calculatedPrice = currentVehicle.local8hr80km;
+  } else if (tripType === "outstation" || tripType === "pilgrimage") {
+    calculatedPrice = currentVehicle.perKmRate * 350; // standard 350 KM base
+  }
+  const finalPrice = initialPrice > 0 ? initialPrice : calculatedPrice;
 
-              <Tab.Panels>
-                <Tab.Panel className="space-y-5">
-                  <div className="space-y-1">
-                    <Label>Card number </Label>
-                    <Input defaultValue="111 112 222 999" />
-                  </div>
-                  <div className="space-y-1">
-                    <Label>Card holder </Label>
-                    <Input defaultValue="JOHN DOE" />
-                  </div>
-                  <div className="flex space-x-5  ">
-                    <div className="flex-1 space-y-1">
-                      <Label>Expiration date </Label>
-                      <Input type="date" defaultValue="MM/YY" />
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      <Label>CVC </Label>
-                      <Input />
-                    </div>
-                  </div>
-                  <div className="space-y-1">
-                    <Label>Messager for author </Label>
-                    <Textarea placeholder="..." />
-                    <span className="text-sm text-neutral-500 block">
-                      Write a few sentences about yourself.
-                    </span>
-                  </div>
-                </Tab.Panel>
-                <Tab.Panel className="space-y-5">
-                  <div className="space-y-1">
-                    <Label>Email </Label>
-                    <Input type="email" defaultValue="example@gmail.com" />
-                  </div>
-                  <div className="space-y-1">
-                    <Label>Password </Label>
-                    <Input type="password" defaultValue="***" />
-                  </div>
-                  <div className="space-y-1">
-                    <Label>Messager for author </Label>
-                    <Textarea placeholder="..." />
-                    <span className="text-sm text-neutral-500 block">
-                      Write a few sentences about yourself.
-                    </span>
-                  </div>
-                </Tab.Panel>
-              </Tab.Panels>
-            </Tab.Group>
-            <div className="pt-8">
-              <ButtonPrimary href={"/pay-done"}>Confirm and pay</ButtonPrimary>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  const handleSubmitBooking = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage("");
+
+    if (!customerName.trim()) {
+      setErrorMessage("Please enter your full name.");
+      return;
+    }
+    if (!customerPhone.trim() || customerPhone.replace(/\D/g, "").length < 10) {
+      setErrorMessage("Please enter a valid 10-digit mobile number for chauffeur dispatch.");
+      return;
+    }
+    if (!pickupAddress.trim() || !dropAddress.trim()) {
+      setErrorMessage("Please provide both pickup and drop-off destinations.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    let pickupDateTimeVal = `${pickupDate} at ${pickupTime}`;
+    try {
+      const match = pickupTime.match(/(\d+):(\d+)\s*(AM|PM)?/i);
+      if (match) {
+        let hours = parseInt(match[1], 10);
+        const mins = match[2];
+        const ampm = (match[3] || "").toUpperCase();
+        if (ampm === "PM" && hours < 12) hours += 12;
+        if (ampm === "AM" && hours === 12) hours = 0;
+        pickupDateTimeVal = `${pickupDate}T${hours.toString().padStart(2, "0")}:${mins}:00`;
+      }
+    } catch {}
+
+    try {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customer_name: customerName.trim(),
+          customer_phone: customerPhone.trim(),
+          trip_type: tripType,
+          vehicle_type: `${currentVehicle.name} (${currentVehicle.capacity})`,
+          pickup_address: pickupAddress.trim(),
+          drop_address: dropAddress.trim(),
+          pickup_datetime: pickupDateTimeVal,
+          estimated_price: finalPrice,
+          notes: `${notes ? notes + " | " : ""}${flightNumber ? "Flight: " + flightNumber + " | " : ""}Payment: ${paymentOption === "cash_on_trip" ? "Pay Chauffeur at End" : "Advance Token"}`,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Failed to register booking. Please call dispatch directly.");
+      }
+
+      const bookingId = data.booking?.id || "BK-" + Math.floor(1000 + Math.random() * 9000);
+
+      // Route to confirmation launchpad
+      router.push(
+        `/pay-done?bookingId=${encodeURIComponent(bookingId)}&customerName=${encodeURIComponent(
+          customerName
+        )}&customerPhone=${encodeURIComponent(customerPhone)}&vehicle=${encodeURIComponent(
+          currentVehicle.name
+        )}&pickup=${encodeURIComponent(pickupAddress)}&drop=${encodeURIComponent(
+          dropAddress
+        )}&date=${encodeURIComponent(pickupDate + " " + pickupTime)}&price=${encodeURIComponent(
+          finalPrice
+        )}&payment=${encodeURIComponent(paymentOption)}` as any
+      );
+    } catch (err: any) {
+      setErrorMessage(err.message || "An unexpected error occurred. Please try again or call our 24x7 desk.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className={`nc-CheckOutPagePageMain ${className}`}>
-      <main className="container mt-11 mb-24 lg:mb-32 flex flex-col-reverse lg:flex-row">
-        <div className="w-full lg:w-3/5 xl:w-2/3 lg:pr-10 ">{renderMain()}</div>
-        <div className="hidden lg:block flex-grow">{renderSidebar()}</div>
-      </main>
+    <div className="nc-CheckOutPage min-h-screen bg-neutral-50/60 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 py-10 font-sans">
+      <div className="container max-w-6xl mx-auto px-4">
+        {/* Header Title */}
+        <div className="mb-8">
+          <div className="inline-block mb-2">
+            <StarBorder as="div" color="#d97706" speed="4s">
+              <span className="px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+                <SparklesIcon className="w-3.5 h-3.5 text-amber-500" />
+                <span>Zero-Surge Commercial Transport</span>
+              </span>
+            </StarBorder>
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Confirm Your Reservation
+          </h1>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 font-medium">
+            Sri Sadhguru Tours & Travels · Chauffeur allocation starts immediately upon confirmation
+          </p>
+        </div>
+
+        {errorMessage && (
+          <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-sm font-semibold flex items-center justify-between">
+            <span className="inline-flex items-center gap-1.5">
+              <ExclamationTriangleIcon className="w-4 h-4 text-rose-500 shrink-0" />
+              <span>{errorMessage}</span>
+            </span>
+            <a href={`tel:${SADHGURU_CONTACT.primaryPhone}`} className="underline font-bold">
+              Call Dispatch
+            </a>
+          </div>
+        )}
+
+        <form onSubmit={handleSubmitBooking} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* LEFT 2 COLUMNS: TRIP & PASSENGER INFORMATION */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Step 1: Trip & Route Details */}
+            <SpotlightCard
+              spotlightColor="rgba(217, 119, 6, 0.08)"
+              className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-sm space-y-6"
+            >
+              <div className="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-primary-6000 text-white font-bold text-xs flex items-center justify-center">
+                    1
+                  </div>
+                  <div>
+                    <h2 className="text-base font-bold text-neutral-900 dark:text-white">
+                      Trip & Vehicle Selection
+                    </h2>
+                    <p className="text-xs text-neutral-500">Pick trip nature and preferred vehicle</p>
+                  </div>
+                </div>
+                <span className="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/30 px-2.5 py-1 rounded-full">
+                  Instant Confirmation
+                </span>
+              </div>
+
+              {/* Trip Nature Tabs */}
+              <div>
+                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                  Trip Category
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { id: "airport", label: "Airport Transfer" },
+                    { id: "outstation", label: "Outstation Yatra" },
+                    { id: "local", label: "Local 8h/80km" },
+                  ].map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setTripType(t.id)}
+                      className={`py-2.5 px-3 rounded-2xl text-xs font-bold transition-all border ${
+                        tripType === t.id
+                          ? "bg-primary-6000 text-white border-primary-6000 shadow-sm"
+                          : "bg-neutral-50 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100"
+                      }`}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Vehicle Select */}
+              <div>
+                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                  Choose Vehicle Model
+                </label>
+                <select
+                  value={vehicleId}
+                  onChange={(e) => setVehicleId(e.target.value)}
+                  className="w-full px-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm font-semibold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                >
+                  {SADHGURU_FLEET.map((f) => (
+                    <option key={f.id} value={f.id}>
+                      {f.name} ({f.capacity}) · ₹{f.airportFlatRate} Airport / ₹{f.perKmRate}/km
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Pickup Address */}
+              <div>
+                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center justify-between mb-2">
+                  <span>Doorstep Pickup Location in Hyderabad / Telangana</span>
+                  <span className="text-[11px] text-neutral-400 font-normal">Exact doorstep arrival</span>
+                </label>
+                <div className="relative">
+                  <MapPinIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    required
+                    value={pickupAddress}
+                    onChange={(e) => setPickupAddress(e.target.value)}
+                    placeholder="e.g. Flat 302, KPHB Phase 3, Kukatpally / Hotel Reception..."
+                    className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                  />
+                </div>
+                {/* Quick Chips */}
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {POPULAR_PICKUPS.slice(0, 4).map((chip) => (
+                    <button
+                      key={chip}
+                      type="button"
+                      onClick={() => setPickupAddress(chip)}
+                      className="text-[11px] px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200 transition"
+                    >
+                      + {chip}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Drop-off Address */}
+              <div>
+                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center justify-between mb-2">
+                  <span>Destination / Drop-off Location</span>
+                  <span className="text-[11px] text-neutral-400 font-normal">Airport / Outstation / Local</span>
+                </label>
+                <div className="relative">
+                  <MapPinIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    required
+                    value={dropAddress}
+                    onChange={(e) => setDropAddress(e.target.value)}
+                    placeholder="e.g. Shamshabad Airport Departures / Srisailam Temple..."
+                    className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                  />
+                </div>
+                {/* Quick Chips */}
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {POPULAR_DROPS.slice(0, 4).map((chip) => (
+                    <button
+                      key={chip}
+                      type="button"
+                      onClick={() => setDropAddress(chip)}
+                      className="text-[11px] px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200 transition"
+                    >
+                      + {chip}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Date & Time Picker Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                    Pickup Date
+                  </label>
+                  <div className="relative">
+                    <CalendarDaysIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="date"
+                      required
+                      value={pickupDate}
+                      onChange={(e) => setPickupDate(e.target.value)}
+                      className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                    Pickup Time
+                  </label>
+                  <div className="relative">
+                    <ClockIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      required
+                      value={pickupTime}
+                      onChange={(e) => setPickupTime(e.target.value)}
+                      placeholder="e.g. 05:30 AM / 11:00 PM"
+                      className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                    />
+                  </div>
+                </div>
+              </div>
+            </SpotlightCard>
+
+            {/* Step 2: Passenger Contact Details */}
+            <SpotlightCard
+              spotlightColor="rgba(16, 185, 129, 0.08)"
+              className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-sm space-y-6"
+            >
+              <div className="flex items-center gap-3 pb-4 border-b border-neutral-100 dark:border-neutral-800">
+                <div className="w-8 h-8 rounded-xl bg-primary-6000 text-white font-bold text-xs flex items-center justify-center">
+                  2
+                </div>
+                <div>
+                  <h2 className="text-base font-bold text-neutral-900 dark:text-white">
+                    Passenger Contact Information
+                  </h2>
+                  <p className="text-xs text-neutral-500">Chauffeur details & WhatsApp tracking sent here</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                    Full Name *
+                  </label>
+                  <div className="relative">
+                    <UserIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      required
+                      value={customerName}
+                      onChange={(e) => setCustomerName(e.target.value)}
+                      placeholder="e.g. Anand Reddy / Venkat Rao"
+                      className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                    Mobile Phone (WhatsApp Enabled) *
+                  </label>
+                  <div className="relative">
+                    <PhoneIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="tel"
+                      required
+                      value={customerPhone}
+                      onChange={(e) => setCustomerPhone(e.target.value)}
+                      placeholder="e.g. 98480 12345"
+                      className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                    Flight Number (Optional for Airport)
+                  </label>
+                  <input
+                    type="text"
+                    value={flightNumber}
+                    onChange={(e) => setFlightNumber(e.target.value)}
+                    placeholder="e.g. 6E 452 (IndiGo) / AI 840"
+                    className="w-full px-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                    Email Address (Optional)
+                  </label>
+                  <input
+                    type="email"
+                    value={customerEmail}
+                    onChange={(e) => setCustomerEmail(e.target.value)}
+                    placeholder="e.g. yourname@gmail.com"
+                    className="w-full px-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
+                  Special Travel Instructions (Optional)
+                </label>
+                <textarea
+                  rows={2}
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="e.g. Traveling with elderly parents, please keep AC mild; need luggage space for 3 large suitcases..."
+                  className="w-full px-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
+                />
+              </div>
+            </SpotlightCard>
+
+            {/* Step 3: Payment Choice */}
+            <SpotlightCard
+              spotlightColor="rgba(217, 119, 6, 0.08)"
+              className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-sm space-y-4"
+            >
+              <div className="flex items-center gap-3 pb-3 border-b border-neutral-100 dark:border-neutral-800">
+                <div className="w-8 h-8 rounded-xl bg-primary-6000 text-white font-bold text-xs flex items-center justify-center">
+                  3
+                </div>
+                <div>
+                  <h2 className="text-base font-bold text-neutral-900 dark:text-white">
+                    Payment Preference
+                  </h2>
+                  <p className="text-xs text-neutral-500">Flexible payment options for Indian travelers</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <label
+                  onClick={() => setPaymentOption("cash_on_trip")}
+                  className={`p-4 rounded-2xl border-2 cursor-pointer transition-all flex items-start gap-3 ${
+                    paymentOption === "cash_on_trip"
+                      ? "border-primary-6000 bg-primary-50/20 dark:bg-primary-950/20"
+                      : "border-neutral-200 dark:border-neutral-700 hover:border-neutral-300"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="paymentOption"
+                    checked={paymentOption === "cash_on_trip"}
+                    onChange={() => setPaymentOption("cash_on_trip")}
+                    className="mt-1 text-primary-6000 focus:ring-primary-500"
+                  />
+                  <div>
+                    <span className="font-bold text-sm text-neutral-900 dark:text-white block">
+                      Pay to Chauffeur at End
+                    </span>
+                    <span className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 block">
+                      Pay Cash or UPI (GPay / PhonePe / Paytm) after reaching your destination. ₹0 advance needed.
+                    </span>
+                    <span className="inline-block mt-2 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                      Most Popular
+                    </span>
+                  </div>
+                </label>
+
+                <label
+                  onClick={() => setPaymentOption("advance_token")}
+                  className={`p-4 rounded-2xl border-2 cursor-pointer transition-all flex items-start gap-3 ${
+                    paymentOption === "advance_token"
+                      ? "border-primary-6000 bg-primary-50/20 dark:bg-primary-950/20"
+                      : "border-neutral-200 dark:border-neutral-700 hover:border-neutral-300"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="paymentOption"
+                    checked={paymentOption === "advance_token"}
+                    onChange={() => setPaymentOption("advance_token")}
+                    className="mt-1 text-primary-6000 focus:ring-primary-500"
+                  />
+                  <div>
+                    <span className="font-bold text-sm text-neutral-900 dark:text-white block">
+                      Advance Token Booking
+                    </span>
+                    <span className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 block">
+                      Lock your vehicle for outstation and peak airport hours via instant UPI QR code.
+                    </span>
+                  </div>
+                </label>
+              </div>
+            </SpotlightCard>
+          </div>
+
+          {/* RIGHT 1 COLUMN: LIVE SUMMARY CARD & SUBMISSION */}
+          <div className="space-y-6">
+            <SpotlightCard
+              spotlightColor="rgba(217, 119, 6, 0.16)"
+              className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-xl space-y-6 sticky top-24 relative overflow-hidden"
+            >
+              <BorderBeam size={280} duration={8} colorFrom="#f59e0b" colorTo="#0284c7" borderWidth={1.5} />
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-neutral-400 block">
+                    Booking Summary
+                  </span>
+                  <ShinyText text="Zero Advance Needed" speed={3.5} className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400" />
+                </div>
+                <h3 className="text-xl font-extrabold text-neutral-950 dark:text-white mt-1">
+                  {currentVehicle.name}
+                </h3>
+                <p className="text-xs text-neutral-500 font-medium">
+                  {currentVehicle.capacity} · Dual Chilled AC Chauffeur Driven
+                </p>
+              </div>
+
+              {/* Route Summary */}
+              <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200/60 dark:border-neutral-700/60 space-y-3 text-xs">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-neutral-400 block">PICKUP</span>
+                  <p className="font-semibold text-neutral-900 dark:text-white truncate">
+                    {pickupAddress || "Select pickup location"}
+                  </p>
+                </div>
+                <div className="border-t border-neutral-200/60 dark:border-neutral-700/60 pt-2">
+                  <span className="text-[10px] uppercase font-bold text-neutral-400 block">DESTINATION</span>
+                  <p className="font-semibold text-neutral-900 dark:text-white truncate">
+                    {dropAddress || "Select destination"}
+                  </p>
+                </div>
+                <div className="border-t border-neutral-200/60 dark:border-neutral-700/60 pt-2 flex justify-between">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-neutral-400 block">SCHEDULE</span>
+                    <span className="font-semibold text-neutral-900 dark:text-white">
+                      {pickupDate} at {pickupTime}
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[10px] uppercase font-bold text-neutral-400 block">TYPE</span>
+                    <span className="font-semibold text-primary-6000 capitalize">{tripType}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Transparent Price Breakdown */}
+              <div className="space-y-2 text-xs text-neutral-600 dark:text-neutral-400">
+                <div className="flex justify-between">
+                  <span>Base Trip Fare:</span>
+                  <span className="font-bold text-neutral-900 dark:text-white font-mono">
+                    ₹{finalPrice.toLocaleString("en-IN")}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Chauffeur Service & Fuel:</span>
+                  <span className="font-bold text-emerald-600">Included</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Toll & Parking:</span>
+                  <span className="font-medium text-neutral-500">At actuals on expressway</span>
+                </div>
+                <div className="border-t border-neutral-200 dark:border-neutral-800 pt-3 flex justify-between items-baseline">
+                  <span className="text-sm font-extrabold text-neutral-950 dark:text-white">
+                    Estimated Total:
+                  </span>
+                  <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono flex items-center">
+                    ₹
+                    <AnimatedCounter
+                      from={0}
+                      to={finalPrice}
+                      duration={0.6}
+                      formatter={(v) => v.toLocaleString("en-IN")}
+                    />
+                  </span>
+                </div>
+              </div>
+
+              {/* Submit CTA */}
+              <div className="pt-2">
+                <ShimmerButton
+                  type="submit"
+                  disabled={isSubmitting}
+                  background="linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)"
+                  className="w-full py-4 text-sm font-black shadow-lg shadow-amber-500/25"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+                      <span>Confirming Chauffeur Allocation...</span>
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircleIcon className="w-5 h-5 stroke-[2.2]" />
+                      <span>Confirm & Book Now</span>
+                    </>
+                  )}
+                </ShimmerButton>
+                <p className="text-[11px] text-center text-neutral-400 mt-3 font-medium flex items-center justify-center gap-1.5">
+                  <ShieldCheckIcon className="w-3.5 h-3.5 text-emerald-500 inline-block shrink-0" />
+                  <span>Zero-advance required. Free cancellation up to 3 hours before pickup.</span>
+                </p>
+              </div>
+
+              {/* Direct Call Fallback */}
+              <div className="p-3.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 flex items-center justify-between text-xs">
+                <div>
+                  <span className="font-bold text-neutral-900 dark:text-white block">Prefer calling?</span>
+                  <span className="text-[11px] text-neutral-500">24x7 Direct Dispatch Desk</span>
+                </div>
+                <a
+                  href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                  className="px-3 py-1.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-bold text-xs inline-flex items-center gap-1.5"
+                >
+                  <PhoneIcon className="w-3.5 h-3.5" />
+                  <span>Call Now</span>
+                </a>
+              </div>
+            </SpotlightCard>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,13 @@
 import React, { FC } from "react";
+import { Metadata } from "next";
 import SectionGridHasMap from "../SectionGridHasMap";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export interface ListingCarMapPageProps {}
 

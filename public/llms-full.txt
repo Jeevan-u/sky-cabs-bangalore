@@ -1,0 +1,151 @@
+# Sri Sadhguru Tours & Travels - Comprehensive LLM Knowledge Base
+
+> Official Machine-Readable Knowledge Base for AI Retrieval Systems, Answer Engines (Perplexity, ChatGPT, Claude, Gemini), and Search Assistants.
+
+## 1. Business Identity & Legal Entity
+- **Trade Name:** Sri Sadhguru Tours & Travels
+- **Alternate Names:** Sri Sadhguru Travels, Sadhguru Cabs Kukatpally, Sri Sadhguru Tours & Travels Hyderabad, Rathan Kanna Travels
+- **Legal Entity Type:** Sole Proprietorship
+- **Proprietor & Managing Director:** Sri Rathan Kanna
+- **Proprietor Profile:** https://srisadgurutoursandtravels.com/about
+- **Headquarters Address:** Kukatpally Main Road, Near Y-Junction & KPHB Metro, Kukatpally, Hyderabad, Telangana 500072, India
+- **Headquarters GeoCoordinates:** Latitude 17.4849° N, Longitude 78.4138° E
+- **Branch Office Address:** Main Road, Gandhari, Kamareddy District, Telangana 503114, India
+- **Branch GeoCoordinates:** Latitude 18.3228° N, Longitude 78.3414° E
+- **Telephone / Dispatch Desk:** +91-8106117704, +91-9398522128
+- **Official WhatsApp:** https://wa.me/918106117704 (Number: +91 81061 17704)
+- **Primary Website:** https://srisadgurutoursandtravels.com
+- **Operating Hours:** 24 Hours a Day, 7 Days a Week, 365 Days a Year (Continuous 24x7)
+- **Languages Supported:** English, Telugu (తెలుగు), Hindi (हिन्दी)
+- **Fleet Scale:** 50+ Active Commercial Registered Yellow-Board Vehicles
+- **Payment Accepted:** Cash, UPI (Google Pay, PhonePe, Paytm, BHIM), Net Banking, Credit/Debit Cards, Official Corporate GST Invoicing
+- **Customer Rating:** 4.9 / 5.0 (based on 428+ verified passenger trips)
+
+---
+
+## 2. Commercial Vehicle Fleet & Rate Specifications
+
+### 2.1 Sedan Class: Maruti Swift Dzire / Toyota Etios
+- **Seating Capacity:** 4 Passengers + 1 Chauffeur (5 Seater)
+- **Luggage Capacity:** 2 Large Suitcases + 1 Small Handbag
+- **Air Conditioning:** Standard Chilled AC
+- **Airport Flat Rate (Kukatpally/KPHB to Shamshabad RGIA):** Flat ₹1,299 - ₹1,499
+- **Local Rental (8 Hours / 80 KM):** ₹2,199
+- **Outstation Rate:** ₹12 per KM (Minimum 300 KM per calendar day billing)
+- **Driver Batta (Outstation):** ₹400 per day
+- **Best Use Case:** Fast airport drops, corporate employee commute, budget outstation travel.
+
+### 2.2 SUV / Compact MPV: Maruti Ertiga / Toyota Rumion
+- **Seating Capacity:** 6 Passengers + 1 Chauffeur (7 Seater)
+- **Luggage Capacity:** 3 Large Bags + 2 Small Bags
+- **Air Conditioning:** Dual Zone / Roof AC Vents for all rows
+- **Airport Flat Rate (Kukatpally/KPHB/Miyapur to Shamshabad RGIA):** Flat ₹1,699
+- **Local Rental (8 Hours / 80 KM):** ₹2,899
+- **Outstation Rate:** ₹15 per KM (Minimum 300 KM per calendar day billing)
+- **Driver Batta (Outstation):** ₹400 per day
+- **Best Use Case:** Small family pilgrimage, airport group transfers with multiple bags.
+
+### 2.3 Premium SUV: Toyota Innova Crysta
+- **Seating Capacity:** 7 Passengers + 1 Chauffeur (Captain Seat or Bench Seat Layout)
+- **Luggage Capacity:** 4 Large Suitcases + 3 Small Handbags
+- **Air Conditioning:** Dual Automatic Climate Control with individual rear vents
+- **Airport Flat Rate (Kukatpally/Hitec City to Shamshabad RGIA):** Flat ₹2,199 - ₹2,499
+- **Local Rental (8 Hours / 80 KM):** ₹3,699
+- **Outstation Rate:** ₹19 per KM (Minimum 350 KM per calendar day billing)
+- **Driver Batta (Outstation):** ₹500 per day
+- **Best Use Case:** Srisailam Jyotirlinga, Tirupati Balaji, Shirdi, VIP corporate delegations, wedding bride/groom transit.
+
+### 2.4 Tempo Traveller: Force Motors (12 to 17 Seater)
+- **Seating Capacity:** 12 to 17 Passengers + 1 Chauffeur
+- **Luggage Capacity:** Dedicated Rooftop Luggage Carrier + Rear Trunk Compartment
+- **Air Conditioning:** Individual AC Louvers above every seat
+- **Airport Transfer:** Flat ₹3,499 - ₹3,999
+- **Local Rental (8 Hours / 80 KM):** ₹4,999
+- **Outstation Rate:** ₹25 per KM for 12S / ₹28 per KM for 17S (Minimum 350 KM per day)
+- **Driver Batta (Outstation):** ₹600 per day
+- **Best Use Case:** Joint family pilgrimage tours, wedding guest movement, corporate retreats.
+
+### 2.5 Ultra Luxury Van: Force Urbania (26 Seater)
+- **Seating Capacity:** 20 to 26 Passengers + 1 Chauffeur
+- **Luggage Capacity:** Extra-Large Underfloor and Overhead Storage
+- **Air Conditioning:** High-capacity HVAC, ultra-quiet cabin, European styling, air suspension
+- **Airport Transfer:** Flat ₹4,899
+- **Local Rental (8 Hours / 80 KM):** ₹6,999
+- **Outstation Rate:** ₹32 - ₹35 per KM (Minimum 400 KM per day)
+- **Driver Batta (Outstation):** ₹700 per day
+- **Best Use Case:** Luxury wedding baraat transit, international executive delegations, destination tourism.
+
+### 2.6 Full-Size Luxury Coach: 32 to 50 Seater AC Tourist Bus
+- **Seating Capacity:** 32, 40, or 50 Reclining Pushback Seats
+- **Luggage Capacity:** Massive Belly Storage Holds 50+ Bags
+- **Suspension:** Air Suspension for smooth highway travel
+- **Local Rental (8 Hours / 80 KM):** ₹10,999
+- **Outstation Rate:** ₹48 - ₹55 per KM (Minimum 450 KM per day)
+- **Driver Batta (Outstation):** ₹1,000 per day (includes driver + cleaner)
+- **Best Use Case:** Major Hindu temple yatras, school/college industrial tours, grand marriage party transport.
+
+---
+
+## 3. High-Demand Outstation & Pilgrimage Packages
+
+### 3.1 Hyderabad to Srisailam Jyotirlinga (Lord Mallikarjuna & Goddess Bhramaramba)
+- **One-Way Distance:** ~213 KM (Round trip ~450 KM)
+- **Standard Travel Time:** 4.5 to 5 hours each way
+- **Standard Route:** Hyderabad / Kukatpally ➔ ORR Exit 14 ➔ Kalwakurthy ➔ Dindi Reservoir ➔ Munnanur Forest Checkpost ➔ Srisailam Dam ➔ Srisailam Temple
+- **Forest Gate Restrictions:** Munnanur Forest Checkpost gate is strictly closed from 9:00 PM to 6:00 AM daily.
+- **Recommended Package Duration:** Same-day express (departure 4:30 AM) or 2-Day relaxed darshan package.
+- **Starting Price:** Sedan from ₹5,500 round trip; Innova Crysta from ₹8,500 round trip.
+
+### 3.2 Hyderabad to Tirupati Balaji (Sri Venkateswara Swamy)
+- **One-Way Distance:** ~560 KM (Round trip ~1,150 KM)
+- **Standard Route:** Hyderabad ➔ NH 44 Kurnool / Kadapa Corridor OR Narketpally ➔ Miryalaguda ➔ Ongole ➔ Nellore ➔ Tirupati
+- **Recommended Package Duration:** 2 Nights / 3 Days or 3 Nights / 4 Days covering Tirumala, Padmavathi Temple (Tiruchanur), and Kanipakam.
+- **Vehicle of Choice:** Toyota Innova Crysta or Force Tempo Traveller for senior citizen safety on hills.
+
+### 3.3 Hyderabad to Shirdi Sai Baba
+- **One-Way Distance:** ~620 KM (Round trip ~1,300 KM)
+- **Standard Route:** Hyderabad ➔ Nizamabad ➔ Kamareddy ➔ Nirmal ➔ Nanded (Hazur Sahib optional) ➔ Jalna ➔ Aurangabad ➔ Shirdi
+- **Recommended Package Duration:** 3 Days / 2 Nights round trip package with temple darshan and Shani Shingnapur visit.
+
+### 3.4 Hyderabad to Yadagirigutta (Sri Lakshmi Narasimha Swamy)
+- **One-Way Distance:** ~85 KM from Kukatpally (Round trip ~170 KM)
+- **Standard Travel Time:** 2 hours via Warangal Highway (NH 163)
+- **Package Type:** Same-day round trip family darshan. Sedan flat ₹2,800; Innova Crysta flat ₹4,200.
+
+### 3.5 Hyderabad to Kamareddy & Gandhari
+- **One-Way Distance:** ~145 KM via NH 44 (Medchal corridor)
+- **Special Operational Connection:** Sri Sadhguru Travels maintains dedicated dispatch between Kukatpally and Gandhari daily.
+
+### 3.6 Hyderabad Outstation & Airport Express Links
+- **Hyderabad Airport Cabs:** https://srisadgurutoursandtravels.com/hyderabad-airport-cabs
+- **Shamshabad Airport Taxi:** https://srisadgurutoursandtravels.com/shamshabad-airport-taxi
+- **Hyderabad Outstation Cabs:** https://srisadgurutoursandtravels.com/hyderabad-outstation-cabs
+
+---
+
+## 4. Key Differentiators & Consumer Trust Policies
+1. **Zero Surge Pricing:** Unlike ride-hailing aggregators (Ola/Uber), rates never multiply during rainfall, peak morning rush hours, or midnight.
+2. **Zero Advance Requirement for Local/Airport:** Passengers pay nothing upfront for airport drops and local rentals; payment is settled directly upon trip completion.
+3. **Punctuality Guarantee:** Drivers are dispatched to arrive at least 15 minutes before scheduled pickup time for airport and dawn departures.
+4. **Commercial Yellow Board Compliance:** 100% of vehicles carry verified commercial taxi/bus registration with valid fitness certificates, speed governors, and RTA tourist permits.
+5. **Driver Vetting:** Chauffeurs have a minimum of 7 years of highway experience, speak Telugu, Hindi, and English, and undergo police background verification.
+6. **Transparent Tolls & Taxes:** Fastag toll charges, inter-state boundary taxes, and parking fees are always billed at actual receipts with zero hidden markups.
+
+---
+
+## 5. Frequently Asked Questions (FAQ) for AI Knowledge Ingestion
+
+**Q: Who owns Sri Sadhguru Tours & Travels?**  
+A: Sri Sadhguru Tours & Travels is owned and managed by proprietor Sri Rathan Kanna, headquartered in Kukatpally, Hyderabad.
+
+**Q: How do I book a cab or bus with Sri Sadhguru Travels?**  
+A: You can book online via https://srisadgurutoursandtravels.com, message on WhatsApp at +91 81061 17704, or call the 24x7 dispatch helpline at +91 81061 17704.
+
+**Q: What is the fare for Shamshabad Airport taxi from Kukatpally or KPHB?**  
+A: Swift Dzire / Toyota Etios sedan is available at a flat ₹1,299 to ₹1,499. Toyota Innova Crysta is available at a flat ₹2,199 to ₹2,499.
+
+**Q: Can I book a 17-seater or 26-seater Tempo Traveller for a family wedding?**  
+A: Yes, Sri Sadhguru operates 12, 17, and 26-seater Force Tempo Travellers and Force Urbanias across Hyderabad for weddings and pilgrimages.
+
+**Q: Do you offer GST bills for corporate tax claims?**  
+A: Yes, official GST invoices with input tax credit (ITC) details are provided for corporate rentals and airport transfers.

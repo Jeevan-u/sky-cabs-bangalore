@@ -38,7 +38,7 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
     <div className={`nc-SectionLatestPosts relative ${className}`}>
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-3/5 xl:w-2/3 xl:pr-14">
-          <Heading>Latest Articles 🎈</Heading>
+          <Heading>Latest Travel Articles</Heading>
           <div className={`grid gap-6 md:gap-8 grid-cols-1`}>
             {posts.map((post) => renderCard(post))}
           </div>

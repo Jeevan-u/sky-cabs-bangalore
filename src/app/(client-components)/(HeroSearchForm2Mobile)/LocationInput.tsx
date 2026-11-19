@@ -84,23 +84,25 @@ const LocationInput: FC<Props> = ({
         <div className="mt-7">
           {value
             ? renderSearchValues({
-                heading: "Locations",
+                heading: "Pickup Hubs & Metro Stops",
                 items: [
-                  "Afghanistan",
-                  "Albania",
-                  "Algeria",
-                  "American Samao",
-                  "Andorra",
+                  "Kukatpally Housing Board (KPHB)",
+                  "Shamshabad RGI Airport (RGIA)",
+                  "Miyapur Metro Station & Allwyn Colony",
+                  "Hitec City / Madhapur IT Corridor",
+                  "Secunderabad Railway Station",
+                  "Medchal Junction & Kompally",
                 ],
               })
             : renderSearchValues({
-                heading: "Popular destinations",
+                heading: "Popular Pilgrimage & Outstation Routes",
                 items: [
-                  "Australia",
-                  "Canada",
-                  "Germany",
-                  "United Kingdom",
-                  "United Arab Emirates",
+                  "Srisailam Mallikarjuna Swamy Temple",
+                  "Tirupati Balaji Darshan",
+                  "Kamareddy Hub & Gandhari",
+                  "Yadagirigutta Sri Lakshmi Narasimha Swamy",
+                  "Shirdi Saibaba Temple",
+                  "Vijayawada Kanaka Durga Temple",
                 ],
               })}
         </div>

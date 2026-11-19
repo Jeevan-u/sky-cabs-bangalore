@@ -1,54 +1,59 @@
-import __authors from "./jsons/__users.json";
 import { AuthorType } from "./types";
-import avatar1 from "@/images/avatars/Image-1.png";
-import avatar2 from "@/images/avatars/Image-2.png";
-import avatar3 from "@/images/avatars/Image-3.png";
-import avatar4 from "@/images/avatars/Image-4.png";
-import avatar5 from "@/images/avatars/Image-5.png";
-import avatar6 from "@/images/avatars/Image-6.png";
-import avatar7 from "@/images/avatars/Image-7.png";
-import avatar8 from "@/images/avatars/Image-8.png";
-import avatar9 from "@/images/avatars/Image-9.png";
-import avatar10 from "@/images/avatars/Image-10.png";
-import avatar11 from "@/images/avatars/Image-11.png";
-import avatar12 from "@/images/avatars/Image-12.png";
-import avatar13 from "@/images/avatars/Image-13.png";
-import avatar14 from "@/images/avatars/Image-14.png";
-import avatar15 from "@/images/avatars/Image-15.png";
-import avatar16 from "@/images/avatars/Image-16.png";
-import avatar17 from "@/images/avatars/Image-17.png";
-import avatar18 from "@/images/avatars/Image-18.png";
-import avatar19 from "@/images/avatars/Image-19.png";
-import avatar20 from "@/images/avatars/Image-20.png";
 import { Route } from "@/routers/types";
 
-const imgs = [
-  avatar1,
-  avatar2,
-  avatar3,
-  avatar4,
-  avatar5,
-  avatar6,
-  avatar7,
-  avatar8,
-  avatar9,
-  avatar10,
-  avatar11,
-  avatar12,
-  avatar13,
-  avatar14,
-  avatar15,
-  avatar16,
-  avatar17,
-  avatar18,
-  avatar19,
-  avatar20,
+const REAL_AUTHORS: AuthorType[] = [
+  {
+    id: 1,
+    firstName: "Rathan",
+    lastName: "Kanna",
+    displayName: "Rathan Kanna",
+    email: "rathankanna@srisadgurutoursandtravels.com",
+    avatar: "/images/sri-sadhguru-travels-banner.jpg",
+    bgImage: "/images/Airport-cabs.jpg",
+    count: 420,
+    href: "/about" as Route,
+    desc: "Proprietor and Managing Director at Sri Sadhguru Tours & Travels. Overseeing 24x7 fleet operations across Telangana & AP.",
+    jobName: "Proprietor & MD",
+  },
+  {
+    id: 2,
+    firstName: "Kukatpally",
+    lastName: "Dispatch",
+    displayName: "Kukatpally Fleet Desk",
+    email: "dispatch@srisadgurutoursandtravels.com",
+    avatar: "/images/Airport-hyderabad.jpg",
+    bgImage: "/images/Airport-hyderabad.jpg",
+    count: 512,
+    href: "/cabs-in-kukatpally" as Route,
+    desc: "Central dispatch hub ensuring 10-15 minute doorstep cab arrivals across Kukatpally, KPHB Colony, and Miyapur.",
+    jobName: "Operations Manager",
+  },
+  {
+    id: 3,
+    firstName: "Airport",
+    lastName: "Express",
+    displayName: "Shamshabad Airport Wing",
+    email: "airport@srisadgurutoursandtravels.com",
+    avatar: "/images/Airport-cabs.jpg",
+    bgImage: "/images/Airport-cabs.jpg",
+    count: 380,
+    href: "/shamshabad-airport-taxi" as Route,
+    desc: "24x7 Airport cab service with fixed transparent pricing, zero surge rates, and on-time flight pickup guarantees.",
+    jobName: "Airport Dispatch Lead",
+  },
+  {
+    id: 4,
+    firstName: "Pilgrimage",
+    lastName: "Tours",
+    displayName: "South India Pilgrimage Wing",
+    email: "tours@srisadgurutoursandtravels.com",
+    avatar: "/images/srisailam-dam.jpg",
+    bgImage: "/images/Tirupati.jpg",
+    count: 260,
+    href: "/#packages" as Route,
+    desc: "Specialized hill chauffeurs for Srisailam, Tirupati, Shirdi, and Sabarimala pilgrimage journeys.",
+    jobName: "Tour Coordinator",
+  },
 ];
 
-const DEMO_AUTHORS: AuthorType[] = __authors.map((item, index) => ({
-  ...item,
-  avatar: imgs[index] || item.avatar,
-  href: item.href as Route,
-}));
-
-export { DEMO_AUTHORS };
+export const DEMO_AUTHORS = REAL_AUTHORS;

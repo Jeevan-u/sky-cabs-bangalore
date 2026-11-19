@@ -41,3 +41,11 @@ yarn-error.log*
 .cache/
 dist/
 *.gz
+
+# Test and MCP artifacts
+.playwright-mcp/
+admin-*.png
+debug-*.png
+
+# Local data / SQLite fallback
+.data/

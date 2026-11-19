@@ -7,50 +7,51 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonThird from "@/shared/ButtonThird";
 import ButtonClose from "@/shared/ButtonClose";
 import Checkbox from "@/shared/Checkbox";
-import convertNumbThousand from "@/utils/convertNumbThousand";
 import Slider from "rc-slider";
 
-// DEMO DATA
+// Sri Sadhguru Commercial Fleet Categories
 const typeOfCar = [
-  { name: "Small", description: "$68" },
-  { name: "Medium", description: "$128" },
-  { name: "Large", description: "$268" },
-  { name: "SUV", description: "$268" },
-  { name: "Van", description: "$268" },
-  { name: "Luxury", description: "$268" },
+  { name: "Sedan (4+1)", description: "Swift Dzire / Etios · ₹12/km" },
+  { name: "SUV / MPV (6+1)", description: "Maruti Ertiga / Rumion · ₹15/km" },
+  { name: "Premium SUV (7+1)", description: "Toyota Innova Crysta · ₹19/km" },
+  { name: "Tempo Traveller (12/17S)", description: "Force TT Luxury · ₹25/km" },
+  { name: "Force Urbania (26S)", description: "European Van · ₹32/km" },
+  { name: "Luxury Coach Bus (32-50S)", description: "Tourist Coach · ₹48/km" },
 ];
 
 const carSpecifications = [
-  { name: "With air conditioning" },
-  { name: "Automatic transmission" },
-  { name: "Manual transmission" },
-  { name: "2 doors" },
-  { name: "4+ doors" },
+  { name: "Chilled Front & Rear AC" },
+  { name: "Pushback Reclining Seats" },
+  { name: "Commercial Yellow Plate (All India)" },
+  { name: "Fastag & Digital Billing" },
+  { name: "Large Luggage Boot / Carrier" },
+  { name: "GPS Tracked with Duty Slip" },
 ];
 
-//
-const mileage = [{ name: "Unlimited" }, { name: "Limited" }];
-const supplier = [
-  { name: "Alamo", defaultChecked: true },
-  { name: "Avis", defaultChecked: true },
-  { name: "Budget" },
-  { name: "Dollar" },
+const tripServices = [
+  { name: "Airport Express (RGIA Shamshabad)", defaultChecked: true },
+  { name: "Outstation Pilgrimage (Srisailam/Tirupati)", defaultChecked: true },
+  { name: "Local City Rental (8h / 80km)" },
+  { name: "Wedding & Group Transport" },
 ];
-const insurance = [
-  { name: "No insurance", defaultChecked: true },
-  { name: "Zero excess " },
-  { name: "Inclusive" },
+
+const pickupHubs = [
+  { name: "Kukatpally & KPHB (HQ)", defaultChecked: true },
+  { name: "Miyapur & Chandanagar" },
+  { name: "Hitec City & Madhapur" },
+  { name: "Shamshabad Airport" },
+  { name: "Gandhari / Kamareddy Hub" },
 ];
 
 const TabFilters = () => {
   const [isOpenMoreFilter, setisOpenMoreFilter] = useState(false);
   const [isOpenMoreFilterMobile, setisOpenMoreFilterMobile] = useState(false);
-  const [rangePrices, setRangePrices] = useState([0, 1000]);
+  const [rangePrices, setRangePrices] = useState([1200, 12000]);
   const [isOnSale, setIsOnSale] = useState(true);
-  //
+
   const closeModalMoreFilter = () => setisOpenMoreFilter(false);
   const openModalMoreFilter = () => setisOpenMoreFilter(true);
-  //
+
   const closeModalMoreFilterMobile = () => setisOpenMoreFilterMobile(false);
   const openModalMoreFilterMobile = () => setisOpenMoreFilterMobile(true);
 
@@ -83,7 +84,7 @@ const TabFilters = () => {
                 open ? "!border-primary-500 " : ""
               }`}
             >
-              <span>Car type</span>
+              <span>Vehicle Class</span>
               <i className="las la-angle-down ml-2"></i>
             </Popover.Button>
             <Transition
@@ -134,12 +135,10 @@ const TabFilters = () => {
         {({ open, close }) => (
           <>
             <Popover.Button
-              className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 text-primary-700 focus:outline-none `}
+              className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 focus:outline-none `}
             >
               <span>
-                {`$${convertNumbThousand(
-                  rangePrices[0]
-                )} - $${convertNumbThousand(rangePrices[1])}`}{" "}
+                {`₹${rangePrices[0].toLocaleString("en-IN")} - ₹${rangePrices[1].toLocaleString("en-IN")}`}
               </span>
               {renderXClear()}
             </Popover.Button>
@@ -156,12 +155,13 @@ const TabFilters = () => {
                 <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700">
                   <div className="relative flex flex-col px-5 py-6 space-y-8">
                     <div className="space-y-5">
-                      <span className="font-medium">Price per day</span>
+                      <span className="font-medium text-sm">Package / Trip Rate Range (₹)</span>
                       <Slider
                         range
-                        className="text-red-400"
-                        min={0}
-                        max={2000}
+                        className="text-primary-500"
+                        min={1000}
+                        max={15000}
+                        step={500}
                         defaultValue={[rangePrices[0], rangePrices[1]]}
                         allowCross={false}
                         onChange={(e) => setRangePrices(e as number[])}
@@ -172,14 +172,14 @@ const TabFilters = () => {
                       <div>
                         <label
                           htmlFor="minPrice"
-                          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
+                          className="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400"
                         >
-                          Min price
+                          Min Rate
                         </label>
                         <div className="mt-1 relative rounded-md">
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span className="text-neutral-500 sm:text-sm">
-                              $
+                              ₹
                             </span>
                           </div>
                           <input
@@ -187,22 +187,22 @@ const TabFilters = () => {
                             name="minPrice"
                             disabled
                             id="minPrice"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
-                            value={rangePrices[0]}
+                            className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 rounded-full text-neutral-900 dark:text-white font-bold"
+                            value={rangePrices[0].toLocaleString("en-IN")}
                           />
                         </div>
                       </div>
                       <div>
                         <label
                           htmlFor="maxPrice"
-                          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
+                          className="block text-xs font-semibold uppercase text-neutral-500 dark:text-neutral-400"
                         >
-                          Max price
+                          Max Rate
                         </label>
                         <div className="mt-1 relative rounded-md">
                           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span className="text-neutral-500 sm:text-sm">
-                              $
+                              ₹
                             </span>
                           </div>
                           <input
@@ -210,8 +210,8 @@ const TabFilters = () => {
                             disabled
                             name="maxPrice"
                             id="maxPrice"
-                            className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
-                            value={rangePrices[1]}
+                            className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 dark:border-neutral-700 dark:bg-neutral-800 rounded-full text-neutral-900 dark:text-white font-bold"
+                            value={rangePrices[1].toLocaleString("en-IN")}
                           />
                         </div>
                       </div>
@@ -242,13 +242,12 @@ const TabFilters = () => {
       <div
         className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border focus:outline-none cursor-pointer transition-all ${
           isOnSale
-            ? "border-primary-500 bg-primary-50 text-primary-700"
+            ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold"
             : "border-neutral-300 dark:border-neutral-700"
         }`}
         onClick={() => setIsOnSale(!isOnSale)}
       >
-        <span>On sale</span>
-        {isOnSale && renderXClear()}
+        <span>Zero Surge Guarantee</span>
       </div>
     );
   };
@@ -263,7 +262,7 @@ const TabFilters = () => {
                 open ? "!border-primary-500 " : ""
               }`}
             >
-              <span>Guests & Bags</span>
+              <span>Seats & Bags</span>
               <i className="las la-angle-down ml-2"></i>
             </Popover.Button>
             <Transition
@@ -275,11 +274,11 @@ const TabFilters = () => {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 left-0 sm:px-0 lg:max-w-md">
-                <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-neutral-900   border border-neutral-200 dark:border-neutral-700">
+              <Popover.Panel className="absolute z-10 w-screen max-w-sm px-4 mt-3 left-0 sm:px-0 ">
+                <div className="overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700">
                   <div className="relative flex flex-col px-5 py-6 space-y-5">
-                    <NcInputNumber label="Passengers" max={40} />
-                    <NcInputNumber label="Bags" max={40} />
+                    <NcInputNumber label="Passengers (Up to 50)" max={50} defaultValue={4} />
+                    <NcInputNumber label="Luggage Bags" max={40} defaultValue={3} />
                   </div>
                   <div className="p-5 bg-neutral-50 dark:bg-neutral-900 dark:border-t dark:border-neutral-800 flex items-center justify-between">
                     <ButtonThird onClick={close} sizeClass="px-4 py-2 sm:px-5">
@@ -311,7 +310,7 @@ const TabFilters = () => {
     const list1 = data.filter((_, i) => i < data.length / 2);
     const list2 = data.filter((_, i) => i >= data.length / 2);
     return (
-      <div className="grid grid-cols-2 gap-y-7 gap-x-4 sm:gap-8">
+      <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col space-y-5">
           {list1.map((item) => (
             <Checkbox
@@ -338,17 +337,15 @@ const TabFilters = () => {
     );
   };
 
-  // Morefilter for mobile mode
+  // Mobile Filter Dialog
   const renderTabMobileFilter = () => {
     return (
       <div>
         <div
-          className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 text-primary-700 focus:outline-none cursor-pointer`}
+          className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 focus:outline-none cursor-pointer`}
           onClick={openModalMoreFilterMobile}
         >
-          <span>
-            <span className="hidden sm:inline">Car</span> filters (3)
-          </span>
+          <span>Fleet Filters</span>
           {renderXClear()}
         </div>
 
@@ -371,7 +368,6 @@ const TabFilters = () => {
                 <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-40 dark:bg-opacity-60" />
               </Transition.Child>
 
-              {/* This element is to trick the browser into centering the modal contents. */}
               <span
                 className="inline-block h-screen align-middle"
                 aria-hidden="true"
@@ -387,13 +383,13 @@ const TabFilters = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="inline-flex flex-col w-full max-w-4xl text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full">
+                <div className="inline-flex flex-col w-full max-w-4xl text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full font-sans">
                   <div className="relative flex-shrink-0 px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 text-center">
                     <Dialog.Title
                       as="h3"
-                      className="text-lg font-medium leading-6 text-gray-900"
+                      className="text-lg font-bold text-neutral-900 dark:text-white"
                     >
-                      Experiences filters
+                      Commercial Fleet Filters
                     </Dialog.Title>
                     <span className="absolute left-3 top-3">
                       <ButtonClose onClick={closeModalMoreFilterMobile} />
@@ -402,126 +398,31 @@ const TabFilters = () => {
 
                   <div className="flex-grow overflow-y-auto">
                     <div className="px-4 sm:px-6 divide-y divide-neutral-200 dark:divide-neutral-800">
-                      {/* ------ */}
                       <div className="py-7">
-                        <h3 className="text-xl font-medium">Type of car</h3>
-                        <div className="mt-6 relative ">
+                        <h3 className="text-lg font-bold">Vehicle Class</h3>
+                        <div className="mt-4 relative">
                           {renderMoreFilterItem(typeOfCar)}
                         </div>
                       </div>
 
-                      {/* ------ */}
                       <div className="py-7">
-                        <h3 className="text-xl font-medium">
-                          Car specifications
-                        </h3>
-                        <div className="mt-6 relative ">
+                        <h3 className="text-lg font-bold">Trip Services</h3>
+                        <div className="mt-4 relative">
+                          {renderMoreFilterItem(tripServices)}
+                        </div>
+                      </div>
+
+                      <div className="py-7">
+                        <h3 className="text-lg font-bold">Pickup Hubs</h3>
+                        <div className="mt-4 relative">
+                          {renderMoreFilterItem(pickupHubs)}
+                        </div>
+                      </div>
+
+                      <div className="py-7">
+                        <h3 className="text-lg font-bold">Vehicle Specifications</h3>
+                        <div className="mt-4 relative">
                           {renderMoreFilterItem(carSpecifications)}
-                        </div>
-                      </div>
-
-                      {/* --------- */}
-                      {/* ---- */}
-                      <div className="py-7">
-                        <h3 className="text-xl font-medium">Range Prices</h3>
-                        <div className="mt-6 relative ">
-                          <div className="relative flex flex-col space-y-8">
-                            <div className="space-y-5">
-                              <Slider
-                                range
-                                className="text-red-400"
-                                min={0}
-                                max={2000}
-                                defaultValue={[0, 1000]}
-                                allowCross={false}
-                                onChange={(e) => setRangePrices(e as number[])}
-                              />
-                            </div>
-
-                            <div className="flex justify-between space-x-5">
-                              <div>
-                                <label
-                                  htmlFor="minPrice"
-                                  className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                                >
-                                  Min price
-                                </label>
-                                <div className="mt-1 relative rounded-md">
-                                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span className="text-neutral-500 sm:text-sm">
-                                      $
-                                    </span>
-                                  </div>
-                                  <input
-                                    type="text"
-                                    name="minPrice"
-                                    disabled
-                                    id="minPrice"
-                                    className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
-                                    value={rangePrices[0]}
-                                  />
-                                </div>
-                              </div>
-                              <div>
-                                <label
-                                  htmlFor="maxPrice"
-                                  className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                                >
-                                  Max price
-                                </label>
-                                <div className="mt-1 relative rounded-md">
-                                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <span className="text-neutral-500 sm:text-sm">
-                                      $
-                                    </span>
-                                  </div>
-                                  <input
-                                    type="text"
-                                    disabled
-                                    name="maxPrice"
-                                    id="maxPrice"
-                                    className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-3 sm:text-sm border-neutral-200 rounded-full text-neutral-900"
-                                    value={rangePrices[1]}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* ------ */}
-                      <div className="py-7">
-                        <h3 className="text-xl font-medium">
-                          Passengers & Bags
-                        </h3>
-                        <div className="mt-6 relative flex-col px-5 py-6 space-y-5">
-                          <NcInputNumber label="Passengers" max={40} />
-                          <NcInputNumber label="Bags" max={40} />
-                        </div>
-                      </div>
-
-                      {/* ------ */}
-                      <div className="py-7">
-                        <h3 className="text-xl font-medium">Mileage</h3>
-                        <div className="mt-6 relative ">
-                          {renderMoreFilterItem(mileage)}
-                        </div>
-                      </div>
-
-                      {/* ------ */}
-                      <div className="py-7">
-                        <h3 className="text-xl font-medium">Supplier</h3>
-                        <div className="mt-6 relative ">
-                          {renderMoreFilterItem(supplier)}
-                        </div>
-                      </div>
-
-                      {/* ------ */}
-                      <div className="py-7">
-                        <h3 className="text-xl font-medium">Insurance</h3>
-                        <div className="mt-6 relative ">
-                          {renderMoreFilterItem(insurance)}
                         </div>
                       </div>
                     </div>
@@ -550,15 +451,15 @@ const TabFilters = () => {
     );
   };
 
-  //
+  // Desktop More Filter Modal
   const renderTabMoreFilter = () => {
     return (
       <div>
         <div
-          className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 text-primary-700 focus:outline-none cursor-pointer`}
+          className={`flex items-center justify-center px-4 py-2 text-sm rounded-full border border-primary-500 bg-primary-50 dark:bg-primary-950/40 text-primary-700 dark:text-primary-300 focus:outline-none cursor-pointer`}
           onClick={openModalMoreFilter}
         >
-          <span>More filters (3)</span>
+          <span>More Fleet Filters (4)</span>
           {renderXClear()}
         </div>
 
@@ -581,7 +482,6 @@ const TabFilters = () => {
                 <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-40 dark:bg-opacity-60" />
               </Transition.Child>
 
-              {/* This element is to trick the browser into centering the modal contents. */}
               <span
                 className="inline-block h-screen align-middle"
                 aria-hidden="true"
@@ -597,13 +497,13 @@ const TabFilters = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <div className="inline-flex flex-col w-full max-w-4xl text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full">
+                <div className="inline-flex flex-col w-full max-w-4xl text-left align-middle transition-all transform overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 dark:border dark:border-neutral-700 dark:text-neutral-100 shadow-xl h-full font-sans">
                   <div className="relative flex-shrink-0 px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 text-center">
                     <Dialog.Title
                       as="h3"
-                      className="text-lg font-medium leading-6 text-gray-900"
+                      className="text-lg font-bold text-neutral-900 dark:text-white"
                     >
-                      More filters
+                      Commercial Fleet & Service Filters
                     </Dialog.Title>
                     <span className="absolute left-3 top-3">
                       <ButtonClose onClick={closeModalMoreFilter} />
@@ -613,29 +513,21 @@ const TabFilters = () => {
                   <div className="flex-grow overflow-y-auto">
                     <div className="px-4 sm:px-6 divide-y divide-neutral-200 dark:divide-neutral-800">
                       <div className="py-7">
-                        <h3 className="text-xl font-medium">
-                          Car specifications
-                        </h3>
-                        <div className="mt-6 relative ">
+                        <h3 className="text-lg font-bold">Vehicle Specifications</h3>
+                        <div className="mt-4 relative ">
                           {renderMoreFilterItem(carSpecifications)}
                         </div>
                       </div>
                       <div className="py-7">
-                        <h3 className="text-xl font-medium">Mileage</h3>
-                        <div className="mt-6 relative ">
-                          {renderMoreFilterItem(mileage)}
+                        <h3 className="text-lg font-bold">Trip Services</h3>
+                        <div className="mt-4 relative ">
+                          {renderMoreFilterItem(tripServices)}
                         </div>
                       </div>
                       <div className="py-7">
-                        <h3 className="text-xl font-medium">Supplier</h3>
-                        <div className="mt-6 relative ">
-                          {renderMoreFilterItem(supplier)}
-                        </div>
-                      </div>
-                      <div className="py-7">
-                        <h3 className="text-xl font-medium">Insurance</h3>
-                        <div className="mt-6 relative ">
-                          {renderMoreFilterItem(insurance)}
+                        <h3 className="text-lg font-bold">Pickup Hubs</h3>
+                        <div className="mt-4 relative ">
+                          {renderMoreFilterItem(pickupHubs)}
                         </div>
                       </div>
                     </div>

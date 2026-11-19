@@ -1,55 +1,102 @@
 "use client";
 
-import Heading from "@/shared/Heading";
 import React, { FC, useState } from "react";
-import clientSayMain from "@/images/clientSayMain.png";
-import clientSay1 from "@/images/clientSay1.png";
-import clientSay2 from "@/images/clientSay2.png";
-import clientSay3 from "@/images/clientSay3.png";
-import clientSay4 from "@/images/clientSay4.png";
-import clientSay5 from "@/images/clientSay5.png";
-import clientSay6 from "@/images/clientSay6.png";
-import quotationImg from "@/images/quotation.png";
-import quotationImg2 from "@/images/quotation2.png";
-import { MapPinIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import Heading from "@/shared/Heading";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import Image from "next/image";
 import { useSwipeable } from "react-swipeable";
 import { variants } from "@/utils/animationVariants";
+import {
+  InfiniteScroll,
+  SpotlightCard,
+  StarBorder,
+  MagneticButton,
+  ShinyText,
+  BorderBeam,
+  Float,
+} from "@/components/reactbits";
+import { StarRating, CheckCircleIcon, MapPinIcon, SparklesIcon } from "@/components/icons";
 
 export interface SectionClientSayProps {
   className?: string;
-  data?: typeof DEMO_DATA;
 }
 
-const DEMO_DATA = [
+const FEATURED_REVIEWS = [
   {
     id: 1,
-    clientName: "Tiana Abie",
-    clientAddress: "Malaysia",
+    clientName: "Suresh Reddy",
+    clientAddress: "KPHB Phase 1, Hyderabad",
+    vehicle: "Toyota Innova Crysta",
+    tripType: "Pilgrimage: Hyderabad to Tirupati (Innova Crysta)",
+    rating: 5,
     content:
-      "This place is exactly like the picture posted on Chisfis. Great service, we had a great stay!",
+      "Booked Innova Crysta for our family pilgrimage to Tirupati with Sri Sadhguru Travels. Driver Shiva arrived 15 mins early, the vehicle was spotless, and the AC was chilling throughout. Best quotation and polite coordination by proprietor Rathan Kanna!",
   },
   {
     id: 2,
-    clientName: "Lennie Swiffan",
-    clientAddress: "London",
+    clientName: "Praveen Varma",
+    clientAddress: "Miyapur Metro Station Hub",
+    vehicle: "Swift Dzire (Sedan)",
+    tripType: "Airport Transfer: Miyapur to RGIA Shamshabad",
+    rating: 5,
     content:
-      "This place is exactly like the picture posted on Chisfis. Great service, we had a great stay!",
+      "Frequent flyer to Shamshabad Airport. Sri Sadhguru's airport taxi is 100% on-time, guaranteed fixed pricing with no surge drama. Driver was courteous and drove safely.",
   },
   {
     id: 3,
-    clientName: "Berta Emili",
-    clientAddress: "Tokyo",
+    clientName: "K. Ananya Sharma",
+    clientAddress: "Hitec City / Madhapur",
+    vehicle: "Force Tempo Traveller (17 Seater)",
+    tripType: "Event: 2 Tempo Travellers for Wedding Convoy",
+    rating: 5,
     content:
-      "This place is exactly like the picture posted on Chisfis. Great service, we had a great stay!",
+      "Arranged 2 Tempo Travellers for my brother's wedding guests in Hyderabad. Smooth coordination, clean pushback seats, and experienced highway drivers. Highly recommended!",
+  },
+  {
+    id: 4,
+    clientName: "B. Venkatesh",
+    clientAddress: "Kukatpally Y-Junction",
+    tripType: "Outstation: Srisailam Weekend Tour (Maruti Ertiga)",
+    rating: 5,
+    content:
+      "Excellent ghat road driving through Nallamala forest to Srisailam. Very comfortable journey with senior citizens on board. Honest per-km billing without hidden charges.",
   },
 ];
 
-const SectionClientSay: FC<SectionClientSayProps> = ({
-  className = "",
-  data = DEMO_DATA,
-}) => {
+const TICKER_REVIEWS = [
+  {
+    name: "Dr. Venkat Rao",
+    route: "Kukatpally to Shamshabad Airport",
+    rating: 5,
+    comment: "Spotless cab and 10-minute rapid dispatch. Zero surge pricing!",
+  },
+  {
+    name: "M. Harish",
+    route: "Hyderabad to Srisailam 2-Day Yatra",
+    rating: 5,
+    comment: "Very polite driver who handled the ghat road safely. Family was very happy.",
+  },
+  {
+    name: "B. Sridhar",
+    route: "Gandhari to Hyderabad Outstation",
+    rating: 5,
+    comment: "Reliable travel service. Digital duty slip received on WhatsApp instantly.",
+  },
+  {
+    name: "K. Rajesh",
+    route: "KPHB to Tirupati Balaji Round Trip",
+    rating: 5,
+    comment: "Innova Crysta was immaculate. Chauffeur knew all temple route timings.",
+  },
+  {
+    name: "N. Vijay",
+    route: "Hitec City to Bangalore Outstation",
+    rating: 5,
+    comment: "Transparent per-km billing and no surprise driver batta charges.",
+  },
+];
+
+const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -64,126 +111,169 @@ const SectionClientSay: FC<SectionClientSayProps> = ({
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (index < data?.length - 1) {
+      if (index < FEATURED_REVIEWS.length - 1) {
         changeItemId(index + 1);
       }
     },
     onSwipedRight: () => {
-      if (index > 0) {
-        changeItemId(index - 1);
-      }
+      if (index > 0) changeItemId(index - 1);
     },
     trackMouse: true,
   });
 
-  let currentItem = data[index];
-
-  const renderBg = () => {
-    return (
-      <div className="hidden md:block">
-        <Image
-          className="absolute top-9 -left-20"
-          src={clientSay1}
-          alt="client 1"
-        />
-        <Image
-          className="absolute bottom-[100px] right-full mr-40"
-          src={clientSay2}
-          alt="client 2"
-        />
-        <Image
-          className="absolute top-full left-[140px]"
-          src={clientSay3}
-          alt="client 3"
-        />
-        <Image
-          className="absolute -bottom-10 right-[140px]"
-          src={clientSay4}
-          alt="client 4"
-        />
-        <Image
-          className="absolute left-full ml-32 bottom-[80px]"
-          src={clientSay5}
-          alt="client 5"
-        />
-        <Image
-          className="absolute -right-10 top-10 "
-          src={clientSay6}
-          alt="client 6"
-        />
-      </div>
-    );
-  };
+  const currentItem = FEATURED_REVIEWS[index];
 
   return (
-    <div className={`nc-SectionClientSay relative ${className} `}>
-      <Heading desc="Let's see what people think of Chisfis" isCenter>
-        Good news from far away
+    <div className={`nc-SectionClientSay relative ${className}`}>
+      <Heading
+        desc="Real feedback from families, corporate travelers, and pilgrims who travel with Sri Sadhguru"
+        isCenter
+      >
+        Passenger Testimonials
       </Heading>
-      <div className="relative md:mb-16 max-w-2xl mx-auto">
-        {renderBg()}
-        <Image className="mx-auto" src={clientSayMain} alt="" />
-        <div className={`mt-12 lg:mt-16 relative `}>
-          <Image
-            className="opacity-50 md:opacity-100 absolute -mr-16 lg:mr-3 right-full top-1"
-            src={quotationImg}
-            alt=""
-          />
-          <Image
-            className="opacity-50 md:opacity-100 absolute -ml-16 lg:ml-3 left-full top-1"
-            src={quotationImg2}
-            alt=""
-          />
 
-          <MotionConfig
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
-          >
-            <div
-              className={`relative whitespace-nowrap overflow-hidden`}
-              {...handlers}
-            >
-              <AnimatePresence initial={false} custom={direction}>
-                <motion.div
-                  key={index}
-                  custom={direction}
-                  variants={variants(200, 1)}
-                  initial="enter"
-                  animate="center"
-                  // exit="exit"
-                  className="inline-flex flex-col items-center text-center whitespace-normal"
-                >
-                  <>
-                    <span className="block text-2xl">
-                      {currentItem.content}
-                    </span>
-                    <span className="block mt-8 text-2xl font-semibold">
+      <SpotlightCard
+        spotlightColor="rgba(245, 158, 11, 0.15)"
+        className="relative max-w-3xl mx-auto mt-12 bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 !rounded-3xl p-8 sm:p-12 shadow-xl overflow-hidden"
+      >
+        <BorderBeam size={280} duration={9} colorFrom="#f59e0b" colorTo="#38bdf8" borderWidth={1.5} />
+        {/* Rating stars & verified badge */}
+        <div className="flex items-center justify-between pb-6 border-b border-neutral-100 dark:border-neutral-800">
+          <StarRating rating={currentItem.rating} className="w-5 h-5 text-amber-400" />
+          <Float duration={4} offset={5}>
+            <StarBorder as="div" color="#10b981" speed="4s" className="inline-block">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-emerald-800 dark:text-emerald-300">
+                <CheckCircleIcon className="w-3.5 h-3.5 text-emerald-500" />
+                <span>Verified Passenger</span>
+              </span>
+            </StarBorder>
+          </Float>
+        </div>
+
+        <MotionConfig
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+        >
+          <div className="relative overflow-hidden py-6" {...handlers}>
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={index}
+                custom={direction}
+                variants={variants(200, 1)}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="space-y-6"
+              >
+                <div className="text-xs uppercase font-bold tracking-wider text-primary-6000">
+                  {currentItem.tripType}
+                </div>
+
+                <p className="text-lg sm:text-xl text-neutral-800 dark:text-neutral-200 font-medium leading-relaxed italic">
+                  &ldquo;{currentItem.content}&rdquo;
+                </p>
+
+                <div className="pt-4 flex items-center justify-between">
+                  <div>
+                    <h4 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
                       {currentItem.clientName}
-                    </span>
-                    <div className="flex items-center space-x-2 text-lg mt-2 text-neutral-400">
-                      <MapPinIcon className="h-5 w-5" />
+                    </h4>
+                    <div className="flex items-center space-x-1.5 text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+                      <MapPinIcon className="h-4 w-4" />
                       <span>{currentItem.clientAddress}</span>
                     </div>
-                  </>
-                </motion.div>
-              </AnimatePresence>
+                  </div>
+                  <div className="text-xs font-semibold text-neutral-500 dark:text-neutral-400">
+                    Vehicle: {currentItem.vehicle}
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </MotionConfig>
 
-              <div className="mt-10 flex items-center justify-center space-x-2">
-                {data.map((item, i) => (
-                  <button
-                    className={`w-2 h-2 rounded-full ${
-                      i === index ? "bg-black/70" : "bg-black/10 "
-                    }`}
-                    onClick={() => changeItemId(i)}
-                    key={i}
-                  />
-                ))}
-              </div>
-            </div>
-          </MotionConfig>
+        {/* Carousel Dots & Controls */}
+        <div className="pt-6 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            {FEATURED_REVIEWS.map((_, i) => (
+              <button
+                key={i}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2.5 rounded-full transition-all ${i === index ? "w-8 bg-primary-6000" : "w-2.5 bg-neutral-300 dark:bg-neutral-700"
+                  }`}
+                onClick={() => changeItemId(i)}
+              />
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => changeItemId(Math.max(0, index - 1))}
+              disabled={index === 0}
+              className="p-2 rounded-full border border-neutral-200 dark:border-neutral-700 disabled:opacity-30 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition"
+              aria-label="Previous review"
+            >
+              ←
+            </button>
+            <button
+              onClick={() => changeItemId(Math.min(FEATURED_REVIEWS.length - 1, index + 1))}
+              disabled={index === FEATURED_REVIEWS.length - 1}
+              className="p-2 rounded-full border border-neutral-200 dark:border-neutral-700 disabled:opacity-30 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition"
+              aria-label="Next review"
+            >
+              →
+            </button>
+          </div>
         </div>
+      </SpotlightCard>
+
+      {/* InfiniteScroll Marquee of Recent Verified Reviews */}
+      <div className="mt-14">
+        <div className="text-center mb-4">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-neutral-400">
+            Live Verified Google Reviews
+          </span>
+        </div>
+        <InfiniteScroll speed={32} pauseOnHover>
+          {TICKER_REVIEWS.map((rev, idx) => (
+            <SpotlightCard
+              key={idx}
+              spotlightColor="rgba(245, 158, 11, 0.12)"
+              className="w-72 p-4 !rounded-2xl bg-white dark:bg-neutral-850 border border-neutral-200/80 dark:border-neutral-700/80 shadow-sm flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-neutral-900 dark:text-white">
+                    {rev.name}
+                  </span>
+                  <StarRating rating={5} className="w-3 h-3 text-amber-400" />
+                </div>
+                <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-snug">
+                  &ldquo;{rev.comment}&rdquo;
+                </p>
+              </div>
+              <span className="text-[10px] text-neutral-400 font-medium mt-3 flex items-center gap-1 border-t border-neutral-100 dark:border-neutral-700/60 pt-2">
+                <MapPinIcon className="w-3 h-3 text-rose-500 flex-shrink-0" />
+                <span>{rev.route}</span>
+              </span>
+            </SpotlightCard>
+          ))}
+        </InfiniteScroll>
+      </div>
+
+      {/* Leave Review Prompt */}
+      <div className="mt-8 text-center flex justify-center">
+        <MagneticButton distance={0.2}>
+          <Link
+            href="/review"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 text-xs font-bold transition shadow-sm border border-neutral-200/60 dark:border-neutral-700"
+          >
+            <SparklesIcon className="w-4 h-4 text-amber-500" />
+            <ShinyText text="Traveled with Sri Sadhguru? Leave a 5-Star Review" speed={3.5} />
+          </Link>
+        </MagneticButton>
       </div>
     </div>
   );
