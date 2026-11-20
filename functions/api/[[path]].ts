@@ -16,6 +16,10 @@ export async function onRequest(context: any) {
   }
 
   // 1. NextAuth Session & Auth endpoints
+  if (path.startsWith("/api/auth/error")) {
+    return Response.redirect(`${url.origin}/login`, 302);
+  }
+
   if (path.startsWith("/api/auth/session")) {
     return new Response(JSON.stringify({}), { status: 200, headers });
   }
@@ -25,11 +29,22 @@ export async function onRequest(context: any) {
   }
 
   if (path.startsWith("/api/auth/providers")) {
-    return new Response(JSON.stringify({}), { status: 200, headers });
+    return new Response(
+      JSON.stringify({
+        credentials: {
+          id: "credentials",
+          name: "Credentials",
+          type: "credentials",
+          signinUrl: "/login",
+          callbackUrl: "/",
+        },
+      }),
+      { status: 200, headers }
+    );
   }
 
   if (path.startsWith("/api/auth/")) {
-    return new Response(JSON.stringify({}), { status: 200, headers });
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
   }
 
   // 2. Dynamic Routes CMS
