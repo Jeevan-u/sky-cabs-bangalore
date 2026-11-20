@@ -15,13 +15,21 @@ export async function onRequest(context: any) {
     return new Response(null, { headers });
   }
 
-  // 1. NextAuth Session endpoint
+  // 1. NextAuth Session & Auth endpoints
   if (path.startsWith("/api/auth/session")) {
-    return new Response(JSON.stringify(null), { status: 200, headers });
+    return new Response(JSON.stringify({}), { status: 200, headers });
+  }
+
+  if (path.startsWith("/api/auth/csrf")) {
+    return new Response(JSON.stringify({ csrfToken: "sadhguru-csrf-token" }), { status: 200, headers });
+  }
+
+  if (path.startsWith("/api/auth/providers")) {
+    return new Response(JSON.stringify({}), { status: 200, headers });
   }
 
   if (path.startsWith("/api/auth/")) {
-    return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
+    return new Response(JSON.stringify({}), { status: 200, headers });
   }
 
   // 2. Dynamic Routes CMS
