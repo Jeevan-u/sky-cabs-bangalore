@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1795170374689" clover="3.2.0">
-  <project timestamp="1795170374690" name="All files">
-    <metrics statements="241" coveredstatements="80" conditionals="187" coveredconditionals="61" methods="37" coveredmethods="16" elements="465" coveredelements="157" complexity="0" loc="241" ncloc="241" packages="4" files="22" classes="22"/>
+<coverage generated="1795178075981" clover="3.2.0">
+  <project timestamp="1795178075981" name="All files">
+    <metrics statements="245" coveredstatements="80" conditionals="187" coveredconditionals="61" methods="37" coveredmethods="16" elements="469" coveredelements="157" complexity="0" loc="245" ncloc="245" packages="4" files="26" classes="26"/>
     <package name="contains">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="contants.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\contains\contants.ts">
@@ -10,11 +10,23 @@
       </file>
     </package>
     <package name="data">
-      <metrics statements="40" coveredstatements="5" conditionals="14" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <metrics statements="44" coveredstatements="5" conditionals="14" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="authors.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\authors.ts">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
+      </file>
+      <file name="companiesServed.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\companiesServed.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="corporateServices.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\corporateServices.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="festivalOffers.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\festivalOffers.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="17" count="0" type="stmt"/>
       </file>
       <file name="listings.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\listings.ts">
         <metrics statements="6" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -71,6 +83,10 @@
         <line num="11" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
+      </file>
+      <file name="tourPackagesData.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\tourPackagesData.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="39" count="0" type="stmt"/>
       </file>
       <file name="types.ts" path="C:\Narayana\Earning\projects\travel\project-4-chisfis-travel\src\data\types.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

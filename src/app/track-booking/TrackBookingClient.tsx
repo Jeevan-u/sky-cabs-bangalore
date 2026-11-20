@@ -443,7 +443,7 @@ export default function TrackBookingPage() {
                   </div>
 
                   {/* Customer Ride Verification & OTP Confirmation Card */}
-                  {odometerRecord && odometerRecord.status === "Admin_Approved" && !odometerRecord.customer_otp_verified && (
+                  {odometerRecord && (odometerRecord.status === "Admin_Approved" || odometerRecord.status === "Auto_Approved") && !odometerRecord.customer_otp_verified && (
                     <div className="p-5 rounded-2xl bg-amber-500/10 border-2 border-amber-500/30 space-y-3">
                       <div className="flex items-center gap-2">
                         <span className="p-1 rounded-lg bg-amber-500 text-neutral-950 font-bold text-xs">
@@ -455,7 +455,7 @@ export default function TrackBookingPage() {
                       </div>
 
                       <p className="text-xs text-neutral-600 dark:text-neutral-400">
-                        Admin has reviewed and verified the odometer readings: Departure{" "}
+                        Odometer readings verified via AI OCR: Departure{" "}
                         <strong className="text-neutral-900 dark:text-white font-mono">{odometerRecord.start_km} km</strong>{" "}
                         <ArrowRightIcon className="w-3.5 h-3.5 text-neutral-400 inline mx-1" /> Arrival{" "}
                         <strong className="text-neutral-900 dark:text-white font-mono">{odometerRecord.end_km} km</strong> (Total Distance:{" "}

@@ -82,11 +82,6 @@ export default function AdminSidebar({
           icon: CameraIcon,
         },
         {
-          id: "gps" as AdminTabType,
-          label: "Live GPS Radar",
-          icon: SignalIcon,
-        },
-        {
           id: "quotations" as AdminTabType,
           label: "Custom Quotes",
           icon: SparklesIcon,

@@ -2,7 +2,6 @@ export type AdminTabType =
   | "overview"
   | "dispatch"
   | "odometer"
-  | "gps"
   | "quotations"
   | "tours_cms"
   | "places_cms"

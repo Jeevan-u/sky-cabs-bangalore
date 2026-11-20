@@ -35,32 +35,34 @@ export async function handleSubmitOdometer(req: NextRequest) {
     }
 
     if (action === "start") {
-      if (typeof start_km !== "number" || !start_photo_url) {
-        return apiError("Missing start_km number or start_photo_url", 400);
+      if (typeof start_km !== "number") {
+        return apiError("Missing start_km number", 400);
       }
+      // Zero image storage: store "" or reference token, never heavy base64
       const record = await d1Client.submitOdometerStart({
         booking_id,
         driver_id,
         driver_name,
         vehicle_number,
         start_km,
-        start_photo_url,
+        start_photo_url: start_photo_url || "",
       });
       return apiSuccess({ action: "start", record }, 201);
     } else if (action === "end") {
-      if (typeof end_km !== "number" || !end_photo_url) {
-        return apiError("Missing end_km number or end_photo_url", 400);
+      if (typeof end_km !== "number") {
+        return apiError("Missing end_km number", 400);
       }
+      // Zero image storage: store "" or reference token, never heavy base64
       const record = await d1Client.submitOdometerEnd({
         booking_id,
         driver_id,
         end_km,
-        end_photo_url,
+        end_photo_url: end_photo_url || "",
       });
       if (!record) {
         return apiError("Initial start reading not found for this booking", 404);
       }
-      return apiSuccess({ action: "end", record });
+      return apiSuccess({ action: "end", record, autoApproved: true });
     } else {
       return apiError("Invalid action. Must be 'start' or 'end'.", 400);
     }
@@ -75,8 +77,8 @@ export async function handleAuditOdometer(req: NextRequest) {
     const body = await req.json();
     const { id, status, rejection_reason } = body;
 
-    if (!id || (status !== "Admin_Approved" && status !== "Admin_Rejected")) {
-      return apiError("Valid id and status ('Admin_Approved' or 'Admin_Rejected') are required", 400);
+    if (!id || (status !== "Admin_Approved" && status !== "Admin_Rejected" && status !== "Auto_Approved")) {
+      return apiError("Valid id and status are required", 400);
     }
 
     const verified = await d1Client.verifyOdometer(id, status, rejection_reason);

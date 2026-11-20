@@ -24,7 +24,7 @@ interface OdometerRecord {
   end_photo_url?: string;
   start_time: string;
   end_time?: string;
-  status: "Start_Submitted" | "Awaiting_Admin_Verification" | "Admin_Approved" | "Admin_Rejected" | "Customer_Confirmed";
+  status: "Start_Submitted" | "Awaiting_Admin_Verification" | "Admin_Approved" | "Admin_Rejected" | "Customer_Confirmed" | "Auto_Approved";
   rejection_reason?: string;
   customer_otp?: string;
   customer_otp_verified?: boolean;
@@ -135,8 +135,9 @@ const OdometerVerificationView: FC = () => {
       ) : (
         <div className="space-y-6">
           {records.map((rec) => {
+            const isAutoApproved = rec.status === "Auto_Approved";
             const isPendingAdmin = rec.status === "Awaiting_Admin_Verification";
-            const isApproved = rec.status === "Admin_Approved" || rec.status === "Customer_Confirmed";
+            const isApproved = rec.status === "Admin_Approved" || rec.status === "Customer_Confirmed" || isAutoApproved;
             const isRejected = rec.status === "Admin_Rejected";
 
             return (
@@ -164,13 +165,19 @@ const OdometerVerificationView: FC = () => {
 
                   {/* Status Badge */}
                   <div>
-                    {isPendingAdmin && (
+                    {isAutoApproved && (
+                      <span className="px-3.5 py-1.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-extrabold text-[11px] border border-emerald-500/30 flex items-center gap-1.5">
+                        <CheckCircleIcon className="w-3.5 h-3.5 text-emerald-500" />
+                        <span>✅ Auto-Approved via OCR ({rec.total_km || 0} KM)</span>
+                      </span>
+                    )}
+                    {!isAutoApproved && isPendingAdmin && (
                       <span className="px-3.5 py-1.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400 font-extrabold text-[11px] border border-amber-500/30 flex items-center gap-1.5 animate-pulse">
                         <ClockIcon className="w-3.5 h-3.5 text-amber-500" />
                         <span>Awaiting Admin Approval</span>
                       </span>
                     )}
-                    {isApproved && (
+                    {!isAutoApproved && isApproved && (
                       <span className="px-3.5 py-1.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-extrabold text-[11px] border border-emerald-500/30 flex items-center gap-1.5">
                         <CheckCircleIcon className="w-3.5 h-3.5" /> Approved by Admin
                       </span>

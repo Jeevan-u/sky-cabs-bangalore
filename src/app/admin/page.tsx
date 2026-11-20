@@ -12,7 +12,6 @@ import ExpensesView from "./views/ExpensesView";
 import ReputationView from "./views/ReputationView";
 import AnalyticsView from "./views/AnalyticsView";
 import OdometerVerificationView from "./views/OdometerVerificationView";
-import LiveGpsTrackingView from "./views/LiveGpsTrackingView";
 import QuotationsView from "./views/QuotationsView";
 import RoutesCmsView from "./views/RoutesCmsView";
 import ToursCmsView from "./views/ToursCmsView";
@@ -287,12 +286,6 @@ export default function AdminDashboardPage({
           {visitedTabs.has("odometer") && (
             <div className={activeTab === "odometer" ? "block" : "hidden"}>
               <OdometerVerificationView />
-            </div>
-          )}
-
-          {visitedTabs.has("gps") && (
-            <div className={activeTab === "gps" ? "block" : "hidden"}>
-              <LiveGpsTrackingView />
             </div>
           )}
 

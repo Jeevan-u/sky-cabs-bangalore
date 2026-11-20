@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Link from "next/link";
 import { SparklesIcon, TagIcon, CalendarDaysIcon, ArrowRightIcon, TruckIcon } from "@heroicons/react/24/outline";
 import { WhatsAppIcon } from "@/components/icons";
@@ -13,7 +13,40 @@ export interface SectionFestivalOffersProps {
 }
 
 const SectionFestivalOffers: FC<SectionFestivalOffersProps> = ({ className = "" }) => {
-  const activePosters = FESTIVAL_POSTERS.filter((p) => p.isActive);
+  const [posters, setPosters] = useState<FestivalPoster[]>(FESTIVAL_POSTERS);
+
+  useEffect(() => {
+    async function loadDynamicOffers() {
+      try {
+        const res = await fetch("/api/festivals");
+        const data = await res.json();
+        if (data.success && Array.isArray(data.offers) && data.offers.length > 0) {
+          const mapped: FestivalPoster[] = data.offers.map((o: any) => ({
+            id: o.id,
+            festivalName: o.festival_name || o.festivalName,
+            occasion: o.occasion,
+            discountBadge: o.discount_badge || o.discountBadge,
+            bannerTitle: o.banner_title || o.bannerTitle,
+            description: o.description,
+            recommendedDestinations: Array.isArray(o.recommended_destinations)
+              ? o.recommended_destinations
+              : o.recommendedDestinations || [],
+            bookingCode: o.booking_code || o.bookingCode,
+            startDate: o.start_date || o.startDate,
+            endDate: o.end_date || o.endDate,
+            posterImage: o.image_url || "/images/festivals/sankranti-offer.jpg",
+            isActive: o.is_active !== undefined ? Boolean(o.is_active) : (o.isActive !== undefined ? Boolean(o.isActive) : true),
+          }));
+          setPosters(mapped);
+        }
+      } catch (e) {
+        // Fallback to static FESTIVAL_POSTERS
+      }
+    }
+    loadDynamicOffers();
+  }, []);
+
+  const activePosters = posters.filter((p) => p.isActive);
 
   if (activePosters.length === 0) return null;
 
@@ -79,24 +112,29 @@ const SectionFestivalOffers: FC<SectionFestivalOffersProps> = ({ className = "" 
                   {poster.description}
                 </p>
 
-                {/* Recommended Destinations Chips */}
+                {/* Recommended Destinations */}
                 <div className="mt-3 flex flex-wrap gap-1">
-                  {poster.recommendedDestinations.map((dest, dIdx) => (
+                  {poster.recommendedDestinations.slice(0, 3).map((dest, idx) => (
                     <span
-                      key={dIdx}
+                      key={idx}
                       className="text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300"
                     >
                       {dest}
                     </span>
                   ))}
+                  {poster.recommendedDestinations.length > 3 && (
+                    <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-400">
+                      +{poster.recommendedDestinations.length - 3}
+                    </span>
+                  )}
                 </div>
               </div>
 
-              {/* Action Bar */}
+              {/* Bottom Card Footer */}
               <div className="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-between gap-2">
-                <div className="flex flex-col min-w-0">
-                  <span className="text-[9px] uppercase font-bold text-neutral-400">Coupon Code</span>
-                  <span className="font-mono text-xs font-black text-amber-600 dark:text-amber-400 truncate">
+                <div>
+                  <span className="text-[9px] uppercase font-bold text-neutral-400 block">Coupon Code</span>
+                  <span className="font-mono font-black text-xs sm:text-sm text-amber-600 dark:text-amber-400">
                     {poster.bookingCode}
                   </span>
                 </div>
@@ -105,10 +143,11 @@ const SectionFestivalOffers: FC<SectionFestivalOffersProps> = ({ className = "" 
                   href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(waMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-sm transition shrink-0"
+                  className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] flex items-center gap-1.5 shadow-sm transition active:scale-95"
                 >
-                  <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-                  <span>Claim</span>
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Claim Offer</span>
+                  <span className="sm:hidden">Book</span>
                 </a>
               </div>
             </SpotlightCard>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { COMPANIES_SERVED, ClientCompany } from "@/data/companiesServed";
 import { BuildingOfficeIcon, SparklesIcon, CheckBadgeIcon } from "@heroicons/react/24/outline";
 
@@ -10,9 +10,33 @@ export interface SectionCompaniesServedProps {
 
 const SectionCompaniesServed: FC<SectionCompaniesServedProps> = ({ className = "" }) => {
   const [isPaused, setIsPaused] = useState(false);
+  const [companies, setCompanies] = useState<ClientCompany[]>(COMPANIES_SERVED);
+
+  useEffect(() => {
+    async function loadDynamicCompanies() {
+      try {
+        const res = await fetch("/api/companies");
+        const data = await res.json();
+        if (data.success && Array.isArray(data.companies) && data.companies.length > 0) {
+          const mapped: ClientCompany[] = data.companies.map((c: any) => ({
+            id: c.id,
+            name: c.name,
+            industry: c.industry,
+            location: c.location,
+            logoText: c.logo_text || c.logoText || c.name.split(" ")[0].toUpperCase(),
+            accentColor: c.accent_color || c.accentColor || "#0288d1",
+          }));
+          setCompanies(mapped);
+        }
+      } catch (e) {
+        // Fallback to static COMPANIES_SERVED
+      }
+    }
+    loadDynamicCompanies();
+  }, []);
 
   // Duplicate list to achieve continuous seamless loop
-  const marqueeList = [...COMPANIES_SERVED, ...COMPANIES_SERVED];
+  const marqueeList = [...companies, ...companies];
 
   return (
     <section className={`nc-SectionCompaniesServed py-10 relative overflow-hidden ${className}`}>
@@ -83,18 +107,6 @@ const SectionCompaniesServed: FC<SectionCompaniesServedProps> = ({ className = "
           ))}
         </div>
       </div>
-
-      {/* Global CSS keyframe animation for smooth marquee scroll */}
-      <style jsx>{`
-        @keyframes marqueeScroll {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </section>
   );
 };

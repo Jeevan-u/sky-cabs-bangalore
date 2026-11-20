@@ -49,10 +49,6 @@ export default function AdminHeader({
       title: "Odometer Photo Verification",
       subtitle: "Compare driver speedometer captures (Start vs End) and approve trip distance",
     },
-    gps: {
-      title: "Live GPS Fleet Radar",
-      subtitle: "Real-time geolocation tracking of active vehicles across Hyderabad & Telangana",
-    },
     quotations: {
       title: "Custom Quotations Manager",
       subtitle: "Review custom non-hub routes, calculate distances on Google Maps, and send quotes",

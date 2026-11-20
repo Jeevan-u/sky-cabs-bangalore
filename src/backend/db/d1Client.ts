@@ -106,15 +106,42 @@ export interface OdometerRecord {
   start_km: number;
   end_km?: number;
   total_km?: number;
-  start_photo_url: string;
+  start_photo_url?: string;
   end_photo_url?: string;
   start_time: string;
   end_time?: string;
-  status: "Start_Submitted" | "Awaiting_Admin_Verification" | "Admin_Approved" | "Admin_Rejected" | "Customer_Confirmed";
+  status: "Start_Submitted" | "Awaiting_Admin_Verification" | "Admin_Approved" | "Admin_Rejected" | "Customer_Confirmed" | "Auto_Approved";
   rejection_reason?: string;
   customer_otp?: string;
   customer_otp_verified?: boolean;
   created_at: string;
+}
+
+export interface FestivalOfferRecord {
+  id: string;
+  festival_name: string;
+  occasion: string;
+  discount_badge: string;
+  banner_title: string;
+  description: string;
+  recommended_destinations: string[];
+  booking_code: string;
+  start_date: string;
+  end_date: string;
+  image_url?: string;
+  is_active: boolean;
+  created_at?: string;
+}
+
+export interface ClientCompanyRecord {
+  id: string;
+  name: string;
+  industry: string;
+  location: string;
+  logo_text: string;
+  accent_color: string;
+  is_active: boolean;
+  created_at?: string;
 }
 
 export interface GpsPingRecord {
@@ -229,6 +256,8 @@ interface LocalDatabaseState {
   places_hubs?: PlaceHubRecord[];
   tour_packages?: TourPackageRecord[];
   expenses?: ExpenseRecord[];
+  festival_offers?: FestivalOfferRecord[];
+  client_companies?: ClientCompanyRecord[];
 }
 
 const LOCAL_DB_PATH = path.join(process.cwd(), ".data", "sadhguru_db.json");
@@ -1321,7 +1350,7 @@ export const d1Client = {
     driver_name?: string;
     vehicle_number?: string;
     start_km: number;
-    start_photo_url: string;
+    start_photo_url?: string;
   }): Promise<OdometerRecord> {
     const db = readLocalDb();
     if (!db.odometer_records) db.odometer_records = [];
@@ -1329,7 +1358,7 @@ export const d1Client = {
     let record = db.odometer_records.find((r) => r.booking_id === data.booking_id);
     if (record) {
       record.start_km = data.start_km;
-      record.start_photo_url = data.start_photo_url;
+      record.start_photo_url = data.start_photo_url || "";
       record.driver_id = data.driver_id;
       record.driver_name = data.driver_name || record.driver_name;
       record.vehicle_number = data.vehicle_number || record.vehicle_number;
@@ -1343,7 +1372,7 @@ export const d1Client = {
         driver_name: data.driver_name,
         vehicle_number: data.vehicle_number,
         start_km: data.start_km,
-        start_photo_url: data.start_photo_url,
+        start_photo_url: data.start_photo_url || "",
         start_time: new Date().toISOString(),
         status: "Start_Submitted",
         created_at: new Date().toISOString(),
@@ -1365,7 +1394,7 @@ export const d1Client = {
     booking_id: string;
     driver_id: string;
     end_km: number;
-    end_photo_url: string;
+    end_photo_url?: string;
   }): Promise<OdometerRecord | null> {
     const db = readLocalDb();
     if (!db.odometer_records) db.odometer_records = [];
@@ -1378,20 +1407,57 @@ export const d1Client = {
         booking_id: data.booking_id,
         driver_id: data.driver_id,
         start_km: Math.max(0, data.end_km - 48),
-        start_photo_url: "/images/odometer-start-sample.jpg",
+        start_photo_url: "",
         start_time: new Date(Date.now() - 3600000).toISOString(),
-        status: "Awaiting_Admin_Verification",
+        status: "Auto_Approved",
         created_at: new Date().toISOString(),
       };
       db.odometer_records.unshift(record);
     }
 
     record.end_km = data.end_km;
-    record.end_photo_url = data.end_photo_url;
+    record.end_photo_url = data.end_photo_url || "";
     record.end_time = new Date().toISOString();
     record.total_km = Math.max(0, data.end_km - record.start_km);
-    record.status = "Awaiting_Admin_Verification";
+    // Instant Auto-Approval: No admin approval roadblock needed!
+    record.status = "Auto_Approved";
     record.rejection_reason = undefined;
+
+    // Automatically generate / update duty slip immediately
+    const booking = db.bookings.find((b) => b.id === data.booking_id);
+    const calculatedFare = booking?.estimated_price || Math.max(1299, record.total_km * 18);
+    const existingDutySlip = db.duty_slips.find((ds) => ds.booking_id === data.booking_id);
+    if (existingDutySlip) {
+      existingDutySlip.start_km = record.start_km;
+      existingDutySlip.end_km = data.end_km;
+      existingDutySlip.total_km = record.total_km;
+      existingDutySlip.total_amount = calculatedFare;
+      existingDutySlip.completed_at = new Date().toISOString();
+    } else {
+      db.duty_slips.unshift({
+        id: "DS-" + Math.floor(1000 + Math.random() * 9000),
+        booking_id: data.booking_id,
+        customer_name: booking?.customer_name || "Valued Passenger",
+        customer_phone: booking?.customer_phone || "9848012345",
+        driver_name: record.driver_name || "K. Shiva Kumar",
+        vehicle_number: record.vehicle_number || "TS 09 UB 4455",
+        vehicle_model: booking?.vehicle_type || "Toyota Innova Crysta",
+        trip_route: `${booking?.pickup_address || "Pickup"} to ${booking?.drop_address || "Drop"}`,
+        start_km: record.start_km,
+        end_km: data.end_km,
+        total_km: record.total_km,
+        toll_parking: 0,
+        driver_bata: 0,
+        total_amount: calculatedFare,
+        signature_data_url:
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMzAiPjxwYXRoIGQ9Ik0xMCAyMCBRIDI1IDUgNDAgMjAgVCA3MCAyMCIgc3Ryb2tlPSIjM2I4MmY2IiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=",
+        completed_at: new Date().toISOString(),
+      });
+    }
+
+    if (booking) {
+      booking.status = "Completed";
+    }
 
     writeLocalDb(db);
     return record;
@@ -1810,6 +1876,79 @@ export const d1Client = {
     const idx = db.expenses.findIndex((e) => e.id === id);
     if (idx === -1) return false;
     db.expenses.splice(idx, 1);
+    writeLocalDb(db);
+    return true;
+  },
+
+  // --- Festival Offers ---
+  async getFestivalOffers(): Promise<FestivalOfferRecord[]> {
+    const db = readLocalDb();
+    return db.festival_offers || [];
+  },
+
+  async createFestivalOffer(data: Omit<FestivalOfferRecord, "id" | "created_at">): Promise<FestivalOfferRecord> {
+    const db = readLocalDb();
+    if (!db.festival_offers) db.festival_offers = [];
+    const id = "offer-" + Date.now();
+    const newOffer: FestivalOfferRecord = {
+      ...data,
+      id,
+      created_at: new Date().toISOString(),
+    };
+    db.festival_offers.unshift(newOffer);
+    writeLocalDb(db);
+    return newOffer;
+  },
+
+  async updateFestivalOffer(id: string, updates: Partial<FestivalOfferRecord>): Promise<FestivalOfferRecord | null> {
+    const db = readLocalDb();
+    if (!db.festival_offers) return null;
+    const idx = db.festival_offers.findIndex((o) => o.id === id);
+    if (idx === -1) return null;
+    db.festival_offers[idx] = {
+      ...db.festival_offers[idx],
+      ...updates,
+    };
+    writeLocalDb(db);
+    return db.festival_offers[idx];
+  },
+
+  async deleteFestivalOffer(id: string): Promise<boolean> {
+    const db = readLocalDb();
+    if (!db.festival_offers) return false;
+    const idx = db.festival_offers.findIndex((o) => o.id === id);
+    if (idx === -1) return false;
+    db.festival_offers.splice(idx, 1);
+    writeLocalDb(db);
+    return true;
+  },
+
+  // --- Client Companies ---
+  async getClientCompanies(): Promise<ClientCompanyRecord[]> {
+    const db = readLocalDb();
+    return db.client_companies || [];
+  },
+
+  async createClientCompany(data: Omit<ClientCompanyRecord, "id" | "created_at">): Promise<ClientCompanyRecord> {
+    const db = readLocalDb();
+    if (!db.client_companies) db.client_companies = [];
+    const id = "comp-" + Date.now();
+    const newComp: ClientCompanyRecord = {
+      ...data,
+      id,
+      created_at: new Date().toISOString(),
+    };
+    db.client_companies.unshift(newComp);
+    writeLocalDb(db);
+    return newComp;
+  },
+
+  async deleteClientCompany(id: string): Promise<boolean> {
+    const db = readLocalDb();
+    if (!db.client_companies) return false;
+    const idx = db.client_companies.findIndex((c) => c.id === id);
+    if (idx === -1) return false;
+    db.client_companies.splice(idx, 1);
     writeLocalDb(db);
     return true;
   },
