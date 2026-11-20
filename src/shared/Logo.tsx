@@ -11,22 +11,33 @@ const Logo: React.FC<LogoProps> = ({ className = "", imgClassName = "" }) => {
   return (
     <Link
       href="/"
-      className={`ttnc-logo inline-flex items-center gap-2.5 sm:gap-3 focus:outline-none focus:ring-0 flex-shrink-0 group ${className}`}
+      className={`ttnc-logo inline-flex items-center gap-2 sm:gap-2.5 focus:outline-none focus:ring-0 flex-shrink-0 group ${className}`}
     >
-      {/* Official Sri Sadhguru Brand Emblem */}
-      <div className="relative flex-shrink-0">
-        <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white shadow-md border border-neutral-200/90 dark:border-neutral-700/80 p-0.5 flex items-center justify-center group-hover:scale-105 transition-all duration-300 ${imgClassName}`}>
+      {/* Official Sri Sadhguru Brand Emblem with Dual Theme Support */}
+      <div className="relative flex-shrink-0 flex items-center justify-center">
+        <div className={`w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 ${imgClassName}`}>
+          {/* Light Theme Logo (Black Car & Text, Red Arch, Gold Stars on Transparent BG) */}
           <Image
-            src="/images/logo.png"
+            src="/images/logo-light.png"
             alt="Sri Sadhguru Tours & Travels"
             width={48}
             height={48}
-            className="w-full h-full object-contain rounded-full"
+            className="w-full h-full object-contain block dark:hidden"
+            priority
+          />
+          {/* Dark Theme Logo (White Car & Text, Red Arch, Gold Stars on Transparent BG) */}
+          <Image
+            src="/images/logo-dark.png"
+            alt="Sri Sadhguru Tours & Travels"
+            width={48}
+            height={48}
+            className="w-full h-full object-contain hidden dark:block"
             priority
           />
         </div>
+
         {/* Active Dispatch Pulse */}
-        <span className="absolute -bottom-0.5 -right-0.5 flex h-2 sm:h-2.5 w-2 sm:w-2.5">
+        <span className="absolute -bottom-0.5 -right-0.5 flex h-2 sm:h-2.5 w-2 sm:w-2.5 pointer-events-none">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-emerald-500 border border-white dark:border-neutral-900"></span>
         </span>
