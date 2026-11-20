@@ -65,20 +65,20 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
 
           {/* React Bits StarBorder & ShinyText Badge with Circular Logo Emblem */}
           <div className="flex items-center gap-3">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-lg bg-white dark:bg-neutral-900 flex-shrink-0 flex items-center justify-center p-1">
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-lg bg-white dark:bg-neutral-900 flex-shrink-0 flex items-center justify-center p-1">
               <Image
                 src="/images/logo-light.png"
                 alt="SRI SADHGURU TOURS & TRAVELS"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
                 className="w-full h-full object-contain block dark:hidden"
                 priority
               />
               <Image
                 src="/images/logo-dark.png"
                 alt="SRI SADHGURU TOURS & TRAVELS"
-                width={48}
-                height={48}
+                width={56}
+                height={56}
                 className="w-full h-full object-contain hidden dark:block"
                 priority
               />
