@@ -9,10 +9,36 @@ export type AdminTabType =
   | "routes_cms"
   | "fleet_catalog"
   | "dutyslips"
+  | "drivers"
   | "fleet"
+  | "expenses"
   | "rates"
   | "reviews"
   | "analytics";
+
+export interface ExpenseItem {
+  id: string;
+  date: string;
+  vehicle_number: string;
+  vehicle_name?: string;
+  driver_name?: string;
+  category:
+    | "Fuel (Diesel/Petrol)"
+    | "FASTag & Tolls"
+    | "Vehicle Maintenance & Repairs"
+    | "Chauffeur Batta & Food"
+    | "Permits & Border Tax"
+    | "Tyres, Oil & Spares"
+    | "Insurance & RTA Compliance"
+    | "Miscellaneous"
+    | string;
+  amount: number;
+  payment_mode: "FASTag Wallet" | "Cash" | "UPI / GPay" | "Company Card" | "Bank Transfer" | string;
+  receipt_url?: string;
+  notes?: string;
+  status: "Paid" | "Pending Approval" | "Reimbursed" | string;
+  created_at?: string;
+}
 
 export interface FleetVehicleItem {
   id: string;

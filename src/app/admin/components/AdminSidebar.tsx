@@ -23,6 +23,7 @@ import {
   PhoneIcon,
   HomeIcon,
   GlobeAltIcon,
+  BanknotesIcon,
 } from "@heroicons/react/24/outline";
 import { AdminTabType } from "../types";
 import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
@@ -93,6 +94,33 @@ export default function AdminSidebar({
       ],
     },
     {
+      title: "FLEET & OPERATIONS",
+      items: [
+        {
+          id: "drivers" as AdminTabType,
+          label: "Chauffeur Roster",
+          icon: UsersIcon,
+          badge: counts.activeDrivers > 0 ? `${counts.activeDrivers} Ready` : undefined,
+          badgeColor: "bg-emerald-500 text-white font-bold",
+        },
+        {
+          id: "fleet" as AdminTabType,
+          label: "Fleet Vehicles Catalog",
+          icon: TruckIcon,
+        },
+        {
+          id: "expenses" as AdminTabType,
+          label: "Fleet Expenses Ledger",
+          icon: BanknotesIcon,
+        },
+        {
+          id: "rates" as AdminTabType,
+          label: "Rate Card Engine",
+          icon: CurrencyRupeeIcon,
+        },
+      ],
+    },
+    {
       title: "LANDING CMS & CONTENT",
       items: [
         {
@@ -110,28 +138,6 @@ export default function AdminSidebar({
           label: "Outstation Routes",
           icon: GlobeAltIcon,
         },
-        {
-          id: "fleet_catalog" as AdminTabType,
-          label: "Fleet Vehicles Catalog",
-          icon: TruckIcon,
-        },
-      ],
-    },
-    {
-      title: "FLEET & RATES",
-      items: [
-        {
-          id: "fleet" as AdminTabType,
-          label: "Chauffeur Roster",
-          icon: UsersIcon,
-          badge: counts.activeDrivers > 0 ? `${counts.activeDrivers} Ready` : undefined,
-          badgeColor: "bg-emerald-500 text-white font-bold",
-        },
-        {
-          id: "rates" as AdminTabType,
-          label: "Rate Card Engine",
-          icon: CurrencyRupeeIcon,
-        },
       ],
     },
     {
@@ -146,7 +152,7 @@ export default function AdminSidebar({
         },
         {
           id: "analytics" as AdminTabType,
-          label: "Revenue Analytics",
+          label: "End-to-End Analytics & P&L",
           icon: ChartBarIcon,
         },
       ],
@@ -275,6 +281,10 @@ export default function AdminSidebar({
                     onClick={() => {
                       setActiveTab(item.id);
                       setIsMobileOpen(false);
+                      if (typeof window !== "undefined") {
+                        const targetUrl = item.id === "overview" ? "/admin" : `/admin/${item.id}`;
+                        window.history.pushState(null, "", targetUrl);
+                      }
                     }}
                     className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all relative group ${
                       isActive

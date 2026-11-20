@@ -6,7 +6,8 @@ import AdminHeader from "./components/AdminHeader";
 import OverviewView from "./views/OverviewView";
 import DispatchView from "./views/DispatchView";
 import DutySlipsView from "./views/DutySlipsView";
-import FleetView from "./views/FleetView";
+import DriversView from "./views/DriversView";
+import ExpensesView from "./views/ExpensesView";
 import RateCardView from "./views/RateCardView";
 import ReputationView from "./views/ReputationView";
 import AnalyticsView from "./views/AnalyticsView";
@@ -34,12 +35,17 @@ import {
   DriverUserItem,
   ReviewItem,
   RateCardItem,
+  ExpenseItem,
 } from "./types";
 
-export default function AdminDashboardPage() {
+export default function AdminDashboardPage({
+  initialTab = "overview",
+}: {
+  initialTab?: AdminTabType;
+} = {}) {
   // Navigation & Shell State
-  const [activeTab, setActiveTab] = useState<AdminTabType>("overview");
-  const [visitedTabs, setVisitedTabs] = useState<Set<AdminTabType>>(new Set<AdminTabType>(["overview"]));
+  const [activeTab, setActiveTab] = useState<AdminTabType>(initialTab);
+  const [visitedTabs, setVisitedTabs] = useState<Set<AdminTabType>>(new Set<AdminTabType>([initialTab]));
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -51,6 +57,7 @@ export default function AdminDashboardPage() {
   const [drivers, setDrivers] = useState<DriverUserItem[]>([]);
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
   const [rateCards, setRateCards] = useState<RateCardItem[]>([]);
+  const [expenses, setExpenses] = useState<ExpenseItem[]>([]);
 
   // Modals Visibility
   const [isNewBookingModalOpen, setIsNewBookingModalOpen] = useState<boolean>(false);
@@ -68,6 +75,21 @@ export default function AdminDashboardPage() {
       return next;
     });
   }, [activeTab]);
+
+  // Handle browser back/forward buttons and initial URL check
+  useEffect(() => {
+    const handlePopState = () => {
+      if (typeof window === "undefined") return;
+      const path = window.location.pathname.replace(/^\/admin\/?/, "");
+      if (path) {
+        setActiveTab(path as AdminTabType);
+      } else {
+        setActiveTab("overview");
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   // Data Fetching
   const fetchAllData = useCallback(async () => {
@@ -124,6 +146,13 @@ export default function AdminDashboardPage() {
       const rcData = await rcRes.json();
       if (rcData.success && Array.isArray(rcData.rateCards)) {
         setRateCards(rcData.rateCards);
+      }
+
+      // 6. Expenses
+      const expRes = await fetch("/api/expenses");
+      const expData = await expRes.json();
+      if (expData.success && Array.isArray(expData.expenses)) {
+        setExpenses(expData.expenses);
       }
     } catch (err) {
       console.error("Dashboard data fetch error:", err);
@@ -290,9 +319,25 @@ export default function AdminDashboardPage() {
             </div>
           )}
 
-          {visitedTabs.has("fleet_catalog") && (
-            <div className={activeTab === "fleet_catalog" ? "block" : "hidden"}>
+          {(visitedTabs.has("fleet") || visitedTabs.has("fleet_catalog")) && (
+            <div className={activeTab === "fleet" || activeTab === "fleet_catalog" ? "block" : "hidden"}>
               <FleetCatalogView />
+            </div>
+          )}
+
+          {visitedTabs.has("drivers") && (
+            <div className={activeTab === "drivers" ? "block" : "hidden"}>
+              <DriversView
+                drivers={drivers}
+                onRefresh={fetchAllData}
+                searchFilter={searchQuery}
+              />
+            </div>
+          )}
+
+          {visitedTabs.has("expenses") && (
+            <div className={activeTab === "expenses" ? "block" : "hidden"}>
+              <ExpensesView />
             </div>
           )}
 
@@ -301,17 +346,6 @@ export default function AdminDashboardPage() {
               <DutySlipsView
                 dutySlips={dutySlips}
                 onOpenPrintModal={(s) => setSelectedSlipForPrint(s)}
-                searchFilter={searchQuery}
-              />
-            </div>
-          )}
-
-          {visitedTabs.has("fleet") && (
-            <div className={activeTab === "fleet" ? "block" : "hidden"}>
-              <FleetView
-                drivers={drivers}
-                onOpenAddDriverModal={() => setIsAddDriverModalOpen(true)}
-                onRefresh={fetchAllData}
                 searchFilter={searchQuery}
               />
             </div>
@@ -334,7 +368,13 @@ export default function AdminDashboardPage() {
 
           {visitedTabs.has("analytics") && (
             <div className={activeTab === "analytics" ? "block" : "hidden"}>
-              <AnalyticsView dutySlips={dutySlips} rateCards={rateCards} />
+              <AnalyticsView
+                dutySlips={dutySlips}
+                rateCards={rateCards}
+                expenses={expenses}
+                bookings={bookings}
+                drivers={drivers}
+              />
             </div>
           )}
         </main>

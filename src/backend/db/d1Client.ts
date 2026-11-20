@@ -187,6 +187,29 @@ export interface TourPackageRecord {
   created_at?: string;
 }
 
+export interface ExpenseRecord {
+  id: string;
+  date: string;
+  vehicle_number: string;
+  vehicle_name?: string;
+  driver_name?: string;
+  category:
+    | "Fuel (Diesel/Petrol)"
+    | "FASTag & Tolls"
+    | "Vehicle Maintenance & Repairs"
+    | "Chauffeur Batta & Food"
+    | "Permits & Border Tax"
+    | "Tyres, Oil & Spares"
+    | "Insurance & RTA Compliance"
+    | "Miscellaneous";
+  amount: number;
+  payment_mode: "FASTag Wallet" | "Cash" | "UPI / GPay" | "Company Card" | "Bank Transfer";
+  receipt_url?: string;
+  notes?: string;
+  status: "Paid" | "Pending Approval" | "Reimbursed";
+  created_at?: string;
+}
+
 interface LocalDatabaseState {
   bookings: BookingRecord[];
   duty_slips: DutySlipRecord[];
@@ -200,6 +223,7 @@ interface LocalDatabaseState {
   fleet_vehicles?: FleetVehicleRecord[];
   places_hubs?: PlaceHubRecord[];
   tour_packages?: TourPackageRecord[];
+  expenses?: ExpenseRecord[];
 }
 
 const LOCAL_DB_PATH = path.join(process.cwd(), ".data", "sadhguru_db.json");
@@ -832,6 +856,89 @@ function readLocalDb(): LocalDatabaseState {
           features: ["Long Distance Highway Pilots", "Comfortable Captain Seats", "All-India Permit Ready"],
           is_published: true,
           created_at: new Date().toISOString(),
+        },
+      ];
+      changed = true;
+    }
+    if (!parsed.expenses) {
+      parsed.expenses = [
+        {
+          id: "EXP-1001",
+          date: new Date(Date.now() - 86400000 * 1).toISOString().split("T")[0],
+          vehicle_number: "TS 09 UB 4455",
+          vehicle_name: "Swift Dzire",
+          driver_name: "K. Shiva Kumar",
+          category: "Fuel (Diesel/Petrol)",
+          amount: 3200,
+          payment_mode: "Company Card",
+          notes: "Indian Oil Petrol Pump, Kukatpally Y-Junction (Full Tank Diesel)",
+          status: "Paid",
+          created_at: new Date(Date.now() - 86400000 * 1).toISOString(),
+        },
+        {
+          id: "EXP-1002",
+          date: new Date(Date.now() - 86400000 * 2).toISOString().split("T")[0],
+          vehicle_number: "TS 08 EX 9090",
+          vehicle_name: "Innova Crysta",
+          driver_name: "M. Ramesh Reddy",
+          category: "FASTag & Tolls",
+          amount: 2000,
+          payment_mode: "FASTag Wallet",
+          notes: "ORR & Hyderabad-Srisailam Highway Toll Plaza Auto Recharge",
+          status: "Paid",
+          created_at: new Date(Date.now() - 86400000 * 2).toISOString(),
+        },
+        {
+          id: "EXP-1003",
+          date: new Date(Date.now() - 86400000 * 3).toISOString().split("T")[0],
+          vehicle_number: "TS 08 EX 9090",
+          vehicle_name: "Innova Crysta",
+          driver_name: "M. Ramesh Reddy",
+          category: "Vehicle Maintenance & Repairs",
+          amount: 8450,
+          payment_mode: "Bank Transfer",
+          notes: "Periodic 40,000 KM Engine Oil, Filter & Brake Pad Inspection (Harsha Toyota Kondapur)",
+          status: "Paid",
+          created_at: new Date(Date.now() - 86400000 * 3).toISOString(),
+        },
+        {
+          id: "EXP-1004",
+          date: new Date(Date.now() - 86400000 * 4).toISOString().split("T")[0],
+          vehicle_number: "TS 07 TT 1717",
+          vehicle_name: "Force Tempo Traveller",
+          driver_name: "K. Shiva Kumar",
+          category: "Chauffeur Batta & Food",
+          amount: 1600,
+          payment_mode: "UPI / GPay",
+          notes: "2-Day Tirupati Pilgrimage Night Batta & Meal Allowance",
+          status: "Paid",
+          created_at: new Date(Date.now() - 86400000 * 4).toISOString(),
+        },
+        {
+          id: "EXP-1005",
+          date: new Date(Date.now() - 86400000 * 5).toISOString().split("T")[0],
+          vehicle_number: "TS 09 UB 4455",
+          vehicle_name: "Swift Dzire",
+          driver_name: "K. Shiva Kumar",
+          category: "Permits & Border Tax",
+          amount: 850,
+          payment_mode: "Cash",
+          notes: "Andhra Pradesh Inter-State Passenger Border Tax (Kurnool Checkpost)",
+          status: "Paid",
+          created_at: new Date(Date.now() - 86400000 * 5).toISOString(),
+        },
+        {
+          id: "EXP-1006",
+          date: new Date(Date.now() - 86400000 * 6).toISOString().split("T")[0],
+          vehicle_number: "TS 07 TT 1717",
+          vehicle_name: "Force Tempo Traveller",
+          driver_name: "M. Ramesh Reddy",
+          category: "Tyres, Oil & Spares",
+          amount: 2400,
+          payment_mode: "UPI / GPay",
+          notes: "Dual AC Compressor Gas Top-up & Air Duct Cleaning for summer highway readiness",
+          status: "Paid",
+          created_at: new Date(Date.now() - 86400000 * 6).toISOString(),
         },
       ];
       changed = true;
@@ -1582,5 +1689,64 @@ export const d1Client = {
     db.users[idx] = { ...db.users[idx], ...updates };
     writeLocalDb(db);
     return db.users[idx];
+  },
+
+  // --- Fleet Operations Expenses ---
+  async getExpenses(filter?: { vehicle?: string; category?: string; startDate?: string; endDate?: string }): Promise<ExpenseRecord[]> {
+    const db = readLocalDb();
+    let list = db.expenses || [];
+    if (filter?.vehicle && filter.vehicle !== "all") {
+      const q = filter.vehicle.toLowerCase();
+      list = list.filter((e) => e.vehicle_number?.toLowerCase().includes(q) || e.vehicle_name?.toLowerCase().includes(q));
+    }
+    if (filter?.category && filter.category !== "all") {
+      list = list.filter((e) => e.category === filter.category);
+    }
+    if (filter?.startDate) {
+      list = list.filter((e) => e.date >= filter.startDate!);
+    }
+    if (filter?.endDate) {
+      list = list.filter((e) => e.date <= filter.endDate!);
+    }
+    return list.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  },
+
+  async createExpense(data: Omit<ExpenseRecord, "id" | "created_at">): Promise<ExpenseRecord> {
+    const db = readLocalDb();
+    if (!db.expenses) db.expenses = [];
+    const id = "EXP-" + Math.floor(1000 + Math.random() * 9000);
+    const newExpense: ExpenseRecord = {
+      ...data,
+      id,
+      amount: Number(data.amount) || 0,
+      created_at: new Date().toISOString(),
+    };
+    db.expenses.unshift(newExpense);
+    writeLocalDb(db);
+    return newExpense;
+  },
+
+  async updateExpense(id: string, updates: Partial<ExpenseRecord>): Promise<ExpenseRecord | null> {
+    const db = readLocalDb();
+    if (!db.expenses) return null;
+    const idx = db.expenses.findIndex((e) => e.id === id);
+    if (idx === -1) return null;
+    db.expenses[idx] = {
+      ...db.expenses[idx],
+      ...updates,
+      amount: updates.amount !== undefined ? Number(updates.amount) : db.expenses[idx].amount,
+    };
+    writeLocalDb(db);
+    return db.expenses[idx];
+  },
+
+  async deleteExpense(id: string): Promise<boolean> {
+    const db = readLocalDb();
+    if (!db.expenses) return false;
+    const idx = db.expenses.findIndex((e) => e.id === id);
+    if (idx === -1) return false;
+    db.expenses.splice(idx, 1);
+    writeLocalDb(db);
+    return true;
   },
 };

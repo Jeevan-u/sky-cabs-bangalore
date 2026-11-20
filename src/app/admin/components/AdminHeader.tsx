@@ -77,9 +77,17 @@ export default function AdminHeader({
       title: "Digital Duty Slips & Invoices",
       subtitle: "Verified customer touch signatures, KM readings, and tax invoices",
     },
+    drivers: {
+      title: "Chauffeur & Driver Roster",
+      subtitle: "Manage highway-certified pilots, assigned vehicles, contact details, and instant dispatch duty statuses",
+    },
     fleet: {
-      title: "Fleet & Chauffeur Roster",
-      subtitle: "Real-time driver availability, vehicle health, and duty status",
+      title: "Fleet Management & Asset Catalog",
+      subtitle: "Manage 5 to 50-seater passenger fleet specs, features, images, and tariffs",
+    },
+    expenses: {
+      title: "Fleet Operations Expenses Ledger",
+      subtitle: "Track fuel, FASTag tolls, garage maintenance, chauffeur batta, and state permits",
     },
     rates: {
       title: "Transparent Rate Card Engine",
@@ -90,8 +98,8 @@ export default function AdminHeader({
       subtitle: "Google Maps 5-star reviews and intercepted private feedback",
     },
     analytics: {
-      title: "Revenue & Financial Analytics",
-      subtitle: "Zero-commission dividend, vehicle asset returns, and trip margins",
+      title: "End-to-End P&L & Revenue Analytics",
+      subtitle: "Reconcile real gross revenue, operating expenses, vehicle asset margins, and net profits",
     },
   };
 
