@@ -10,12 +10,16 @@ export interface CustomVehicleSelectProps {
   value: string;
   onChange: (vehicleId: string) => void;
   className?: string;
+  label?: string;
+  labelClassName?: string;
 }
 
 export const CustomVehicleSelect: React.FC<CustomVehicleSelectProps> = ({
   value,
   onChange,
   className = "",
+  label = "Vehicle Class",
+  labelClassName = "",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -36,8 +40,13 @@ export const CustomVehicleSelect: React.FC<CustomVehicleSelectProps> = ({
 
   return (
     <div className={`relative ${className}`} ref={containerRef}>
-      <label className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block mb-1.5">
-        Vehicle Class
+      <label
+        className={
+          labelClassName ||
+          "text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block mb-1.5"
+        }
+      >
+        {label}
       </label>
 
       {/* Trigger Button */}
@@ -55,6 +64,9 @@ export const CustomVehicleSelect: React.FC<CustomVehicleSelectProps> = ({
             </span>
             <span className="text-[10px] font-extrabold px-1.5 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 flex-shrink-0">
               {selectedVehicle.capacity.split(" ")[0]}
+            </span>
+            <span className="hidden sm:inline-block text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 truncate">
+              · ₹{selectedVehicle.airportFlatRate} Airport / ₹{selectedVehicle.perKmRate}/km
             </span>
           </div>
         </div>
@@ -74,7 +86,7 @@ export const CustomVehicleSelect: React.FC<CustomVehicleSelectProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute z-[70] left-0 w-[300px] sm:w-[350px] max-w-[calc(100vw-2.5rem)] mt-2 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200/80 dark:border-neutral-700/80 overflow-hidden flex flex-col backdrop-blur-md"
+            className="absolute z-[70] left-0 w-full min-w-[300px] sm:min-w-[380px] max-w-[calc(100vw-2.5rem)] mt-2 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200/80 dark:border-neutral-700/80 overflow-hidden flex flex-col backdrop-blur-md"
           >
             {/* Header */}
             <div className="p-2.5 bg-neutral-50/90 dark:bg-neutral-800/90 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-[11px]">

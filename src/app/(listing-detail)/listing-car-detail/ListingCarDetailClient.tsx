@@ -24,6 +24,7 @@ import {
   AnimatedTabs,
   ShimmerButton,
 } from "@/components/reactbits";
+import CustomVehicleSelect from "@/components/CustomVehicleSelect";
 
 export interface ListingCarDetailPageProps {}
 
@@ -410,22 +411,12 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
         </div>
 
         {/* VEHICLE SELECTOR */}
-        <div>
-          <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
-            Select Commercial Vehicle
-          </label>
-          <select
-            value={currentVehicle.id}
-            onChange={(e) => setSelectedVehicleId(e.target.value)}
-            className="w-full px-3.5 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-semibold text-neutral-900 dark:text-white outline-none focus:border-primary-500 cursor-pointer"
-          >
-            {SADHGURU_FLEET.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.name} ({f.capacity}) · ₹{f.airportFlatRate} Airport / ₹{f.perKmRate}/km
-              </option>
-            ))}
-          </select>
-        </div>
+        <CustomVehicleSelect
+          label="Select Commercial Vehicle"
+          labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
+          value={currentVehicle.id}
+          onChange={(id) => setSelectedVehicleId(id)}
+        />
 
         {/* SUMMARY BREAKDOWN */}
         <div className="space-y-2.5 text-xs text-neutral-600 dark:text-neutral-400 pt-2 border-t border-neutral-100 dark:border-neutral-800">

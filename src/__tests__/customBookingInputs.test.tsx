@@ -25,6 +25,18 @@ describe("CustomVehicleSelect component", () => {
     fireEvent.click(screen.getByText("Swift Dzire / Toyota Etios"));
     expect(handleChange).toHaveBeenCalledWith("dzire-etios");
   });
+
+  it("supports custom label and labelClassName", () => {
+    render(
+      <CustomVehicleSelect
+        value="innova-crysta"
+        onChange={() => {}}
+        label="Choose Commercial Vehicle Model"
+        labelClassName="custom-label-class"
+      />
+    );
+    expect(screen.getByText("Choose Commercial Vehicle Model")).toBeInTheDocument();
+  });
 });
 
 describe("CustomDateTimePicker component", () => {
@@ -39,6 +51,19 @@ describe("CustomDateTimePicker component", () => {
     );
 
     expect(screen.getByText(/20 Nov.*06:00 AM/)).toBeInTheDocument();
+  });
+
+  it("supports custom label prop", () => {
+    render(
+      <CustomDateTimePicker
+        label="Pickup Date & Time *"
+        travelDate="2026-11-20"
+        travelTime="06:00 AM"
+        onDateChange={() => {}}
+        onTimeChange={() => {}}
+      />
+    );
+    expect(screen.getByText("Pickup Date & Time *")).toBeInTheDocument();
   });
 
   it("opens popover and allows quick shortcuts and time change", () => {

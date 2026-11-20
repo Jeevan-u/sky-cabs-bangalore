@@ -23,6 +23,9 @@ import {
   BorderBeam,
   ShimmerButton,
 } from "@/components/reactbits";
+import CustomVehicleSelect from "@/components/CustomVehicleSelect";
+import CustomDateTimePicker from "@/components/CustomDateTimePicker";
+import SmartLocationInput from "@/components/SmartLocationInput";
 
 const POPULAR_PICKUPS = [
   "Kukatpally (HQ / Y-Junction)",
@@ -249,40 +252,24 @@ const CheckOutPagePageMain: FC = () => {
               </div>
 
               {/* Vehicle Select */}
-              <div>
-                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
-                  Choose Vehicle Model
-                </label>
-                <select
-                  value={vehicleId}
-                  onChange={(e) => setVehicleId(e.target.value)}
-                  className="w-full px-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm font-semibold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
-                >
-                  {SADHGURU_FLEET.map((f) => (
-                    <option key={f.id} value={f.id}>
-                      {f.name} ({f.capacity}) · ₹{f.airportFlatRate} Airport / ₹{f.perKmRate}/km
-                    </option>
-                  ))}
-                </select>
-              </div>
+              <CustomVehicleSelect
+                label="Choose Commercial Vehicle Model"
+                labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
+                value={vehicleId}
+                onChange={(id) => setVehicleId(id)}
+              />
 
               {/* Pickup Address */}
               <div>
-                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center justify-between mb-2">
-                  <span>Doorstep Pickup Location in Hyderabad / Telangana</span>
-                  <span className="text-[11px] text-neutral-400 font-normal">Exact doorstep arrival</span>
-                </label>
-                <div className="relative">
-                  <MapPinIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    required
-                    value={pickupAddress}
-                    onChange={(e) => setPickupAddress(e.target.value)}
-                    placeholder="e.g. Flat 302, KPHB Phase 3, Kukatpally / Hotel Reception..."
-                    className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
-                  />
-                </div>
+                <SmartLocationInput
+                  label="Doorstep Pickup Location in Hyderabad / Telangana"
+                  labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
+                  value={pickupAddress}
+                  onChange={(val) => setPickupAddress(val)}
+                  placeholder="e.g. Flat 302, KPHB Phase 3, Kukatpally / Hotel Reception..."
+                  type="pickup"
+                  enableGps={true}
+                />
                 {/* Quick Chips */}
                 <div className="flex flex-wrap gap-1.5 mt-2">
                   {POPULAR_PICKUPS.slice(0, 4).map((chip) => (
@@ -300,21 +287,14 @@ const CheckOutPagePageMain: FC = () => {
 
               {/* Drop-off Address */}
               <div>
-                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 flex items-center justify-between mb-2">
-                  <span>Destination / Drop-off Location</span>
-                  <span className="text-[11px] text-neutral-400 font-normal">Airport / Outstation / Local</span>
-                </label>
-                <div className="relative">
-                  <MapPinIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    required
-                    value={dropAddress}
-                    onChange={(e) => setDropAddress(e.target.value)}
-                    placeholder="e.g. Shamshabad Airport Departures / Srisailam Temple..."
-                    className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
-                  />
-                </div>
+                <SmartLocationInput
+                  label="Destination / Drop-off Location"
+                  labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
+                  value={dropAddress}
+                  onChange={(val) => setDropAddress(val)}
+                  placeholder="e.g. Shamshabad Airport Departures / Srisailam Temple..."
+                  type="drop"
+                />
                 {/* Quick Chips */}
                 <div className="flex flex-wrap gap-1.5 mt-2">
                   {POPULAR_DROPS.slice(0, 4).map((chip) => (
@@ -330,41 +310,15 @@ const CheckOutPagePageMain: FC = () => {
                 </div>
               </div>
 
-              {/* Date & Time Picker Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
-                    Pickup Date
-                  </label>
-                  <div className="relative">
-                    <CalendarDaysIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="date"
-                      required
-                      value={pickupDate}
-                      onChange={(e) => setPickupDate(e.target.value)}
-                      className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2">
-                    Pickup Time
-                  </label>
-                  <div className="relative">
-                    <ClockIcon className="w-5 h-5 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      required
-                      value={pickupTime}
-                      onChange={(e) => setPickupTime(e.target.value)}
-                      placeholder="e.g. 05:30 AM / 11:00 PM"
-                      className="w-full pl-11 pr-4 py-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs sm:text-sm text-neutral-900 dark:text-white outline-none focus:border-primary-500 font-medium"
-                    />
-                  </div>
-                </div>
-              </div>
+              {/* Date & Time Picker */}
+              <CustomDateTimePicker
+                label="Pickup Date & Time *"
+                labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
+                travelDate={pickupDate}
+                travelTime={pickupTime}
+                onDateChange={(d) => setPickupDate(d)}
+                onTimeChange={(t) => setPickupTime(t)}
+              />
             </SpotlightCard>
 
             {/* Step 2: Passenger Contact Details */}

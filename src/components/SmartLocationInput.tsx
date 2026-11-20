@@ -110,6 +110,7 @@ export interface SmartLocationInputProps {
   type: "pickup" | "drop";
   enableGps?: boolean;
   className?: string;
+  labelClassName?: string;
 }
 
 export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
@@ -120,6 +121,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
   type,
   enableGps = false,
   className = "",
+  labelClassName = "",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLocating, setIsLocating] = useState(false);
@@ -295,7 +297,12 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
   return (
     <div className={`relative ${className}`} ref={containerRef}>
       <div className="flex items-center justify-between mb-1.5">
-        <label className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block">
+        <label
+          className={
+            labelClassName ||
+            "text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block"
+          }
+        >
           {label}
         </label>
       </div>
