@@ -115,7 +115,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.35 }}
-            className="relative w-full h-[380px] sm:h-[440px] lg:h-[480px] flex items-center justify-center"
+            className="relative w-full h-[360px] sm:h-[420px] lg:h-[460px] xl:h-[480px] flex items-center justify-center overflow-visible"
           >
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-sky-500/10 to-transparent blur-3xl -z-10 rounded-full" />
@@ -124,7 +124,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
             <Float
               duration={4.8}
               offset={10}
-              className="absolute top-2 left-2 sm:left-4 z-20 w-[54%] sm:w-[50%] aspect-[16/10]"
+              className="absolute top-2 left-1 sm:left-3 z-20 w-[54%] sm:w-[50%] aspect-[16/10]"
             >
               <TiltedCard
                 captionText="Doorstep Pickups · Kukatpally & Hyderabad"
@@ -161,7 +161,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
               duration={5.6}
               offset={-12}
               delay={0.8}
-              className="absolute bottom-4 left-4 sm:left-8 z-10 w-[50%] sm:w-[46%] aspect-[16/11]"
+              className="absolute bottom-4 left-3 sm:left-6 z-10 w-[50%] sm:w-[46%] aspect-[16/11]"
             >
               <TiltedCard
                 captionText="Hill-Road Spec Chauffeurs"
@@ -197,7 +197,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
               duration={6.2}
               offset={14}
               delay={1.4}
-              className="absolute top-6 right-2 sm:right-4 z-30 w-[42%] sm:w-[44%] aspect-[9/13]"
+              className="absolute top-6 right-1 sm:right-2 z-30 w-[42%] sm:w-[44%] aspect-[9/13]"
             >
               <TiltedCard
                 captionText="24x7 Airport Transfers"
@@ -236,9 +236,9 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
             <Float
               duration={3.8}
               offset={8}
-              className="absolute -top-3 left-1/3 z-40 pointer-events-none"
+              className="absolute -top-3 left-1/4 sm:left-1/3 z-40 pointer-events-none"
             >
-              <div className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-amber-500/40 text-[11px] font-extrabold text-neutral-900 dark:text-neutral-100 shadow-2xl flex items-center gap-1.5">
+              <div className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-amber-500/40 text-[11px] font-extrabold text-neutral-900 dark:text-neutral-100 shadow-2xl flex items-center gap-1.5 whitespace-nowrap">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -252,9 +252,9 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
               duration={4.4}
               offset={-8}
               delay={1}
-              className="absolute -bottom-2 right-1/4 z-40 pointer-events-none"
+              className="absolute -bottom-2 right-1/6 sm:right-1/4 z-40 pointer-events-none"
             >
-              <div className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-sky-500/40 text-[11px] font-extrabold text-neutral-900 dark:text-neutral-100 shadow-2xl flex items-center gap-1.5">
+              <div className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-sky-500/40 text-[11px] font-extrabold text-neutral-900 dark:text-neutral-100 shadow-2xl flex items-center gap-1.5 whitespace-nowrap">
                 <BoltIcon className="w-4 h-4 text-amber-500" />
                 <span>15-Min Doorstep Pickup</span>
               </div>

@@ -111,21 +111,22 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [numberOfItems, setNumberOfitem] = useState(0);
+  const [numberOfItems, setNumberOfitem] = useState<number>(itemPerRow);
 
   const windowWidth = useWindowSize().width;
   useEffect(() => {
-    if (windowWidth < 320) {
+    if (!windowWidth) return;
+    if (windowWidth < 480) {
       return setNumberOfitem(1);
     }
-    if (windowWidth < 500) {
-      return setNumberOfitem(itemPerRow - 3);
+    if (windowWidth < 640) {
+      return setNumberOfitem(2);
     }
     if (windowWidth < 1024) {
-      return setNumberOfitem(itemPerRow - 2);
+      return setNumberOfitem(3);
     }
     if (windowWidth < 1280) {
-      return setNumberOfitem(itemPerRow - 1);
+      return setNumberOfitem(4);
     }
 
     setNumberOfitem(itemPerRow);
@@ -214,7 +215,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
             <PrevBtn
               style={{ transform: "translate3d(0, 0, 0)" }}
               onClick={() => changeItemId(currentIndex - 1)}
-              className="w-9 h-9 xl:w-12 xl:h-12 text-lg absolute -left-3 xl:-left-6 top-1/3 -translate-y-1/2 z-[1]"
+              className="w-10 h-10 xl:w-11 xl:h-11 text-lg absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 bg-white/95 dark:bg-neutral-800/95 shadow-xl backdrop-blur-md rounded-full border border-neutral-200 dark:border-neutral-700 hover:scale-105 transition-all flex items-center justify-center cursor-pointer"
             />
           ) : null}
 
@@ -222,7 +223,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
             <NextBtn
               style={{ transform: "translate3d(0, 0, 0)" }}
               onClick={() => changeItemId(currentIndex + 1)}
-              className="w-9 h-9 xl:w-12 xl:h-12 text-lg absolute -right-3 xl:-right-6 top-1/3 -translate-y-1/2 z-[1]"
+              className="w-10 h-10 xl:w-11 xl:h-11 text-lg absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 bg-white/95 dark:bg-neutral-800/95 shadow-xl backdrop-blur-md rounded-full border border-neutral-200 dark:border-neutral-700 hover:scale-105 transition-all flex items-center justify-center cursor-pointer"
             />
           ) : null}
         </div>

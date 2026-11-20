@@ -19,12 +19,12 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
 }) => {
   return (
     <div
-      className={`nc-SectionBecomeAnAuthor relative flex flex-col lg:flex-row items-center ${className}`}
+      className={`nc-SectionBecomeAnAuthor relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-6 sm:p-10 lg:p-14 ${className}`}
       data-nc-id="SectionBecomeAnAuthor"
     >
-      <div className="flex-shrink-0 mb-16 lg:mb-0 lg:mr-10 lg:w-2/5">
+      <div className="lg:col-span-6 w-full">
         <Logo />
-        <h2 className="font-bold text-3xl sm:text-4xl mt-6 sm:mt-10 text-neutral-900 dark:text-neutral-100 leading-tight">
+        <h2 className="font-bold text-3xl sm:text-4xl mt-6 sm:mt-8 text-neutral-900 dark:text-neutral-100 leading-tight">
           Planning a <ShinyText text="Pilgrimage, Wedding, or Airport Trip?" speed={3} />
         </h2>
         <p className="block mt-4 text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
@@ -58,7 +58,7 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
           </MagneticButton>
         </div>
       </div>
-      <div className="flex-grow max-w-lg lg:max-w-none w-full">
+      <div className="lg:col-span-6 w-full flex justify-center">
         <TiltedCard
           captionText="Sri Sadhguru Group & Wedding Convoys"
           containerHeight="100%"

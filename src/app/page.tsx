@@ -126,6 +126,7 @@ function PageHome() {
             categories={POPULAR_HUBS}
             heading="Popular Hubs & RGIA Airport Routes"
             subHeading="Prompt 24x7 doorstep pickups across Kukatpally, KPHB, Miyapur, Hitec City, Medchal & Shamshabad Airport"
+            sliderStyle="style2"
           />
         </ScrollReveal>
 

@@ -259,7 +259,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
       <Link
         prefetch={!isHash}
         rel="noopener noreferrer"
-        className="inline-flex items-center text-xs xl:text-sm font-bold text-neutral-700 dark:text-neutral-200 py-2 px-2.5 xl:px-3 rounded-full hover:text-primary-600 hover:bg-neutral-100/80 dark:hover:bg-neutral-800 dark:hover:text-white whitespace-nowrap flex-shrink-0 transition-all duration-200 group"
+        className="inline-flex items-center text-xs 2xl:text-sm font-bold text-neutral-700 dark:text-neutral-200 py-1.5 2xl:py-2 px-2 xl:px-2.5 2xl:px-3 rounded-full hover:text-primary-600 hover:bg-neutral-100/80 dark:hover:bg-neutral-800 dark:hover:text-white whitespace-nowrap flex-shrink-0 transition-all duration-200 group"
         href={item.href || "/"}
       >
         <span>{item.name}</span>

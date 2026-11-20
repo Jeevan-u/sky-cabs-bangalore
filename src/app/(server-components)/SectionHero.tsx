@@ -61,8 +61,8 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
         <Meteors number={12} color="#f59e0b" />
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:items-center py-6 sm:py-10 lg:py-16">
-        <div className="flex-shrink-0 lg:w-1/2 flex flex-col items-start space-y-6 sm:space-y-8 pb-10 lg:pb-0 xl:pr-14 lg:mr-10 xl:mr-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center py-6 sm:py-10 lg:py-14">
+        <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start space-y-6 sm:space-y-8">
           
           {/* React Bits StarBorder & ShinyText Badge */}
           <StarBorder
@@ -117,7 +117,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             </div>
           </h1>
 
-          <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl">
             Travel Safe... Travel Happy... Your Journey, Our Responsibility.
             5-Seater to 50-Seater Vehicles Available 24x7 across Kukatpally,
             KPHB, Miyapur, Hitec City, Shamshabad Airport & Gandhari.
@@ -149,7 +149,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           </div>
 
           {/* Quick Service Highlights with SpotlightCard */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 w-full max-w-xl">
             <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(56, 189, 248, 0.2)">
               <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 <AirplaneIcon className="w-4 h-4 text-sky-500 flex-shrink-0" />
@@ -194,8 +194,8 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           </div>
         </div>
 
-        {/* React Bits Animated Multi-Image Gallery */}
-        <div className="flex-grow max-w-lg lg:max-w-none w-full">
+        {/* Right Column: Floating Interactive Gallery */}
+        <div className="lg:col-span-6 xl:col-span-6 w-full">
           <AnimatedHeroGallery />
         </div>
       </div>

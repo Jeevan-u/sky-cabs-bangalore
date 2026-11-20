@@ -2,6 +2,28 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --page-max-width: 1440px;
+  --page-gutter: clamp(16px, 3.5vw, 48px);
+}
+
+@utility page-container {
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--page-max-width));
+  margin-inline: auto;
+}
+
+@utility container {
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--page-max-width));
+  margin-inline: auto;
+}
+
+.page-container,
+.container {
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--page-max-width)) !important;
+  max-width: var(--page-max-width) !important;
+  margin-inline: auto !important;
+}
+
 @theme {
   --color-primary-50: rgb(var(--c-primary-50));
   --color-primary-100: rgb(var(--c-primary-100));

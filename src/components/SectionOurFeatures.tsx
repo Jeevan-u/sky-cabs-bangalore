@@ -20,12 +20,10 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
 }) => {
   return (
     <div
-      className={`nc-SectionOurFeatures relative flex flex-col items-center ${
-        type === "type1" ? "lg:flex-row" : "lg:flex-row-reverse"
-      } ${className}`}
+      className={`nc-SectionOurFeatures relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center ${className}`}
       data-nc-id="SectionOurFeatures"
     >
-      <div className="flex-grow max-w-lg lg:max-w-none w-full relative">
+      <div className={`w-full relative ${type === "type1" ? "lg:col-span-6" : "lg:col-span-6 lg:order-last"}`}>
         <Float duration={4.5} offset={8} className="absolute -top-3 -right-2 z-20 pointer-events-none">
           <div className="px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md border border-emerald-500/30 text-xs font-bold text-neutral-900 dark:text-white shadow-xl flex items-center gap-1.5">
             <ShieldCheckIcon className="w-4 h-4 text-emerald-500" />
@@ -50,8 +48,8 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         </TiltedCard>
       </div>
       <div
-        className={`max-w-2xl flex-shrink-0 mt-10 lg:mt-0 lg:w-2/5 ${
-          type === "type1" ? "lg:pl-16" : "lg:pr-16"
+        className={`w-full ${
+          type === "type1" ? "lg:col-span-6" : "lg:col-span-6"
         }`}
       >
         <span className="uppercase text-sm text-primary-6000 dark:text-primary-400 font-bold tracking-widest">

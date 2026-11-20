@@ -26,10 +26,10 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
 
   return (
     <div
-      className={`nc-SectionSubscribe2 relative flex flex-col lg:flex-row lg:items-center ${className}`}
+      className={`nc-SectionSubscribe2 relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${className}`}
       data-nc-id="SectionSubscribe2"
     >
-      <div className="flex-shrink-0 mb-10 lg:mb-0 lg:mr-10 lg:w-1/2">
+      <div className="lg:col-span-6 w-full space-y-4">
         <h2 className="font-extrabold text-3xl sm:text-4xl text-neutral-900 dark:text-neutral-100 leading-tight">
           <ShinyText text="Need an Instant Quote or 24x7 Cab?" speed={3} />
         </h2>
@@ -73,7 +73,7 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
         </form>
       </div>
 
-      <div className="flex-grow flex justify-center max-w-lg lg:max-w-none w-full">
+      <div className="lg:col-span-6 flex justify-center w-full">
         <TiltedCard
           captionText="24x7 Airport & Outstation Cabs"
           containerHeight="100%"
