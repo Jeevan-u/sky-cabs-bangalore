@@ -17,6 +17,7 @@ export interface CustomDateTimePickerProps {
   onDateChange: (date: string) => void;
   onTimeChange: (time: string) => void;
   className?: string;
+  label?: string;
 }
 
 const QUICK_TIMES = [
@@ -52,6 +53,7 @@ export const CustomDateTimePicker: React.FC<CustomDateTimePickerProps> = ({
   onDateChange,
   onTimeChange,
   className = "",
+  label = "Date & Time",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -152,7 +154,7 @@ export const CustomDateTimePicker: React.FC<CustomDateTimePickerProps> = ({
   return (
     <div className={`relative ${className}`} ref={containerRef}>
       <label className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block mb-1.5">
-        Date & Time
+        {label}
       </label>
 
       {/* Trigger Button */}

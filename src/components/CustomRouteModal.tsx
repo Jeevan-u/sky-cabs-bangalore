@@ -212,6 +212,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
 
               {/* Schedule: Date & Time matching website UI */}
               <CustomDateTimePicker
+                label="Pickup Date & Time *"
                 travelDate={pickupDate}
                 travelTime={pickupTime}
                 onDateChange={(d) => setPickupDate(d)}

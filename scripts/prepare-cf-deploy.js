@@ -20,13 +20,15 @@ if (fs.existsSync(publicDir)) {
   fs.cpSync(publicDir, outDir, { recursive: true });
 }
 
-// 2. Copy .next/static to out-cf/_next/static
+// 2. Copy .next/static to out-cf/_next/static AND out-cf/static
 const nextStaticDir = path.join(nextDir, "static");
 const targetNextStaticDir = path.join(outDir, "_next", "static");
+const fallbackStaticDir = path.join(outDir, "static");
 if (fs.existsSync(nextStaticDir)) {
-  console.log("Copying Next.js static chunks to _next/static...");
+  console.log("Copying Next.js static chunks to _next/static and static fallback...");
   fs.mkdirSync(path.dirname(targetNextStaticDir), { recursive: true });
   fs.cpSync(nextStaticDir, targetNextStaticDir, { recursive: true });
+  fs.cpSync(nextStaticDir, fallbackStaticDir, { recursive: true });
 }
 
 // 3. Copy HTML and RSC files from .next/server/app

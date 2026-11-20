@@ -298,33 +298,6 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
         <label className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block">
           {label}
         </label>
-
-        {/* GPS Auto-detect Button (for Pickup Location) */}
-        {enableGps && (
-          <button
-            type="button"
-            onClick={handleDetectGps}
-            disabled={isLocating}
-            className={`inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full transition-all ${
-              isLocating
-                ? "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 animate-pulse"
-                : "text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40"
-            }`}
-            title="Auto-detect current doorstep pickup location via device GPS"
-          >
-            {isLocating ? (
-              <>
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping inline-block" />
-                <span>Locating...</span>
-              </>
-            ) : (
-              <>
-                <span className="text-emerald-500">🎯</span>
-                <span className="underline decoration-dotted underline-offset-2">Auto-Detect GPS</span>
-              </>
-            )}
-          </button>
-        )}
       </div>
 
       {/* Input Field Container */}
