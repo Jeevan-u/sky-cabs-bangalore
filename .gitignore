@@ -46,6 +46,8 @@ dist/
 coverage/
 .playwright-mcp/
 .vercel/
+.wrangler/
+deploy.cmd
 admin-*.png
 debug-*.png
 
