@@ -119,6 +119,13 @@ export default function AdminSidebar({
       title: "LANDING CMS & CONTENT",
       items: [
         {
+          id: "festivals" as AdminTabType,
+          label: "Festivals & Offers",
+          icon: SparklesIcon,
+          badge: "New",
+          badgeColor: "bg-amber-500 text-neutral-950 font-bold",
+        },
+        {
           id: "tours_cms" as AdminTabType,
           label: "Tours & Packages",
           icon: SparklesIcon,

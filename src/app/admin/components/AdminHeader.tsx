@@ -89,7 +89,10 @@ export default function AdminHeader({
       title: "Fleet Operations Expenses Ledger",
       subtitle: "Track fuel, FASTag tolls, garage maintenance, chauffeur batta, and state permits",
     },
-    // rates tab removed; Rate Card Engine now integrated into Fleet view
+    festivals: {
+      title: "Festival Posters, Offers & Client Logos",
+      subtitle: "Manage seasonal festival campaigns, generate AI promo banners, and manage corporate logos",
+    },
     reviews: {
       title: "AI Reputation Shield",
       subtitle: "Google Maps 5-star reviews and intercepted private feedback",

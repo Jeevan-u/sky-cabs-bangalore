@@ -362,7 +362,240 @@ export async function onRequest(context: any) {
         });
       }
     }
-    return new Response(JSON.stringify({ success: true, bookings: [] }), { status: 200, headers });
+
+    const defaultBookings = [
+      {
+        id: "BK-1001",
+        customer_name: "Venkat Rao",
+        customer_phone: "9848012345",
+        trip_type: "airport",
+        vehicle_type: "Swift Dzire (Sedan)",
+        pickup_address: "Kukatpally Housing Board Colony, Phase 3, Hyderabad",
+        drop_address: "RGIA Shamshabad Airport, Hyderabad",
+        pickup_datetime: new Date().toISOString(),
+        estimated_price: 1399,
+        status: "Confirmed",
+        driver_name: "K. Shiva Kumar",
+        driver_phone: "9398522128",
+        vehicle_number: "TS 09 UB 4455",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "BK-1002",
+        customer_name: "Anand Reddy",
+        customer_phone: "9988776655",
+        trip_type: "pilgrimage",
+        vehicle_type: "Toyota Innova Crysta",
+        pickup_address: "Miyapur Metro Station, Hyderabad",
+        drop_address: "Srisailam Mallikarjuna Swamy Temple, AP",
+        pickup_datetime: new Date(Date.now() + 86400000).toISOString(),
+        estimated_price: 6500,
+        status: "Driver Assigned",
+        driver_name: "M. Ramesh",
+        driver_phone: "8106117704",
+        vehicle_number: "TS 08 UB 4512",
+        notes: "Family pilgrimage with elderly parents. Need neat vehicle.",
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: "BK-1003",
+        customer_name: "Suresh Babu",
+        customer_phone: "9876543210",
+        trip_type: "outstation",
+        vehicle_type: "Force Tempo Traveller (12 Seater)",
+        pickup_address: "Hitec City Cyber Towers, Madhapur",
+        drop_address: "Tirupati Balaji Temple & Alipiri",
+        pickup_datetime: new Date().toISOString(),
+        estimated_price: 18500,
+        status: "On Route",
+        driver_name: "S. Rajesh Goud",
+        driver_phone: "9121045678",
+        vehicle_number: "TS 07 UA 9988",
+        created_at: new Date().toISOString(),
+      },
+    ];
+
+    return new Response(JSON.stringify({ success: true, count: defaultBookings.length, bookings: defaultBookings }), {
+      status: 200,
+      headers,
+    });
+  }
+
+  // 6.1 Odometer & Duty Slips
+  if (path.startsWith("/api/odometer")) {
+    const bookingId = url.searchParams.get("bookingId");
+    const records = [
+      {
+        id: "ODO-8001",
+        booking_id: "BK-1001",
+        driver_name: "K. Shiva Kumar",
+        vehicle_number: "TS 09 UB 4455",
+        start_km: 42100,
+        end_km: 42148,
+        total_km: 48,
+        status: "Customer_Confirmed",
+        customer_otp_verified: true,
+      },
+      {
+        id: "ODO-8002",
+        booking_id: "BK-1002",
+        driver_name: "M. Ramesh",
+        vehicle_number: "TS 08 UB 4512",
+        start_km: 68400,
+        end_km: 0,
+        total_km: 0,
+        status: "Dispatched",
+        customer_otp_verified: false,
+      },
+    ];
+    const filtered = bookingId ? records.filter((r) => r.booking_id === bookingId) : records;
+    return new Response(JSON.stringify({ success: true, records: filtered }), { status: 200, headers });
+  }
+
+  if (path.startsWith("/api/duty-slips")) {
+    const dutySlips = [
+      {
+        id: "DS-9001",
+        booking_id: "BK-1001",
+        customer_name: "Venkat Rao",
+        customer_phone: "9848012345",
+        driver_name: "K. Shiva Kumar",
+        vehicle_number: "TS 09 UB 4455",
+        vehicle_model: "Swift Dzire",
+        trip_route: "Kukatpally Phase 3 to Shamshabad Airport",
+        start_km: 42100,
+        end_km: 42148,
+        total_km: 48,
+        toll_parking: 150,
+        driver_bata: 0,
+        total_amount: 1549,
+        signature_data_url:
+          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMzAiPjxwYXRoIGQ9Ik0xMCAyMCBRIDI1IDUgNDAgMjAgVCA3MCAyMCIgc3Ryb2tlPSIjM2I4MmY2IiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=",
+        completed_at: new Date().toISOString(),
+      },
+    ];
+    return new Response(JSON.stringify({ success: true, dutySlips }), { status: 200, headers });
+  }
+
+  // 6.2 WhatsApp API Automation & Dispatch
+  if (path.startsWith("/api/whatsapp/send")) {
+    if (method === "POST") {
+      try {
+        const body = await context.request.json();
+        const {
+          customerName,
+          customerPhone,
+          pickupAddress,
+          dropAddress,
+          vehicleType,
+          tripType,
+          pickupDatetime,
+          estimatedPrice,
+          notes,
+          bookingId,
+        } = body;
+
+        const refId = bookingId || "BK-" + Math.floor(1000 + Math.random() * 9000);
+        let formattedDate = pickupDatetime || new Date().toISOString();
+        try {
+          const parsed = new Date(pickupDatetime);
+          if (!isNaN(parsed.getTime())) {
+            formattedDate = parsed.toLocaleString("en-IN", {
+              dateStyle: "medium",
+              timeStyle: "short",
+            });
+          }
+        } catch {}
+
+        const formattedMessage =
+          `*SRI SADHGURU TOURS & TRAVELS*\n` +
+          `24x7 Cab & Bus Booking Confirmation\n` +
+          `-----------------------------------------\n` +
+          `• *Booking Ref:* ${refId}\n` +
+          `• *Customer:* ${customerName || "Valued Passenger"} (${customerPhone || "N/A"})\n` +
+          `• *Vehicle:* ${vehicleType || "Toyota Innova Crysta"}\n` +
+          `• *Trip Category:* ${(tripType || "airport").toUpperCase()}\n` +
+          `• *Pickup:* ${pickupAddress || "Kukatpally, Hyderabad"}\n` +
+          `• *Destination:* ${dropAddress || "Shamshabad Airport"}\n` +
+          `• *Pickup Time:* ${formattedDate}\n` +
+          `• *Estimated Fare:* ₹${Number(estimatedPrice || 0).toLocaleString("en-IN")}\n` +
+          (notes ? `• *Notes:* ${notes}\n` : ``) +
+          `-----------------------------------------\n` +
+          `• *24x7 Dispatch:* +91 8106117704 | +91 9398522128\n` +
+          `*Thank you for choosing SRI SADHGURU TOURS & TRAVELS!*`;
+
+        const adminPhone = context.env?.ADMIN_WHATSAPP_NUMBER || "918106117704";
+        const waApiKey = context.env?.WHATSAPP_API_KEY || context.env?.WHATSAPP_CLOUD_API_TOKEN;
+        const phoneId = context.env?.WHATSAPP_PHONE_NUMBER_ID;
+
+        const waLink = `https://wa.me/${adminPhone}?text=${encodeURIComponent(formattedMessage)}`;
+
+        if (waApiKey && phoneId) {
+          try {
+            await fetch(`https://graph.facebook.com/v18.0/${phoneId}/messages`, {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${waApiKey}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                messaging_product: "whatsapp",
+                recipient_type: "individual",
+                to: adminPhone,
+                type: "text",
+                text: { body: formattedMessage },
+              }),
+            });
+
+            if (customerPhone && customerPhone.length >= 10) {
+              const cleanCust = customerPhone.replace(/[^0-9]/g, "");
+              const custTarget = cleanCust.length === 10 ? `91${cleanCust}` : cleanCust;
+              await fetch(`https://graph.facebook.com/v18.0/${phoneId}/messages`, {
+                method: "POST",
+                headers: {
+                  Authorization: `Bearer ${waApiKey}`,
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  messaging_product: "whatsapp",
+                  recipient_type: "individual",
+                  to: custTarget,
+                  type: "text",
+                  text: { body: formattedMessage },
+                }),
+              }).catch(() => {});
+            }
+
+            return new Response(
+              JSON.stringify({
+                success: true,
+                mode: "cloud_api",
+                bookingId: refId,
+                message: "WhatsApp notification dispatched via Meta Cloud API.",
+                waLink,
+              }),
+              { status: 200, headers }
+            );
+          } catch (err) {
+            console.warn("Cloud API dispatch failed:", err);
+          }
+        }
+
+        return new Response(
+          JSON.stringify({
+            success: true,
+            mode: "fallback",
+            bookingId: refId,
+            message: "Ready to confirm via WhatsApp.",
+            waLink,
+            formattedMessage,
+          }),
+          { status: 200, headers }
+        );
+      } catch (err: any) {
+        return new Response(JSON.stringify({ error: err.message || "Bad Request" }), { status: 400, headers });
+      }
+    }
   }
 
   // 7. AI Review Generator powered by OpenRouter

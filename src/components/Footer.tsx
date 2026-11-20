@@ -205,8 +205,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-neutral-200/60 dark:border-neutral-800/60 py-6 bg-neutral-50/40 dark:bg-neutral-900/40 text-xs">
           <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-neutral-500 dark:text-neutral-400">
             <div>
-              <p>
-                © {new Date().getFullYear()} Sri Sadhguru Tours & Travels. All rights reserved.
+              <p className="font-extrabold tracking-wide uppercase text-neutral-900 dark:text-white">
+                © {new Date().getFullYear()} SRI SADHGURU TOURS & TRAVELS. All rights reserved.
               </p>
               <p className="text-[11px] text-neutral-400 dark:text-neutral-500 mt-0.5">
                 Headquarters: Kukatpally, Hyderabad, Telangana 500072. Proprietor: {SADHGURU_CONTACT.proprietor}.

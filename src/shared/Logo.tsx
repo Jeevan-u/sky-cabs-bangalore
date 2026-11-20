@@ -48,7 +48,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", imgClassName = "" }) => {
       <div className="flex flex-col whitespace-nowrap">
         <div className="flex items-center gap-1 sm:gap-1.5">
           <span className="font-extrabold text-sm sm:text-base tracking-tight text-neutral-900 dark:text-white uppercase leading-none group-hover:text-amber-500 transition-colors">
-            Sri Sadhguru
+            SRI SADHGURU
           </span>
           <span className="text-[9px] sm:text-[10px] font-bold uppercase px-1 sm:px-1.5 py-0.5 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
             24x7
@@ -56,7 +56,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", imgClassName = "" }) => {
         </div>
         <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5 sm:mt-1 leading-none">
           <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.16em] sm:tracking-[0.22em] uppercase text-neutral-500 dark:text-neutral-400">
-            Tours & Travels
+            TOURS & TRAVELS
           </span>
           <span className="text-[8px] sm:text-[9px] text-neutral-300 dark:text-neutral-600">·</span>
           <span className="text-[8px] sm:text-[9px] font-medium text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">

@@ -28,6 +28,9 @@ import SectionFleetOverview from "@/components/SectionFleetOverview";
 import SectionWhyChooseUs from "@/components/SectionWhyChooseUs";
 import SectionLegacy from "@/components/SectionLegacy";
 import SectionFaq from "@/components/SectionFaq";
+import SectionFestivalOffers from "@/components/SectionFestivalOffers";
+import SectionCorporateMobility from "@/components/SectionCorporateMobility";
+import SectionCompaniesServed from "@/components/SectionCompaniesServed";
 import HomepageFaqSchema from "@/components/HomepageFaqSchema";
 import { AnimatedRouteBeam, ScrollReveal, ScrollVelocity } from "@/components/reactbits";
 
@@ -126,6 +129,11 @@ function PageHome() {
           <SectionStatsCounter />
         </ScrollReveal>
 
+        {/* 2.1 FESTIVAL SPECIALS & PROMOTIONAL OFFERS */}
+        <ScrollReveal animation="fade-up">
+          <SectionFestivalOffers />
+        </ScrollReveal>
+
         {/* 3. OPERATIONAL HUBS */}
         <ScrollReveal animation="fade-up">
           <SectionSliderNewCategories
@@ -203,6 +211,11 @@ function PageHome() {
           <SectionOurFeatures />
         </ScrollReveal>
 
+        {/* 10.1 CORPORATE & SPECIALIZED EMPLOYEE MOBILITY */}
+        <ScrollReveal animation="fade-up">
+          <SectionCorporateMobility />
+        </ScrollReveal>
+
         {/* FLUID ANIMATED TRANSITION WAVE */}
         <SectionTransitionWave lineColor="rgba(14, 165, 233, 0.4)" waveAmpX={24} waveAmpY={12} waveSpeedX={0.01} className="opacity-30 dark:opacity-15" />
 
@@ -217,6 +230,11 @@ function PageHome() {
             <BackgroundSection className="bg-orange-50/60 dark:bg-black/20" />
             <SectionBecomeAnAuthor />
           </div>
+        </ScrollReveal>
+
+        {/* 12.1 COMPANIES WE'VE SERVED TRUST MARQUEE (Directly above testimonials) */}
+        <ScrollReveal animation="fade-up">
+          <SectionCompaniesServed />
         </ScrollReveal>
 
         {/* 13. FREQUENTLY ASKED QUESTIONS */}

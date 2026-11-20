@@ -18,6 +18,7 @@ import RoutesCmsView from "./views/RoutesCmsView";
 import ToursCmsView from "./views/ToursCmsView";
 import PlacesCmsView from "./views/PlacesCmsView";
 import FleetCatalogView from "./views/FleetCatalogView";
+import FestivalsView from "./views/FestivalsView";
 
 import ModalNewBooking from "./modals/ModalNewBooking";
 import ModalAssignDriver from "./modals/ModalAssignDriver";
@@ -351,7 +352,11 @@ export default function AdminDashboardPage({
             </div>
           )}
 
-          // Rate Card tab removed; integrated into Fleet view
+          {visitedTabs.has("festivals") && (
+            <div className={activeTab === "festivals" ? "block" : "hidden"}>
+              <FestivalsView />
+            </div>
+          )}
 
           {visitedTabs.has("reviews") && (
             <div className={activeTab === "reviews" ? "block" : "hidden"}>

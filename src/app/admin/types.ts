@@ -13,7 +13,8 @@ export type AdminTabType =
   | "fleet"
   | "expenses"
   | "reviews"
-  | "analytics";
+  | "analytics"
+  | "festivals";
 
 export interface ExpenseItem {
   id: string;

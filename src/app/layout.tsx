@@ -23,8 +23,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.srisadhgurutoursandtravels.com"),
   title: {
-    default: "Sri Sadhguru Tours & Travels | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
-    template: "%s | Sri Sadhguru Travels Hyderabad",
+    default: "SRI SADHGURU TOURS & TRAVELS | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
+    template: "%s | SRI SADHGURU TOURS & TRAVELS",
   },
   description:
     "Book 24x7 cabs, airport taxi to Shamshabad RGIA, outstation pilgrimage packages to Srisailam & Tirupati, and luxury buses in Kukatpally, KPHB, Miyapur, Hitec City, Hyderabad. 50+ commercial vehicles: Swift Dzire, Innova Crysta, Tempo Traveller & AC Coaches. Proprietor: Sri Rathan Kanna. Call +91 81061 17704.",
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     "corporate employee transport hyderabad",
   ],
   authors: [{ name: "Sri Rathan Kanna", url: "https://www.srisadhgurutoursandtravels.com/author" }],
-  creator: "Sri Sadhguru Tours & Travels",
-  publisher: "Sri Sadhguru Tours & Travels",
+  creator: "SRI SADHGURU TOURS & TRAVELS",
+  publisher: "SRI SADHGURU TOURS & TRAVELS",
   formatDetection: {
     email: true,
     address: true,
@@ -63,8 +63,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://www.srisadhgurutoursandtravels.com",
-    siteName: "Sri Sadhguru Tours & Travels",
-    title: "Sri Sadhguru Tours & Travels | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
+    siteName: "SRI SADHGURU TOURS & TRAVELS",
+    title: "SRI SADHGURU TOURS & TRAVELS | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
     description:
       "24x7 doorstep cab dispatch in Kukatpally, KPHB, Miyapur, Hitec City & Shamshabad Airport. 5 to 50 Seater commercial fleet. Zero-surge guaranteed rates. Call +91 81061 17704.",
     images: [
@@ -72,13 +72,13 @@ export const metadata: Metadata = {
         url: "/images/sri-sadhguru-travels-banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Sri Sadhguru Tours & Travels Commercial Fleet Hyderabad",
+        alt: "SRI SADHGURU TOURS & TRAVELS Commercial Fleet Hyderabad",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sri Sadhguru Tours & Travels | 24x7 Cabs in Hyderabad",
+    title: "SRI SADHGURU TOURS & TRAVELS | 24x7 Cabs in Hyderabad",
     description:
       "Swift Dzire, Innova Crysta, Tempo Travellers & Luxury Buses. 15-min dispatch across Kukatpally, KPHB & Airport. Call +91 81061 17704.",
     images: ["/images/sri-sadhguru-travels-banner.jpg"],

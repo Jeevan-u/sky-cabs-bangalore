@@ -63,18 +63,40 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center py-6 sm:py-10 lg:py-14">
         <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start space-y-6 sm:space-y-8">
 
-          {/* React Bits StarBorder & ShinyText Badge */}
-          <StarBorder
-            as="div"
-            color="#f59e0b"
-            speed="3.5s"
-            className="shadow-sm"
-          >
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
-              <SparklesIcon className="w-3.5 h-3.5 text-amber-400" />
-              <ShinyText text="24x7 Cab & Bus Travel Services" speed={2.5} />
+          {/* React Bits StarBorder & ShinyText Badge with Circular Logo Emblem */}
+          <div className="flex items-center gap-3">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-lg bg-white dark:bg-neutral-900 flex-shrink-0 flex items-center justify-center p-1">
+              <Image
+                src="/images/logo-light.png"
+                alt="SRI SADHGURU TOURS & TRAVELS"
+                width={48}
+                height={48}
+                className="w-full h-full object-contain block dark:hidden"
+                priority
+              />
+              <Image
+                src="/images/logo-dark.png"
+                alt="SRI SADHGURU TOURS & TRAVELS"
+                width={48}
+                height={48}
+                className="w-full h-full object-contain hidden dark:block"
+                priority
+              />
+              <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-neutral-900" />
             </div>
-          </StarBorder>
+
+            <StarBorder
+              as="div"
+              color="#f59e0b"
+              speed="3.5s"
+              className="shadow-sm"
+            >
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+                <SparklesIcon className="w-3.5 h-3.5 text-amber-400" />
+                <ShinyText text="24x7 Cab & Bus Travel Services" speed={2.5} />
+              </div>
+            </StarBorder>
+          </div>
 
           <h1 className="w-full text-neutral-900 dark:text-neutral-100">
             {/* Primary brand headline */}
