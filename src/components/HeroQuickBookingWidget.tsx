@@ -14,6 +14,8 @@ import { AirplaneIcon, TempleIcon, WhatsAppIcon } from "@/components/icons";
 import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
 import CustomRouteModal from "@/components/CustomRouteModal";
 import SmartLocationInput from "@/components/SmartLocationInput";
+import CustomVehicleSelect from "@/components/CustomVehicleSelect";
+import CustomDateTimePicker from "@/components/CustomDateTimePicker";
 import {
   AnimatedCounter,
   ShinyText,
@@ -72,7 +74,9 @@ export default function HeroQuickBookingWidget() {
         tripType
       )}&pickup=${encodeURIComponent(pickupLocation)}&drop=${encodeURIComponent(
         dropLocation
-      )}&price=${encodeURIComponent(estimatedPrice)}` as any
+      )}&price=${encodeURIComponent(estimatedPrice)}&date=${encodeURIComponent(
+        travelDate
+      )}&time=${encodeURIComponent(travelTime)}` as any
     );
   };
 
@@ -164,42 +168,19 @@ export default function HeroQuickBookingWidget() {
           type="drop"
         />
 
-        {/* Vehicle Selection */}
-        <div>
-          <label className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block mb-1.5">
-            Vehicle Class
-          </label>
-          <div className="relative">
-            <TruckIcon className="w-4 h-4 text-primary-500 absolute left-3 top-1/2 -translate-y-1/2" />
-            <select
-              value={vehicleId}
-              onChange={(e) => setVehicleId(e.target.value)}
-              className="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500 min-h-[44px]"
-            >
-              {SADHGURU_FLEET.map((f) => (
-                <option key={f.id} value={f.id}>
-                  {f.name} ({f.capacity})
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+        {/* Vehicle Selection - Custom Luxury UI matching website aesthetics */}
+        <CustomVehicleSelect
+          value={vehicleId}
+          onChange={(val) => setVehicleId(val)}
+        />
 
-        {/* Travel Schedule */}
-        <div>
-          <label className="text-[11px] font-extrabold uppercase tracking-wider text-neutral-400 block mb-1.5">
-            Date & Time
-          </label>
-          <div className="relative">
-            <CalendarDaysIcon className="w-4 h-4 text-amber-500 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="date"
-              value={travelDate}
-              onChange={(e) => setTravelDate(e.target.value)}
-              className="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500 min-h-[44px]"
-            />
-          </div>
-        </div>
+        {/* Travel Schedule - Custom Calendar & Time Picker matching website aesthetics */}
+        <CustomDateTimePicker
+          travelDate={travelDate}
+          travelTime={travelTime}
+          onDateChange={(d) => setTravelDate(d)}
+          onTimeChange={(t) => setTravelTime(t)}
+        />
       </div>
 
       {/* QUICK LOCATION PILLS */}

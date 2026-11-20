@@ -61,8 +61,8 @@ const CheckOutPagePageMain: FC = () => {
   
   // Date & Time defaults
   const todayStr = new Date().toISOString().split("T")[0];
-  const [pickupDate, setPickupDate] = useState(todayStr);
-  const [pickupTime, setPickupTime] = useState("06:00 AM");
+  const [pickupDate, setPickupDate] = useState(searchParams?.get("date") || todayStr);
+  const [pickupTime, setPickupTime] = useState(searchParams?.get("time") || "06:00 AM");
 
   // Passenger state
   const [customerName, setCustomerName] = useState("");
