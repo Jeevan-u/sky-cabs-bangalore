@@ -84,6 +84,11 @@ export const metadata: Metadata = {
     images: ["/images/sri-sadhguru-travels-banner.jpg"],
   },
   manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/images/logo-192.png",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

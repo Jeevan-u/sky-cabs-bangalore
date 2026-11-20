@@ -15,7 +15,7 @@ export default function StructuredData() {
       "Rathan Kanna Travels",
     ],
     url: "https://srisadgurutoursandtravels.com",
-    logo: "https://srisadgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
+    logo: "https://srisadgurutoursandtravels.com/images/logo.png",
     image: [
       "https://srisadgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
       "https://srisadgurutoursandtravels.com/images/fleet/innova-crysta.jpg",

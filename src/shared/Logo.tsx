@@ -1,35 +1,29 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface LogoProps {
   className?: string;
+  imgClassName?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ className = "" }) => {
+const Logo: React.FC<LogoProps> = ({ className = "", imgClassName = "" }) => {
   return (
     <Link
       href="/"
-      className={`ttnc-logo inline-flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-0 flex-shrink-0 group ${className}`}
+      className={`ttnc-logo inline-flex items-center gap-2.5 sm:gap-3 focus:outline-none focus:ring-0 flex-shrink-0 group ${className}`}
     >
-      {/* Luxury Chauffeur Emblem */}
+      {/* Official Sri Sadhguru Brand Emblem */}
       <div className="relative flex-shrink-0">
-        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 p-0.5 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-all duration-300">
-          <div className="w-full h-full bg-slate-950 dark:bg-neutral-900 rounded-[10px] sm:rounded-[14px] flex items-center justify-center">
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 group-hover:rotate-6 transition-transform duration-300"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.7 2 10.9 2 11.2V16c0 .6.4 1 1 1h2" />
-              <circle cx="7" cy="17" r="2" />
-              <path d="M9 17h6" />
-              <circle cx="17" cy="17" r="2" />
-            </svg>
-          </div>
+        <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white shadow-md border border-neutral-200/90 dark:border-neutral-700/80 p-0.5 flex items-center justify-center group-hover:scale-105 transition-all duration-300 ${imgClassName}`}>
+          <Image
+            src="/images/logo.png"
+            alt="Sri Sadhguru Tours & Travels"
+            width={48}
+            height={48}
+            className="w-full h-full object-contain rounded-full"
+            priority
+          />
         </div>
         {/* Active Dispatch Pulse */}
         <span className="absolute -bottom-0.5 -right-0.5 flex h-2 sm:h-2.5 w-2 sm:w-2.5">
@@ -54,7 +48,7 @@ const Logo: React.FC<LogoProps> = ({ className = "" }) => {
           </span>
           <span className="text-[8px] sm:text-[9px] text-neutral-300 dark:text-neutral-600">·</span>
           <span className="text-[8px] sm:text-[9px] font-medium text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">
-            Hyd
+            Since 2019
           </span>
         </div>
       </div>
