@@ -16,6 +16,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { ExclamationTriangleIcon, ArrowRightIcon, WhatsAppIcon } from "@/components/icons";
 import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import CustomVehicleSelect from "@/components/CustomVehicleSelect";
+import CustomDateTimePicker from "@/components/CustomDateTimePicker";
 
 interface CustomRouteModalProps {
   isOpen: boolean;
@@ -34,7 +36,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
   const [customerPhone, setCustomerPhone] = useState("");
   const [pickupAddress, setPickupAddress] = useState(defaultPickup || "Gachibowli, Hyderabad");
   const [dropAddress, setDropAddress] = useState(defaultDrop || "Nagarjuna Sagar Dam");
-  const [vehicleType, setVehicleType] = useState("Toyota Innova Crysta (7+1 / 6+1 Captain Seats)");
+  const [vehicleId, setVehicleId] = useState("innova-crysta");
   const [pickupDate, setPickupDate] = useState(new Date().toISOString().split("T")[0]);
   const [pickupTime, setPickupTime] = useState("06:00 AM");
   const [notes, setNotes] = useState("");
@@ -83,6 +85,10 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
     setIsSubmitting(true);
     setErrorMessage("");
 
+    const selectedFleetObj =
+      SADHGURU_FLEET.find((v) => v.id === vehicleId) || SADHGURU_FLEET[2];
+    const resolvedVehicleType = `${selectedFleetObj.name} (${selectedFleetObj.capacity})`;
+
     try {
       const res = await fetch("/api/quotations", {
         method: "POST",
@@ -92,7 +98,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
           customer_phone: customerPhone.trim(),
           pickup_address: pickupAddress.trim(),
           drop_address: dropAddress.trim(),
-          vehicle_type: vehicleType,
+          vehicle_type: resolvedVehicleType,
           pickup_datetime: `${pickupDate}T${pickupTime}`,
           notes: notes.trim(),
           gps_lat: gpsLocation?.lat,
@@ -199,61 +205,18 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
               </div>
 
               {/* Vehicle Class */}
-              <div>
-                <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-1.5">
-                  Preferred Commercial Fleet
-                </label>
-                <div className="relative">
-                  <TruckIcon className="w-4 h-4 text-primary-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <select
-                    value={vehicleType}
-                    onChange={(e) => setVehicleType(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
-                  >
-                    {SADHGURU_FLEET.map((f) => (
-                      <option key={f.id} value={`${f.name} (${f.capacity})`}>
-                        {f.name} ({f.capacity}) · ₹{f.perKmRate}/km
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              <CustomVehicleSelect
+                value={vehicleId}
+                onChange={(id) => setVehicleId(id)}
+              />
 
-              {/* Schedule: Date & Time */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-1.5">
-                    Pickup Date *
-                  </label>
-                  <div className="relative">
-                    <CalendarDaysIcon className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="date"
-                      required
-                      value={pickupDate}
-                      onChange={(e) => setPickupDate(e.target.value)}
-                      className="w-full pl-10 pr-3 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-1.5">
-                    Pickup Time *
-                  </label>
-                  <div className="relative">
-                    <ClockIcon className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      required
-                      value={pickupTime}
-                      onChange={(e) => setPickupTime(e.target.value)}
-                      placeholder="e.g. 06:00 AM"
-                      className="w-full pl-10 pr-3 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
-                    />
-                  </div>
-                </div>
-              </div>
+              {/* Schedule: Date & Time matching website UI */}
+              <CustomDateTimePicker
+                travelDate={pickupDate}
+                travelTime={pickupTime}
+                onDateChange={(d) => setPickupDate(d)}
+                onTimeChange={(t) => setPickupTime(t)}
+              />
 
               {/* Customer Contact */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
