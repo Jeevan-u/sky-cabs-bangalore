@@ -79,10 +79,10 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           <h1 className="w-full text-neutral-900 dark:text-neutral-100">
             {/* Primary brand headline */}
             <div className="w-full max-w-xl">
-              <span className="block font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-neutral-900 dark:text-white">
+              <span className="block uppercase font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-neutral-900 dark:text-white">
                 SRI SADHGURU
               </span>
-              <span className="block font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent mt-1">
+              <span className="block uppercase font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent mt-1">
                 TOURS & TRAVELS
               </span>
             </div>
