@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Browse 50+ commercial vehicles from Sri Sadhguru Travels: Swift Dzire sedans, Ertiga MPVs, Toyota Innova Crysta, 12-26 seater Tempo Travellers & 50-seater AC buses in Hyderabad.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/listing-car",
+    canonical: "https://www.srisadhgurutoursandtravels.com/listing-car",
   },
 };
 

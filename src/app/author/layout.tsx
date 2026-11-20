@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Profile of Sri Rathan Kanna, Proprietor and Managing Director of Sri Sadhguru Tours & Travels Hyderabad and Kamareddy. 15+ years experience in passenger logistics.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/author",
+    canonical: "https://www.srisadhgurutoursandtravels.com/author",
   },
 };
 

@@ -122,7 +122,7 @@ export default function DutySlipsView({
       `*Toll / Parking:* ₹${slip.toll_parking}\n` +
       `*Total Final Bill:* ₹${slip.total_amount}\n\n` +
       `Thank you for traveling with Sri Sadhguru Travels! Please rate our service:\n` +
-      `https://srisadgurutoursandtravels.com/review?name=${encodeURIComponent(
+      `https://www.srisadhgurutoursandtravels.com/review?name=${encodeURIComponent(
         slip.customer_name
       )}&driver=${encodeURIComponent(slip.driver_name)}`;
 

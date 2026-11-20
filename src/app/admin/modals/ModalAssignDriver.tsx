@@ -67,7 +67,7 @@ export default function ModalAssignDriver({
             `*From:* ${booking.pickupLocation}\n` +
             `*To:* ${booking.dropLocation}\n` +
             `*Google Maps Route:* https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(booking.pickupLocation)}&destination=${encodeURIComponent(booking.dropLocation)}\n` +
-            `*Duty Slip Link:* https://srisadgurutoursandtravels.com/trip-sheet?booking=${booking.id}\n\n` +
+            `*Duty Slip Link:* https://www.srisadhgurutoursandtravels.com/trip-sheet?booking=${booking.id}\n\n` +
             `Report 15 mins prior. Drive safe!`;
 
           const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;

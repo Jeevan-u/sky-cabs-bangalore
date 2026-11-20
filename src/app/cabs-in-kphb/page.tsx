@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Reliable taxi service in KPHB Colony Phase 1 to Phase 9. Shamshabad Airport cabs, outstation Innova rentals, Tempo Travellers. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/cabs-in-kphb",
+    canonical: "https://www.srisadhgurutoursandtravels.com/cabs-in-kphb",
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book 24x7 cabs in Kamareddy, Gandhari & Northern Telangana with Sri Sadhguru Travels. Swift Dzire, Innova Crysta, Tempo Traveller for Hyderabad and Shamshabad Airport drops. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/cabs-in-kamareddy-gandhari",
+    canonical: "https://www.srisadhgurutoursandtravels.com/cabs-in-kamareddy-gandhari",
   },
 };
 

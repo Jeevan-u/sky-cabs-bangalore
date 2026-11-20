@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book Hyderabad to Shirdi cabs with Sri Sadhguru Travels. 3-Day pilgrimage package covering Shirdi Sai Baba, Shani Shingnapur & Trimbakeshwar in Innova Crysta or Tempo Traveller. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/hyderabad-to-shirdi-cabs",
+    canonical: "https://www.srisadhgurutoursandtravels.com/hyderabad-to-shirdi-cabs",
   },
 };
 

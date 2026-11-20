@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book Hyderabad to Tirupati cabs with Sri Sadhguru Travels. Innova Crysta, Ertiga, Tempo Traveller for Tirumala Balaji darshan. Verified chauffeurs & transparent rates. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/hyderabad-to-tirupati-cabs",
+    canonical: "https://www.srisadhgurutoursandtravels.com/hyderabad-to-tirupati-cabs",
   },
 };
 

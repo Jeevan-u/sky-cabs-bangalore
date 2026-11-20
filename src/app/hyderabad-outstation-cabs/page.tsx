@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book Hyderabad outstation cabs with Sri Sadhguru Tours & Travels. Dzire, Ertiga, Innova Crysta & Tempo Traveller for all South India tours. Transparent per-km rates from ₹12/km. Call +91 81061 17704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/hyderabad-outstation-cabs",
+    canonical: "https://www.srisadhgurutoursandtravels.com/hyderabad-outstation-cabs",
   },
 };
 

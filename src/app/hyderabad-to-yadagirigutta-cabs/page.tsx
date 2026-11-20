@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book Hyderabad to Yadagirigutta cabs with Sri Sadhguru Travels. Same-day round trip for Sri Lakshmi Narasimha Swamy darshan in Swift Dzire, Ertiga or Innova Crysta. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/hyderabad-to-yadagirigutta-cabs",
+    canonical: "https://www.srisadhgurutoursandtravels.com/hyderabad-to-yadagirigutta-cabs",
   },
 };
 

@@ -61,7 +61,7 @@ export default function ModalBookingDetails({
       (booking.driverName
         ? `• Chauffeur: ${booking.driverName} (+91 ${booking.driverPhone})\n\n`
         : `• Chauffeur allocation in progress.\n\n`) +
-      `Live Journey Tracking: https://srisadgurutoursandtravels.com/track-booking?id=${booking.id}\n\n` +
+      `Live Journey Tracking: https://www.srisadhgurutoursandtravels.com/track-booking?id=${booking.id}\n\n` +
       `24x7 Helpline: +91 81061 17704. Have a safe journey!`;
 
     window.open(`https://wa.me/${targetCustomerPhone}?text=${encodeURIComponent(text)}`, "_blank");

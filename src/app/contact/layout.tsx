@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Contact Sri Sadhguru Tours & Travels Kukatpally headquarters or Gandhari branch. 24x7 dispatch phone: +91 81061 17704. Instant WhatsApp quotes.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/contact",
+    canonical: "https://www.srisadhgurutoursandtravels.com/contact",
   },
 };
 

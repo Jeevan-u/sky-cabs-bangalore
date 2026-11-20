@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Learn about Sri Sadhguru Tours & Travels, founded and managed by Sri Rathan Kanna. 50+ commercial vehicles across Kukatpally, KPHB, Miyapur, Hitec City & Gandhari.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/about",
+    canonical: "https://www.srisadhgurutoursandtravels.com/about",
   },
 };
 

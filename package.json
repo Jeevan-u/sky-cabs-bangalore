@@ -11,7 +11,11 @@
     "build": "next build",
     "clean": "node -e \"try{fs.rmSync('.next',{recursive:true,force:true});fs.rmSync('public/_next',{recursive:true,force:true})}catch(e){}\"",
     "start": "next start",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "cf:build": "next build",
+    "cf:deploy": "wrangler pages deploy .next --project-name=sri-sadhguru-travels",
+    "cf:d1:init": "wrangler d1 execute sadhguru-db --remote --file=./src/lib/db/schema.sql",
+    "cf:d1:local": "wrangler d1 execute sadhguru-db --local --file=./src/lib/db/schema.sql"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
@@ -46,6 +50,7 @@
     "@babel/preset-env": "^8.0.7",
     "@babel/preset-react": "^8.0.1",
     "@babel/preset-typescript": "^8.0.7",
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^8.0.0",
     "@testing-library/react": "^16.3.3",
@@ -61,6 +66,7 @@
     "postcss": "^8.5.33",
     "tailwindcss": "^4.3.5",
     "ts-jest": "^29.4.15",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "wrangler": "^4.165.0"
   }
 }

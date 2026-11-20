@@ -82,11 +82,10 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
                 label="Search ass I move the map"
               />
             </div>
-            {/* BELLOW IS MY GOOGLE API KEY -- PLEASE DELETE AND TYPE YOUR API KEY */}
-
+            {/* Google Maps API Key loaded securely from environment */}
             <GoogleMapReact
               bootstrapURLKeys={{
-                key: "AIzaSyAGVJfZMAKYfZ71nzL_v5i3LjTTWnCYwTY",
+                key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
               }}
               yesIWantToUseGoogleMapApiInternals
               defaultZoom={12}

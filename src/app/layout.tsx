@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://srisadgurutoursandtravels.com"),
+  metadataBase: new URL("https://www.srisadhgurutoursandtravels.com"),
   title: {
     default: "Sri Sadhguru Tours & Travels | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
     template: "%s | Sri Sadhguru Travels Hyderabad",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "wedding bus rental hyderabad",
     "corporate employee transport hyderabad",
   ],
-  authors: [{ name: "Sri Rathan Kanna", url: "https://srisadgurutoursandtravels.com/author" }],
+  authors: [{ name: "Sri Rathan Kanna", url: "https://www.srisadhgurutoursandtravels.com/author" }],
   creator: "Sri Sadhguru Tours & Travels",
   publisher: "Sri Sadhguru Tours & Travels",
   formatDetection: {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://srisadgurutoursandtravels.com",
+    url: "https://www.srisadhgurutoursandtravels.com",
     siteName: "Sri Sadhguru Tours & Travels",
     title: "Sri Sadhguru Tours & Travels | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
     description:

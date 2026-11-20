@@ -81,8 +81,8 @@ export default function RouteLandingTemplate({
       "@type": "TravelAgency",
       name: "Sri Sadhguru Tours & Travels",
       telephone: "+91-8106117704",
-      url: "https://srisadgurutoursandtravels.com",
-      image: "https://srisadgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
+      url: "https://www.srisadhgurutoursandtravels.com",
+      image: "https://www.srisadhgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Kukatpally Main Road, Near Y-Junction & KPHB Metro",

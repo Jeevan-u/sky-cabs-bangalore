@@ -3,6 +3,8 @@
  * Recognizes digital LCD and analog odometer readings from vehicle speed boards.
  */
 
+import { OpenRouterClient } from "@/lib/openrouter";
+
 export interface OdometerOcrResult {
   detectedKm: number;
   confidence: number;
@@ -30,13 +32,50 @@ export class OcrService {
   }): Promise<OdometerOcrResult> {
     const rawText = input.rawTextHint || "";
     const cleanBase64 = input.photoBase64 || "";
+    const imageTarget = cleanBase64 || input.photoUrl;
 
-    // 1. Analyze text if provided via client-side OCR worker
+    // 1. If OpenRouter AI is configured and an image is provided, run Vision OCR
+    if (OpenRouterClient.isConfigured() && imageTarget && imageTarget.length > 50) {
+      try {
+        const visionPrompt = `Look at this car dashboard/instrument cluster photo.
+Identify the total Odometer mileage (cumulative distance driven by vehicle in KM, often labeled 'ODO' or next to 'km').
+Do NOT confuse this with Trip A, Trip B, Speedometer scale (20, 40, 60...), clock, or temperature.
+Output ONLY valid JSON: {"odometerKm": 123456, "confidence": 95, "notes": "found ODO 123456 km"}`;
+
+        const aiRes = await OpenRouterClient.analyzeImage({
+          imageUrlOrBase64: imageTarget,
+          prompt: visionPrompt,
+          jsonMode: true,
+        });
+
+        if (aiRes.success && aiRes.content) {
+          const parsed = JSON.parse(aiRes.content);
+          if (typeof parsed.odometerKm === "number" && parsed.odometerKm > 100) {
+            return {
+              detectedKm: parsed.odometerKm,
+              confidence: parsed.confidence || 95,
+              rawText: parsed.notes || `ODO ${parsed.odometerKm} km via OpenRouter AI`,
+              source: "ocr_ai",
+              details: {
+                isOdoLabelDetected: true,
+                isKmUnitDetected: true,
+                extractedDigits: [String(parsed.odometerKm)],
+                rejectedPatterns: [],
+              },
+            };
+          }
+        }
+      } catch (err) {
+        console.warn("OpenRouter Vision OCR failed, falling back to local heuristics:", err);
+      }
+    }
+
+    // 2. Analyze text if provided via client-side OCR worker
     if (rawText.trim()) {
       return this.parseOdometerText(rawText, input.startKm, input.action);
     }
 
-    // 2. Base64 / Image analysis heuristic:
+    // 3. Base64 / Image analysis heuristic:
     // Extract textual patterns or embedded EXIF/canvas tokens
     const textSample = this.heuristicAnalyzeImage(cleanBase64, input.photoUrl);
     return this.parseOdometerText(textSample, input.startKm, input.action);

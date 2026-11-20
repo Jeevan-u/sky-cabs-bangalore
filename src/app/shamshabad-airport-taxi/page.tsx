@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Guaranteed on-time Shamshabad RGI Airport taxi service. 24x7 Airport pickup & drop to Kukatpally, KPHB, Miyapur, Hitec City, Medchal. Flat fares. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/shamshabad-airport-taxi",
+    canonical: "https://www.srisadhgurutoursandtravels.com/shamshabad-airport-taxi",
   },
 };
 

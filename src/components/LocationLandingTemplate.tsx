@@ -147,8 +147,8 @@ export default function LocationLandingTemplate({
     "@type": "TaxiService",
     name: `Sri Sadhguru Tours & Travels - ${locationName}`,
     image: hubLandmark
-      ? `https://srisadgurutoursandtravels.com${hubLandmark.image}`
-      : "https://srisadgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
+      ? `https://www.srisadhgurutoursandtravels.com${hubLandmark.image}`
+      : "https://www.srisadhgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
     telephone: "+91-8106117704",
     priceRange: "₹₹",
     knowsLanguage: ["en", "te", "hi"],

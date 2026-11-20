@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/driver/"],
       },
     ],
-    sitemap: "https://srisadgurutoursandtravels.com/sitemap.xml",
-    host: "https://srisadgurutoursandtravels.com",
+    sitemap: "https://www.srisadhgurutoursandtravels.com/sitemap.xml",
+    host: "https://www.srisadhgurutoursandtravels.com",
   };
 }

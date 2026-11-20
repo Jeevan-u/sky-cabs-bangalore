@@ -4,7 +4,7 @@ import { PageGradientASCII, SectionTransitionWave } from "@/components/ClientVis
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com",
+    canonical: "https://www.srisadhgurutoursandtravels.com",
   },
 };
 import SectionHero from "@/app/(server-components)/SectionHero";

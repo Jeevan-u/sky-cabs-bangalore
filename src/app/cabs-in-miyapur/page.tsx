@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "24x7 Cab service in Miyapur, Allwyn X Roads, Talkie Town & Metro Station. Airport drop and outstation car rental. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/cabs-in-miyapur",
+    canonical: "https://www.srisadhgurutoursandtravels.com/cabs-in-miyapur",
   },
 };
 

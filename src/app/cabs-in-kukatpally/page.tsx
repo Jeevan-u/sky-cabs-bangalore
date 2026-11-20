@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book 24x7 cabs in Kukatpally Hyderabad. Swift Dzire, Innova Crysta, Ertiga, Tempo Traveller. Airport drop to Shamshabad and outstation temple tours. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/cabs-in-kukatpally",
+    canonical: "https://www.srisadhgurutoursandtravels.com/cabs-in-kukatpally",
   },
 };
 

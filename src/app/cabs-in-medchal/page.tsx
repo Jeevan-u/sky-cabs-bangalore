@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "24x7 Cab service in Medchal, Kompally, Gundlapochampally & NH 44 corridor. Airport drops and outstation car rentals. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/cabs-in-medchal",
+    canonical: "https://www.srisadhgurutoursandtravels.com/cabs-in-medchal",
   },
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book Hyderabad to Srisailam cabs with Sri Sadhguru Travels. Swift Dzire, Innova Crysta, Tempo Traveller for Mallikarjuna Jyotirlinga darshan. Experienced ghat drivers. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/hyderabad-to-srisailam-cabs",
+    canonical: "https://www.srisadhgurutoursandtravels.com/hyderabad-to-srisailam-cabs",
   },
 };
 

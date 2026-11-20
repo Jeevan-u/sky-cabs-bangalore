@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Expert travel guides, Srisailam & Tirupati pilgrimage tips, Shamshabad airport taxi advice, and vehicle booking guides from Sri Sadhguru Travels.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/blog",
+    canonical: "https://www.srisadhgurutoursandtravels.com/blog",
   },
 };
 

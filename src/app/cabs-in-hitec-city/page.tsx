@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Premium corporate car rental and airport taxi in Hitec City, Madhapur, Gachibowli. Innova Crysta, Dzire, Fortuner, Tempo Traveller. Call 8106 117704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/cabs-in-hitec-city",
+    canonical: "https://www.srisadhgurutoursandtravels.com/cabs-in-hitec-city",
   },
 };
 

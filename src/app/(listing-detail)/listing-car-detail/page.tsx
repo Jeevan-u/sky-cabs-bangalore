@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Explore vehicle specifications, seating capacity, luggage room, AC features, and hourly/per-km rates for Swift Dzire, Innova Crysta, Tempo Traveller & Luxury Buses.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/listing-car-detail",
+    canonical: "https://www.srisadhgurutoursandtravels.com/listing-car-detail",
   },
 };
 

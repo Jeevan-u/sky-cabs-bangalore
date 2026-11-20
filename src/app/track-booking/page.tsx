@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Real-time trip tracking for Sri Sadhguru Travels passengers. Check assigned chauffeur details, vehicle number, pickup timing, and route updates.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/track-booking",
+    canonical: "https://www.srisadhgurutoursandtravels.com/track-booking",
   },
 };
 

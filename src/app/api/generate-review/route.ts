@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { OpenRouterClient } from "@/lib/openrouter";
 
 interface ReviewRequest {
   customerName?: string;
@@ -26,12 +27,7 @@ export async function POST(request: Request) {
       additionalNotes = "",
     } = body;
 
-    // Check if Gemini API key exists
-    const geminiApiKey = process.env.GEMINI_API_KEY;
-
-    if (geminiApiKey) {
-      try {
-        const prompt = `You are a helpful assistant generating 3 realistic, authentic Google reviews written by a customer for "Sri Sadhguru Tours and Travels" (Hyderabad).
+    const prompt = `You are a helpful assistant generating 3 realistic, authentic Google reviews written by a customer for "Sri Sadhguru Tours and Travels" (Hyderabad).
 Trip Details:
 - Customer: ${customerName}
 - Vehicle: ${vehicleName}
@@ -48,6 +44,43 @@ Rules:
 4. Output JSON in this exact structure:
 {"options": ["Review text 1", "Review text 2", "Review text 3"]}`;
 
+    // 1. Primary AI Engine: OpenRouter
+    if (OpenRouterClient.isConfigured()) {
+      try {
+        const aiRes = await OpenRouterClient.createChatCompletion({
+          messages: [
+            {
+              role: "system",
+              content: "You are an AI assistant that formats output strictly as JSON with key 'options' containing an array of 3 strings.",
+            },
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+          jsonMode: true,
+          temperature: 0.7,
+        });
+
+        if (aiRes.success && aiRes.content) {
+          const parsed = JSON.parse(aiRes.content);
+          if (Array.isArray(parsed.options) && parsed.options.length > 0) {
+            return NextResponse.json({
+              success: true,
+              reviews: parsed.options,
+              poweredBy: `OpenRouter AI (${aiRes.model})`,
+            });
+          }
+        }
+      } catch (e) {
+        console.warn("OpenRouter API call encountered an issue, falling back:", e);
+      }
+    }
+
+    // 2. Secondary AI Engine: Direct Gemini API key (if present)
+    const geminiApiKey = process.env.GEMINI_API_KEY;
+    if (geminiApiKey) {
+      try {
         const res = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiApiKey}`,
           {

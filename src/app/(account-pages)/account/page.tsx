@@ -65,7 +65,7 @@ const AccountPage = () => {
           {/* ---- */}
           <div>
             <Label>Email</Label>
-            <Input className="mt-1.5" defaultValue="contact@srisadgurutoursandtravels.com" />
+            <Input className="mt-1.5" defaultValue="contact@srisadhgurutoursandtravels.com" />
           </div>
           {/* ---- */}
           <div className="max-w-lg">

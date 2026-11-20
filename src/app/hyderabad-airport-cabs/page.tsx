@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Book 24/7 Hyderabad airport cabs to & from Shamshabad RGIA. On-time pickup, spotless AC cabs, transparent flat rates, zero surge pricing. Call +91 81061 17704.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/hyderabad-airport-cabs",
+    canonical: "https://www.srisadhgurutoursandtravels.com/hyderabad-airport-cabs",
   },
 };
 

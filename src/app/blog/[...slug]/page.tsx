@@ -45,12 +45,12 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     title: `${post.title}`,
     description: post.desc,
     alternates: {
-      canonical: `https://srisadgurutoursandtravels.com/blog/${slug}`,
+      canonical: `https://www.srisadhgurutoursandtravels.com/blog/${slug}`,
     },
     openGraph: {
       title: `${post.title} | Sri Sadhguru Travels`,
       description: post.desc,
-      url: `https://srisadgurutoursandtravels.com/blog/${slug}`,
+      url: `https://www.srisadhgurutoursandtravels.com/blog/${slug}`,
       images: [
         {
           url: typeof post.featuredImage === "string" ? post.featuredImage : "/images/srisailam-dam.jpg",

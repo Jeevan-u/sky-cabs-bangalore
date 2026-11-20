@@ -169,7 +169,7 @@ export default function DispatchView({
       `*Google Maps Route:* https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
         b.pickupLocation
       )}&destination=${encodeURIComponent(b.dropLocation)}\n` +
-      `*Trip Sheet:* https://srisadgurutoursandtravels.com/trip-sheet?booking=${b.id}\n\n` +
+      `*Trip Sheet:* https://www.srisadhgurutoursandtravels.com/trip-sheet?booking=${b.id}\n\n` +
       `Please report to pickup 15 mins prior. Safe journey!`;
 
     const url = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;

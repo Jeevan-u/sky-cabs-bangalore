@@ -101,7 +101,7 @@ export const whatsappService = {
       `• *FINAL TOTAL BILL:* ₹${payload.totalAmount.toLocaleString("en-IN")}\n` +
       `-----------------------------------------\n` +
       `Prop: Rathan Kanna · Kukatpally & Gandhari\n` +
-      `• *Leave us a review:* https://srisadgurutoursandtravels.com/review`;
+      `• *Leave us a review:* https://www.srisadhgurutoursandtravels.com/review`;
 
     const targetPhone = payload.customerPhone.replace(/[^0-9]/g, "");
     const recipient = targetPhone.length === 10 ? `91${targetPhone}` : targetPhone || SADHGURU_CONTACT.whatsappNumber;

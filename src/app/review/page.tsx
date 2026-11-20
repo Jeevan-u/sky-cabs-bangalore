@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Leave your verified passenger review for Sri Sadhguru Tours & Travels. Share your feedback on chauffeur punctuality, cab cleanliness, and AC comfort.",
   alternates: {
-    canonical: "https://srisadgurutoursandtravels.com/review",
+    canonical: "https://www.srisadhgurutoursandtravels.com/review",
   },
 };
 

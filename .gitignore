@@ -43,7 +43,9 @@ dist/
 *.gz
 
 # Test and MCP artifacts
+coverage/
 .playwright-mcp/
+.vercel/
 admin-*.png
 debug-*.png
 

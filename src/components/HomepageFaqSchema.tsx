@@ -10,7 +10,7 @@ export default function HomepageFaqSchema() {
         name: "How can I book a cab with Sri Sadhguru Tours & Travels in Hyderabad?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can book online via our instant reservation system on srisadgurutoursandtravels.com, message us on WhatsApp at +91 81061 17704, or call our 24x7 dispatch desk at +91 81061 17704. We guarantee 15-minute doorstep pickup across Kukatpally, KPHB, Miyapur, and Hitec City.",
+          text: "You can book online via our instant reservation system on www.srisadhgurutoursandtravels.com, message us on WhatsApp at +91 81061 17704, or call our 24x7 dispatch desk at +91 81061 17704. We guarantee 15-minute doorstep pickup across Kukatpally, KPHB, Miyapur, and Hitec City.",
         },
       },
       {
