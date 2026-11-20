@@ -24,69 +24,69 @@ export default function AnalyticsView({
   return (
     <div className="space-y-6 font-sans">
       {/* 4 Financial Tiles with ReactBits SpotlightCard & AnimatedCounter */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
         <SpotlightCard
           spotlightColor="rgba(16, 185, 129, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
         >
-          <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+          <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
             Gross Billed Fare
           </p>
-          <p className="text-3xl font-black text-neutral-900 dark:text-white mt-2">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black text-neutral-900 dark:text-white mt-1.5 sm:mt-2">
             <AnimatedCounter
               to={totalGross}
               formatter={(val) => `₹${Math.round(val).toLocaleString("en-IN")}`}
             />
           </p>
-          <p className="text-xs text-emerald-600 dark:text-emerald-400 font-bold mt-1">
-            100% Direct Bookings (0% Aggregator Cut)
+          <p className="text-[10px] sm:text-xs text-emerald-600 dark:text-emerald-400 font-bold mt-1 line-clamp-1 sm:line-clamp-none">
+            100% Direct Bookings
           </p>
         </SpotlightCard>
 
         <SpotlightCard
           spotlightColor="rgba(99, 102, 241, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
         >
-          <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+          <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
             Avg Ticket Value
           </p>
-          <p className="text-3xl font-black text-primary-600 dark:text-primary-400 mt-2">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black text-primary-600 dark:text-primary-400 mt-1.5 sm:mt-2">
             <AnimatedCounter
               to={avgFare}
               formatter={(val) => `₹${Math.round(val).toLocaleString("en-IN")}`}
             />
           </p>
-          <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1">Across all completed journeys</p>
+          <p className="text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1 line-clamp-1 sm:line-clamp-none">Completed journeys</p>
         </SpotlightCard>
 
         <SpotlightCard
           spotlightColor="rgba(168, 85, 247, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
         >
-          <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
-            Total Highway Distance
+          <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+            Total Distance
           </p>
-          <p className="text-3xl font-black text-purple-600 dark:text-purple-400 mt-2 flex items-center gap-1">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black text-purple-600 dark:text-purple-400 mt-1.5 sm:mt-2 flex items-center gap-1">
             <AnimatedCounter to={totalKm} />
-            <span className="text-lg font-bold text-neutral-400">KM</span>
+            <span className="text-sm sm:text-lg font-bold text-neutral-400">KM</span>
           </p>
-          <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1">Logged by verified GPS/Odometer</p>
+          <p className="text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1 line-clamp-1 sm:line-clamp-none">Verified GPS radar</p>
         </SpotlightCard>
 
         <SpotlightCard
           spotlightColor="rgba(16, 185, 129, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl"
         >
-          <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
-            Est. Net Operating Margin
+          <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+            Net Margin
           </p>
-          <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-2">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-1.5 sm:mt-2">
             <AnimatedCounter
               to={estimatedNetProfit}
               formatter={(val) => `₹${Math.round(val).toLocaleString("en-IN")}`}
             />
           </p>
-          <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1">Post estimated fuel & tolls</p>
+          <p className="text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1 line-clamp-1 sm:line-clamp-none">Post fuel & tolls</p>
         </SpotlightCard>
       </div>
 

@@ -45,58 +45,58 @@ export default function ReputationView({ reviews }: ReputationViewProps) {
   return (
     <div className="space-y-6 font-sans">
       {/* Reputation KPI Tiles with ReactBits SpotlightCard */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
         <SpotlightCard
           spotlightColor="rgba(245, 158, 11, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl flex items-center justify-between"
+          className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl flex items-center justify-between"
         >
           <div>
-            <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+            <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
               Aggregate Rating
             </p>
-            <p className="text-3xl font-black text-amber-500 mt-2 flex items-center gap-1.5">
-              {avgRating} <StarIcon className="w-6 h-6 inline" />
+            <p className="text-2xl sm:text-3xl font-black text-amber-500 mt-1 sm:mt-2 flex items-center gap-1.5">
+              {avgRating} <StarIcon className="w-5 h-5 sm:w-6 sm:h-6 inline" />
             </p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-medium">Based on {reviews.length} customer audits</p>
+            <p className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-medium">Based on {reviews.length} customer audits</p>
           </div>
-          <div className="p-3.5 rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 shadow-2xs">
-            <StarIcon className="w-7 h-7" />
+          <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-amber-500/10 text-amber-500 border border-amber-500/20 shadow-2xs">
+            <StarIcon className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
         </SpotlightCard>
 
         <SpotlightCard
           spotlightColor="rgba(16, 185, 129, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl flex items-center justify-between"
+          className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl flex items-center justify-between"
         >
           <div>
-            <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+            <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
               Google Maps Boosts
             </p>
-            <p className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-2">
+            <p className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-1 sm:mt-2">
               <AnimatedCounter to={fiveStarCount} />
             </p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-medium">4 & 5-Star reviews routed to Google Maps</p>
+            <p className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-medium">4 & 5-Star reviews on Google</p>
           </div>
-          <div className="p-3.5 rounded-2xl bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-2xs">
-            <CheckCircleIcon className="w-7 h-7" />
+          <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 shadow-2xs">
+            <CheckCircleIcon className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
         </SpotlightCard>
 
         <SpotlightCard
           spotlightColor="rgba(99, 102, 241, 0.14)"
-          className="p-6 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl flex items-center justify-between"
+          className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl flex items-center justify-between"
         >
           <div>
-            <p className="text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
+            <p className="text-[10px] sm:text-[11px] font-extrabold text-neutral-400 uppercase tracking-wider">
               Privately Intercepted
             </p>
-            <p className="text-3xl font-black text-primary-600 dark:text-primary-400 mt-2">
+            <p className="text-2xl sm:text-3xl font-black text-primary-600 dark:text-primary-400 mt-1 sm:mt-2">
               <AnimatedCounter to={interceptedCount} />
             </p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-medium">Negative reviews shielded from public</p>
+            <p className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 mt-1 font-medium">Shielded from public view</p>
           </div>
-          <div className="p-3.5 rounded-2xl bg-primary-500/10 text-primary-600 border border-primary-500/20 shadow-2xs">
-            <ShieldCheckIcon className="w-7 h-7" />
+          <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-primary-500/10 text-primary-600 border border-primary-500/20 shadow-2xs">
+            <ShieldCheckIcon className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
         </SpotlightCard>
       </div>

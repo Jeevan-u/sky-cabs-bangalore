@@ -50,11 +50,11 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
 
   return (
     <div
-      className={`p-4 sm:p-5 border-t border-neutral-200/80 dark:border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs select-none bg-neutral-50/60 dark:bg-neutral-900/60 backdrop-blur-md transition-colors ${className}`}
+      className={`p-3.5 sm:p-5 border-t border-neutral-200/80 dark:border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs select-none bg-neutral-50/60 dark:bg-neutral-900/60 backdrop-blur-md transition-colors ${className}`}
     >
       {/* Left side: Results Count & Rows Per Page Dropdown */}
-      <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-neutral-600 dark:text-neutral-400">
-        <div>
+      <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-4 text-neutral-600 dark:text-neutral-400 w-full sm:w-auto">
+        <div className="text-[11px] sm:text-xs">
           Showing{" "}
           <span className="font-black text-neutral-900 dark:text-white">
             {startItem}
@@ -70,12 +70,12 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
           entries
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] font-semibold text-neutral-400">Rows per page:</span>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <span className="text-[10px] sm:text-[11px] font-semibold text-neutral-400">Rows:</span>
           <select
             value={pageSize}
             onChange={(e) => onPageSizeChange(Number(e.target.value))}
-            className="px-2.5 py-1 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold text-xs outline-none shadow-2xs hover:border-primary-500 focus:border-primary-500 transition-colors"
+            className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold text-[11px] sm:text-xs outline-none shadow-2xs hover:border-primary-500 focus:border-primary-500 transition-colors"
           >
             {pageSizeOptions.map((opt) => (
               <option key={opt} value={opt}>
@@ -87,7 +87,7 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
       </div>
 
       {/* Right side: Page Navigation Controls */}
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center justify-center gap-1 sm:gap-1.5 w-full sm:w-auto">
         {/* First Page */}
         <button
           type="button"
@@ -96,7 +96,7 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
           className="p-1.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-30 disabled:cursor-not-allowed transition shadow-2xs"
           title="First Page"
         >
-          <ChevronDoubleLeftIcon className="w-4 h-4" />
+          <ChevronDoubleLeftIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
 
         {/* Previous Page */}
@@ -107,11 +107,16 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
           className="p-1.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-30 disabled:cursor-not-allowed transition shadow-2xs"
           title="Previous Page"
         >
-          <ChevronLeftIcon className="w-4 h-4" />
+          <ChevronLeftIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
 
-        {/* Numbered Page Buttons */}
-        <div className="flex items-center gap-1 px-1">
+        {/* Mobile Page Indicator */}
+        <span className="sm:hidden px-2.5 py-1 text-[11px] font-bold text-neutral-700 dark:text-neutral-300 bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700">
+          {currentPage} / {totalPages}
+        </span>
+
+        {/* Numbered Page Buttons (Desktop) */}
+        <div className="hidden sm:flex items-center gap-1 px-1">
           {pageNumbers.map((p, idx) => {
             if (p === "...") {
               return (
@@ -152,7 +157,7 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
           className="p-1.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-30 disabled:cursor-not-allowed transition shadow-2xs"
           title="Next Page"
         >
-          <ChevronRightIcon className="w-4 h-4" />
+          <ChevronRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
 
         {/* Last Page */}
@@ -163,7 +168,7 @@ const AdminTablePagination: FC<AdminTablePaginationProps> = ({
           className="p-1.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 disabled:opacity-30 disabled:cursor-not-allowed transition shadow-2xs"
           title="Last Page"
         >
-          <ChevronDoubleRightIcon className="w-4 h-4" />
+          <ChevronDoubleRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
       </div>
     </div>

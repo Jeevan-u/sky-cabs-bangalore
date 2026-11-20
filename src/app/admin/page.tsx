@@ -218,7 +218,7 @@ export default function AdminDashboardPage() {
         />
 
         {/* View Routing - Instant 0ms Tab Switching Container */}
-        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto relative z-10 hiddenScrollbar no-scrollbar">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-3 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto relative z-10 hiddenScrollbar no-scrollbar">
           {visitedTabs.has("overview") && (
             <div className={activeTab === "overview" ? "block" : "hidden"}>
               <OverviewView

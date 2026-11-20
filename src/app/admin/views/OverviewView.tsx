@@ -66,30 +66,30 @@ export default function OverviewView({
   return (
     <div className="space-y-6 font-sans">
       {/* 1. ReactBits Spotlight KPI Cards with Animated Counters */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
         {/* Active Dispatches */}
         <SpotlightCard
           spotlightColor="rgba(99, 102, 241, 0.22)"
           onClick={() => onNavigateTab("dispatch")}
-          className="p-6 cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400">
+            <span className="text-[11px] sm:text-xs font-bold text-neutral-500 dark:text-neutral-400">
               Active Dispatches
             </span>
-            <div className="p-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-800/40 shadow-2xs">
-              <TruckIcon className="w-5 h-5 stroke-[2.2]" />
+            <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-800/40 shadow-2xs">
+              <TruckIcon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-black text-neutral-900 dark:text-white tracking-tight">
+          <div className="mt-2.5 sm:mt-4 flex items-baseline gap-1.5 sm:gap-2">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-neutral-900 dark:text-white tracking-tight">
               <AnimatedCounter to={activeBookings.length} duration={1.2} />
             </span>
-            <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">
+            <span className="text-[10px] sm:text-xs font-bold text-indigo-600 dark:text-indigo-400">
               Fleet Live
             </span>
           </div>
-          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+          <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium line-clamp-1 sm:line-clamp-none">
             Trips currently on road or scheduled
           </p>
         </SpotlightCard>
@@ -98,18 +98,18 @@ export default function OverviewView({
         <SpotlightCard
           spotlightColor="rgba(16, 185, 129, 0.22)"
           onClick={() => onNavigateTab("dutyslips")}
-          className="p-6 cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400">
+            <span className="text-[11px] sm:text-xs font-bold text-neutral-500 dark:text-neutral-400">
               Gross Completed Fare
             </span>
-            <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/40 shadow-2xs">
-              <CurrencyRupeeIcon className="w-5 h-5 stroke-[2.2]" />
+            <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/40 shadow-2xs">
+              <CurrencyRupeeIcon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">
+          <div className="mt-2.5 sm:mt-4 flex items-baseline gap-1.5 sm:gap-2">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">
               <AnimatedCounter
                 to={totalRevenue}
                 prefix="₹"
@@ -117,11 +117,11 @@ export default function OverviewView({
                 duration={1.5}
               />
             </span>
-            <span className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] sm:text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 sm:px-2 py-0.5 rounded-full">
               Verified
             </span>
           </div>
-          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+          <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium line-clamp-1 sm:line-clamp-none">
             {dutySlips.length} digital duty slips verified
           </p>
         </SpotlightCard>
@@ -130,32 +130,32 @@ export default function OverviewView({
         <SpotlightCard
           spotlightColor="rgba(245, 158, 11, 0.25)"
           onClick={() => onNavigateTab("dispatch")}
-          className="p-6 cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400">
+            <span className="text-[11px] sm:text-xs font-bold text-neutral-500 dark:text-neutral-400">
               Urgent Leads Pending
             </span>
-            <div className="p-2.5 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/40 shadow-2xs">
-              <ClockIcon className="w-5 h-5 stroke-[2.2]" />
+            <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/50 dark:border-amber-800/40 shadow-2xs">
+              <ClockIcon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-black text-amber-500 tracking-tight">
+          <div className="mt-2.5 sm:mt-4 flex items-baseline gap-1.5 sm:gap-2">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-amber-500 tracking-tight">
               <AnimatedCounter to={pendingBookings.length} duration={1} />
             </span>
             {pendingBookings.length > 0 ? (
-              <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-full flex items-center gap-1">
+              <span className="text-[10px] sm:text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-1.5 sm:px-2 py-0.5 rounded-full flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
                 Action Needed
               </span>
             ) : (
-              <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] sm:text-[11px] font-bold text-emerald-600 bg-emerald-50 px-1.5 sm:px-2 py-0.5 rounded-full">
                 All Assigned
               </span>
             )}
           </div>
-          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+          <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium line-clamp-1 sm:line-clamp-none">
             Requires immediate chauffeur assignment
           </p>
         </SpotlightCard>
@@ -164,25 +164,25 @@ export default function OverviewView({
         <SpotlightCard
           spotlightColor="rgba(217, 70, 239, 0.22)"
           onClick={() => onNavigateTab("reviews")}
-          className="p-6 cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
+          className="p-3.5 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl cursor-pointer hover:shadow-xl hover:-translate-y-0.5 transition-all bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400">
+            <span className="text-[11px] sm:text-xs font-bold text-neutral-500 dark:text-neutral-400">
               Google Reputation
             </span>
-            <div className="p-2.5 rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 border border-purple-200/50 dark:border-purple-800/40 shadow-2xs">
-              <StarIcon className="w-5 h-5 stroke-[2.2]" />
+            <div className="p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 border border-purple-200/50 dark:border-purple-800/40 shadow-2xs">
+              <StarIcon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
             </div>
           </div>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-3xl font-black text-amber-500 tracking-tight flex items-center gap-1">
-              4.9 <StarIcon className="w-6 h-6 inline fill-amber-400 text-amber-400" />
+          <div className="mt-2.5 sm:mt-4 flex items-baseline gap-1.5 sm:gap-2">
+            <span className="text-xl sm:text-2xl lg:text-3xl font-black text-amber-500 tracking-tight flex items-center gap-1">
+              4.9 <StarIcon className="w-4 h-4 sm:w-5 sm:h-5 inline fill-amber-400 text-amber-400" />
             </span>
-            <span className="text-[11px] font-bold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] sm:text-[11px] font-bold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-1.5 sm:px-2 py-0.5 rounded-full">
               Shielded
             </span>
           </div>
-          <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+          <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-500 dark:text-neutral-400 font-medium line-clamp-1 sm:line-clamp-none">
             Protected by AI Review Gating
           </p>
         </SpotlightCard>
@@ -256,98 +256,189 @@ export default function OverviewView({
               </button>
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead>
-                  <tr className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-400 uppercase text-[10px] font-extrabold tracking-wider">
-                    <th className="py-3 px-3">Booking ID</th>
-                    <th className="py-3 px-3">Customer</th>
-                    <th className="py-3 px-3">Vehicle</th>
-                    <th className="py-3 px-3">Route</th>
-                    <th className="py-3 px-3">Driver</th>
-                    <th className="py-3 px-3">Status</th>
-                    <th className="py-3 px-3 text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60">
-                  {filteredBookings.slice(0, 6).map((b) => (
-                    <tr
-                      key={b.id}
-                      className="hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors cursor-pointer"
-                      onClick={() => onOpenBookingDetails && onOpenBookingDetails(b)}
-                    >
-                      <td className="py-3.5 px-3 font-bold text-neutral-900 dark:text-neutral-100 font-mono">
-                        <span className="px-2 py-0.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-[11px] font-bold border border-neutral-200 dark:border-neutral-700">
+            <>
+              {/* Mobile View: High-Density Booking Cards */}
+              <div className="block md:hidden space-y-3">
+                {filteredBookings.slice(0, 6).map((b) => (
+                  <div
+                    key={b.id}
+                    onClick={() => onOpenBookingDetails && onOpenBookingDetails(b)}
+                    className="p-4 rounded-2xl bg-neutral-50/90 dark:bg-neutral-800/60 border border-neutral-200/70 dark:border-neutral-700/70 space-y-3 active:scale-[0.99] transition-all cursor-pointer shadow-sm"
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2 py-0.5 rounded-lg bg-neutral-200/80 dark:bg-neutral-700 font-mono text-xs font-bold text-neutral-900 dark:text-neutral-100">
                           {b.id}
                         </span>
-                      </td>
-                      <td className="py-3.5 px-3">
-                        <div className="flex items-center gap-2.5">
-                          <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 text-neutral-800 dark:text-neutral-200 font-black text-xs flex items-center justify-center shrink-0 shadow-2xs">
-                            {(b.customerName || "C").charAt(0).toUpperCase()}
-                          </div>
-                          <div>
-                            <div className="font-bold text-neutral-900 dark:text-white truncate max-w-[120px]">
-                              {b.customerName}
-                            </div>
-                            <div className="text-[10px] text-neutral-400 font-mono">{b.customerPhone}</div>
-                          </div>
+                        <span className="text-[10px] text-neutral-400">
+                          {new Date(b.createdAt).toLocaleDateString("en-IN", {
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </span>
+                      </div>
+                      <StatusBadge status={b.status} size="sm" />
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs pt-1 border-t border-neutral-200/50 dark:border-neutral-700/50">
+                      <div>
+                        <div className="font-bold text-neutral-900 dark:text-white">
+                          {b.customerName}
                         </div>
-                      </td>
-                      <td className="py-3.5 px-3">
-                        <span className="font-semibold text-neutral-800 dark:text-neutral-200 text-xs">
+                        <a
+                          href={`tel:${b.customerPhone}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-[11px] text-primary-600 dark:text-primary-400 font-medium"
+                        >
+                          {b.customerPhone}
+                        </a>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-black text-emerald-600 dark:text-emerald-400 text-sm">
+                          ₹{b.estimatedPrice?.toLocaleString("en-IN")}
+                        </span>
+                        <span className="block text-[10px] text-neutral-400 truncate max-w-[120px]">
                           {b.vehicleName}
                         </span>
-                      </td>
-                      <td className="py-3.5 px-3 max-w-[180px]">
-                        <p className="truncate text-neutral-600 dark:text-neutral-300 font-medium text-xs flex items-center gap-1">
-                          <span className="truncate">{b.pickupLocation}</span>
-                          <ArrowRightIcon className="w-3 h-3 text-neutral-400 inline shrink-0" />
-                          <span className="truncate">{b.dropLocation}</span>
-                        </p>
-                      </td>
-                      <td className="py-3.5 px-3">
+                      </div>
+                    </div>
+
+                    <div className="text-xs text-neutral-600 dark:text-neutral-300 bg-white/70 dark:bg-neutral-900/60 p-2 rounded-xl border border-neutral-200/40 dark:border-neutral-700/40">
+                      <div className="flex items-center gap-1.5 truncate">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                        <span className="truncate">{b.pickupLocation}</span>
+                        <ArrowRightIcon className="w-3 h-3 text-neutral-400 inline shrink-0 mx-0.5" />
+                        <span className="truncate">{b.dropLocation}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-1 gap-2" onClick={(e) => e.stopPropagation()}>
+                      <div className="text-xs">
                         {b.driverName ? (
-                          <div>
-                            <span className="font-bold text-neutral-900 dark:text-neutral-200">
-                              {b.driverName}
-                            </span>
-                            <span className="block text-[10px] text-neutral-400 font-mono">
-                              {b.vehicleNumber}
-                            </span>
-                          </div>
+                          <span className="font-bold text-neutral-800 dark:text-neutral-200 flex items-center gap-1 text-[11px]">
+                            Chauffeur: {b.driverName}
+                          </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-[11px]">
+                          <span className="text-amber-600 dark:text-amber-400 font-bold text-[11px] flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
                             Unassigned
                           </span>
                         )}
-                      </td>
-                      <td className="py-3.5 px-3">
-                        <StatusBadge status={b.status} size="sm" />
-                      </td>
-                      <td className="py-3.5 px-3 text-right" onClick={(e) => e.stopPropagation()}>
-                        {b.status === "Pending" ? (
-                          <button
-                            onClick={() => onOpenAssignModal(b)}
-                            className="px-3 py-1.5 rounded-xl bg-primary-6000 hover:bg-primary-700 text-white font-bold text-[11px] shadow-sm shadow-primary-6000/20 active:scale-95 transition-all"
-                          >
-                            Assign
-                          </button>
-                        ) : (
-                          <button
-                            onClick={() => (onOpenBookingDetails ? onOpenBookingDetails(b) : onNavigateTab("dispatch"))}
-                            className="px-3 py-1.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-[11px] font-semibold hover:bg-neutral-200 transition-colors"
-                          >
-                            Details
-                          </button>
-                        )}
-                      </td>
+                      </div>
+                      {b.status === "Pending" ? (
+                        <button
+                          onClick={() => onOpenAssignModal(b)}
+                          className="px-3.5 py-1.5 rounded-xl bg-primary-6000 text-white font-bold text-[11px] shadow-sm active:scale-95 transition-all"
+                        >
+                          Assign Driver
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => (onOpenBookingDetails ? onOpenBookingDetails(b) : onNavigateTab("dispatch"))}
+                          className="px-3.5 py-1.5 rounded-xl bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold text-[11px] active:scale-95 transition-all"
+                        >
+                          Details
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Table View with Full Width & No Cramping */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="min-w-[800px] w-full text-left text-xs">
+                  <thead>
+                    <tr className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-400 uppercase text-[10px] font-extrabold tracking-wider">
+                      <th className="py-3 px-3 w-28 whitespace-nowrap">Booking ID</th>
+                      <th className="py-3 px-3 min-w-[140px]">Customer</th>
+                      <th className="py-3 px-3 min-w-[140px]">Vehicle</th>
+                      <th className="py-3 px-3 min-w-[180px]">Route</th>
+                      <th className="py-3 px-3 min-w-[130px]">Driver</th>
+                      <th className="py-3 px-3 w-28 whitespace-nowrap">Status</th>
+                      <th className="py-3 px-3 w-24 text-right whitespace-nowrap">Action</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60">
+                    {filteredBookings.slice(0, 6).map((b) => (
+                      <tr
+                        key={b.id}
+                        className="hover:bg-neutral-50/80 dark:hover:bg-neutral-800/40 transition-colors cursor-pointer"
+                        onClick={() => onOpenBookingDetails && onOpenBookingDetails(b)}
+                      >
+                        <td className="py-3.5 px-3 font-bold text-neutral-900 dark:text-neutral-100 font-mono whitespace-nowrap">
+                          <span className="px-2 py-0.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-[11px] font-bold border border-neutral-200 dark:border-neutral-700">
+                            {b.id}
+                          </span>
+                        </td>
+                        <td className="py-3.5 px-3">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800 text-neutral-800 dark:text-neutral-200 font-black text-xs flex items-center justify-center shrink-0 shadow-2xs">
+                              {(b.customerName || "C").charAt(0).toUpperCase()}
+                            </div>
+                            <div>
+                              <div className="font-bold text-neutral-900 dark:text-white truncate max-w-[130px]">
+                                {b.customerName}
+                              </div>
+                              <div className="text-[10px] text-neutral-400 font-mono">{b.customerPhone}</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-3">
+                          <span className="font-semibold text-neutral-800 dark:text-neutral-200 text-xs block truncate max-w-[150px]">
+                            {b.vehicleName}
+                          </span>
+                        </td>
+                        <td className="py-3.5 px-3 max-w-[200px]">
+                          <p className="truncate text-neutral-600 dark:text-neutral-300 font-medium text-xs flex items-center gap-1">
+                            <span className="truncate">{b.pickupLocation}</span>
+                            <ArrowRightIcon className="w-3 h-3 text-neutral-400 inline shrink-0" />
+                            <span className="truncate">{b.dropLocation}</span>
+                          </p>
+                        </td>
+                        <td className="py-3.5 px-3">
+                          {b.driverName ? (
+                            <div>
+                              <span className="font-bold text-neutral-900 dark:text-neutral-200 block truncate max-w-[130px]">
+                                {b.driverName}
+                              </span>
+                              <span className="block text-[10px] text-neutral-400 font-mono">
+                                {b.vehicleNumber}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-amber-600 dark:text-amber-400 font-bold text-[11px]">
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-ping" />
+                              Unassigned
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-3.5 px-3 whitespace-nowrap">
+                          <StatusBadge status={b.status} size="sm" />
+                        </td>
+                        <td className="py-3.5 px-3 text-right whitespace-nowrap" onClick={(e) => e.stopPropagation()}>
+                          {b.status === "Pending" ? (
+                            <button
+                              onClick={() => onOpenAssignModal(b)}
+                              className="px-3 py-1.5 rounded-xl bg-primary-6000 hover:bg-primary-700 text-white font-bold text-[11px] shadow-sm shadow-primary-6000/20 active:scale-95 transition-all"
+                            >
+                              Assign
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => (onOpenBookingDetails ? onOpenBookingDetails(b) : onNavigateTab("dispatch"))}
+                              className="px-3 py-1.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-[11px] font-semibold hover:bg-neutral-200 transition-colors"
+                            >
+                              Details
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
           )}
         </div>
 

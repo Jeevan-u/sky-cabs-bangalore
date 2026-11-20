@@ -145,18 +145,18 @@ const LiveGpsTrackingView: FC = () => {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-neutral-100/60 dark:bg-neutral-800/50 text-neutral-500 dark:text-neutral-400 font-bold uppercase text-[10px] border-b border-neutral-200/80 dark:border-neutral-800">
+          <table className="min-w-[760px] w-full text-left text-xs">
+            <thead className="bg-neutral-100/60 dark:bg-neutral-800/50 text-neutral-500 dark:text-neutral-400 font-bold uppercase text-[10px] border-b border-neutral-200/80 dark:border-neutral-800 whitespace-nowrap">
               <tr>
-                <th className="py-3.5 px-4">Chauffeur</th>
-                <th className="py-3.5 px-4">Vehicle Number</th>
-                <th className="py-3.5 px-4">Trip Booking</th>
-                <th className="py-3.5 px-4">Current Coordinates</th>
-                <th className="py-3.5 px-4">Speed</th>
-                <th className="py-3.5 px-4">Last Update</th>
+                <th className="py-3.5 px-4 w-44">Chauffeur</th>
+                <th className="py-3.5 px-4 w-36">Vehicle Number</th>
+                <th className="py-3.5 px-4 w-32">Trip Booking</th>
+                <th className="py-3.5 px-4 min-w-[180px]">Current Coordinates</th>
+                <th className="py-3.5 px-4 w-28">Speed</th>
+                <th className="py-3.5 px-4 w-32">Last Update</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60 text-neutral-700 dark:text-neutral-300 font-medium">
+            <tbody className="divide-y divide-neutral-100 dark:divide-neutral-800/60 text-neutral-700 dark:text-neutral-300 font-medium whitespace-nowrap">
               {paginatedPings.map((p) => (
                 <tr key={p.id} className="hover:bg-neutral-50/50 dark:hover:bg-neutral-800/30 transition">
                   <td className="py-3.5 px-4 font-bold text-neutral-900 dark:text-white flex items-center gap-2">
