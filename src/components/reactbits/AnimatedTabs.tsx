@@ -27,7 +27,7 @@ export const AnimatedTabs: React.FC<AnimatedTabsProps> = ({
 }) => {
   return (
     <div
-      className={`inline-flex items-center gap-1.5 p-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 overflow-x-auto no-scrollbar max-w-full ${className}`}
+      className={`inline-flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 overflow-x-auto no-scrollbar max-w-full touch-manipulation ${className}`}
     >
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
@@ -35,7 +35,7 @@ export const AnimatedTabs: React.FC<AnimatedTabsProps> = ({
           <button
             key={tab.id}
             onClick={() => onChange(tab.id)}
-            className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 whitespace-nowrap z-10 ${
+            className={`relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-200 whitespace-nowrap z-10 active:scale-98 ${
               isActive
                 ? "text-neutral-950 dark:text-neutral-900"
                 : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"

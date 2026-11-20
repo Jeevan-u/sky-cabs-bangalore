@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   },
 };
 import SectionHero from "@/app/(server-components)/SectionHero";
+import AnimatedHeroGallery from "@/components/AnimatedHeroGallery";
 import HeroQuickBookingWidget from "@/components/HeroQuickBookingWidget";
 import SectionTrustBadges from "@/components/SectionTrustBadges";
 import BgGlassmorphism from "@/components/BgGlassmorphism";
@@ -103,11 +104,16 @@ function PageHome() {
 
       <div className="container relative space-y-24 mb-24 lg:space-y-28 lg:mb-28">
         {/* 1. HERO SECTION */}
-        <SectionHero className="pt-8 lg:pt-14" />
+        <SectionHero className="pt-6 sm:pt-8 lg:pt-14" />
 
         {/* 1.1 INTERACTIVE HERO QUICK BOOKING WIDGET */}
-        <div className="relative -mt-10 sm:-mt-16 z-20">
+        <div className="relative -mt-6 sm:-mt-10 lg:-mt-16 z-20">
           <HeroQuickBookingWidget />
+        </div>
+
+        {/* 1.2 MOBILE FLEET 3D SHOWCASE (Directly below booking widget on mobile) */}
+        <div className="block lg:hidden pt-2 pb-4">
+          <AnimatedHeroGallery />
         </div>
 
         {/* 1.2 ENTERPRISE TRUST & COMPLIANCE BADGES */}

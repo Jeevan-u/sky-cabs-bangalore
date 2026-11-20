@@ -226,6 +226,23 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
               className="w-10 h-10 xl:w-11 xl:h-11 text-lg absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 bg-white/95 dark:bg-neutral-800/95 shadow-xl backdrop-blur-md rounded-full border border-neutral-200 dark:border-neutral-700 hover:scale-105 transition-all flex items-center justify-center cursor-pointer"
             />
           ) : null}
+
+          {/* Mobile swipe pagination indicator dots */}
+          <div className="flex sm:hidden justify-center items-center gap-1.5 mt-4 pt-1">
+            {categories.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => changeItemId(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  currentIndex === idx
+                    ? "w-5 bg-primary-6000 dark:bg-primary-500"
+                    : "w-1.5 bg-neutral-300 dark:bg-neutral-700"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </MotionConfig>
     </div>

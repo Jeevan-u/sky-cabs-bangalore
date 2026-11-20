@@ -83,34 +83,36 @@ const NavMobile: React.FC<NavMobileProps> = ({
   };
 
   return (
-    <div className="overflow-y-auto w-full h-screen py-2 transition transform shadow-2xl ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y divide-neutral-100 dark:divide-neutral-800">
-      <div className="py-6 px-5 relative">
-        <Logo />
-        <div className="flex flex-col mt-4 text-neutral-600 dark:text-neutral-400 text-xs">
-          <p className="leading-relaxed">
-            Travel Safe... Travel Happy... 5-Seater to 50-Seater Vehicles Available 24x7 across Hyderabad & Kamareddy.
-          </p>
+    <div className="overflow-y-auto w-full min-h-[100dvh] max-h-[100dvh] flex flex-col justify-between py-2 transition transform shadow-2xl ring-1 dark:ring-neutral-700 bg-white dark:bg-neutral-900 divide-y divide-neutral-100 dark:divide-neutral-800">
+      <div>
+        <div className="py-6 px-5 relative">
+          <Logo />
+          <div className="flex flex-col mt-4 text-neutral-600 dark:text-neutral-400 text-xs">
+            <p className="leading-relaxed">
+              Travel Safe... Travel Happy... 5-Seater to 50-Seater Vehicles Available 24x7 across Hyderabad & Kamareddy.
+            </p>
 
-          <div className="flex items-center justify-between mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800">
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-500">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              24x7 Dispatch Active
-            </span>
-            <SwitchDarkMode className="bg-neutral-100 dark:bg-neutral-800" />
+            <div className="flex items-center justify-between mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-amber-500">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                24x7 Dispatch Active
+              </span>
+              <SwitchDarkMode className="bg-neutral-100 dark:bg-neutral-800" />
+            </div>
           </div>
+          <span className="absolute right-4 top-4 p-1">
+            <ButtonClose onClick={onClickClose} />
+          </span>
         </div>
-        <span className="absolute right-4 top-4 p-1">
-          <ButtonClose onClick={onClickClose} />
-        </span>
+
+        <ul className="flex flex-col py-4 px-2 space-y-1">{data.map(_renderItem)}</ul>
       </div>
 
-      <ul className="flex flex-col py-4 px-2 space-y-1">{data.map(_renderItem)}</ul>
-
-      {/* Mobile CTAs */}
-      <div className="p-5 space-y-3">
+      {/* Mobile CTAs with safe area padding */}
+      <div className="p-5 space-y-3 pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)]">
         <a
           href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
-          className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-primary-6000 text-white font-bold text-xs shadow-md active:scale-98 transition-all"
+          className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary-6000 text-white font-bold text-xs shadow-md active:scale-98 transition-all touch-manipulation"
         >
           <PhoneIcon className="w-4 h-4 text-white" />
           <span>Call 24x7: +91 {SADHGURU_CONTACT.primaryPhone}</span>
@@ -119,7 +121,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
           href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md active:scale-98 transition-all"
+          className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md active:scale-98 transition-all touch-manipulation"
         >
           <WhatsAppIcon className="w-4 h-4 fill-white" />
           <span>WhatsApp Instant Booking</span>
@@ -127,7 +129,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
         <Link
           href="/login"
           onClick={onClickClose}
-          className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-slate-900 dark:bg-neutral-800 text-white font-bold text-xs shadow-sm border border-slate-700 active:scale-98 transition-all"
+          className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 dark:bg-neutral-800 text-white font-bold text-xs shadow-sm border border-slate-700 active:scale-98 transition-all touch-manipulation"
         >
           <LockClosedIcon className="w-4 h-4 text-amber-400" />
           <span>Sign in</span>

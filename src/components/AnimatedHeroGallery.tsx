@@ -66,22 +66,20 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
           <button
             type="button"
             onClick={() => setViewMode("interactive")}
-            className={`px-3 py-1 rounded-full font-bold transition-all ${
-              viewMode === "interactive"
-                ? "bg-amber-500 text-neutral-950 shadow-sm"
-                : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
-            }`}
+            className={`px-3 py-1 rounded-full font-bold transition-all ${viewMode === "interactive"
+              ? "bg-amber-500 text-neutral-950 shadow-sm"
+              : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+              }`}
           >
             3D Floating Gallery
           </button>
           <button
             type="button"
             onClick={() => setViewMode("stack")}
-            className={`px-3 py-1 rounded-full font-bold transition-all ${
-              viewMode === "stack"
-                ? "bg-amber-500 text-neutral-950 shadow-sm"
-                : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
-            }`}
+            className={`px-3 py-1 rounded-full font-bold transition-all ${viewMode === "stack"
+              ? "bg-amber-500 text-neutral-950 shadow-sm"
+              : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
+              }`}
           >
             Interactive Card Stack
           </button>

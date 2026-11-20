@@ -83,29 +83,46 @@ export default function HeroQuickBookingWidget() {
   return (
     <SpotlightCard
       spotlightColor="rgba(217, 119, 6, 0.12)"
-      className="w-full max-w-5xl mx-auto !rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-5 sm:p-7 relative z-20 font-sans backdrop-blur-xl overflow-hidden"
+      className="w-full max-w-5xl mx-auto !rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-4 sm:p-7 relative z-20 font-sans backdrop-blur-xl"
     >
-      {/* React Bits Animated Border Beam */}
-      <BorderBeam size={280} duration={8} colorFrom="#f59e0b" colorTo="#0284c7" borderWidth={1.5} />
+      {/* React Bits Animated Border Beam inside dedicated overflow-hidden container */}
+      <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none -z-10">
+        <BorderBeam size={280} duration={8} colorFrom="#f59e0b" colorTo="#0284c7" borderWidth={1.5} />
+      </div>
 
       {/* TABS HEADER WITH ANIMATED TABS */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-5 border-b border-neutral-100 dark:border-neutral-800">
         <AnimatedTabs
           tabs={[
             {
               id: "airport",
-              label: "Airport Express",
-              icon: <AirplaneIcon className="w-4 h-4 text-sky-500" />,
+              label: (
+                <span>
+                  <span className="sm:hidden">Airport</span>
+                  <span className="hidden sm:inline">Airport Express</span>
+                </span>
+              ) as any,
+              icon: <AirplaneIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-500" />,
             },
             {
               id: "outstation",
-              label: "Outstation & Pilgrimage",
-              icon: <TempleIcon className="w-4 h-4 text-amber-500" />,
+              label: (
+                <span>
+                  <span className="sm:hidden">Outstation</span>
+                  <span className="hidden sm:inline">Outstation & Pilgrimage</span>
+                </span>
+              ) as any,
+              icon: <TempleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />,
             },
             {
               id: "local",
-              label: "Local 8h/80km",
-              icon: <ClockIcon className="w-4 h-4 text-emerald-500" />,
+              label: (
+                <span>
+                  <span className="sm:hidden">Hourly (8h)</span>
+                  <span className="hidden sm:inline">Local 8h/80km</span>
+                </span>
+              ) as any,
+              icon: <ClockIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500" />,
             },
           ]}
           activeTab={tripType}
@@ -156,7 +173,7 @@ export default function HeroQuickBookingWidget() {
             <select
               value={vehicleId}
               onChange={(e) => setVehicleId(e.target.value)}
-              className="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+              className="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500 min-h-[44px]"
             >
               {SADHGURU_FLEET.map((f) => (
                 <option key={f.id} value={f.id}>
@@ -178,7 +195,7 @@ export default function HeroQuickBookingWidget() {
               type="date"
               value={travelDate}
               onChange={(e) => setTravelDate(e.target.value)}
-              className="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+              className="w-full pl-9 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500 min-h-[44px]"
             />
           </div>
         </div>
@@ -209,15 +226,15 @@ export default function HeroQuickBookingWidget() {
       </div>
 
       {/* FOOTER ACTION BAR */}
-      <div className="pt-4 border-t border-neutral-100 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="pt-4 border-t border-neutral-100 dark:border-neutral-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
         {/* Estimated Fare Display with AnimatedCounter */}
-        <div className="flex items-center gap-3 self-start sm:self-auto">
+        <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto">
           <div className="text-left">
             <span className="text-[10px] uppercase font-bold text-neutral-400 block">
               Guaranteed Best Rate
             </span>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-2xl font-black text-neutral-900 dark:text-white font-mono flex items-center">
+              <span className="text-2xl sm:text-3xl font-black text-neutral-900 dark:text-white font-mono flex items-center">
                 <span>₹</span>
                 <AnimatedCounter
                   to={estimatedPrice}
@@ -230,29 +247,27 @@ export default function HeroQuickBookingWidget() {
               </span>
             </div>
           </div>
-          <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md">
+          <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md self-center">
             ₹0 Advance
           </span>
         </div>
 
-        {/* Buttons with MagneticButton */}
-        <div className="flex items-center gap-3 w-full sm:w-auto">
-          <MagneticButton pullFactor={0.2}>
-            <a
-              href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${whatsappMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition flex items-center gap-1.5 shrink-0"
-            >
-              <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
-              <span>WhatsApp</span>
-            </a>
-          </MagneticButton>
+        {/* Buttons */}
+        <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
+          <a
+            href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 sm:flex-none justify-center px-4 py-3 sm:py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition flex items-center gap-1.5 min-h-[48px] active:scale-98 shrink-0"
+          >
+            <WhatsAppIcon className="w-4 h-4 fill-white" />
+            <span>WhatsApp</span>
+          </a>
 
           <ShimmerButton
             onClick={handleProceedBooking}
             background="linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)"
-            className="flex-1 sm:flex-none px-6 py-3 text-xs sm:text-sm font-bold shadow-md shadow-amber-500/25"
+            className="flex-1 sm:flex-none justify-center px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold shadow-md shadow-amber-500/25 min-h-[48px] active:scale-98"
           >
             <span>Proceed to Book</span>
             <ArrowRightIcon className="w-4 h-4 stroke-[2.5]" />

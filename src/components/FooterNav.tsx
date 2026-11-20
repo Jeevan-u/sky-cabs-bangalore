@@ -121,7 +121,7 @@ const FooterNav = () => {
           href={item.href}
           target={item.isWhatsApp ? "_blank" : undefined}
           rel={item.isWhatsApp ? "noopener noreferrer" : undefined}
-          className={`flex flex-col items-center justify-between transition-colors ${
+          className={`flex flex-col items-center justify-between min-h-[44px] py-1 active:scale-95 transition-all touch-manipulation ${
             item.highlight
               ? "text-primary-6000 dark:text-primary-400 font-bold"
               : item.isWhatsApp
@@ -143,7 +143,7 @@ const FooterNav = () => {
       <Link
         key={index}
         href={item.link || "/"}
-        className={`flex flex-col items-center justify-between text-neutral-500 dark:text-neutral-400 ${
+        className={`flex flex-col items-center justify-between min-h-[44px] py-1 active:scale-95 transition-all touch-manipulation text-neutral-500 dark:text-neutral-400 ${
           isActive ? "text-primary-6000 dark:text-primary-400 font-bold" : ""
         }`}
       >
@@ -162,7 +162,7 @@ const FooterNav = () => {
   return (
     <div
       ref={containerRef}
-      className="FooterNav block md:!hidden py-2 px-3 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl fixed top-auto bottom-0 inset-x-0 z-40 border-t border-neutral-200/80 dark:border-neutral-800 shadow-2xl transition-transform duration-300 ease-in-out"
+      className="FooterNav block md:!hidden pt-2 pb-[calc(env(safe-area-inset-bottom,0px)+0.5rem)] px-3 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl fixed top-auto bottom-0 inset-x-0 z-40 border-t border-neutral-200/80 dark:border-neutral-800 shadow-2xl transition-transform duration-300 ease-in-out"
     >
       <div className="w-full max-w-lg flex justify-around mx-auto text-sm text-center ">
         {/* MENU */}

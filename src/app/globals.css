@@ -24,6 +24,19 @@
   margin-inline: auto !important;
 }
 
+/* Mobile Touch & Safe-Area Optimization */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.page-bottom-dock-padding {
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+}
+
 @theme {
   --color-primary-50: rgb(var(--c-primary-50));
   --color-primary-100: rgb(var(--c-primary-100));

@@ -222,50 +222,50 @@ export default function LocationLandingTemplate({
         </div>
 
         {/* Hero Header */}
-        <div className="bg-gradient-to-r from-blue-950 via-indigo-900 to-blue-900 text-white p-8 sm:p-12 rounded-[36px] shadow-2xl border-b-4 border-amber-400">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 font-black text-xs uppercase tracking-widest mb-3">
+        <div className="bg-gradient-to-r from-blue-950 via-indigo-900 to-blue-900 text-white p-5 sm:p-12 rounded-3xl sm:rounded-[36px] shadow-2xl border-b-4 border-amber-400">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 font-black text-[11px] sm:text-xs uppercase tracking-widest mb-3">
             <MapPinIcon className="w-3.5 h-3.5 text-amber-400" />
             <span>{customBadge ? customBadge.replace(/^[^\w\s]+/, "").trim() : `Local Taxi & Cab Hub · ${locationName}`}</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-5xl font-black tracking-tight leading-tight">
             <BlurText text={customHeading || `Best Cab Services & Car Rentals in ${locationName}`} delay={0.03} animateBy="words" />
           </h1>
-          <p className="text-blue-200 text-sm sm:text-base mt-2 max-w-2xl font-medium">
+          <p className="text-blue-200 text-xs sm:text-base mt-2 max-w-2xl font-medium">
             {tagline}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 mt-6 text-xs">
-            <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-4 sm:mt-6 text-xs">
+            <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5 text-[11px] sm:text-xs">
               <BoltIcon className="w-3.5 h-3.5 text-amber-400" />
               <span>15-Minute Rapid Pickup</span>
             </span>
-            <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5">
+            <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5 text-[11px] sm:text-xs">
               <TruckIcon className="w-3.5 h-3.5 text-emerald-400" />
               <span>5-Seater to 50-Seater Fleet</span>
             </span>
-            <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5">
+            <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5 text-[11px] sm:text-xs">
               <AirplaneIcon className="w-3.5 h-3.5 text-sky-400" />
               <span>Flat Rate Shamshabad Airport Cabs</span>
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-3 mt-8">
-            <MagneticButton pullFactor={0.25}>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6 sm:mt-8">
+            <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
               <a
                 href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
-                className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-lg transition flex items-center gap-2"
+                className="w-full sm:w-auto min-h-[48px] px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-lg transition flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
               >
                 <PhoneIcon className="w-4 h-4 text-slate-950" />
                 <span>Instant Call: {SADHGURU_CONTACT.primaryPhoneFormatted}</span>
               </a>
             </MagneticButton>
 
-            <MagneticButton pullFactor={0.25}>
+            <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
               <a
                 href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20need%20a%20cab%20in%20${encodeURIComponent(locationName)}.`}
                 target="_blank"
                 rel="noreferrer"
-                className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition flex items-center gap-2"
+                className="w-full sm:w-auto min-h-[48px] px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-white" />
                 <span>WhatsApp Booking</span>

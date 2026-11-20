@@ -63,7 +63,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center py-6 sm:py-10 lg:py-14">
         <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start space-y-6 sm:space-y-8">
-          
+
           {/* React Bits StarBorder & ShinyText Badge */}
           <StarBorder
             as="div"
@@ -82,11 +82,11 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             <span className="sr-only">Sri Sadhguru Tours & Travels</span>
 
             {/* React Bits WarpText with interactive WebGL liquid refraction */}
-            <div className="w-full max-w-xl h-[135px] sm:h-[160px] md:h-[185px] lg:h-[200px] relative">
+            <div className="w-full max-w-xl h-[115px] sm:h-[150px] md:h-[185px] lg:h-[200px] relative">
               <WarpText
                 text={"Sri Sadhguru\nTours & Travels"}
                 align="left"
-                fontSize="clamp(2.4rem, 4.8vw, 3.8rem)"
+                fontSize="clamp(2rem, 5.2vw, 3.8rem)"
                 fontWeight={800}
                 lineHeight={1.05}
                 letterSpacing="-0.03em"
@@ -108,39 +108,39 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             </div>
 
             {/* React Bits RotatingText for dynamic service highlights */}
-            <div className="mt-3 sm:mt-4 min-h-[36px] sm:min-h-[42px]">
+            <div className="mt-2 sm:mt-4 min-h-[32px] sm:min-h-[42px]">
               <RotatingText
                 texts={HERO_SPECIALTIES}
                 interval={3000}
-                className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-amber-600 dark:text-amber-400"
+                className="text-base sm:text-2xl lg:text-3xl font-extrabold text-amber-600 dark:text-amber-400"
               />
             </div>
           </h1>
 
-          <p className="text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl">
+          <p className="text-sm sm:text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl">
             Travel Safe... Travel Happy... Your Journey, Our Responsibility.
             5-Seater to 50-Seater Vehicles Available 24x7 across Kukatpally,
             KPHB, Miyapur, Hitec City, Shamshabad Airport & Gandhari.
           </p>
 
           {/* CTAs with ShimmerButton & MagneticButton */}
-          <div className="flex flex-wrap gap-3.5 items-center pt-2">
-            <Link href="/listing-car">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-3.5 items-stretch sm:items-center pt-2 w-full sm:w-auto">
+            <Link href="/listing-car" className="w-full sm:w-auto">
               <ShimmerButton
                 background="linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
-                className="px-6 py-3.5 sm:px-8 text-sm sm:text-base font-bold shadow-lg"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 sm:px-8 text-sm sm:text-base font-bold shadow-lg min-h-[48px]"
               >
                 <span>Explore Fleet & Rates</span>
                 <span className="text-xs">→</span>
               </ShimmerButton>
             </Link>
 
-            <MagneticButton pullFactor={0.25}>
+            <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
               <a
                 href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20book%20a%20cab/bus`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-md hover:shadow-emerald-500/30 transition"
+                className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-md hover:shadow-emerald-500/30 transition min-h-[48px]"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-white" />
                 <span>Instant WhatsApp Booking</span>
@@ -149,53 +149,53 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           </div>
 
           {/* Quick Service Highlights with SpotlightCard */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 w-full max-w-xl">
-            <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(56, 189, 248, 0.2)">
-              <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                <AirplaneIcon className="w-4 h-4 text-sky-500 flex-shrink-0" />
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 sm:gap-3 pt-2 sm:pt-4 w-full max-w-xl">
+            <SpotlightCard className="p-2 sm:p-3 !rounded-2xl text-center sm:text-left" spotlightColor="rgba(56, 189, 248, 0.2)">
+              <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
+                <AirplaneIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-500 flex-shrink-0" />
                 <span>Airport Transfers</span>
               </div>
             </SpotlightCard>
 
-            <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(245, 158, 11, 0.2)">
-              <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                <TempleIcon className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <span>Pilgrimage Tours</span>
+            <SpotlightCard className="p-2 sm:p-3 !rounded-2xl text-center sm:text-left" spotlightColor="rgba(245, 158, 11, 0.2)">
+              <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
+                <TempleIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 flex-shrink-0" />
+                <span>Pilgrimages</span>
               </div>
             </SpotlightCard>
 
-            <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(16, 185, 129, 0.2)">
+            <SpotlightCard className="p-2 sm:p-3 !rounded-2xl text-center sm:text-left" spotlightColor="rgba(245, 158, 11, 0.2)">
+              <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
+                <TruckIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 flex-shrink-0" />
+                <span>5 to 50 Seats</span>
+              </div>
+            </SpotlightCard>
+
+            <SpotlightCard className="hidden sm:block p-3 !rounded-2xl" spotlightColor="rgba(16, 185, 129, 0.2)">
               <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 <UserGroupIcon className="w-4 h-4 text-emerald-500 flex-shrink-0" />
                 <span>Family & Group</span>
               </div>
             </SpotlightCard>
 
-            <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(99, 102, 241, 0.2)">
+            <SpotlightCard className="hidden sm:block p-3 !rounded-2xl" spotlightColor="rgba(99, 102, 241, 0.2)">
               <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 <BuildingOffice2Icon className="w-4 h-4 text-indigo-500 flex-shrink-0" />
                 <span>Corporate Travel</span>
               </div>
             </SpotlightCard>
 
-            <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(244, 63, 94, 0.2)">
+            <SpotlightCard className="hidden sm:block p-3 !rounded-2xl" spotlightColor="rgba(244, 63, 94, 0.2)">
               <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 <SparklesIcon className="w-4 h-4 text-rose-500 flex-shrink-0" />
                 <span>Wedding Transport</span>
               </div>
             </SpotlightCard>
-
-            <SpotlightCard className="p-3 !rounded-2xl" spotlightColor="rgba(245, 158, 11, 0.2)">
-              <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                <TruckIcon className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <span>5 to 50 Seaters</span>
-              </div>
-            </SpotlightCard>
           </div>
         </div>
 
-        {/* Right Column: Floating Interactive Gallery */}
-        <div className="lg:col-span-6 xl:col-span-6 w-full">
+        {/* Right Column: Floating Interactive Gallery (Desktop) */}
+        <div className="hidden lg:block lg:col-span-6 xl:col-span-6 w-full">
           <AnimatedHeroGallery />
         </div>
       </div>

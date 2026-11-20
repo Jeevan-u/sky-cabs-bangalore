@@ -300,7 +300,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
           }}
           onFocus={() => setIsOpen(true)}
           placeholder={placeholder}
-          className="w-full pl-9 pr-8 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all placeholder:font-normal placeholder:text-neutral-400"
+          className="w-full pl-9 pr-8 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all placeholder:font-normal placeholder:text-neutral-400 min-h-[44px]"
         />
 
         {/* Clear Button */}
@@ -335,7 +335,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute z-50 left-0 right-0 mt-2 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200/80 dark:border-neutral-700/80 overflow-hidden max-h-72 sm:max-h-80 flex flex-col backdrop-blur-md"
+            className="absolute z-[70] left-0 right-0 mt-2 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200/80 dark:border-neutral-700/80 overflow-hidden max-h-72 sm:max-h-80 flex flex-col backdrop-blur-md touch-manipulation"
           >
             {/* Header / GPS shortcut in popup */}
             <div className="p-2.5 bg-neutral-50/90 dark:bg-neutral-800/90 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-[11px]">
@@ -365,7 +365,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
                       onChange(item.name);
                       setIsOpen(false);
                     }}
-                    className="w-full text-left p-2.5 rounded-xl hover:bg-amber-500/10 dark:hover:bg-amber-500/15 transition-colors flex items-start gap-3 group"
+                    className="w-full text-left p-3 sm:p-2.5 rounded-xl hover:bg-amber-500/10 dark:hover:bg-amber-500/15 transition-colors flex items-start gap-3 group min-h-[44px] active:bg-amber-500/20"
                   >
                     <div className="mt-0.5 p-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 group-hover:bg-amber-500/20 transition-colors">
                       {getCategoryIcon(item.category)}

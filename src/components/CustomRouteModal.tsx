@@ -110,7 +110,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative w-full max-w-xl rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-6 sm:p-8 text-neutral-900 dark:text-neutral-100 font-sans my-8">
+      <div className="relative w-full max-w-xl max-h-[90dvh] overflow-y-auto rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-6 sm:p-8 text-neutral-900 dark:text-neutral-100 font-sans my-8">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -169,7 +169,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                     value={pickupAddress}
                     onChange={(e) => setPickupAddress(e.target.value)}
                     placeholder="e.g. Gachibowli, or paste Google Maps link (https://maps.app.goo.gl/...)"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                    className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                     value={dropAddress}
                     onChange={(e) => setDropAddress(e.target.value)}
                     placeholder="e.g. Nagarjuna Sagar Dam, or paste Google Maps link (https://maps.app.goo.gl/...)"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                    className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                   />
                 </div>
               </div>
@@ -202,7 +202,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                   <select
                     value={vehicleType}
                     onChange={(e) => setVehicleType(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                    className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                   >
                     {SADHGURU_FLEET.map((f) => (
                       <option key={f.id} value={`${f.name} (${f.capacity})`}>
@@ -226,7 +226,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                       required
                       value={pickupDate}
                       onChange={(e) => setPickupDate(e.target.value)}
-                      className="w-full pl-10 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                      className="w-full pl-10 pr-3 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                     />
                   </div>
                 </div>
@@ -243,7 +243,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                       value={pickupTime}
                       onChange={(e) => setPickupTime(e.target.value)}
                       placeholder="e.g. 06:00 AM"
-                      className="w-full pl-10 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                      className="w-full pl-10 pr-3 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                     />
                   </div>
                 </div>
@@ -263,7 +263,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
                       placeholder="e.g. Anand Reddy"
-                      className="w-full pl-10 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                      className="w-full pl-10 pr-3 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                     />
                   </div>
                 </div>
@@ -280,7 +280,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                       value={customerPhone}
                       onChange={(e) => setCustomerPhone(e.target.value)}
                       placeholder="e.g. 98480 12345"
-                      className="w-full pl-10 pr-3 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                      className="w-full pl-10 pr-3 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                     />
                   </div>
                 </div>
@@ -296,7 +296,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder="e.g. Multiple stopovers, luggage space, elderly passengers onboard..."
-                  className="w-full p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
+                  className="w-full p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                 />
               </div>
 
@@ -305,14 +305,14 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-5 py-2.5 rounded-2xl border border-neutral-200 dark:border-neutral-700 text-xs font-bold hover:bg-neutral-100 dark:hover:bg-neutral-800 transition"
+                  className="px-5 py-2.5 min-h-[44px] rounded-2xl border border-neutral-200 dark:border-neutral-700 text-xs font-bold hover:bg-neutral-100 dark:hover:bg-neutral-800 transition active:scale-95 touch-manipulation"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2.5 rounded-2xl bg-primary-6000 hover:bg-primary-700 text-white font-black text-xs flex items-center gap-2 shadow-lg shadow-primary-6000/25 transition active:scale-95"
+                  className="px-6 py-2.5 min-h-[44px] rounded-2xl bg-primary-6000 hover:bg-primary-700 text-white font-black text-xs flex items-center gap-2 shadow-lg shadow-primary-6000/25 transition active:scale-95 touch-manipulation"
                 >
                   <PaperAirplaneIcon className="w-4 h-4" />
                   {isSubmitting ? "Dispatching..." : "Submit Quote Request"}

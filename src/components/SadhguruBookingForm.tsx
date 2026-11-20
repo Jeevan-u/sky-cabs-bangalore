@@ -167,11 +167,11 @@ export default function SadhguruBookingForm() {
   return (
     <div className="w-full bg-white dark:bg-neutral-900 rounded-[32px] shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
       {/* Tab Switcher */}
-      <div className="flex border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/50">
+      <div className="flex overflow-x-auto no-scrollbar border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-800/50">
         <button
           type="button"
           onClick={() => setTripType("airport")}
-          className={`flex-1 py-4 px-3 sm:px-6 text-xs sm:text-sm font-bold text-center transition flex items-center justify-center gap-2 border-b-2 ${
+          className={`flex-1 min-w-[120px] py-3.5 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-bold text-center transition flex items-center justify-center gap-2 border-b-2 whitespace-nowrap touch-manipulation active:scale-98 ${
             tripType === "airport"
               ? "border-blue-600 text-blue-600 dark:text-blue-400 bg-white dark:bg-neutral-900"
               : "border-transparent text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
@@ -187,7 +187,7 @@ export default function SadhguruBookingForm() {
         <button
           type="button"
           onClick={() => setTripType("outstation")}
-          className={`flex-1 py-4 px-3 sm:px-6 text-xs sm:text-sm font-bold text-center transition flex items-center justify-center gap-2 border-b-2 ${
+          className={`flex-1 min-w-[120px] py-3.5 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-bold text-center transition flex items-center justify-center gap-2 border-b-2 whitespace-nowrap touch-manipulation active:scale-98 ${
             tripType === "outstation"
               ? "border-amber-500 text-amber-600 dark:text-amber-400 bg-white dark:bg-neutral-900"
               : "border-transparent text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
@@ -203,7 +203,7 @@ export default function SadhguruBookingForm() {
         <button
           type="button"
           onClick={() => setTripType("local")}
-          className={`flex-1 py-4 px-3 sm:px-6 text-xs sm:text-sm font-bold text-center transition flex items-center justify-center gap-2 border-b-2 ${
+          className={`flex-1 min-w-[120px] py-3.5 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-bold text-center transition flex items-center justify-center gap-2 border-b-2 whitespace-nowrap touch-manipulation active:scale-98 ${
             tripType === "local"
               ? "border-emerald-600 text-emerald-600 dark:text-emerald-400 bg-white dark:bg-neutral-900"
               : "border-transparent text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
@@ -218,11 +218,11 @@ export default function SadhguruBookingForm() {
       </div>
 
       {/* Form Content */}
-      <div className="p-6 sm:p-8 space-y-6">
+      <div className="p-5 sm:p-8 space-y-6">
         {/* AIRPORT FORM */}
         {tripType === "airport" && (
           <div className="space-y-4">
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <label className="flex items-center gap-2 text-xs font-bold cursor-pointer text-neutral-700 dark:text-neutral-300">
                 <input
                   type="radio"
@@ -253,7 +253,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={airportCityLocation}
                   onChange={(e) => setAirportCityLocation(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   {HYDERABAD_HUBS.map((hub) => (
                     <option key={hub} value={hub}>
@@ -270,7 +270,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={airportVehicleId}
                   onChange={(e) => setAirportVehicleId(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   {SADHGURU_FLEET.map((f) => (
                     <option key={f.id} value={f.id}>
@@ -289,13 +289,13 @@ export default function SadhguruBookingForm() {
                     type="date"
                     value={airportDate}
                     onChange={(e) => setAirportDate(e.target.value)}
-                    className="w-full text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                    className="w-full min-h-[44px] text-base sm:text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                   />
                   <input
                     type="time"
                     value={airportTime}
                     onChange={(e) => setAirportTime(e.target.value)}
-                    className="w-full text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                    className="w-full min-h-[44px] text-base sm:text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                   />
                 </div>
               </div>
@@ -306,7 +306,7 @@ export default function SadhguruBookingForm() {
         {/* OUTSTATION FORM */}
         {tripType === "outstation" && (
           <div className="space-y-4">
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <label className="flex items-center gap-2 text-xs font-bold cursor-pointer text-neutral-700 dark:text-neutral-300">
                 <input
                   type="radio"
@@ -337,7 +337,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={outstationFrom}
                   onChange={(e) => setOutstationFrom(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   {HYDERABAD_HUBS.map((hub) => (
                     <option key={hub} value={hub}>
@@ -357,7 +357,7 @@ export default function SadhguruBookingForm() {
                   value={outstationTo}
                   onChange={(e) => setOutstationTo(e.target.value)}
                   placeholder="e.g. Tirupati / Shirdi / Srisailam"
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 />
                 <datalist id="destinations">
                   {OUTSTATION_POPULAR_DESTINATIONS.map((d) => (
@@ -373,7 +373,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={outstationVehicleId}
                   onChange={(e) => setOutstationVehicleId(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   {SADHGURU_FLEET.map((f) => (
                     <option key={f.id} value={f.id}>
@@ -392,14 +392,14 @@ export default function SadhguruBookingForm() {
                     type="date"
                     value={outstationDepartDate}
                     onChange={(e) => setOutstationDepartDate(e.target.value)}
-                    className="w-full text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                    className="w-full min-h-[44px] text-base sm:text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                   />
                   {outstationTripMode === "round_trip" && (
                     <input
                       type="date"
                       value={outstationReturnDate}
                       onChange={(e) => setOutstationReturnDate(e.target.value)}
-                      className="w-full text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                      className="w-full min-h-[44px] text-base sm:text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                     />
                   )}
                 </div>
@@ -419,7 +419,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={localPackage}
                   onChange={(e: any) => setLocalPackage(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   <option value="4hr40km">4 Hours / 40 Kms (Half Day)</option>
                   <option value="8hr80km">8 Hours / 80 Kms (Full Day - Recommended)</option>
@@ -434,7 +434,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={localCityLocation}
                   onChange={(e) => setLocalCityLocation(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   {HYDERABAD_HUBS.map((hub) => (
                     <option key={hub} value={hub}>
@@ -451,7 +451,7 @@ export default function SadhguruBookingForm() {
                 <select
                   value={localVehicleId}
                   onChange={(e) => setLocalVehicleId(e.target.value)}
-                  className="w-full text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+                  className="w-full min-h-[44px] text-base sm:text-xs font-semibold rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
                 >
                   {SADHGURU_FLEET.map((f) => (
                     <option key={f.id} value={f.id}>
@@ -476,7 +476,7 @@ export default function SadhguruBookingForm() {
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               placeholder="e.g. Ranganathan"
-              className="w-full text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+              className="w-full min-h-[44px] text-base sm:text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
             />
           </div>
           <div>
@@ -489,7 +489,7 @@ export default function SadhguruBookingForm() {
               value={customerPhone}
               onChange={(e) => setCustomerPhone(e.target.value)}
               placeholder="e.g. 9849012345"
-              className="w-full text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
+              className="w-full min-h-[44px] text-base sm:text-xs rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 p-3 text-neutral-900 dark:text-white"
             />
           </div>
         </div>
@@ -514,13 +514,13 @@ export default function SadhguruBookingForm() {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {/* WhatsApp Direct Book */}
             <a
               href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${buildWhatsAppText()}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 sm:flex-none py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-lg hover:shadow-emerald-500/20 transition flex items-center justify-center gap-2"
+              className="flex-1 sm:flex-none min-h-[48px] py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-lg hover:shadow-emerald-500/20 transition flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
             >
               <WhatsAppIcon className="w-4 h-4 fill-white" />
               <span>Book on WhatsApp</span>
@@ -531,7 +531,7 @@ export default function SadhguruBookingForm() {
               type="button"
               onClick={handleOnlineBooking}
               disabled={isSubmitting}
-              className="flex-1 sm:flex-none py-3.5 px-6 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs sm:text-sm shadow-lg transition flex items-center justify-center gap-2"
+              className="flex-1 sm:flex-none min-h-[48px] py-3.5 px-6 rounded-2xl bg-blue-900 hover:bg-blue-800 text-white font-bold text-xs sm:text-sm shadow-lg transition flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
             >
               <BoltIcon className="w-4 h-4 text-white" />
               <span>{isSubmitting ? "Confirming..." : "Book Online"}</span>
