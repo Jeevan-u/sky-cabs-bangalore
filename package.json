@@ -13,7 +13,8 @@
     "start": "next start",
     "lint": "eslint src",
     "cf:build": "next build",
-    "cf:deploy": "wrangler pages deploy .next --project-name=sri-sadhguru-travels",
+    "cf:bundle": "node scripts/prepare-cf-deploy.js",
+    "cf:deploy": "next build && node scripts/prepare-cf-deploy.js && wrangler pages deploy out-cf --project-name=sri-sadhguru-travels --commit-dirty=true",
     "cf:d1:init": "wrangler d1 execute sadhguru-db --remote --file=./src/lib/db/schema.sql",
     "cf:d1:local": "wrangler d1 execute sadhguru-db --local --file=./src/lib/db/schema.sql"
   },
