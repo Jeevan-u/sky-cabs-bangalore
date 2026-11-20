@@ -24,25 +24,28 @@ function wrap(min: number, max: number, v: number) {
 
 const VelocityText: React.FC<VelocityTextProps> = ({
   children,
-  baseVelocity = 5,
+  baseVelocity = 1.5,
   className = "",
 }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, {
     damping: 50,
-    stiffness: 400,
+    stiffness: 300,
   });
 
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 1.2], {
+    clamp: true,
   });
 
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
   const directionFactor = useRef<number>(1);
 
   useAnimationFrame((t, delta) => {
+    if (isHovered) return;
+
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
     if (velocityFactor.get() < 0) {
@@ -51,12 +54,18 @@ const VelocityText: React.FC<VelocityTextProps> = ({
       directionFactor.current = 1;
     }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    moveBy += directionFactor.current * moveBy * Math.abs(velocityFactor.get());
     baseX.set(baseX.get() + moveBy);
   });
 
   return (
-    <div className="overflow-hidden whitespace-nowrap flex flex-nowrap m-0 select-none">
+    <div
+      className="overflow-hidden whitespace-nowrap flex flex-nowrap m-0 select-none cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
+    >
       <motion.div
         className={`flex whitespace-nowrap font-black uppercase tracking-wider ${className}`}
         style={{ x }}
@@ -79,7 +88,7 @@ export interface ScrollVelocityProps {
 
 export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
   texts,
-  velocity = 3,
+  velocity = 1.5,
   className = "",
   bandClassName = "",
 }) => {

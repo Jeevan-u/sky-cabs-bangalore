@@ -153,7 +153,7 @@ function PageHome() {
               "HYDERABAD TO SRISAILAM · 24X7 AIRPORT TAXI · FIXED NON-SURGE RATES ·",
               "KUKATPALLY · KPHB · MIYAPUR · HITEC CITY · SHAMSHABAD RGIA ·",
             ]}
-            velocity={22}
+            velocity={1.6}
             className="text-amber-600 dark:text-amber-400 font-black tracking-wider text-sm sm:text-lg md:text-xl uppercase"
           />
         </div>
@@ -183,7 +183,7 @@ function PageHome() {
               "SWIFT DZIRE · TOYOTA INNOVA CRYSTA · MARUTI ERTIGA · TEMPO TRAVELLER · LUXURY BUS ·",
               "VERIFIED CHAUFFEURS · 2,400+ SUCCESSFUL TOURS · 100% ON-TIME GUARANTEE ·",
             ]}
-            velocity={-22}
+            velocity={-1.6}
             className="text-neutral-700 dark:text-neutral-300 font-extrabold tracking-wider text-sm sm:text-lg uppercase"
           />
         </div>
