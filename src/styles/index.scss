@@ -1,5 +1,6 @@
-@import "./_theme_colors";
-@import "./_theme_custom";
-@import "./_dates_picker";
-//
-@import "./header";
+@use "./__theme_colors" as *;
+@use "./__theme_custom" as *;
+@use "./__dates_picker" as *;
+@use "./_header" as *;
+
+@reference "../app/globals.css";

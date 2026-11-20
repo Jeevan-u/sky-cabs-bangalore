@@ -59,7 +59,7 @@ export const SplitText: React.FC<SplitTextProps> = ({
         <motion.span
           key={index}
           className="inline-block whitespace-pre"
-          variants={childVariants}
+          variants={childVariants as any}
         >
           {item}
           {by === "word" && index < items.length - 1 ? "\u00A0" : ""}

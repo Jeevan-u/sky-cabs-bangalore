@@ -8,40 +8,56 @@ export const useThemeMode = () => {
   const [isDarkMode, setIsDarkMode] = useGlobalState("isDarkmode");
 
   useEffect(() => {
-    // Enbale this if you want use the dark-mode for default mode.
-    // if (!localStorage.theme) {
-    //   localStorage.theme = "dark";
-    // }
-    //
-    if (localStorage.theme === "dark") {
-      toDark();
-    } else {
-      toLight();
+    try {
+      const isDark =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+        document.documentElement.classList.contains("dark");
+
+      if (isDark) {
+        toDark();
+      } else {
+        toLight();
+      }
+    } catch (e) {
+      if (document.documentElement.classList.contains("dark")) {
+        toDark();
+      } else {
+        toLight();
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toDark = () => {
     setIsDarkMode(true);
-    const root = document.querySelector("html");
-    if (!root) return;
-    !root.classList.contains("dark") && root.classList.add("dark");
-    localStorage.theme = "dark";
+    const root = document.documentElement;
+    if (root && !root.classList.contains("dark")) {
+      root.classList.add("dark");
+    }
+    try {
+      localStorage.setItem("theme", "dark");
+    } catch (e) {}
   };
 
   const toLight = () => {
     setIsDarkMode(false);
-    const root = document.querySelector("html");
-    if (!root) return;
-    root.classList.remove("dark");
-    localStorage.theme = "light";
+    const root = document.documentElement;
+    if (root && root.classList.contains("dark")) {
+      root.classList.remove("dark");
+    }
+    try {
+      localStorage.setItem("theme", "light");
+    } catch (e) {}
   };
 
   function _toogleDarkMode() {
-    if (localStorage.theme === "light") {
-      toDark();
-    } else {
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
       toLight();
+    } else {
+      toDark();
     }
   }
 

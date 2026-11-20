@@ -3,7 +3,12 @@
 }
 
 #headlessui-portal-root {
-  @apply text-neutral-900 dark:text-neutral-200 text-base;
+  color: #171717;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  .dark & {
+    color: #e5e5e5;
+  }
 }
 
 /* Hide scrollbars while maintaining scroll functionality */
@@ -44,7 +49,14 @@
 
 //
 .nc-card-title {
-  @apply transition-colors  hover:text-primary-900 dark:hover:text-primary-300 duration-75;
+  transition-property: color;
+  transition-duration: 75ms;
+  &:hover {
+    color: #f59e0b;
+  }
+  .dark &:hover {
+    color: #fbbf24;
+  }
 }
 
 //
@@ -60,15 +72,34 @@
 
 //
 .nc-box-has-hover {
-  @apply bg-white rounded-3xl border border-neutral-200 border-opacity-70 hover:bg-neutral-50 hover:shadow-lg hover:border-transparent transition-shadow;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(229, 231, 235, 0.7);
+  transition-property: box-shadow;
+  &:hover {
+    background-color: #fafafa;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
 }
 
 .nc-dark-box-bg-has-hover {
-  @apply dark:bg-neutral-800 dark:bg-opacity-30  dark:border dark:border-neutral-700 dark:hover:bg-neutral-800 dark:hover:shadow-2xl;
+  .dark & {
+    background-color: rgba(38, 38, 38, 0.3);
+    border: 1px solid rgb(64 64 64);
+    &:hover {
+      background-color: rgb(38 38 38);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+  }
 }
 
 .nc-dark-box-bg {
-  @apply dark:bg-neutral-800 dark:bg-opacity-30  dark:border dark:border-neutral-700 dark:shadow-2xl;
+  .dark & {
+    background-color: rgba(38, 38, 38, 0.3);
+    border: 1px solid rgb(64 64 64);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
 }
 
 //
@@ -81,54 +112,85 @@
 
 // HERO
 .nc-hero-field-padding {
-  @apply py-3 px-4 md:py-4 md:px-7 xl:py-6 xl:px-8;
+  padding: 0.75rem 1rem;
+  @media (min-width: 768px) {
+    padding: 1rem 1.75rem;
+  }
+  @media (min-width: 1280px) {
+    padding: 1.5rem 2rem;
+  }
 }
 
 .nc-hero-field-padding--small {
-  @apply py-3 px-4 md:py-3 md:px-7 xl:px-8;
+  padding: 0.75rem 1rem;
+  @media (min-width: 768px) {
+    padding: 0.75rem 1.75rem;
+  }
+  @media (min-width: 1280px) {
+    padding: 1rem 2rem;
+  }
 }
 
 .nc-hero-field-focused {
-  @apply rounded-full dark:bg-white/5;
+  border-radius: 9999px;
+  .dark & {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 .ListingDetailPage {
   .nc-hero-field-focused {
-    @apply rounded-3xl shadow-2xl;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
   &.nc-ListingExperiencesDetailPage {
     .ExperiencesDateSingleInput .nc-hero-field-focused {
-      @apply rounded-r-none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
     .listingExperiencesDetailPage__GuestsInput .nc-hero-field-focused {
-      @apply rounded-l-none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
   .DateRangePickerInput_clearDates,
   .SingleDatePickerInput_clearDate {
-    @apply rounded-full bg-neutral-200/90 dark:bg-white/10;
+    border-radius: 9999px;
+    background-color: rgba(229, 231, 235, 0.9);
+    .dark & {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
     svg {
-      @apply w-2 fill-neutral-700 dark:fill-neutral-300;
+      width: 0.5rem;
+      fill: rgb(64 64 64);
+      .dark & {
+        fill: rgb(212 212 212);
+      }
     }
   }
 }
 
 .nc-ListingStayDetailPage__guestsInput {
   .nc-hero-field-focused {
-    @apply rounded-t-none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 }
 .nc-ListingStayDetailPage__stayDatesRangeInput {
   .nc-hero-field-focused {
-    @apply rounded-b-none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 
 .nc-hero-field-focused--2 {
-  @apply rounded-full dark:bg-white/5;
+  border-radius: 9999px;
+  .dark & {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
@@ -156,7 +218,7 @@
   flex: 2.5 0 0%;
 }
 
-@screen lg {
+@media (min-width: 1024px) {
   .lg\:nc-flex-1\.5 {
     flex: 1.5 0 0%;
   }
@@ -178,36 +240,83 @@
 }
 
 .nc-icon-field {
-  @apply w-5 h-5 lg:w-7 lg:h-7;
+  width: 1.25rem;
+  height: 1.25rem;
+  @media (min-width: 1024px) {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
 }
 .nc-icon-field-2 {
-  @apply w-5 h-5 lg:w-8 lg:h-8;
+  width: 1.25rem;
+  height: 1.25rem;
+  @media (min-width: 1024px) {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 //
 button.gm-control-active.gm-fullscreen-control {
-  @apply rounded-xl #{!important};
+  border-radius: 0.75rem !important;
 }
 
 //
 .nc-FiveStartIconForRate {
   svg:hover ~ svg {
-    @apply text-neutral-300;
+    color: rgb(212 212 212);
   }
 }
 
 // LISTING PAGE DETAIL
 .listingSection__wrap {
-  @apply w-full flex flex-col sm:rounded-2xl border-b sm:border-t sm:border-l sm:border-r border-neutral-200 dark:border-neutral-700 space-y-6 sm:space-y-8 pb-10 px-0 sm:p-4 xl:p-8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(229 231 235);
+  padding-bottom: 2.5rem;
+  .dark & {
+    border-color: rgb(64 64 64);
+  }
+  @media (min-width: 640px) {
+    border-radius: 1rem;
+    border-top: 1px solid rgb(229 231 235);
+    border-left: 1px solid rgb(229 231 235);
+    border-right: 1px solid rgb(229 231 235);
+    padding: 1rem;
+    .dark & {
+      border-color: rgb(64 64 64);
+    }
+  }
+  @media (min-width: 1280px) {
+    padding: 2rem;
+  }
 }
 
 // LISTING PAGE DETAIL
 .listingSectionSidebar__wrap {
-  @apply w-full flex flex-col rounded-2xl border-b border-t border-l border-r border-neutral-200 dark:border-neutral-700 space-y-6 xl:space-y-7 pb-10 p-2 sm:p-4 xl:px-8 xl:py-6;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  border: 1px solid rgb(229 231 235);
+  padding: 0.5rem 1rem 2.5rem 1rem;
+  .dark & {
+    border-color: rgb(64 64 64);
+  }
+  @media (min-width: 640px) {
+    padding: 1rem;
+  }
+  @media (min-width: 1280px) {
+    padding: 1.5rem 2rem;
+  }
 }
 
 //
 input[type="time"]::-webkit-calendar-picker-indicator {
-  @apply dark:bg-neutral-500 rounded-md;
+  border-radius: 0.375rem;
+  .dark & {
+    background-color: rgb(115 115 115);
+  }
 }
 
 [type="button"] {
@@ -216,16 +325,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 //
 .rc-slider-track {
-  @apply bg-primary-400;
+  background-color: #fbbf24;
 }
 .rc-slider-handle {
-  @apply border-primary-300;
+  border-color: #fcd34d;
 }
 
 //
 .nc-PropertyCardH {
   .nc-BtnLikeIcon--liked {
-    @apply text-red-500 dark:text-red-500;
+    color: rgb(239 68 68);
   }
 }
 

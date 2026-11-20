@@ -24,7 +24,7 @@ const CardCategory3: FC<CardCategory3Props> = ({
         spotlightColor="rgba(245, 158, 11, 0.22)"
       >
         <div
-          className="flex-shrink-0 relative w-full aspect-w-5 aspect-h-5 sm:aspect-h-6 h-0 rounded-xl overflow-hidden"
+          className="flex-shrink-0 relative w-full aspect-[4/3] rounded-xl overflow-hidden"
         >
           <Image
             src={thumbnail || ""}

@@ -136,14 +136,16 @@
 
 //
 html body {
-  @apply font-body antialiased;
+  font-family: var(--font-body, Poppins, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  @apply font-display;
+  font-family: var(--font-display, Poppins, sans-serif);
 }
 
 :root {

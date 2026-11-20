@@ -1,16 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
-
-const GradientASCII = dynamic(
-  () => import("@/components/reactbits/GradientASCII"),
-  { ssr: false }
-);
-
-const Waves = dynamic(
-  () => import("@/components/reactbits/Waves"),
-  { ssr: false }
-);
+import { PageGradientASCII, SectionTransitionWave } from "@/components/ClientVisualEffects";
 
 export const metadata: Metadata = {
   alternates: {
@@ -106,19 +96,7 @@ function PageHome() {
       <HomepageFaqSchema />
 
       {/* REACT BITS GRADIENT ASCII BACKGROUND */}
-      <div className="absolute inset-x-0 top-0 h-[640px] sm:h-[720px] lg:h-[820px] pointer-events-none -z-10 overflow-hidden opacity-25 dark:opacity-35">
-        <GradientASCII
-          shape="horizon"
-          colors={["#f59e0b", "#d97706", "#0284c7", "#0f172a"]}
-          characters=" =+xX0S8#@"
-          cellSize={18}
-          density={0.7}
-          glyphOpacity={0.75}
-          glow={0.3}
-          speed={0.4}
-          mouseInteraction={true}
-        />
-      </div>
+      <PageGradientASCII />
 
       {/* GLASSMORPHISM BACKGROUND */}
       <BgGlassmorphism />
@@ -133,72 +111,124 @@ function PageHome() {
         </div>
 
         {/* 1.2 ENTERPRISE TRUST & COMPLIANCE BADGES */}
-        <SectionTrustBadges />
+        <ScrollReveal animation="fade-up" delay={0.1}>
+          <SectionTrustBadges />
+        </ScrollReveal>
 
         {/* 2. STATS COUNTER */}
-        <SectionStatsCounter />
+        <ScrollReveal animation="zoom-in" delay={0.15}>
+          <SectionStatsCounter />
+        </ScrollReveal>
 
         {/* 3. OPERATIONAL HUBS */}
-        <SectionSliderNewCategories
-          categories={POPULAR_HUBS}
-          heading="Popular Hubs & RGIA Airport Routes"
-          subHeading="Prompt 24x7 doorstep pickups across Kukatpally, KPHB, Miyapur, Hitec City, Medchal & Shamshabad Airport"
-        />
+        <ScrollReveal animation="fade-up">
+          <SectionSliderNewCategories
+            categories={POPULAR_HUBS}
+            heading="Popular Hubs & RGIA Airport Routes"
+            subHeading="Prompt 24x7 doorstep pickups across Kukatpally, KPHB, Miyapur, Hitec City, Medchal & Shamshabad Airport"
+          />
+        </ScrollReveal>
 
         {/* 4. POPULAR OUTSTATION ROUTES FROM CLONE */}
-        <SectionPopularRoutes />
+        <ScrollReveal animation="fade-up">
+          <SectionPopularRoutes />
+        </ScrollReveal>
 
         {/* 4.1 LIVE INTERACTIVE OUTSTATION CORRIDOR RADAR BEAM */}
-        <AnimatedRouteBeam />
+        <ScrollReveal animation="zoom-in">
+          <AnimatedRouteBeam />
+        </ScrollReveal>
+
+        {/* REACT BITS ON-SCROLL DYNAMIC VELOCITY TICKER 1 */}
+        <div className="py-6 overflow-hidden rounded-2xl bg-amber-500/10 dark:bg-amber-400/5 border border-amber-500/20">
+          <ScrollVelocity
+            texts={[
+              "HYDERABAD TO SRISAILAM · 24X7 AIRPORT TAXI · FIXED NON-SURGE RATES ·",
+              "KUKATPALLY · KPHB · MIYAPUR · HITEC CITY · SHAMSHABAD RGIA ·",
+            ]}
+            velocity={22}
+            className="text-amber-600 dark:text-amber-400 font-black tracking-wider text-sm sm:text-lg md:text-xl uppercase"
+          />
+        </div>
 
         {/* FLUID ANIMATED TRANSITION WAVE */}
-        <div className="w-full h-14 sm:h-20 overflow-hidden relative opacity-35 dark:opacity-20 pointer-events-none -my-8">
-          <Waves lineColor="rgba(245, 158, 11, 0.4)" waveAmpX={28} waveAmpY={14} waveSpeedX={0.012} />
-        </div>
+        <SectionTransitionWave lineColor="rgba(245, 158, 11, 0.4)" waveAmpX={28} waveAmpY={14} waveSpeedX={0.012} className="opacity-35 dark:opacity-20" />
 
         {/* 5. DEDICATED SRISAILAM TOUR PACKAGE */}
-        <SectionSrisailamPackage />
+        <ScrollReveal animation="slide-left">
+          <SectionSrisailamPackage />
+        </ScrollReveal>
 
         {/* 6. SOUTH INDIA STATE PACKAGES (AP, KA, TN, KL) */}
-        <SectionStatePackages />
+        <ScrollReveal animation="fade-up">
+          <SectionStatePackages />
+        </ScrollReveal>
 
         {/* 7. COMPLETE 5 TO 50 SEATER FLEET OVERVIEW */}
-        <SectionFleetOverview />
+        <ScrollReveal animation="zoom-in">
+          <SectionFleetOverview />
+        </ScrollReveal>
+
+        {/* REACT BITS ON-SCROLL DYNAMIC VELOCITY TICKER 2 */}
+        <div className="py-6 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700">
+          <ScrollVelocity
+            texts={[
+              "SWIFT DZIRE · TOYOTA INNOVA CRYSTA · MARUTI ERTIGA · TEMPO TRAVELLER · LUXURY BUS ·",
+              "VERIFIED CHAUFFEURS · 2,400+ SUCCESSFUL TOURS · 100% ON-TIME GUARANTEE ·",
+            ]}
+            velocity={-22}
+            className="text-neutral-700 dark:text-neutral-300 font-extrabold tracking-wider text-sm sm:text-lg uppercase"
+          />
+        </div>
 
         {/* 8. WHY CHOOSE SRI SADHGURU TRAVELS */}
-        <SectionWhyChooseUs />
+        <ScrollReveal animation="slide-right">
+          <SectionWhyChooseUs />
+        </ScrollReveal>
 
         {/* 9. HOW IT WORKS (3 SIMPLE STEPS) */}
-        <SectionHowItWork />
+        <ScrollReveal animation="fade-up">
+          <SectionHowItWork />
+        </ScrollReveal>
 
         {/* 10. OUR BENEFITS */}
-        <SectionOurFeatures />
+        <ScrollReveal animation="fade-up">
+          <SectionOurFeatures />
+        </ScrollReveal>
 
         {/* FLUID ANIMATED TRANSITION WAVE */}
-        <div className="w-full h-14 sm:h-20 overflow-hidden relative opacity-30 dark:opacity-15 pointer-events-none -my-8">
-          <Waves lineColor="rgba(14, 165, 233, 0.4)" waveAmpX={24} waveAmpY={12} waveSpeedX={0.01} />
-        </div>
+        <SectionTransitionWave lineColor="rgba(14, 165, 233, 0.4)" waveAmpX={24} waveAmpY={12} waveSpeedX={0.01} className="opacity-30 dark:opacity-15" />
 
         {/* 11. COMPANY LEGACY & PROPRIETOR RATHAN KANNA */}
-        <SectionLegacy />
+        <ScrollReveal animation="slide-left">
+          <SectionLegacy />
+        </ScrollReveal>
 
         {/* 12. CALLOUT BANNER FOR WEDDINGS & CORPORATE */}
-        <div className="relative py-14">
-          <BackgroundSection className="bg-orange-50/60 dark:bg-black/20" />
-          <SectionBecomeAnAuthor />
-        </div>
+        <ScrollReveal animation="zoom-in">
+          <div className="relative py-14">
+            <BackgroundSection className="bg-orange-50/60 dark:bg-black/20" />
+            <SectionBecomeAnAuthor />
+          </div>
+        </ScrollReveal>
 
         {/* 13. FREQUENTLY ASKED QUESTIONS */}
-        <SectionFaq />
+        <ScrollReveal animation="fade-up">
+          <SectionFaq />
+        </ScrollReveal>
 
         {/* 14. CUSTOMER REVIEWS */}
-        <div className="relative py-14">
-          <BackgroundSection />
-          <SectionClientSay />
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="relative py-14">
+            <BackgroundSection />
+            <SectionClientSay />
+          </div>
+        </ScrollReveal>
 
         {/* 15. CONTACT & NEWSLETTER */}
-        <SectionSubscribe2 />
+        <ScrollReveal animation="fade-up">
+          <SectionSubscribe2 />
+        </ScrollReveal>
       </div>
     </main>
   );

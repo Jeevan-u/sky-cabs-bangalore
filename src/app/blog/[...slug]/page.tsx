@@ -14,8 +14,8 @@ import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
 import { PhoneIcon, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
 
 interface PageProps {
-  params: { slug?: string[] };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: Promise<{ slug?: string[] }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 function getPostFromSlug(slugArray?: string[]) {
@@ -36,7 +36,8 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const params = await props.params;
   const post = getPostFromSlug(params.slug);
   const slug = params.slug && params.slug.length > 0 ? params.slug[0] : "srisailam-guide";
 
@@ -60,7 +61,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const Page = ({ params }: PageProps) => {
+const Page = async (props: PageProps) => {
+  const params = await props.params;
   const post = getPostFromSlug(params?.slug);
 
   const renderHeader = () => {

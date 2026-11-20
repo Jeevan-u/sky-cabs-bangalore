@@ -21,7 +21,7 @@ const CardCategory5: FC<CardCategory5Props> = ({
       data-nc-id="CardCategory5"
     >
       <div
-        className={`flex-shrink-0 relative w-full aspect-w-4 aspect-h-3 h-0 rounded-2xl overflow-hidden group`}
+        className={`flex-shrink-0 relative w-full aspect-[4/3] rounded-2xl overflow-hidden group`}
       >
         <Image
           fill
