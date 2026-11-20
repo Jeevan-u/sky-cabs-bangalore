@@ -11,9 +11,10 @@ import {
   ChartPieIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
-import { DutySlipItem, RateCardItem, ExpenseItem, BookingItem, DriverUserItem } from "../types";
+import { DutySlipItem, RateCardItem, ExpenseItem, BookingItem, DriverUserItem, AdminTabType } from "../types";
 import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
 import { SpotlightCard, AnimatedCounter } from "@/components/reactbits";
+import { PlusIcon } from "@heroicons/react/24/outline";
 
 interface AnalyticsViewProps {
   dutySlips?: DutySlipItem[];
@@ -21,6 +22,8 @@ interface AnalyticsViewProps {
   expenses?: ExpenseItem[];
   bookings?: BookingItem[];
   drivers?: DriverUserItem[];
+  onNavigateTab?: (tab: AdminTabType) => void;
+  onOpenNewBookingModal?: () => void;
 }
 
 export default function AnalyticsView({
@@ -29,9 +32,24 @@ export default function AnalyticsView({
   expenses: propExpenses,
   bookings = [],
   drivers = [],
+  onNavigateTab,
+  onOpenNewBookingModal,
 }: AnalyticsViewProps) {
   const [fetchedExpenses, setFetchedExpenses] = useState<ExpenseItem[]>([]);
   const [timeframe, setTimeframe] = useState<"all" | "month" | "30days" | "week">("all");
+
+  const pendingCount = useMemo(() => bookings.filter((b) => b.status === "Pending").length, [bookings]);
+  const activeTripsCount = useMemo(
+    () =>
+      bookings.filter(
+        (b) => b.status === "Confirmed" || b.status === "Driver Assigned" || b.status === "In Progress"
+      ).length,
+    [bookings]
+  );
+  const readyDriversCount = useMemo(
+    () => drivers.filter((d) => (d.duty_status || "Available") === "Available").length,
+    [drivers]
+  );
 
   useEffect(() => {
     if (!propExpenses || propExpenses.length === 0) {
@@ -180,17 +198,17 @@ export default function AnalyticsView({
         <div>
           <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
             <ArrowTrendingUpIcon className="w-4 h-4" />
-            <span>End-to-End Executive Financials</span>
+            <span>Executive Command Center & Financials</span>
           </div>
           <h2 className="text-lg font-black text-neutral-900 dark:text-white mt-1">
-            Revenue, Expense & P&L Analytics
+            Operations & P&L Command Center
           </h2>
           <p className="text-xs text-neutral-500 dark:text-neutral-400">
-            End-to-end reconciliation of gross revenue from passenger trips against real fleet operating expenses.
+            Real-time gross trip revenue, verified fleet operating expenses, operating profit, and live dispatch telemetry.
           </p>
         </div>
 
-        <div className="flex items-center gap-3 w-full sm:w-auto">
+        <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
           {/* Timeframe Selector */}
           <div className="flex items-center gap-1 p-1 rounded-2xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200/80 dark:border-neutral-700/80">
             {[
@@ -215,11 +233,64 @@ export default function AnalyticsView({
 
           <button
             onClick={exportFinancialReport}
-            className="flex items-center gap-1.5 px-4 py-2.5 rounded-2xl bg-primary-6000 hover:bg-primary-700 text-white text-xs font-black shadow-lg shadow-primary-500/25 transition-all shrink-0"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-xs font-bold transition-colors shrink-0"
+            title="Download CSV"
           >
             <ArrowDownTrayIcon className="w-4 h-4" />
-            <span className="hidden sm:inline">Download P&L Report</span>
+            <span className="hidden sm:inline">P&L CSV</span>
           </button>
+
+          {onOpenNewBookingModal && (
+            <button
+              onClick={onOpenNewBookingModal}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-primary-6000 hover:bg-primary-700 text-white text-xs font-black shadow-lg shadow-primary-500/25 transition-all shrink-0"
+            >
+              <PlusIcon className="w-4 h-4 stroke-[2.5]" />
+              <span>New Booking</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Operational Telemetry Cockpit (Replaces old overview KPIs) */}
+      <div className="grid grid-cols-3 gap-3 sm:gap-4">
+        <div
+          onClick={() => onNavigateTab?.("dispatch")}
+          className="p-3 sm:p-4 rounded-2xl bg-white/70 dark:bg-neutral-900/70 border border-neutral-200/70 dark:border-neutral-800/70 shadow-md cursor-pointer hover:border-indigo-500/50 transition-all flex items-center justify-between"
+        >
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Active Fleet Trips</span>
+            <div className="text-lg sm:text-xl font-black text-neutral-900 dark:text-white mt-0.5">
+              <AnimatedCounter to={activeTripsCount} /> Live Trips
+            </div>
+          </div>
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+        </div>
+
+        <div
+          onClick={() => onNavigateTab?.("dispatch")}
+          className="p-3 sm:p-4 rounded-2xl bg-white/70 dark:bg-neutral-900/70 border border-neutral-200/70 dark:border-neutral-800/70 shadow-md cursor-pointer hover:border-amber-500/50 transition-all flex items-center justify-between"
+        >
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Pending Leads</span>
+            <div className="text-lg sm:text-xl font-black text-amber-600 dark:text-amber-400 mt-0.5">
+              <AnimatedCounter to={pendingCount} /> Awaiting Dispatch
+            </div>
+          </div>
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0" />
+        </div>
+
+        <div
+          onClick={() => onNavigateTab?.("drivers")}
+          className="p-3 sm:p-4 rounded-2xl bg-white/70 dark:bg-neutral-900/70 border border-neutral-200/70 dark:border-neutral-800/70 shadow-md cursor-pointer hover:border-emerald-500/50 transition-all flex items-center justify-between"
+        >
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Ready Pilots</span>
+            <div className="text-lg sm:text-xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5">
+              <AnimatedCounter to={readyDriversCount} /> Standby Ready
+            </div>
+          </div>
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0" />
         </div>
       </div>
 

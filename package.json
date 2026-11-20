@@ -3,6 +3,8 @@
   "version": "0.2.2",
   "private": true,
   "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "predev": "node -e \"try{fs.rmSync('public/_next',{recursive:true,force:true})}catch(e){}\"",
     "dev": "next dev",
     "prebuild": "node -e \"try{fs.rmSync('.next',{recursive:true,force:true});fs.rmSync('public/_next',{recursive:true,force:true})}catch(e){}\"",
@@ -40,12 +42,25 @@
     "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@babel/core": "^8.1.2",
+    "@babel/preset-env": "^8.0.7",
+    "@babel/preset-react": "^8.0.1",
+    "@babel/preset-typescript": "^8.0.7",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.19.43",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.6.2",
+    "babel-jest": "^30.5.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
     "postcss": "^8.5.33",
     "tailwindcss": "^4.3.5",
-    "typescript": "^7.0.2"
+    "ts-jest": "^29.4.15",
+    "typescript": "^5.5.4"
   }
 }

@@ -8,7 +8,7 @@ import DispatchView from "./views/DispatchView";
 import DutySlipsView from "./views/DutySlipsView";
 import DriversView from "./views/DriversView";
 import ExpensesView from "./views/ExpensesView";
-import RateCardView from "./views/RateCardView";
+// Rate Card view integrated into Fleet view; import removed
 import ReputationView from "./views/ReputationView";
 import AnalyticsView from "./views/AnalyticsView";
 import OdometerVerificationView from "./views/OdometerVerificationView";
@@ -23,7 +23,7 @@ import ModalNewBooking from "./modals/ModalNewBooking";
 import ModalAssignDriver from "./modals/ModalAssignDriver";
 import ModalPrintInvoice from "./modals/ModalPrintInvoice";
 import ModalAddDriver from "./modals/ModalAddDriver";
-import ModalRateCard from "./modals/ModalRateCard";
+
 import ModalBookingDetails from "./modals/ModalBookingDetails";
 import { Aurora } from "@/components/reactbits";
 import BgGlassmorphism from "@/components/BgGlassmorphism";
@@ -65,7 +65,7 @@ export default function AdminDashboardPage({
   const [selectedBookingForDetails, setSelectedBookingForDetails] = useState<BookingItem | null>(null);
   const [selectedSlipForPrint, setSelectedSlipForPrint] = useState<DutySlipItem | null>(null);
   const [isAddDriverModalOpen, setIsAddDriverModalOpen] = useState<boolean>(false);
-  const [isRateCardModalOpen, setIsRateCardModalOpen] = useState<boolean>(false);
+
 
   // Track visited tabs for 0ms instantaneous tab switching cache
   useEffect(() => {
@@ -351,14 +351,7 @@ export default function AdminDashboardPage({
             </div>
           )}
 
-          {visitedTabs.has("rates") && (
-            <div className={activeTab === "rates" ? "block" : "hidden"}>
-              <RateCardView
-                rateCards={rateCards}
-                onOpenRateCardModal={() => setIsRateCardModalOpen(true)}
-              />
-            </div>
-          )}
+          // Rate Card tab removed; integrated into Fleet view
 
           {visitedTabs.has("reviews") && (
             <div className={activeTab === "reviews" ? "block" : "hidden"}>
@@ -417,12 +410,7 @@ export default function AdminDashboardPage({
         onDriverAdded={fetchAllData}
       />
 
-      <ModalRateCard
-        isOpen={isRateCardModalOpen}
-        onClose={() => setIsRateCardModalOpen(false)}
-        rateCards={rateCards}
-        onRatesUpdated={fetchAllData}
-      />
+
     </div>
   );
 }

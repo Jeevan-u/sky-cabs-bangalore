@@ -58,9 +58,9 @@ export default function AdminSidebar({
       title: "OPERATIONS",
       items: [
         {
-          id: "overview" as AdminTabType,
-          label: "Command Center",
-          icon: Squares2X2Icon,
+          id: "analytics" as AdminTabType,
+          label: "Analytics Command Center",
+          icon: ChartBarIcon,
         },
         {
           id: "dispatch" as AdminTabType,
@@ -105,18 +105,13 @@ export default function AdminSidebar({
         },
         {
           id: "fleet" as AdminTabType,
-          label: "Fleet Vehicles Catalog",
+          label: "Fleet & Rate Engine",
           icon: TruckIcon,
         },
         {
           id: "expenses" as AdminTabType,
           label: "Fleet Expenses Ledger",
           icon: BanknotesIcon,
-        },
-        {
-          id: "rates" as AdminTabType,
-          label: "Rate Card Engine",
-          icon: CurrencyRupeeIcon,
         },
       ],
     },
@@ -149,11 +144,6 @@ export default function AdminSidebar({
           icon: StarIcon,
           badge: "4.9",
           badgeColor: "bg-amber-400 text-neutral-950 font-bold",
-        },
-        {
-          id: "analytics" as AdminTabType,
-          label: "End-to-End Analytics & P&L",
-          icon: ChartBarIcon,
         },
       ],
     },

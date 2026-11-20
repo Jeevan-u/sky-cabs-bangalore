@@ -156,6 +156,11 @@ export interface FleetVehicleRecord {
   perKmRate: number;
   airportFlatRate: number;
   local8hr80km: number;
+  driverBattaPerDay?: number;
+  nightBatta?: number;
+  minKmPerDay?: number;
+  extraHourRate?: number;
+  extraKmRate?: number;
   features: string[];
   description: string;
   bestFor: string;
@@ -1542,11 +1547,40 @@ export const d1Client = {
       perKmRate: Number(data.perKmRate) || 12,
       airportFlatRate: Number(data.airportFlatRate) || 1299,
       local8hr80km: Number(data.local8hr80km) || 2199,
+      driverBattaPerDay: data.driverBattaPerDay !== undefined ? Number(data.driverBattaPerDay) : 500,
+      nightBatta: data.nightBatta !== undefined ? Number(data.nightBatta) : 300,
+      minKmPerDay: data.minKmPerDay !== undefined ? Number(data.minKmPerDay) : 300,
+      extraHourRate: data.extraHourRate !== undefined ? Number(data.extraHourRate) : 150,
+      extraKmRate: data.extraKmRate !== undefined ? Number(data.extraKmRate) : (Number(data.perKmRate) || 12),
       features: Array.isArray(data.features) ? data.features : [],
       is_published: data.is_published !== false,
       created_at: new Date().toISOString(),
     };
     db.fleet_vehicles.push(newVehicle);
+
+    // Sync with rate_cards collection
+    if (!db.rate_cards) db.rate_cards = [];
+    const rIdx = db.rate_cards.findIndex((r) => r.vehicle_id === id);
+    const rateCardPayload = {
+      id: "rc-" + id,
+      vehicle_id: id,
+      name: newVehicle.name,
+      category: newVehicle.category,
+      capacity: newVehicle.capacity,
+      per_km_rate: newVehicle.perKmRate,
+      airport_flat_rate: newVehicle.airportFlatRate,
+      local_8hr_80km: newVehicle.local8hr80km,
+      driver_bata_per_day: newVehicle.driverBattaPerDay || 500,
+      night_bata: newVehicle.nightBatta || 300,
+      min_km_per_day: newVehicle.minKmPerDay || 300,
+      updated_at: new Date().toISOString(),
+    };
+    if (rIdx >= 0) {
+      db.rate_cards[rIdx] = rateCardPayload;
+    } else {
+      db.rate_cards.push(rateCardPayload);
+    }
+
     writeLocalDb(db);
     return newVehicle;
   },
@@ -1562,7 +1596,37 @@ export const d1Client = {
       perKmRate: updates.perKmRate !== undefined ? Number(updates.perKmRate) : db.fleet_vehicles[idx].perKmRate,
       airportFlatRate: updates.airportFlatRate !== undefined ? Number(updates.airportFlatRate) : db.fleet_vehicles[idx].airportFlatRate,
       local8hr80km: updates.local8hr80km !== undefined ? Number(updates.local8hr80km) : db.fleet_vehicles[idx].local8hr80km,
+      driverBattaPerDay: updates.driverBattaPerDay !== undefined ? Number(updates.driverBattaPerDay) : (db.fleet_vehicles[idx].driverBattaPerDay ?? 500),
+      nightBatta: updates.nightBatta !== undefined ? Number(updates.nightBatta) : (db.fleet_vehicles[idx].nightBatta ?? 300),
+      minKmPerDay: updates.minKmPerDay !== undefined ? Number(updates.minKmPerDay) : (db.fleet_vehicles[idx].minKmPerDay ?? 300),
+      extraHourRate: updates.extraHourRate !== undefined ? Number(updates.extraHourRate) : (db.fleet_vehicles[idx].extraHourRate ?? 150),
+      extraKmRate: updates.extraKmRate !== undefined ? Number(updates.extraKmRate) : (db.fleet_vehicles[idx].extraKmRate ?? db.fleet_vehicles[idx].perKmRate),
     };
+
+    // Keep rate_cards synchronized
+    if (!db.rate_cards) db.rate_cards = [];
+    const rIdx = db.rate_cards.findIndex((r) => r.vehicle_id === id);
+    const updated = db.fleet_vehicles[idx];
+    const rateCardPayload = {
+      id: "rc-" + id,
+      vehicle_id: id,
+      name: updated.name,
+      category: updated.category,
+      capacity: updated.capacity,
+      per_km_rate: updated.perKmRate,
+      airport_flat_rate: updated.airportFlatRate,
+      local_8hr_80km: updated.local8hr80km,
+      driver_bata_per_day: updated.driverBattaPerDay || 500,
+      night_bata: updated.nightBatta || 300,
+      min_km_per_day: updated.minKmPerDay || 300,
+      updated_at: new Date().toISOString(),
+    };
+    if (rIdx >= 0) {
+      db.rate_cards[rIdx] = rateCardPayload;
+    } else {
+      db.rate_cards.push(rateCardPayload);
+    }
+
     writeLocalDb(db);
     return db.fleet_vehicles[idx];
   },

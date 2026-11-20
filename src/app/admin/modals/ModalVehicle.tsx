@@ -28,6 +28,10 @@ export default function ModalVehicle({
   const [perKmRate, setPerKmRate] = useState("12");
   const [airportFlatRate, setAirportFlatRate] = useState("1299");
   const [local8hr80km, setLocal8hr80km] = useState("2199");
+  const [driverBattaPerDay, setDriverBattaPerDay] = useState("500");
+  const [nightBatta, setNightBatta] = useState("300");
+  const [minKmPerDay, setMinKmPerDay] = useState("300");
+  const [extraHourRate, setExtraHourRate] = useState("150");
   const [features, setFeatures] = useState("Dual AC, Clean & Sanitized, Fastag Enabled");
   const [description, setDescription] = useState("");
   const [bestFor, setBestFor] = useState("Airport Drops, Local & Outstation Journeys");
@@ -45,6 +49,10 @@ export default function ModalVehicle({
       setPerKmRate(editingVehicle.perKmRate ? editingVehicle.perKmRate.toString() : "12");
       setAirportFlatRate(editingVehicle.airportFlatRate ? editingVehicle.airportFlatRate.toString() : "1299");
       setLocal8hr80km(editingVehicle.local8hr80km ? editingVehicle.local8hr80km.toString() : "2199");
+      setDriverBattaPerDay(editingVehicle.driverBattaPerDay ? editingVehicle.driverBattaPerDay.toString() : "500");
+      setNightBatta(editingVehicle.nightBatta ? editingVehicle.nightBatta.toString() : "300");
+      setMinKmPerDay(editingVehicle.minKmPerDay ? editingVehicle.minKmPerDay.toString() : "300");
+      setExtraHourRate(editingVehicle.extraHourRate ? editingVehicle.extraHourRate.toString() : "150");
       setFeatures(Array.isArray(editingVehicle.features) ? editingVehicle.features.join(", ") : "");
       setDescription(editingVehicle.description || "");
       setBestFor(editingVehicle.bestFor || "");
@@ -59,6 +67,10 @@ export default function ModalVehicle({
       setPerKmRate("12");
       setAirportFlatRate("1299");
       setLocal8hr80km("2199");
+      setDriverBattaPerDay("500");
+      setNightBatta("300");
+      setMinKmPerDay("300");
+      setExtraHourRate("150");
       setFeatures("Dual AC, Clean & Sanitized, Fastag Enabled");
       setDescription("Pristine maintained commercial vehicle with commercial transport permit.");
       setBestFor("Airport Drops, Local & Outstation Journeys");
@@ -87,6 +99,10 @@ export default function ModalVehicle({
         perKmRate: parseInt(perKmRate, 10) || 12,
         airportFlatRate: parseInt(airportFlatRate, 10) || 1299,
         local8hr80km: parseInt(local8hr80km, 10) || 2199,
+        driverBattaPerDay: parseInt(driverBattaPerDay, 10) || 500,
+        nightBatta: parseInt(nightBatta, 10) || 300,
+        minKmPerDay: parseInt(minKmPerDay, 10) || 300,
+        extraHourRate: parseInt(extraHourRate, 10) || 150,
         features: features
           .split(",")
           .map((f) => f.trim())
@@ -210,42 +226,91 @@ export default function ModalVehicle({
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
-                Per-KM (₹)
-              </label>
-              <input
-                type="number"
-                value={perKmRate}
-                onChange={(e) => setPerKmRate(e.target.value)}
-                placeholder="19"
-                className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
-              />
+          {/* Rate Card Engine Pricing Block */}
+          <div className="p-4 rounded-2xl bg-primary-50/50 dark:bg-primary-950/20 border border-primary-200/60 dark:border-primary-800/40 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-black uppercase tracking-wider text-primary-600 dark:text-primary-400">
+                Rate Card Engine & Pricing Slabs
+              </span>
+              <span className="text-[10px] text-neutral-400 font-medium">Standard Fares</span>
             </div>
-            <div>
-              <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
-                Airport Flat (₹)
-              </label>
-              <input
-                type="number"
-                value={airportFlatRate}
-                onChange={(e) => setAirportFlatRate(e.target.value)}
-                placeholder="2199"
-                className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
-              />
+
+            <div className="grid grid-cols-3 gap-3">
+              <div>
+                <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
+                  Outstation / KM (₹)
+                </label>
+                <input
+                  type="number"
+                  value={perKmRate}
+                  onChange={(e) => setPerKmRate(e.target.value)}
+                  placeholder="19"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sm font-bold text-neutral-900 dark:text-white"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
+                  Airport Flat (₹)
+                </label>
+                <input
+                  type="number"
+                  value={airportFlatRate}
+                  onChange={(e) => setAirportFlatRate(e.target.value)}
+                  placeholder="2199"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sm font-bold text-neutral-900 dark:text-white"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
+                  Local 8h/80km (₹)
+                </label>
+                <input
+                  type="number"
+                  value={local8hr80km}
+                  onChange={(e) => setLocal8hr80km(e.target.value)}
+                  placeholder="3699"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sm font-bold text-neutral-900 dark:text-white"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
-                Local 8h/80k (₹)
-              </label>
-              <input
-                type="number"
-                value={local8hr80km}
-                onChange={(e) => setLocal8hr80km(e.target.value)}
-                placeholder="3699"
-                className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
-              />
+
+            <div className="grid grid-cols-3 gap-3 pt-1">
+              <div>
+                <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
+                  Driver Batta / Day (₹)
+                </label>
+                <input
+                  type="number"
+                  value={driverBattaPerDay}
+                  onChange={(e) => setDriverBattaPerDay(e.target.value)}
+                  placeholder="500"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sm font-medium"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
+                  Night Batta (₹)
+                </label>
+                <input
+                  type="number"
+                  value={nightBatta}
+                  onChange={(e) => setNightBatta(e.target.value)}
+                  placeholder="300"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sm font-medium"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-neutral-600 dark:text-neutral-300 mb-1">
+                  Min KM / Day
+                </label>
+                <input
+                  type="number"
+                  value={minKmPerDay}
+                  onChange={(e) => setMinKmPerDay(e.target.value)}
+                  placeholder="300"
+                  className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-sm font-medium"
+                />
+              </div>
             </div>
           </div>
 

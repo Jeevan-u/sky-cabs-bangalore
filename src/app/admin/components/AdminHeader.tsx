@@ -38,8 +38,8 @@ export default function AdminHeader({
 }: AdminHeaderProps) {
   const titles: Record<AdminTabType, { title: string; subtitle: string }> = {
     overview: {
-      title: "Operations Command Center",
-      subtitle: "Live fleet dispatching, driver manifests, and verified revenue",
+      title: "Executive Command Center & P&L Analytics",
+      subtitle: "Real-time Gross Revenue, Incurred Expenses, Operating Margins, and Fleet Operations Telemetry",
     },
     dispatch: {
       title: "Live Dispatch Control",
@@ -70,8 +70,8 @@ export default function AdminHeader({
       subtitle: "Configure one-way, round trip, and per-km pricing for highway travel corridors",
     },
     fleet_catalog: {
-      title: "Fleet Vehicles Catalog",
-      subtitle: "Manage 5 to 50-seater passenger fleet specs, features, images, and tariffs",
+      title: "Fleet Management & Rate Card Engine",
+      subtitle: "Manage 5 to 50-seater passenger fleet specs, per-km tariffs, airport flat rates, and driver batta",
     },
     dutyslips: {
       title: "Digital Duty Slips & Invoices",
@@ -82,28 +82,25 @@ export default function AdminHeader({
       subtitle: "Manage highway-certified pilots, assigned vehicles, contact details, and instant dispatch duty statuses",
     },
     fleet: {
-      title: "Fleet Management & Asset Catalog",
-      subtitle: "Manage 5 to 50-seater passenger fleet specs, features, images, and tariffs",
+      title: "Fleet Management & Rate Card Engine",
+      subtitle: "Manage 5 to 50-seater passenger fleet specs, per-km tariffs, airport flat rates, and driver batta",
     },
     expenses: {
       title: "Fleet Operations Expenses Ledger",
       subtitle: "Track fuel, FASTag tolls, garage maintenance, chauffeur batta, and state permits",
     },
-    rates: {
-      title: "Transparent Rate Card Engine",
-      subtitle: "Standardized per-KM, airport, and outstation pricing tiers",
-    },
+    // rates tab removed; Rate Card Engine now integrated into Fleet view
     reviews: {
       title: "AI Reputation Shield",
       subtitle: "Google Maps 5-star reviews and intercepted private feedback",
     },
     analytics: {
-      title: "End-to-End P&L & Revenue Analytics",
-      subtitle: "Reconcile real gross revenue, operating expenses, vehicle asset margins, and net profits",
+      title: "Executive Command Center & P&L Analytics",
+      subtitle: "Real-time Gross Revenue, Incurred Expenses, Operating Margins, and Fleet Operations Telemetry",
     },
   };
 
-  const current = titles[activeTab] || titles.overview;
+  const current = titles[activeTab] || titles.analytics;
 
   return (
     <header className="shrink-0 z-20 sticky top-0 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-neutral-200/80 dark:border-neutral-800/80 shadow-xs transition-colors">

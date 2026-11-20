@@ -85,13 +85,13 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
           </button>
         </div>
 
-        <div className="hidden sm:inline-block">
+        {/* <div className="hidden sm:inline-block">
           <StarBorder as="div" color="#f59e0b" speed="4s">
             <span className="text-[10px] font-bold text-amber-500 px-2 py-0.5">
               <ShinyText text="✦ 3D Motion Active" speed={3} />
             </span>
           </StarBorder>
-        </div>
+        </div> */}
       </div>
 
       <AnimatePresence mode="wait">
@@ -236,14 +236,15 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
               offset={8}
               className="absolute -top-3 left-1/4 sm:left-1/3 z-40 pointer-events-none"
             >
-              <div className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-amber-500/40 text-[11px] font-extrabold text-neutral-900 dark:text-neutral-100 shadow-2xl flex items-center gap-1.5 whitespace-nowrap">
+              <></>
+              {/* <div className="px-3 py-1.5 rounded-full bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-amber-500/40 text-[11px] font-extrabold text-neutral-900 dark:text-neutral-100 shadow-2xl flex items-center gap-1.5 whitespace-nowrap">
                 <span className="flex h-2 w-2 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
                 <StarRating rating={5} />
                 <span>4.9/5 (2,400+ Verified Rides)</span>
-              </div>
+              </div> */}
             </Float>
 
             <Float

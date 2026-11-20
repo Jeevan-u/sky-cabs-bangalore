@@ -17,7 +17,26 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, category, capacity, luggage, ac, image, perKmRate, airportFlatRate, local8hr80km, features, description, bestFor, is_published } = body;
+    const {
+      name,
+      category,
+      capacity,
+      luggage,
+      ac,
+      image,
+      perKmRate,
+      airportFlatRate,
+      local8hr80km,
+      driverBattaPerDay,
+      nightBatta,
+      minKmPerDay,
+      extraHourRate,
+      extraKmRate,
+      features,
+      description,
+      bestFor,
+      is_published,
+    } = body;
 
     if (!name || !category) {
       return apiError("Missing required fields: name and category are required.", 400);
@@ -33,6 +52,11 @@ export async function POST(req: NextRequest) {
       perKmRate: Number(perKmRate) || 12,
       airportFlatRate: Number(airportFlatRate) || 1299,
       local8hr80km: Number(local8hr80km) || 2199,
+      driverBattaPerDay: driverBattaPerDay !== undefined ? Number(driverBattaPerDay) : 500,
+      nightBatta: nightBatta !== undefined ? Number(nightBatta) : 300,
+      minKmPerDay: minKmPerDay !== undefined ? Number(minKmPerDay) : 300,
+      extraHourRate: extraHourRate !== undefined ? Number(extraHourRate) : 150,
+      extraKmRate: extraKmRate !== undefined ? Number(extraKmRate) : (Number(perKmRate) || 12),
       features: Array.isArray(features) ? features : ["Clean & Sanitized", "Fastag Enabled", "Dual AC"],
       description: description || "Pristine maintained commercial vehicle with commercial transport permit.",
       bestFor: bestFor || "Airport Drops, Local & Outstation Journeys",

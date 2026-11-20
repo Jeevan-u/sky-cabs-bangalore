@@ -12,7 +12,6 @@ export type AdminTabType =
   | "drivers"
   | "fleet"
   | "expenses"
-  | "rates"
   | "reviews"
   | "analytics";
 
@@ -51,6 +50,11 @@ export interface FleetVehicleItem {
   perKmRate: number;
   airportFlatRate: number;
   local8hr80km: number;
+  driverBattaPerDay?: number;
+  nightBatta?: number;
+  minKmPerDay?: number;
+  extraHourRate?: number;
+  extraKmRate?: number;
   features: string[];
   description: string;
   bestFor: string;
