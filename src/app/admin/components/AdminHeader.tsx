@@ -57,9 +57,21 @@ export default function AdminHeader({
       title: "Custom Quotations Manager",
       subtitle: "Review custom non-hub routes, calculate distances on Google Maps, and send quotes",
     },
+    tours_cms: {
+      title: "Tour & Pilgrimage Packages CMS",
+      subtitle: "Manage landing page South India Pilgrimage & State Tour Packages",
+    },
+    places_cms: {
+      title: "Operational Hubs & Places CMS",
+      subtitle: "Configure 24x7 doorstep pickup stations shown in the Popular Hubs carousel",
+    },
     routes_cms: {
-      title: "Dynamic Routes & Hubs CMS",
-      subtitle: "Manage operational hubs, outstation circuits, and fixed rate packages instantly",
+      title: "Outstation Routes CMS",
+      subtitle: "Configure one-way, round trip, and per-km pricing for highway travel corridors",
+    },
+    fleet_catalog: {
+      title: "Fleet Vehicles Catalog",
+      subtitle: "Manage 5 to 50-seater passenger fleet specs, features, images, and tariffs",
     },
     dutyslips: {
       title: "Digital Duty Slips & Invoices",

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Heading from "@/shared/Heading";
 import Badge from "@/shared/Badge";
-import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SADHGURU_FLEET, SADHGURU_CONTACT, FleetVehicle } from "@/data/sadhguruFleet";
 import { CheckCircleIcon, WhatsAppIcon } from "@/components/icons";
 import { SpotlightCard, ShinyText, MagneticButton, Float, BorderBeam } from "@/components/reactbits";
 
@@ -13,6 +13,21 @@ export interface SectionFleetOverviewProps {
 }
 
 const SectionFleetOverview: FC<SectionFleetOverviewProps> = ({ className = "" }) => {
+  const [liveFleet, setLiveFleet] = useState<FleetVehicle[]>(SADHGURU_FLEET);
+
+  useEffect(() => {
+    fetch("/api/fleet?published=true")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.vehicles) && data.vehicles.length > 0) {
+          setLiveFleet(data.vehicles);
+        }
+      })
+      .catch((err) => {
+        console.warn("Using offline fallback for fleet overview:", err);
+      });
+  }, []);
+
   return (
     <div className={`nc-SectionFleetOverview relative ${className}`}>
       <Heading
@@ -23,7 +38,7 @@ const SectionFleetOverview: FC<SectionFleetOverviewProps> = ({ className = "" })
       </Heading>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
-        {SADHGURU_FLEET.map((vehicle) => {
+        {liveFleet.map((vehicle) => {
           const isFeatured = vehicle.id === "innova-crysta" || vehicle.id === "urbania-17";
           return (
             <SpotlightCard

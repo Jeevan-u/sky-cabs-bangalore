@@ -14,6 +14,9 @@ import OdometerVerificationView from "./views/OdometerVerificationView";
 import LiveGpsTrackingView from "./views/LiveGpsTrackingView";
 import QuotationsView from "./views/QuotationsView";
 import RoutesCmsView from "./views/RoutesCmsView";
+import ToursCmsView from "./views/ToursCmsView";
+import PlacesCmsView from "./views/PlacesCmsView";
+import FleetCatalogView from "./views/FleetCatalogView";
 
 import ModalNewBooking from "./modals/ModalNewBooking";
 import ModalAssignDriver from "./modals/ModalAssignDriver";
@@ -269,9 +272,27 @@ export default function AdminDashboardPage() {
             </div>
           )}
 
+          {visitedTabs.has("tours_cms") && (
+            <div className={activeTab === "tours_cms" ? "block" : "hidden"}>
+              <ToursCmsView />
+            </div>
+          )}
+
+          {visitedTabs.has("places_cms") && (
+            <div className={activeTab === "places_cms" ? "block" : "hidden"}>
+              <PlacesCmsView />
+            </div>
+          )}
+
           {visitedTabs.has("routes_cms") && (
             <div className={activeTab === "routes_cms" ? "block" : "hidden"}>
               <RoutesCmsView />
+            </div>
+          )}
+
+          {visitedTabs.has("fleet_catalog") && (
+            <div className={activeTab === "fleet_catalog" ? "block" : "hidden"}>
+              <FleetCatalogView />
             </div>
           )}
 

@@ -6,12 +6,14 @@ import {
   PlusIcon,
   CheckBadgeIcon,
   TrashIcon,
+  PencilSquareIcon,
 } from "@heroicons/react/24/outline";
 import StatusBadge from "../components/StatusBadge";
 import { DriverUserItem } from "../types";
 import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
 import { TiltedCard } from "@/components/reactbits";
 import AdminTablePagination from "../components/AdminTablePagination";
+import ModalEditDriver from "../modals/ModalEditDriver";
 
 interface FleetViewProps {
   drivers: DriverUserItem[];
@@ -27,6 +29,7 @@ export default function FleetView({
   searchFilter = "",
 }: FleetViewProps) {
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [editingDriver, setEditingDriver] = useState<DriverUserItem | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(6);
 
@@ -160,6 +163,13 @@ export default function FleetView({
                         </div>
                         <div className="flex items-center gap-1.5 shrink-0">
                           <StatusBadge status={status} size="sm" />
+                          <button
+                            onClick={() => setEditingDriver(d)}
+                            className="p-1.5 rounded-xl text-neutral-400 hover:text-primary-600 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                            title="Edit Chauffeur"
+                          >
+                            <PencilSquareIcon className="w-3.5 h-3.5" />
+                          </button>
                           {d.role !== "owner" && (
                             <button
                               onClick={() => handleDeleteDriver(d.id, d.name)}
@@ -311,6 +321,13 @@ export default function FleetView({
           ))}
         </div>
       </div>
+
+      <ModalEditDriver
+        isOpen={!!editingDriver}
+        onClose={() => setEditingDriver(null)}
+        onSaved={onRefresh}
+        driver={editingDriver}
+      />
     </div>
   );
 }

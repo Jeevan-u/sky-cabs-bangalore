@@ -109,9 +109,31 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
   categoryCardType = "card3",
   sliderStyle = "style1",
 }) => {
+  const [liveCategories, setLiveCategories] = useState<TaxonomyType[]>(categories);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [numberOfItems, setNumberOfitem] = useState<number>(itemPerRow);
+
+  useEffect(() => {
+    fetch("/api/places-cms?published=true")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.hubs) && data.hubs.length > 0) {
+          const mapped: TaxonomyType[] = data.hubs.map((h: any) => ({
+            id: h.id,
+            href: h.href as any,
+            name: h.name,
+            taxonomy: "category",
+            count: h.count || 200,
+            thumbnail: h.thumbnail || "/images/hubs/shamshabad-airport.jpg",
+          }));
+          setLiveCategories(mapped);
+        }
+      })
+      .catch((err) => {
+        console.warn("Using offline fallback for places/hubs:", err);
+      });
+  }, []);
 
   const windowWidth = useWindowSize().width;
   useEffect(() => {
@@ -140,7 +162,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (currentIndex < categories?.length - 1) {
+      if (currentIndex < liveCategories?.length - 1) {
         changeItemId(currentIndex + 1);
       }
     },
@@ -185,7 +207,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
               className="relative whitespace-nowrap -mx-2 xl:-mx-4"
             >
               <AnimatePresence initial={false} custom={direction}>
-                {categories.map((item, indx) => (
+                {liveCategories.map((item, indx) => (
                   <motion.li
                     className={`relative inline-block px-2 xl:px-4 ${itemClassName}`}
                     custom={direction}
@@ -216,7 +238,7 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
             />
           ) : null}
 
-          {categories.length > currentIndex + numberOfItems ? (
+          {liveCategories.length > currentIndex + numberOfItems ? (
             <NextBtn
               style={{ transform: "translate3d(0, 0, 0)" }}
               onClick={() => changeItemId(currentIndex + 1)}

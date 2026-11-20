@@ -225,6 +225,43 @@ const STATE_DATA: Record<StateKey, DestinationCard[]> = {
 const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" }) => {
   const tabs: StateKey[] = ["Andhra Pradesh", "Karnataka", "Tamil Nadu", "Kerala"];
   const [activeTab, setActiveTab] = useState<StateKey>("Andhra Pradesh");
+  const [dynamicStateData, setDynamicStateData] = useState<Record<StateKey, DestinationCard[]>>(STATE_DATA);
+
+  React.useEffect(() => {
+    fetch("/api/tours-cms?published=true")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.packages) && data.packages.length > 0) {
+          const grouped: Record<StateKey, DestinationCard[]> = {
+            "Andhra Pradesh": [],
+            "Karnataka": [],
+            "Tamil Nadu": [],
+            "Kerala": [],
+          };
+          data.packages.forEach((pkg: any) => {
+            const st = pkg.state as StateKey;
+            if (grouped[st]) {
+              grouped[st].push({
+                name: pkg.name,
+                tagline: pkg.tagline,
+                image: pkg.image || "/images/srisailam-dam.jpg",
+                dist: pkg.dist || "250 KM",
+                days: pkg.days || "1-2 Days",
+              });
+            }
+          });
+          tabs.forEach((key) => {
+            if (grouped[key].length === 0) {
+              grouped[key] = STATE_DATA[key];
+            }
+          });
+          setDynamicStateData(grouped);
+        }
+      })
+      .catch((err) => {
+        console.warn("Using offline fallback for tour packages:", err);
+      });
+  }, []);
 
   return (
     <div className={`nc-SectionStatePackages relative ${className}`} id="packages">
@@ -247,7 +284,7 @@ const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" })
 
       {/* Cards Grid with SpotlightCard */}
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
-        {STATE_DATA[activeTab].map((item, idx) => (
+        {(dynamicStateData[activeTab] || STATE_DATA[activeTab]).map((item, idx) => (
           <SpotlightCard
             key={idx}
             className="group flex flex-col !rounded-2xl sm:!rounded-3xl overflow-hidden hover:border-amber-400/40 transition-all duration-300"

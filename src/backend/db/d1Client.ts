@@ -145,6 +145,48 @@ export interface DynamicRouteRecord {
   created_at?: string;
 }
 
+export interface FleetVehicleRecord {
+  id: string;
+  name: string;
+  category: "Sedan" | "SUV" | "Premium SUV" | "Tempo Traveller" | "Luxury Coach";
+  capacity: string;
+  luggage: string;
+  ac: boolean;
+  image: string;
+  perKmRate: number;
+  airportFlatRate: number;
+  local8hr80km: number;
+  features: string[];
+  description: string;
+  bestFor: string;
+  is_published: boolean;
+  created_at?: string;
+}
+
+export interface PlaceHubRecord {
+  id: string;
+  name: string;
+  href: string;
+  count: number;
+  thumbnail: string;
+  is_published: boolean;
+  created_at?: string;
+}
+
+export interface TourPackageRecord {
+  id: string;
+  name: string;
+  tagline: string;
+  state: "Andhra Pradesh" | "Karnataka" | "Tamil Nadu" | "Kerala" | "Telangana";
+  image: string;
+  dist: string;
+  days: string;
+  price?: number;
+  features?: string[];
+  is_published: boolean;
+  created_at?: string;
+}
+
 interface LocalDatabaseState {
   bookings: BookingRecord[];
   duty_slips: DutySlipRecord[];
@@ -155,6 +197,9 @@ interface LocalDatabaseState {
   odometer_records?: OdometerRecord[];
   gps_pings?: GpsPingRecord[];
   dynamic_routes?: DynamicRouteRecord[];
+  fleet_vehicles?: FleetVehicleRecord[];
+  places_hubs?: PlaceHubRecord[];
+  tour_packages?: TourPackageRecord[];
 }
 
 const LOCAL_DB_PATH = path.join(process.cwd(), ".data", "sadhguru_db.json");
@@ -490,6 +535,303 @@ function readLocalDb(): LocalDatabaseState {
           tt_price: 7500,
           is_published: true,
           description: "District connecting hub for outstation & return Hyderabad journeys.",
+        },
+      ];
+      changed = true;
+    }
+    if (!parsed.fleet_vehicles) {
+      parsed.fleet_vehicles = [
+        {
+          id: "dzire-etios",
+          name: "Swift Dzire / Toyota Etios",
+          category: "Sedan",
+          capacity: "4+1 Passenger",
+          luggage: "2 Large + 1 Small Bags",
+          ac: true,
+          image: "/images/fleet/swift-dzire.jpg",
+          perKmRate: 12,
+          airportFlatRate: 1299,
+          local8hr80km: 2199,
+          features: ["Dual AC", "Clean & Sanitized", "Music System", "Comfortable Legroom", "Fastag Enabled"],
+          description: "Ideal for city commutes, quick airport pickups, and budget-friendly small family outstation trips.",
+          bestFor: "Airport Drops, KPHB/Hitec City Local, One-Way Outstation",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "ertiga-rumion",
+          name: "Maruti Ertiga / Toyota Rumion",
+          category: "SUV",
+          capacity: "6+1 Passenger",
+          luggage: "3 Large + 2 Small Bags",
+          ac: true,
+          image: "/images/fleet/maruti-ertiga.jpg",
+          perKmRate: 15,
+          airportFlatRate: 1699,
+          local8hr80km: 2899,
+          features: ["Roof AC Vents", "Adjustable Rear Seats", "Spacious Boot", "Phone Chargers", "Toll/Fastag Ready"],
+          description: "The most economical 6-seater for family outings, airport group transfers, and weekend temple visits.",
+          bestFor: "Family Trips, Airport Transfers, Yadagirigutta / Vemulawada",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "innova-crysta",
+          name: "Toyota Innova Crysta",
+          category: "Premium SUV",
+          capacity: "7+1 / 6+1 Captain Seats",
+          luggage: "4 Large + 3 Small Bags",
+          ac: true,
+          image: "/images/fleet/innova-crysta.jpg",
+          perKmRate: 19,
+          airportFlatRate: 2199,
+          local8hr80km: 3699,
+          features: ["Plush Captain Recliners", "Dual Automatic Climate Control", "Highway Cruiser", "Premium Comfort", "GPS Tracking"],
+          description: "The gold standard for long-distance highway travel, pilgrimage tours, VIP guest transport, and corporate rentals.",
+          bestFor: "Tirupati, Shirdi, Srisailam, Corporate VIP & Wedding Escorts",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "tempo-traveller-12",
+          name: "Force Tempo Traveller (12/17 Seater)",
+          category: "Tempo Traveller",
+          capacity: "12 to 17 Passengers",
+          luggage: "Dedicated Carrier & Large Boot",
+          ac: true,
+          image: "/images/fleet/tempo-traveller-17.jpg",
+          perKmRate: 25,
+          airportFlatRate: 3499,
+          local8hr80km: 4999,
+          features: ["Pushback Luxury Seats", "Surround Sound Audio/Video", "Individual AC Vents", "Spacious Aisle", "Experienced Hill Drivers"],
+          description: "Perfect for group pilgrimages, marriage guest logistics, and corporate team day-outs from Hyderabad.",
+          bestFor: "Large Family Pilgrimage, Wedding Functions, Corporate Trips",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "tempo-traveller-26",
+          name: "Force Urbania & 26-Seater TT",
+          category: "Tempo Traveller",
+          capacity: "20 to 26 Passengers",
+          luggage: "Extra Spacious Luggage Area",
+          ac: true,
+          image: "/images/fleet/force-urbania.png",
+          perKmRate: 32,
+          airportFlatRate: 4499,
+          local8hr80km: 7499,
+          features: ["European Style Luxury Seats", "Ultra Silent Cabin", "LED Ambient Lighting", "Smooth Air Suspension", "High Roof"],
+          description: "Ultra-luxury executive carrier with world-class Mercedes-derived architecture for grand family excursions.",
+          bestFor: "Luxury Corporate Delegation, Destination Weddings, VIP Group Tours",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "luxury-bus-50",
+          name: "Luxury AC Bus / Coach (32 to 50 Seater)",
+          category: "Luxury Coach",
+          capacity: "32 to 50 Passengers",
+          luggage: "Huge Belly Storage",
+          ac: true,
+          image: "/images/fleet/luxury-bus.jpg",
+          perKmRate: 48,
+          airportFlatRate: 6999,
+          local8hr80km: 11999,
+          features: ["Air Suspension", "Pushback 2x2 Reclining Seats", "Mic & PA System", "TV Entertainment", "Full Air-Conditioned Comfort"],
+          description: "Flagship luxury coach transport for large convention delegates, corporate offsites, and mega pilgrim squads.",
+          bestFor: "Large Pilgrimage Groups, Corporate Outings, Educational Excursions",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+      ];
+      changed = true;
+    }
+    if (!parsed.places_hubs) {
+      parsed.places_hubs = [
+        {
+          id: "hub-1",
+          name: "Kukatpally (IDL Lake)",
+          href: "/cabs-in-kukatpally",
+          count: 240,
+          thumbnail: "/images/hubs/kukatpally-hq.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "hub-2",
+          name: "Shamshabad Airport (RGIA)",
+          href: "/shamshabad-airport-taxi",
+          count: 512,
+          thumbnail: "/images/hubs/shamshabad-airport.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "hub-3",
+          name: "KPHB Colony (Nexus Mall)",
+          href: "/cabs-in-kphb",
+          count: 180,
+          thumbnail: "/images/hubs/kphb-colony.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "hub-4",
+          name: "Hitec City (Cyber Towers)",
+          href: "/cabs-in-hitec-city",
+          count: 320,
+          thumbnail: "/images/hubs/hitec-city.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "hub-5",
+          name: "Miyapur (Ameenpur Lake)",
+          href: "/cabs-in-miyapur",
+          count: 155,
+          thumbnail: "/images/hubs/miyapur-hub.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "hub-6",
+          name: "Medchal (Oxygen Park)",
+          href: "/cabs-in-medchal",
+          count: 140,
+          thumbnail: "/images/hubs/medchal-kompally.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "hub-7",
+          name: "Gandhari & Kamareddy Hub",
+          href: "/cabs-in-kamareddy-gandhari",
+          count: 360,
+          thumbnail: "/images/hubs/kamareddy-gandhari.jpg",
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+      ];
+      changed = true;
+    }
+    if (!parsed.tour_packages) {
+      parsed.tour_packages = [
+        {
+          id: "pkg-srisailam",
+          name: "Srisailam Dam & Jyotirlinga",
+          tagline: "Mallikarjuna Jyotirlinga & Ghat Road",
+          state: "Andhra Pradesh",
+          image: "/images/srisailam-dam.jpg",
+          dist: "213 KM",
+          days: "1-2 Days",
+          price: 4500,
+          features: ["VIP Darshan Assistance", "Ghat Road Certified Chauffeur", "Patala Ganga Ropeway Stop", "Dindi Dam Route"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-tirupati",
+          name: "Tirupati Balaji Darshan",
+          tagline: "Lord Venkateswara Temple Darshan",
+          state: "Andhra Pradesh",
+          image: "/images/Tirupati.jpg",
+          dist: "570 KM",
+          days: "2-3 Days",
+          price: 8200,
+          features: ["Alipiri Checkpoint Guidance", "Tirumala Ghat Ascent Expert", "Padmavathi Ammavari Temple", "Clean AC Fleet"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-srikalahasti",
+          name: "Srikalahasti Rahu Ketu",
+          tagline: "Vayu Linga & Rahu Ketu Pooja",
+          state: "Andhra Pradesh",
+          image: "/images/Srikalahasti.jpg",
+          dist: "540 KM",
+          days: "2 Days",
+          price: 7900,
+          features: ["Special Pooja Timing Advisory", "Highway Cruiser", "Kanipakam Extension Option"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-yaganti",
+          name: "Mahanandi & Yaganti",
+          tagline: "Ancient Shiva & Growing Nandi",
+          state: "Andhra Pradesh",
+          image: "/images/Yaganti.jpg",
+          dist: "310 KM",
+          days: "2 Days",
+          price: 6200,
+          features: ["Belum Caves Route", "Ancient Temple Tour", "Experienced Chauffeurs"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-vijayawada",
+          name: "Vijayawada & Amaravati",
+          tagline: "Kanaka Durga Goddess Temple",
+          state: "Andhra Pradesh",
+          image: "/images/Vijayawada.avif",
+          dist: "275 KM",
+          days: "1-2 Days",
+          price: 4800,
+          features: ["Prakasam Barrage View", "Indrakeeladri Hill Ascent", "Clean Vehicle Guarantee"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-mysore",
+          name: "Mysore Palace & Chamundi",
+          tagline: "Heritage Royal Palace & Hills",
+          state: "Karnataka",
+          image: "/images/Tirupati.jpg",
+          dist: "680 KM",
+          days: "3-4 Days",
+          price: 13500,
+          features: ["Brindavan Gardens", "Palace Illumination Timing", "Expressway Transit"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-coorg",
+          name: "Coorg (Madikeri)",
+          tagline: "Coffee Plantations & Abbey Falls",
+          state: "Karnataka",
+          image: "/images/srisailam-dam.jpg",
+          dist: "740 KM",
+          days: "3-4 Days",
+          price: 15200,
+          features: ["Hill Driving Specialist", "Raja's Seat Sunset", "Spacious Boot for Coffee Purchases"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-ooty",
+          name: "Ooty & Kodaikanal",
+          tagline: "Queen of Hill Stations & Lakes",
+          state: "Tamil Nadu",
+          image: "/images/srisailam-dam.jpg",
+          dist: "850 KM",
+          days: "4-5 Days",
+          price: 18500,
+          features: ["36 Hairpin Bend Certified Chauffeur", "Tea Garden Tours", "Chilled Mountain Escapes"],
+          is_published: true,
+          created_at: new Date().toISOString(),
+        },
+        {
+          id: "pkg-munnar",
+          name: "Munnar & Alleppey",
+          tagline: "Tea Hills & Houseboat Backwaters",
+          state: "Kerala",
+          image: "/images/Vijayawada.avif",
+          dist: "980 KM",
+          days: "5-6 Days",
+          price: 22000,
+          features: ["Long Distance Highway Pilots", "Comfortable Captain Seats", "All-India Permit Ready"],
+          is_published: true,
+          created_at: new Date().toISOString(),
         },
       ];
       changed = true;
@@ -1071,5 +1413,174 @@ export const d1Client = {
     db.dynamic_routes.splice(idx, 1);
     writeLocalDb(db);
     return true;
+  },
+
+  // --- Fleet Vehicles Catalog ---
+  async getFleetVehicles(publishedOnly?: boolean): Promise<FleetVehicleRecord[]> {
+    const db = readLocalDb();
+    const list = db.fleet_vehicles || [];
+    if (publishedOnly) {
+      return list.filter((v) => v.is_published !== false);
+    }
+    return list;
+  },
+
+  async createFleetVehicle(data: Omit<FleetVehicleRecord, "id" | "created_at">): Promise<FleetVehicleRecord> {
+    const db = readLocalDb();
+    if (!db.fleet_vehicles) db.fleet_vehicles = [];
+    const id = "flt-" + Date.now().toString().slice(-6);
+    const newVehicle: FleetVehicleRecord = {
+      ...data,
+      id,
+      perKmRate: Number(data.perKmRate) || 12,
+      airportFlatRate: Number(data.airportFlatRate) || 1299,
+      local8hr80km: Number(data.local8hr80km) || 2199,
+      features: Array.isArray(data.features) ? data.features : [],
+      is_published: data.is_published !== false,
+      created_at: new Date().toISOString(),
+    };
+    db.fleet_vehicles.push(newVehicle);
+    writeLocalDb(db);
+    return newVehicle;
+  },
+
+  async updateFleetVehicle(id: string, updates: Partial<FleetVehicleRecord>): Promise<FleetVehicleRecord | null> {
+    const db = readLocalDb();
+    if (!db.fleet_vehicles) return null;
+    const idx = db.fleet_vehicles.findIndex((v) => v.id === id);
+    if (idx === -1) return null;
+    db.fleet_vehicles[idx] = {
+      ...db.fleet_vehicles[idx],
+      ...updates,
+      perKmRate: updates.perKmRate !== undefined ? Number(updates.perKmRate) : db.fleet_vehicles[idx].perKmRate,
+      airportFlatRate: updates.airportFlatRate !== undefined ? Number(updates.airportFlatRate) : db.fleet_vehicles[idx].airportFlatRate,
+      local8hr80km: updates.local8hr80km !== undefined ? Number(updates.local8hr80km) : db.fleet_vehicles[idx].local8hr80km,
+    };
+    writeLocalDb(db);
+    return db.fleet_vehicles[idx];
+  },
+
+  async deleteFleetVehicle(id: string): Promise<boolean> {
+    const db = readLocalDb();
+    if (!db.fleet_vehicles) return false;
+    const idx = db.fleet_vehicles.findIndex((v) => v.id === id);
+    if (idx === -1) return false;
+    db.fleet_vehicles.splice(idx, 1);
+    writeLocalDb(db);
+    return true;
+  },
+
+  // --- Places & Airport Hubs ---
+  async getPlacesHubs(publishedOnly?: boolean): Promise<PlaceHubRecord[]> {
+    const db = readLocalDb();
+    const list = db.places_hubs || [];
+    if (publishedOnly) {
+      return list.filter((p) => p.is_published !== false);
+    }
+    return list;
+  },
+
+  async createPlaceHub(data: Omit<PlaceHubRecord, "id" | "created_at">): Promise<PlaceHubRecord> {
+    const db = readLocalDb();
+    if (!db.places_hubs) db.places_hubs = [];
+    const id = "hub-" + Date.now().toString().slice(-6);
+    const newHub: PlaceHubRecord = {
+      ...data,
+      id,
+      count: Number(data.count) || 0,
+      is_published: data.is_published !== false,
+      created_at: new Date().toISOString(),
+    };
+    db.places_hubs.push(newHub);
+    writeLocalDb(db);
+    return newHub;
+  },
+
+  async updatePlaceHub(id: string, updates: Partial<PlaceHubRecord>): Promise<PlaceHubRecord | null> {
+    const db = readLocalDb();
+    if (!db.places_hubs) return null;
+    const idx = db.places_hubs.findIndex((p) => p.id === id);
+    if (idx === -1) return null;
+    db.places_hubs[idx] = {
+      ...db.places_hubs[idx],
+      ...updates,
+      count: updates.count !== undefined ? Number(updates.count) : db.places_hubs[idx].count,
+    };
+    writeLocalDb(db);
+    return db.places_hubs[idx];
+  },
+
+  async deletePlaceHub(id: string): Promise<boolean> {
+    const db = readLocalDb();
+    if (!db.places_hubs) return false;
+    const idx = db.places_hubs.findIndex((p) => p.id === id);
+    if (idx === -1) return false;
+    db.places_hubs.splice(idx, 1);
+    writeLocalDb(db);
+    return true;
+  },
+
+  // --- Tour Packages ---
+  async getTourPackages(publishedOnly?: boolean, state?: string): Promise<TourPackageRecord[]> {
+    const db = readLocalDb();
+    let list = db.tour_packages || [];
+    if (publishedOnly) {
+      list = list.filter((t) => t.is_published !== false);
+    }
+    if (state && state !== "all") {
+      list = list.filter((t) => t.state === state);
+    }
+    return list;
+  },
+
+  async createTourPackage(data: Omit<TourPackageRecord, "id" | "created_at">): Promise<TourPackageRecord> {
+    const db = readLocalDb();
+    if (!db.tour_packages) db.tour_packages = [];
+    const id = "pkg-" + Date.now().toString().slice(-6);
+    const newPackage: TourPackageRecord = {
+      ...data,
+      id,
+      price: data.price ? Number(data.price) : undefined,
+      features: Array.isArray(data.features) ? data.features : [],
+      is_published: data.is_published !== false,
+      created_at: new Date().toISOString(),
+    };
+    db.tour_packages.push(newPackage);
+    writeLocalDb(db);
+    return newPackage;
+  },
+
+  async updateTourPackage(id: string, updates: Partial<TourPackageRecord>): Promise<TourPackageRecord | null> {
+    const db = readLocalDb();
+    if (!db.tour_packages) return null;
+    const idx = db.tour_packages.findIndex((t) => t.id === id);
+    if (idx === -1) return null;
+    db.tour_packages[idx] = {
+      ...db.tour_packages[idx],
+      ...updates,
+      price: updates.price !== undefined ? Number(updates.price) : db.tour_packages[idx].price,
+    };
+    writeLocalDb(db);
+    return db.tour_packages[idx];
+  },
+
+  async deleteTourPackage(id: string): Promise<boolean> {
+    const db = readLocalDb();
+    if (!db.tour_packages) return false;
+    const idx = db.tour_packages.findIndex((t) => t.id === id);
+    if (idx === -1) return false;
+    db.tour_packages.splice(idx, 1);
+    writeLocalDb(db);
+    return true;
+  },
+
+  // --- Enhanced User Update ---
+  async updateUser(id: string, updates: Partial<UserRecord>): Promise<UserRecord | null> {
+    const db = readLocalDb();
+    const idx = db.users.findIndex((u) => u.id === id);
+    if (idx === -1) return null;
+    db.users[idx] = { ...db.users[idx], ...updates };
+    writeLocalDb(db);
+    return db.users[idx];
   },
 };

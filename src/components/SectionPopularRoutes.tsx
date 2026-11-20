@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Badge from "@/shared/Badge";
@@ -71,6 +71,36 @@ const routes = [
 ];
 
 const SectionPopularRoutes: FC<SectionPopularRoutesProps> = ({ className = "" }) => {
+  const [liveRoutes, setLiveRoutes] = useState(routes);
+
+  useEffect(() => {
+    fetch("/api/routes-cms?category=outstation_route")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.routes) && data.routes.length > 0) {
+          const published = data.routes.filter((r: any) => r.is_published !== false);
+          if (published.length > 0) {
+            const mapped = published.map((r: any, idx: number) => {
+              const fallback = routes[idx % routes.length];
+              return {
+                route: r.title,
+                href: fallback.href,
+                dist: `${r.distance_km} km`,
+                duration: `${Math.round((r.distance_km / 50) * 10) / 10} Hrs`,
+                price: `₹${r.sedan_price.toLocaleString("en-IN")}`,
+                image: fallback.image,
+                highlight: r.description || fallback.highlight,
+              };
+            });
+            setLiveRoutes(mapped);
+          }
+        }
+      })
+      .catch((err) => {
+        console.warn("Using offline fallback for outstation routes:", err);
+      });
+  }, []);
+
   return (
     <div className={`nc-SectionPopularRoutes relative ${className}`}>
       <Heading
@@ -81,7 +111,7 @@ const SectionPopularRoutes: FC<SectionPopularRoutesProps> = ({ className = "" })
       </Heading>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
-        {routes.map((item, idx) => (
+        {liveRoutes.map((item, idx) => (
           <SpotlightCard
             key={idx}
             className="group flex flex-col !rounded-2xl sm:!rounded-3xl overflow-hidden hover:border-amber-400/40 transition-all duration-300"

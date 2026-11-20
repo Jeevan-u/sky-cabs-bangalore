@@ -22,6 +22,7 @@ import {
   MapPinIcon,
   PhoneIcon,
   HomeIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
 import { AdminTabType } from "../types";
 import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
@@ -68,6 +69,13 @@ export default function AdminSidebar({
           badgeColor: "bg-amber-500 text-neutral-950 font-bold",
         },
         {
+          id: "dutyslips" as AdminTabType,
+          label: "Duty Slips & Invoices",
+          icon: DocumentTextIcon,
+          badge: counts.dutySlips > 0 ? counts.dutySlips : undefined,
+          badgeColor: "bg-primary-6000 text-white font-bold",
+        },
+        {
           id: "odometer" as AdminTabType,
           label: "Odometer Audit",
           icon: CameraIcon,
@@ -82,17 +90,30 @@ export default function AdminSidebar({
           label: "Custom Quotes",
           icon: SparklesIcon,
         },
+      ],
+    },
+    {
+      title: "LANDING CMS & CONTENT",
+      items: [
         {
-          id: "routes_cms" as AdminTabType,
-          label: "Routes & Hubs CMS",
+          id: "tours_cms" as AdminTabType,
+          label: "Tours & Packages",
+          icon: SparklesIcon,
+        },
+        {
+          id: "places_cms" as AdminTabType,
+          label: "Operational Hubs",
           icon: MapPinIcon,
         },
         {
-          id: "dutyslips" as AdminTabType,
-          label: "Duty Slips & Invoices",
-          icon: DocumentTextIcon,
-          badge: counts.dutySlips > 0 ? counts.dutySlips : undefined,
-          badgeColor: "bg-primary-6000 text-white font-bold",
+          id: "routes_cms" as AdminTabType,
+          label: "Outstation Routes",
+          icon: GlobeAltIcon,
+        },
+        {
+          id: "fleet_catalog" as AdminTabType,
+          label: "Fleet Vehicles Catalog",
+          icon: TruckIcon,
         },
       ],
     },
@@ -101,7 +122,7 @@ export default function AdminSidebar({
       items: [
         {
           id: "fleet" as AdminTabType,
-          label: "Fleet & Chauffeurs",
+          label: "Chauffeur Roster",
           icon: UsersIcon,
           badge: counts.activeDrivers > 0 ? `${counts.activeDrivers} Ready` : undefined,
           badgeColor: "bg-emerald-500 text-white font-bold",

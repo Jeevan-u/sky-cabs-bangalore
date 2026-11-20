@@ -29,6 +29,11 @@ export const userService = {
     return d1Client.updateUserDutyStatus(id, dutyStatus);
   },
 
+  async updateUser(id: string, updates: Partial<UserCreateData>) {
+    if (!id) throw new Error("User ID is required.");
+    return d1Client.updateUser(id, updates);
+  },
+
   async createUser(data: UserCreateData) {
     if (!data.name || !data.phone || !data.password) {
       throw new Error("Missing required fields: name, phone, and password.");

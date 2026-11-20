@@ -24,12 +24,18 @@ export async function handleCreateUser(req: NextRequest) {
 export async function handleUpdateUser(req: NextRequest) {
   try {
     const body = await req.json();
-    const { id, duty_status } = body;
-    if (!id || !duty_status) return apiError("User ID and duty_status are required.", 400);
+    const { id, duty_status, ...otherUpdates } = body;
+    if (!id) return apiError("User ID is required.", 400);
 
-    const success = await userService.updateDutyStatus(id, duty_status);
-    if (!success) return apiError("User not found.", 404);
-    return apiSuccess({ message: "Duty status updated successfully." });
+    if (duty_status && Object.keys(otherUpdates).length === 0) {
+      const success = await userService.updateDutyStatus(id, duty_status);
+      if (!success) return apiError("User not found.", 404);
+      return apiSuccess({ message: "Duty status updated successfully." });
+    }
+
+    const updated = await userService.updateUser(id, { duty_status, ...otherUpdates });
+    if (!updated) return apiError("User not found.", 404);
+    return apiSuccess({ message: "User updated successfully.", user: updated });
   } catch (err: any) {
     return apiError(err.message || "Failed to update user.", 400);
   }

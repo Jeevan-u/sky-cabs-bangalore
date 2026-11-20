@@ -4,12 +4,57 @@ export type AdminTabType =
   | "odometer"
   | "gps"
   | "quotations"
+  | "tours_cms"
+  | "places_cms"
   | "routes_cms"
+  | "fleet_catalog"
   | "dutyslips"
   | "fleet"
   | "rates"
   | "reviews"
   | "analytics";
+
+export interface FleetVehicleItem {
+  id: string;
+  name: string;
+  category: "Sedan" | "SUV" | "Premium SUV" | "Tempo Traveller" | "Luxury Coach" | string;
+  capacity: string;
+  luggage: string;
+  ac: boolean;
+  image: string;
+  perKmRate: number;
+  airportFlatRate: number;
+  local8hr80km: number;
+  features: string[];
+  description: string;
+  bestFor: string;
+  is_published: boolean;
+  created_at?: string;
+}
+
+export interface PlaceHubItem {
+  id: string;
+  name: string;
+  href: string;
+  count: number;
+  thumbnail: string;
+  is_published: boolean;
+  created_at?: string;
+}
+
+export interface TourPackageItem {
+  id: string;
+  name: string;
+  tagline: string;
+  state: "Andhra Pradesh" | "Karnataka" | "Tamil Nadu" | "Kerala" | "Telangana" | string;
+  image: string;
+  dist: string;
+  days: string;
+  price?: number;
+  features?: string[];
+  is_published: boolean;
+  created_at?: string;
+}
 
 export interface BookingItem {
   id: string;
