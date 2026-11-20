@@ -358,24 +358,24 @@ export default function LocationLandingTemplate({
           <h2 className="text-xl sm:text-2xl font-black text-neutral-900 dark:text-white">
             Popular Outstation & Airport Trips from {locationName}
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
             {popularRoutes.map((r) => (
               <SpotlightCard
                 key={r.destination}
-                className="p-5 !rounded-2xl flex flex-col justify-between hover:border-amber-400/40 transition-all duration-300"
+                className="p-3 sm:p-5 !rounded-2xl flex flex-col justify-between hover:border-amber-400/40 transition-all duration-300"
                 spotlightColor="rgba(245, 158, 11, 0.2)"
               >
                 <div>
-                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400">One-Way / Round Trip</span>
-                  <h3 className="text-base font-black text-neutral-900 dark:text-white mt-1 flex items-center gap-1.5 flex-wrap">
+                  <span className="text-[10px] sm:text-xs font-bold text-blue-600 dark:text-blue-400">One-Way / Round Trip</span>
+                  <h3 className="text-xs sm:text-base font-black text-neutral-900 dark:text-white mt-1 flex items-center gap-1 sm:gap-1.5 flex-wrap">
                     <span>{locationName}</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
+                    <ArrowRightIcon className="w-3 h-3 text-neutral-400 shrink-0" />
                     <span>{r.destination}</span>
                   </h3>
-                  <p className="text-xs text-neutral-500 mt-1">Distance: ~{r.distance}</p>
+                  <p className="text-[10px] sm:text-xs text-neutral-500 mt-0.5 sm:mt-1">Distance: ~{r.distance}</p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-700 flex items-center justify-between">
-                  <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                <div className="mt-2.5 sm:mt-4 pt-2 sm:pt-3 border-t border-neutral-100 dark:border-neutral-700 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+                  <span className="text-[11px] sm:text-xs font-bold text-amber-600 dark:text-amber-400">
                     <ShinyText text={r.startingPrice} speed={2.5} />
                   </span>
                   <MagneticButton pullFactor={0.2}>
@@ -383,10 +383,10 @@ export default function LocationLandingTemplate({
                       href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Inquiry%20for%20${encodeURIComponent(locationName)}%20to%20${encodeURIComponent(r.destination)}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xs font-bold text-emerald-600 hover:underline inline-flex items-center gap-1"
+                      className="text-[11px] sm:text-xs font-bold text-emerald-600 hover:underline inline-flex items-center gap-1"
                     >
                       <span>Book</span>
-                      <ArrowRightIcon className="w-3.5 h-3.5" />
+                      <ArrowRightIcon className="w-3 h-3" />
                     </a>
                   </MagneticButton>
                 </div>

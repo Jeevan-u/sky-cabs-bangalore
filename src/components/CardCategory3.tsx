@@ -20,7 +20,7 @@ const CardCategory3: FC<CardCategory3Props> = ({
   return (
     <Link href={href} className={`nc-CardCategory3 block group ${className}`}>
       <SpotlightCard
-        className="p-3 !rounded-2xl transition-all duration-300 group-hover:border-primary-500/40 group-hover:shadow-xl"
+        className="p-2.5 sm:p-3 !rounded-2xl transition-all duration-300 group-hover:border-primary-500/40 group-hover:shadow-xl"
         spotlightColor="rgba(245, 158, 11, 0.22)"
       >
         <div
@@ -31,18 +31,18 @@ const CardCategory3: FC<CardCategory3Props> = ({
             className="object-cover w-full h-full rounded-xl group-hover:scale-108 transition-transform duration-500"
             alt={name}
             fill
-            sizes="(max-width: 400px) 100vw, 300px"
+            sizes="(max-width: 640px) 50vw, 300px"
           />
           <span className="opacity-0 group-hover:opacity-100 absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity"></span>
         </div>
-        <div className="mt-3.5 px-1 truncate">
+        <div className="mt-2 sm:mt-3.5 px-0.5 sm:px-1 truncate">
           <h2
-            className="text-base sm:text-lg text-neutral-900 dark:text-neutral-100 font-bold truncate group-hover:text-primary-600 transition-colors"
+            className="text-xs sm:text-lg text-neutral-900 dark:text-neutral-100 font-bold truncate group-hover:text-primary-600 transition-colors"
           >
             {name}
           </h2>
           <span
-            className="block mt-1 text-xs text-neutral-600 dark:text-neutral-400 font-medium"
+            className="block mt-0.5 sm:mt-1 text-[10px] sm:text-xs text-neutral-600 dark:text-neutral-400 font-medium truncate"
           >
             <AnimatedCounter to={count || 0} duration={1.2} />+ Monthly Rides
           </span>

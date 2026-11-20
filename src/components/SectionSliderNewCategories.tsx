@@ -116,9 +116,6 @@ const SectionSliderNewCategories: FC<SectionSliderNewCategoriesProps> = ({
   const windowWidth = useWindowSize().width;
   useEffect(() => {
     if (!windowWidth) return;
-    if (windowWidth < 480) {
-      return setNumberOfitem(1);
-    }
     if (windowWidth < 640) {
       return setNumberOfitem(2);
     }
