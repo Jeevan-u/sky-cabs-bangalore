@@ -40,16 +40,14 @@ const CarCard: FC<CarCardProps> = ({
 
   const renderSliderGallery = () => {
     return (
-      <div className="relative w-full rounded-2xl overflow-hidden">
-        <div className="aspect-w-16 aspect-h-9 ">
-          <Image
-            fill
-            src={featuredImage}
-            alt="car"
-            sizes="(max-width: 640px) 100vw, 350px"
-            className="group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
+      <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+        <Image
+          fill
+          src={featuredImage}
+          alt={title || "commercial vehicle"}
+          sizes="(max-width: 640px) 100vw, 350px"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+        />
         <BtnLikeIcon isLiked={like} className="absolute right-3 top-3 z-[1]" />
         {saleOff && <SaleOffBadge className="absolute left-3 top-3" />}
       </div>

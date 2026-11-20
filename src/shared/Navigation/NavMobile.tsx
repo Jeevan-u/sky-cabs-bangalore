@@ -56,6 +56,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
     return (
       <Disclosure key={item.id} as="li" className="text-neutral-900 dark:text-white">
         <Link
+          prefetch={true}
           className="flex w-full px-4 font-bold tracking-wide text-xs uppercase hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-xl transition-colors"
           href={{
             pathname: item.href || undefined,

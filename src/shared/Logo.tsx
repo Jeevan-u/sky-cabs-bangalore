@@ -11,6 +11,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", imgClassName = "" }) => {
   return (
     <Link
       href="/"
+      prefetch={true}
       className={`ttnc-logo inline-flex items-center gap-2 sm:gap-2.5 focus:outline-none focus:ring-0 flex-shrink-0 group ${className}`}
     >
       {/* Official Sri Sadhguru Brand Emblem with Dual Theme Support */}

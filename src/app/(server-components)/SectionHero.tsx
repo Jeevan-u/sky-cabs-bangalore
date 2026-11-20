@@ -16,7 +16,6 @@ import {
   TruckIcon,
 } from "@/components/icons";
 import {
-  WarpText,
   RotatingText,
   ShinyText,
   MagneticButton,
@@ -78,33 +77,14 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           </StarBorder>
 
           <h1 className="w-full text-neutral-900 dark:text-neutral-100">
-            {/* Screen reader / SEO primary brand text */}
-            <span className="sr-only">Sri Sadhguru Tours & Travels</span>
-
-            {/* React Bits WarpText with interactive WebGL liquid refraction */}
-            <div className="w-full max-w-xl h-[115px] sm:h-[150px] md:h-[185px] lg:h-[200px] relative">
-              <WarpText
-                text={"Sri Sadhguru\nTours & Travels"}
-                align="left"
-                fontSize="clamp(2rem, 5.2vw, 3.8rem)"
-                fontWeight={800}
-                lineHeight={1.05}
-                letterSpacing="-0.03em"
-                warpStrength={0.08}
-                warpScale={1.7}
-                speed={0.55}
-                lens="bulge"
-                pointerInfluence={0.42}
-                pointerStrength={0.38}
-                refraction={0.018}
-                chromatic={0.35}
-                idleDrift={0.2}
-                ripple
-                clickRipple
-                intro
-                className="text-neutral-900 dark:text-neutral-100"
-                style={{ width: "100%", height: "100%" }}
-              />
+            {/* Primary brand headline */}
+            <div className="w-full max-w-xl">
+              <span className="block font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-neutral-900 dark:text-white">
+                Sri Sadhguru
+              </span>
+              <span className="block font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent mt-1">
+                Tours & Travels
+              </span>
             </div>
 
             {/* React Bits RotatingText for dynamic service highlights */}

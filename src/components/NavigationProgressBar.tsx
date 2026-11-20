@@ -32,20 +32,19 @@ export default function NavigationProgressBar() {
       if (
         href.startsWith("/") &&
         !href.startsWith("//") &&
+        !href.includes("#") &&
         !target.hasAttribute("download") &&
         target.target !== "_blank"
       ) {
-        const targetUrl = new URL(href, window.location.origin);
-        if (targetUrl.pathname !== window.location.pathname || targetUrl.search !== window.location.search) {
+        if (href !== window.location.pathname) {
           setLoading(true);
-          setProgress(25);
-          setTimeout(() => setProgress(65), 80);
+          setProgress(40);
         }
       }
     };
 
-    document.addEventListener("click", handleClick, { capture: true });
-    return () => document.removeEventListener("click", handleClick, { capture: true });
+    document.addEventListener("click", handleClick, { passive: true });
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
   if (!loading && progress === 0) return null;

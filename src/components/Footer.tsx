@@ -188,6 +188,7 @@ const Footer: React.FC = () => {
                     <li key={lIdx}>
                       <Link
                         href={link.href as any}
+                        prefetch={true}
                         className="text-neutral-500 dark:text-neutral-400 hover:text-primary-6000 dark:hover:text-primary-400 transition-colors"
                       >
                         {link.label}

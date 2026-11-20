@@ -120,6 +120,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
     return (
       <li key={item.id}>
         <Link
+          prefetch={true}
           rel="noopener noreferrer"
           className="inline-flex items-center py-1 px-2 rounded hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 font-normal text-neutral-6000 dark:text-neutral-300"
           href={item.href || ""}

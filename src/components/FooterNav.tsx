@@ -143,6 +143,7 @@ const FooterNav = () => {
       <Link
         key={index}
         href={item.link || "/"}
+        prefetch={true}
         className={`flex flex-col items-center justify-between min-h-[44px] py-1 active:scale-95 transition-all touch-manipulation text-neutral-500 dark:text-neutral-400 ${
           isActive ? "text-primary-6000 dark:text-primary-400 font-bold" : ""
         }`}

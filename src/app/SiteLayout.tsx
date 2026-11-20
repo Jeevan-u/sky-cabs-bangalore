@@ -6,7 +6,6 @@ import SiteHeader from "./(client-components)/(Header)/SiteHeader";
 import Footer from "@/components/Footer";
 import FooterNav from "@/components/FooterNav";
 import FloatingTravelDock from "@/components/FloatingTravelDock";
-import { ClickSpark, ScrollProgress, CustomCursor } from "@/components/reactbits";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -17,14 +16,14 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <ClickSpark sparkColor="#f59e0b" sparkCount={8} sparkRadius={28} duration={400}>
-      <ScrollProgress />
-      <CustomCursor />
+    <>
       <SiteHeader />
-      {children}
+      <main id="main-content" className="relative">
+        {children}
+      </main>
       <FloatingTravelDock />
       <FooterNav />
       <Footer />
-    </ClickSpark>
+    </>
   );
 }

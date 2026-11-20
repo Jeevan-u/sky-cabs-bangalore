@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  experimental: {
+    optimizePackageImports: [
+      "@heroicons/react/24/outline",
+      "@heroicons/react/24/solid",
+      "framer-motion",
+    ],
+  },
   modularizeImports: {
     "@heroicons/react/24/outline": {
       transform: "@heroicons/react/24/outline/{{member}}",
