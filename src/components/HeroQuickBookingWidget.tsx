@@ -149,14 +149,13 @@ export default function HeroQuickBookingWidget() {
 
       {/* INPUTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-5">
-        {/* Pickup Location with Live Suggestions & GPS Auto-Detect */}
+        {/* Pickup Location with Live Suggestions */}
         <SmartLocationInput
           label="Pickup Location"
           value={pickupLocation}
           onChange={(val) => setPickupLocation(val)}
           placeholder="e.g. Kukatpally, KPHB..."
           type="pickup"
-          enableGps={true}
         />
 
         {/* Destination Drop with Smart Suggestions */}
