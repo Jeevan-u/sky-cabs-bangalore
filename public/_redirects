@@ -1,2 +1,3 @@
 # Cloudflare Pages redirects and static asset rules
 /_next/static/* /_next/static/:splat 200
+/images/fleet/luxury-bus.jpg /images/fleet/luxury-coach-bus.jpg 200

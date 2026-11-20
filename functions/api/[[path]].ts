@@ -328,7 +328,7 @@ export async function onRequest(context: any) {
         capacity: "32 to 50 Passengers",
         luggage: "Huge Belly Storage",
         ac: true,
-        image: "/images/fleet/luxury-bus.jpg",
+        image: "/images/fleet/luxury-coach-bus.jpg",
         perKmRate: 48,
         airportFlatRate: 6999,
         local8hr80km: 11999,
