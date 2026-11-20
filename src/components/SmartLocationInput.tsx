@@ -9,6 +9,11 @@ import {
   TempleIcon,
   ClockIcon,
 } from "@/components/icons";
+import {
+  searchLivePlaces,
+  reverseGeocodeCoordinates,
+  LocationResult,
+} from "@/lib/locationProvider";
 
 export interface LocationSuggestion {
   id: string;
@@ -16,28 +21,43 @@ export interface LocationSuggestion {
   subtext: string;
   category: "hub" | "airport" | "pilgrimage" | "outstation" | "local";
   popular?: boolean;
+  isLive?: boolean;
 }
 
-// Comprehensive database of Hyderabad Hubs and Top Outstation/Pilgrimage Destinations
+// Comprehensive database of Hyderabad Hubs, Colonies, IT corridors & Transit
 const PICKUP_SUGGESTIONS: LocationSuggestion[] = [
-  // Primary Hyderabad Hubs
+  // Primary Hyderabad Hubs & Kukatpally / KPHB Sector
   { id: "p1", name: "Kukatpally, Hyderabad", subtext: "IDL Lake · JNTU Road · Doorstep 15-Min Pickup", category: "hub", popular: true },
-  { id: "p2", name: "KPHB Colony, Hyderabad", subtext: "Phases 1-9 · Nexus Mall · Remedy Hospital", category: "hub", popular: true },
-  { id: "p3", name: "Miyapur, Hyderabad", subtext: "Metro Station · Allwyn Colony · Bollaram Road", category: "hub", popular: true },
-  { id: "p4", name: "Hitec City / Madhapur, Hyderabad", subtext: "Cyber Towers · Mindspace · Inorbit Mall", category: "hub", popular: true },
-  { id: "p5", name: "Gachibowli, Hyderabad", subtext: "Financial District · DLF Cyber City · ORR Junction", category: "hub", popular: true },
-  { id: "p6", name: "Kondapur, Hyderabad", subtext: "Botanical Garden Road · Raghvendra Colony", category: "hub" },
-  { id: "p7", name: "Bachupally / Nizampet, Hyderabad", subtext: "Pragathi Nagar · Silver Oaks · Outer Ring Road", category: "hub" },
-  { id: "p8", name: "Chandanagar & BHEL, Hyderabad", subtext: "Lingampally · Gangaram · Mumbai Highway", category: "hub" },
-  { id: "p9", name: "Secunderabad Station & Clock Tower", subtext: "Railway Junction · Paradise · Marredpally", category: "airport" },
-  { id: "p10", name: "Banjara Hills & Jubilee Hills", subtext: "Road No 1-12 · Film Nagar · Apollo Hospital", category: "hub" },
-  { id: "p11", name: "Begumpet & Ameerpet, Hyderabad", subtext: "Metro Interchange · Old Airport Road", category: "hub" },
-  { id: "p12", name: "Mehdipatnam & Tolichowki", subtext: "PVNR Expressway Ramp · Gachibowli Connector", category: "hub" },
-  { id: "p13", name: "Medchal & Kompally Hub", subtext: "NH 44 Highway · Decathlon · Doolapally", category: "hub" },
-  { id: "p14", name: "Gandhari, Kamareddy Hub", subtext: "Sri Sadhguru Regional Branch Office", category: "hub" },
-  { id: "p15", name: "Shamshabad Airport (RGIA)", subtext: "Departures Ramp / Arrivals Gate 1-4", category: "airport", popular: true },
-  { id: "p16", name: "Nampally / Hyderabad Deccan Railway Station", subtext: "Platform 1 & 6 Portico Pickup", category: "airport" },
-  { id: "p17", name: "Kacheguda Railway Station", subtext: "Barkatpura · Nimboliadda Connector", category: "airport" },
+  { id: "p2", name: "KPHB Colony Phase 1-9, Hyderabad", subtext: "Nexus Hyderabad Mall · Remedy Hospital · Temple Road", category: "hub", popular: true },
+  { id: "p3", name: "JNTU Hyderabad / Forum Mall", subtext: "JNTU College Metro · Nizampet X Road · Pragathi Nagar Connector", category: "hub", popular: true },
+  { id: "p4", name: "Miyapur, Hyderabad", subtext: "Metro Terminal · Allwyn Colony · Bollaram Road", category: "hub", popular: true },
+  { id: "p5", name: "Nizampet & Pragathi Nagar", subtext: "Grampanchayat · Silver Oaks School · Bachupally Connector", category: "hub" },
+  { id: "p6", name: "Bachupally & Bowrampet", subtext: "Outer Ring Road Exit 4 · VNR VJIET · Mallampet", category: "hub" },
+  { id: "p7", name: "Chandanagar & BHEL", subtext: "Lingampally Station · Gangaram · Mumbai Highway", category: "hub" },
+  { id: "p8", name: "Hafeezpet & Allwyn", subtext: "Hafeezpet Flyover · MMTS Station · Aditya Nagar", category: "hub" },
+
+  // Cyberabad IT Corridors
+  { id: "p9", name: "Hitec City / Madhapur", subtext: "Cyber Towers · Mindspace IT Park · Inorbit Mall", category: "hub", popular: true },
+  { id: "p10", name: "Gachibowli Financial District", subtext: "DLF Cyber City · Waverock · Wipro Circle · ORR Junction", category: "hub", popular: true },
+  { id: "p11", name: "Kondapur & Botanical Garden", subtext: "KIMS Hospital · Raghvendra Colony · Heritage Hospital", category: "hub" },
+  { id: "p12", name: "Nallagandla & Tellapur", subtext: "Aparna Sarovar · Citizens Hospital · Neopolis Connector", category: "hub" },
+  { id: "p13", name: "Manikonda & Puppalguda", subtext: "Lanco Hills · Golden Temple · Alkapur Township", category: "hub" },
+  { id: "p14", name: "Jubilee Hills & Banjara Hills", subtext: "Road No 1-12 · Film Nagar · Apollo Hospital · KBR Park", category: "hub" },
+
+  // Core City & Central Transit
+  { id: "p15", name: "Begumpet & Ameerpet", subtext: "Metro Interchange · Lifestyle · Old Airport Road", category: "hub" },
+  { id: "p16", name: "Secunderabad Railway Station", subtext: "Platform 1 & 10 · Clock Tower · Paradise Circle", category: "airport", popular: true },
+  { id: "p17", name: "Nampally / Hyderabad Deccan Station", subtext: "Platform 1 & 6 Portico Pickup", category: "airport" },
+  { id: "p18", name: "Kacheguda Railway Station", subtext: "Barkatpura · Nimboliadda Connector", category: "airport" },
+  { id: "p19", name: "Mehdipatnam & Tolichowki", subtext: "PVNR Expressway Ramp · Rethi Bowli · Gachibowli Flyover", category: "hub" },
+  { id: "p20", name: "Attapur & Rajendranagar", subtext: "Pillar No 100-200 · Agricultural University", category: "hub" },
+
+  // Airport & Northern Hubs
+  { id: "p21", name: "Shamshabad Airport (RGIA)", subtext: "Departures Ramp / Arrivals Gate 1-4 · Fixed Non-Surge Tariff", category: "airport", popular: true },
+  { id: "p22", name: "Medchal & Kompally Hub", subtext: "NH 44 Express · Decathlon · Runway 9 · Doolapally", category: "hub" },
+  { id: "p23", name: "Alwal & AS Rao Nagar", subtext: "Sainikpuri · ECIL X Roads · Kapra", category: "hub" },
+  { id: "p24", name: "Uppal & LB Nagar", subtext: "Metro Terminal · Stadium · Nagole · Sagar Ring Road", category: "hub" },
+  { id: "p25", name: "Gandhari, Kamareddy Hub", subtext: "Sri Sadhguru Regional Branch Office · NH 44 Transit", category: "hub" },
 ];
 
 const DESTINATION_SUGGESTIONS: LocationSuggestion[] = [
@@ -66,7 +86,7 @@ const DESTINATION_SUGGESTIONS: LocationSuggestion[] = [
   { id: "d16", name: "Nizamabad & Kamareddy Hub", subtext: "160 KM · NH 44 Express Highway", category: "outstation" },
 ];
 
-// Known landmarks in Hyderabad with GPS Coordinates for offline/fast nearest-neighbor lookup
+// Offline GPS landmarks for fast nearest-neighbor fallback
 const HYDERABAD_GPS_LANDMARKS = [
   { name: "Kukatpally, Hyderabad", lat: 17.4933, lng: 78.3914, subtext: "Near IDL Lake & Metro" },
   { name: "KPHB Colony Phase 3, Hyderabad", lat: 17.4934, lng: 78.3995, subtext: "Near Nexus Mall & Remedy" },
@@ -96,7 +116,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
   label,
   value,
   onChange,
-  placeholder = "Type locality or landmark...",
+  placeholder = "Type locality, colony, or landmark...",
   type,
   enableGps = false,
   className = "",
@@ -104,8 +124,12 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isLocating, setIsLocating] = useState(false);
   const [gpsStatus, setGpsStatus] = useState<string | null>(null);
+  const [liveSuggestions, setLiveSuggestions] = useState<LocationResult[]>([]);
+  const [isSearchingLive, setIsSearchingLive] = useState(false);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   // Close suggestions popover when clicking outside
   useEffect(() => {
@@ -120,8 +144,8 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
 
   const suggestionsPool = type === "pickup" ? PICKUP_SUGGESTIONS : DESTINATION_SUGGESTIONS;
 
-  // Filter suggestions based on current query
-  const filteredSuggestions = useMemo(() => {
+  // Filter local static suggestions instantly
+  const localFiltered = useMemo(() => {
     if (!value.trim()) {
       return suggestionsPool;
     }
@@ -133,7 +157,51 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
     );
   }, [value, suggestionsPool]);
 
-  // GPS Auto-detect logic with OpenStreetMap Reverse Geocode + Offline Nearest-Neighbor fallback
+  // Live LocationIQ & Photon search with debouncing
+  useEffect(() => {
+    const trimmed = value.trim();
+    if (trimmed.length < 2) {
+      setLiveSuggestions([]);
+      setIsSearchingLive(false);
+      return;
+    }
+
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    const timer = setTimeout(async () => {
+      setIsSearchingLive(true);
+      try {
+        const results = await searchLivePlaces(trimmed, { signal: controller.signal });
+        // Filter out any results that already match local suggestions to avoid duplicates
+        const localNames = new Set(localFiltered.map((l) => l.name.toLowerCase()));
+        const uniqueLive = results.filter((r) => !localNames.has(r.name.toLowerCase()));
+        setLiveSuggestions(uniqueLive);
+      } catch (err: any) {
+        if (err?.name !== "AbortError") {
+          console.warn("[Live Places] Search issue:", err);
+        }
+      } finally {
+        setIsSearchingLive(false);
+      }
+    }, 280);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [value, localFiltered]);
+
+  // Combined suggestions
+  const allSuggestions = useMemo(() => {
+    if (!value.trim()) return localFiltered;
+    return [...localFiltered, ...liveSuggestions];
+  }, [localFiltered, liveSuggestions, value]);
+
+  // GPS Auto-detect logic with LocationIQ / OpenStreetMap Reverse Geocode + Offline fallback
   const handleDetectGps = () => {
     if (typeof window === "undefined" || !navigator.geolocation) {
       alert("Geolocation is not supported by your browser. Please type your location manually.");
@@ -149,51 +217,30 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
         console.log(`[GPS] Position acquired: ${latitude}, ${longitude} (±${Math.round(accuracy)}m)`);
 
         try {
-          // 1. Attempt OpenStreetMap Nominatim reverse geocoding
           setGpsStatus("Reverse Geocoding Address...");
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 3500);
+          const timeoutId = setTimeout(() => controller.abort(), 4000);
 
-          const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`,
-            { signal: controller.signal }
-          );
+          const preciseAddress = await reverseGeocodeCoordinates(latitude, longitude, {
+            signal: controller.signal,
+          });
           clearTimeout(timeoutId);
 
-          if (res.ok) {
-            const data = await res.json();
-            const addr = data.address || {};
-            const suburb =
-              addr.suburb ||
-              addr.neighbourhood ||
-              addr.residential ||
-              addr.commercial ||
-              addr.quarter;
-            const road = addr.road || addr.street;
-            const city = addr.city || addr.town || addr.county || "Hyderabad";
-
-            let formatted = "";
-            if (suburb && road) formatted = `${road}, ${suburb}, ${city}`;
-            else if (suburb) formatted = `${suburb}, ${city}`;
-            else if (data.name) formatted = `${data.name}, ${city}`;
-            else formatted = `${data.display_name?.split(",").slice(0, 3).join(",")}`;
-
-            if (formatted) {
-              onChange(formatted);
-              setGpsStatus("📍 Precise GPS Detected!");
-              setTimeout(() => {
-                setIsLocating(false);
-                setGpsStatus(null);
-                setIsOpen(false);
-              }, 900);
-              return;
-            }
+          if (preciseAddress) {
+            onChange(preciseAddress);
+            setGpsStatus("📍 Precise Doorstep GPS Detected!");
+            setTimeout(() => {
+              setIsLocating(false);
+              setGpsStatus(null);
+              setIsOpen(false);
+            }, 900);
+            return;
           }
         } catch (err) {
-          console.warn("[GPS] Nominatim online lookup bypassed or failed, using nearest landmark:", err);
+          console.warn("[GPS] Online reverse lookup bypassed, using nearest landmark:", err);
         }
 
-        // 2. High-precision nearest-neighbor fallback among Hyderabad hubs
+        // Nearest-neighbor fallback among Hyderabad hubs
         let nearest = HYDERABAD_GPS_LANDMARKS[0];
         let minDistance = Number.MAX_VALUE;
 
@@ -303,20 +350,26 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
           className="w-full pl-9 pr-8 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all placeholder:font-normal placeholder:text-neutral-400 min-h-[44px]"
         />
 
-        {/* Clear Button */}
-        {value && (
-          <button
-            type="button"
-            onClick={() => {
-              onChange("");
-              inputRef.current?.focus();
-            }}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 text-xs p-1"
-            title="Clear text"
-          >
-            ✕
-          </button>
-        )}
+        {/* Clear Button or Live Searching Indicator */}
+        <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center gap-1">
+          {isSearchingLive && (
+            <span className="w-3 h-3 rounded-full border-2 border-amber-500 border-t-transparent animate-spin inline-block mr-1" />
+          )}
+          {value && (
+            <button
+              type="button"
+              onClick={() => {
+                onChange("");
+                setLiveSuggestions([]);
+                inputRef.current?.focus();
+              }}
+              className="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 text-xs p-1"
+              title="Clear text"
+            >
+              ✕
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Status banner when GPS is reading */}
@@ -339,8 +392,11 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
           >
             {/* Header / GPS shortcut in popup */}
             <div className="p-2.5 bg-neutral-50/90 dark:bg-neutral-800/90 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-[11px]">
-              <span className="font-bold text-neutral-500 uppercase tracking-wider">
-                {type === "pickup" ? "Select Hyderabad Pickup Hub" : "Select Destination / Package"}
+              <span className="font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1.5">
+                <span>{type === "pickup" ? "Select Hyderabad Pickup Hub" : "Select Destination"}</span>
+                {isSearchingLive && (
+                  <span className="text-[10px] text-amber-500 font-normal">searching map...</span>
+                )}
               </span>
 
               {enableGps && (
@@ -356,8 +412,8 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
 
             {/* Suggestions List */}
             <div className="overflow-y-auto divide-y divide-neutral-100 dark:divide-neutral-800/60 p-1">
-              {filteredSuggestions.length > 0 ? (
-                filteredSuggestions.map((item) => (
+              {allSuggestions.length > 0 ? (
+                allSuggestions.map((item) => (
                   <button
                     key={item.id}
                     type="button"
@@ -380,6 +436,11 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
                             Popular
                           </span>
                         )}
+                        {item.isLive && (
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-sky-50 dark:bg-sky-950/80 text-sky-600 dark:text-sky-300 flex-shrink-0 flex items-center gap-0.5">
+                            <span>📍 Map</span>
+                          </span>
+                        )}
                       </div>
                       <p className="text-[11px] text-neutral-500 dark:text-neutral-400 truncate mt-0.5">
                         {item.subtext}
@@ -389,7 +450,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
                 ))
               ) : (
                 <div className="p-4 text-center text-xs text-neutral-500">
-                  <p>No exact preset match for &ldquo;{value}&rdquo;</p>
+                  <p>No preset match for &ldquo;{value}&rdquo;</p>
                   <p className="mt-1 font-semibold text-neutral-700 dark:text-neutral-300">
                     Press outside or keep typing: custom addresses are accepted!
                   </p>
