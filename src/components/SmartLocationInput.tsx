@@ -341,13 +341,14 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
           ref={inputRef}
           type="text"
           value={value}
+          title={value}
           onChange={(e) => {
             onChange(e.target.value);
             if (!isOpen) setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
           placeholder={placeholder}
-          className="w-full pl-9 pr-8 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all placeholder:font-normal placeholder:text-neutral-400 min-h-[44px]"
+          className="w-full pl-9 pr-8 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-base sm:text-xs font-bold text-neutral-900 dark:text-white outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all placeholder:font-normal placeholder:text-neutral-400 min-h-[44px] truncate"
         />
 
         {/* Clear Button or Live Searching Indicator */}
@@ -388,14 +389,14 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute z-[70] left-0 right-0 mt-2 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200/80 dark:border-neutral-700/80 overflow-hidden max-h-72 sm:max-h-80 flex flex-col backdrop-blur-md touch-manipulation"
+            className="absolute z-[70] left-0 w-[320px] sm:w-[380px] md:w-[420px] max-w-[calc(100vw-2.5rem)] mt-2 bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200/80 dark:border-neutral-700/80 overflow-hidden max-h-80 flex flex-col backdrop-blur-md touch-manipulation"
           >
             {/* Header / GPS shortcut in popup */}
-            <div className="p-2.5 bg-neutral-50/90 dark:bg-neutral-800/90 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-[11px]">
-              <span className="font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1.5">
+            <div className="p-2.5 bg-neutral-50/90 dark:bg-neutral-800/90 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-[11px] gap-2">
+              <span className="font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1.5 truncate">
                 <span>{type === "pickup" ? "Select Hyderabad Pickup Hub" : "Select Destination"}</span>
                 {isSearchingLive && (
-                  <span className="text-[10px] text-amber-500 font-normal">searching map...</span>
+                  <span className="text-[10px] text-amber-500 font-normal">searching...</span>
                 )}
               </span>
 
@@ -403,9 +404,9 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
                 <button
                   type="button"
                   onClick={handleDetectGps}
-                  className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                  className="font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 flex-shrink-0"
                 >
-                  <span>🎯 Use My Current GPS</span>
+                  <span>🎯 Use My GPS</span>
                 </button>
               )}
             </div>
@@ -423,12 +424,12 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
                     }}
                     className="w-full text-left p-3 sm:p-2.5 rounded-xl hover:bg-amber-500/10 dark:hover:bg-amber-500/15 transition-colors flex items-start gap-3 group min-h-[44px] active:bg-amber-500/20"
                   >
-                    <div className="mt-0.5 p-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 group-hover:bg-amber-500/20 transition-colors">
+                    <div className="mt-0.5 p-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 group-hover:bg-amber-500/20 transition-colors flex-shrink-0">
                       {getCategoryIcon(item.category)}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors truncate">
+                        <span className="text-xs font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors line-clamp-1">
                           {item.name}
                         </span>
                         {item.popular && (
@@ -442,7 +443,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] text-neutral-500 dark:text-neutral-400 truncate mt-0.5">
+                      <p className="text-[11px] text-neutral-500 dark:text-neutral-400 line-clamp-2 leading-relaxed mt-0.5">
                         {item.subtext}
                       </p>
                     </div>

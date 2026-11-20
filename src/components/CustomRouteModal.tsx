@@ -1,6 +1,7 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import {
   MapPinIcon,
   XMarkIcon,
@@ -42,8 +43,13 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedQuote, setSubmittedQuote] = useState<any | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [mounted, setMounted] = useState(false);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!isOpen || !mounted) return null;
 
   const handleFetchGpsLocation = () => {
     if (!navigator.geolocation) {
@@ -108,9 +114,9 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
     }
   };
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative w-full max-w-xl max-h-[90dvh] overflow-y-auto rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-6 sm:p-8 text-neutral-900 dark:text-neutral-100 font-sans my-8">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] overflow-y-auto bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+      <div className="relative w-full max-w-xl max-h-[85vh] sm:max-h-[88vh] overflow-y-auto rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-5 sm:p-7 text-neutral-900 dark:text-neutral-100 font-sans my-auto">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -377,7 +383,8 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

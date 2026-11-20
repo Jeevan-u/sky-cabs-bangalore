@@ -81,8 +81,9 @@ export default function HeroQuickBookingWidget() {
   );
 
   return (
-    <SpotlightCard
-      spotlightColor="rgba(217, 119, 6, 0.12)"
+    <>
+      <SpotlightCard
+        spotlightColor="rgba(217, 119, 6, 0.12)"
       className="w-full max-w-5xl mx-auto !rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-2xl p-4 sm:p-7 relative z-20 font-sans backdrop-blur-xl"
     >
       {/* React Bits Animated Border Beam inside dedicated overflow-hidden container */}
@@ -274,13 +275,14 @@ export default function HeroQuickBookingWidget() {
           </ShimmerButton>
         </div>
       </div>
-
-      <CustomRouteModal
-        isOpen={isCustomModalOpen}
-        onClose={() => setIsCustomModalOpen(false)}
-        defaultPickup={pickupLocation}
-        defaultDrop={dropLocation}
-      />
     </SpotlightCard>
+
+    <CustomRouteModal
+      isOpen={isCustomModalOpen}
+      onClose={() => setIsCustomModalOpen(false)}
+      defaultPickup={pickupLocation}
+      defaultDrop={dropLocation}
+    />
+  </>
   );
 }

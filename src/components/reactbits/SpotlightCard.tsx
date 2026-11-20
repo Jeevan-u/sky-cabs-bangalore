@@ -33,17 +33,19 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden rounded-3xl border border-neutral-200/80 dark:border-neutral-800 bg-white dark:bg-neutral-900/90 transition-all duration-300 ${className}`}
+      className={`relative rounded-3xl border border-neutral-200/80 dark:border-neutral-800 bg-white dark:bg-neutral-900/90 transition-all duration-300 ${className}`}
       {...props}
     >
-      {/* Dynamic Radial Spotlight */}
-      <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-500 z-10"
-        style={{
-          opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 60%)`,
-        }}
-      />
+      {/* Dynamic Radial Spotlight isolated in an overflow-hidden layer so popovers are never clipped */}
+      <div className="pointer-events-none absolute inset-0 rounded-3xl overflow-hidden z-10">
+        <div
+          className="absolute -inset-px transition-opacity duration-500"
+          style={{
+            opacity,
+            background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 60%)`,
+          }}
+        />
+      </div>
       <div className="relative z-20 h-full">{children}</div>
     </div>
   );
