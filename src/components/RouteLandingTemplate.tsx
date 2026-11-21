@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import SadhguruBookingForm from "@/components/SadhguruBookingForm";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import SkyCabsBookingForm from "@/components/SkyCabsBookingForm";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   MapPinIcon,
   ClockIcon,
@@ -34,12 +34,12 @@ export interface RouteHalt {
 }
 
 export interface RouteLandingTemplateProps {
-  routeName: string; // e.g., "Hyderabad to Srisailam"
-  destinationName: string; // e.g., "Srisailam Mallikarjuna Jyotirlinga"
-  distance: string; // e.g., "213 KM (One Way) / 450 KM (Round Trip)"
-  duration: string; // e.g., "~4.5 to 5 Hours"
-  badgeText: string; // e.g., "Sacred Mallikarjuna Jyotirlinga Darshan Special"
-  h1Title: string; // e.g., "Hyderabad to Srisailam Cabs & Tour Packages"
+  routeName: string; // e.g., "Bangalore to Mysuru"
+  destinationName: string; // e.g., "Mysuru Palace & Chamundi Hills"
+  distance: string; // e.g., "145 KM (One Way) / 290 KM (Round Trip)"
+  duration: string; // e.g., "~2.5 to 3.5 Hours via NH 275"
+  badgeText: string; // e.g., "Mysuru Palace & Chamundi Hills Getaway"
+  h1Title: string; // e.g., "Bangalore to Mysuru Cabs & Tour Packages"
   tagline: string;
   overview: string;
   highwayGuide: {
@@ -75,26 +75,26 @@ export default function RouteLandingTemplate({
   const tripSchemaJson = {
     "@context": "https://schema.org",
     "@type": ["TouristTrip", "TaxiService"],
-    name: `${routeName} Cabs & Tour Package - Sri Sadhguru Travels`,
+    name: `${routeName} Cabs & Tour Package - Sky Cabs Bangalore`,
     description: tagline,
     provider: {
       "@type": "TravelAgency",
-      name: "Sri Sadhguru Tours & Travels",
-      telephone: "+91-8106117704",
-      url: "https://www.srisadhgurutoursandtravels.com",
-      image: "https://www.srisadhgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
+      name: SKY_CABS_CONTACT.brandName,
+      telephone: `+91-${SKY_CABS_CONTACT.primaryPhone}`,
+      url: SKY_CABS_CONTACT.website,
+      image: `${SKY_CABS_CONTACT.website}images/Airport-cabs.jpg`,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Kukatpally Main Road, Near Y-Junction & KPHB Metro",
-        addressLocality: "Kukatpally, Hyderabad",
-        addressRegion: "Telangana",
-        postalCode: "500072",
+        streetAddress: "Begur",
+        addressLocality: "Bengaluru",
+        addressRegion: "Karnataka",
+        postalCode: "562157",
         addressCountry: "IN",
       },
       geo: {
         "@type": "GeoCoordinates",
-        latitude: 17.4849,
-        longitude: 78.4138,
+        latitude: 12.857,
+        longitude: 77.668,
       },
     },
     itinerary: halts.map((h, idx) => ({
@@ -108,11 +108,10 @@ export default function RouteLandingTemplate({
       name: pkg.title,
       price: pkg.sedanPrice.replace(/[^0-9]/g, "") || "4500",
       priceCurrency: "INR",
-      description: `${pkg.duration} - ${pkg.idealFor}. Innova: ${pkg.innovaPrice}`,
-      availability: "https://schema.org/InStock",
+      description: `${pkg.duration} - ${pkg.idealFor}. Toyota Innova Crysta: ${pkg.innovaPrice}. Subject to availability.`,
     })),
-    areaServed: ["Hyderabad", "Telangana", "Andhra Pradesh", destinationName],
-    knowsLanguage: ["en", "te", "hi"],
+    areaServed: ["Bengaluru", "Karnataka", destinationName],
+    knowsLanguage: ["en", "kn", "hi", "ta", "te"],
   };
 
   const faqSchemaJson = {
@@ -162,7 +161,6 @@ export default function RouteLandingTemplate({
             {badgeText.toLowerCase().includes("temple") ||
             badgeText.toLowerCase().includes("darshan") ||
             badgeText.toLowerCase().includes("jyotirlinga") ||
-            badgeText.toLowerCase().includes("shirdi") ||
             badgeText.toLowerCase().includes("yatra") ||
             badgeText.toLowerCase().includes("balaji") ? (
               <TempleIcon className="w-3.5 h-3.5 text-amber-400 shrink-0" />
@@ -194,7 +192,7 @@ export default function RouteLandingTemplate({
             </span>
             <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5">
               <CarIcon className="w-3.5 h-3.5 text-sky-400" />
-              <span>Fleet: Dzire, Ertiga, Innova Crysta & Tempo Traveller</span>
+              <span>Fleet: Prime Sedan, Ertiga, Innova & Tempo Traveller (On Request)</span>
             </span>
             <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5">
               <ShieldCheckIcon className="w-3.5 h-3.5 text-emerald-400" />
@@ -205,17 +203,17 @@ export default function RouteLandingTemplate({
           <div className="flex flex-wrap gap-3 mt-8">
             <MagneticButton pullFactor={0.25}>
               <a
-                href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                 className="px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-lg transition flex items-center gap-2"
               >
                 <PhoneIcon className="w-4 h-4 text-slate-950" />
-                <span>Instant Call: {SADHGURU_CONTACT.primaryPhoneFormatted}</span>
+                <span>Instant Call: {SKY_CABS_CONTACT.primaryPhoneFormatted}</span>
               </a>
             </MagneticButton>
 
             <MagneticButton pullFactor={0.25}>
               <a
-                href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20am%20interested%20in%20the%20${encodeURIComponent(routeName)}%20package.`}
+                href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20am%20interested%20in%20the%20${encodeURIComponent(routeName)}%20package.`}
                 target="_blank"
                 rel="noreferrer"
                 className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition flex items-center gap-2"
@@ -233,7 +231,7 @@ export default function RouteLandingTemplate({
             <BoltIcon className="w-6 h-6 text-amber-500" />
             <span>Quick Reservation for {routeName}</span>
           </h2>
-          <SadhguruBookingForm />
+          <SkyCabsBookingForm />
         </div>
 
         {/* Highway Guide & Route Advice */}
@@ -292,6 +290,9 @@ export default function RouteLandingTemplate({
           <h2 className="text-xl sm:text-2xl font-black text-neutral-900 dark:text-white">
             Available Tour Packages & Fixed Fare Options
           </h2>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
+            All vehicles are subject to availability. Please confirm availability before booking.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {packages.map((pkg, i) => (
               <SpotlightCard
@@ -312,22 +313,22 @@ export default function RouteLandingTemplate({
 
                   <div className="p-3.5 bg-neutral-50 dark:bg-neutral-700/40 rounded-2xl space-y-1.5 text-xs">
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">Swift Dzire (4+1):</span>
+                      <span className="text-neutral-500">Prime Sedan (4+1):</span>
                       <span className="font-bold text-neutral-900 dark:text-white">{pkg.sedanPrice}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">Maruti Ertiga (6+1):</span>
+                      <span className="text-neutral-500">Maruti Suzuki Ertiga (6+1):</span>
                       <span className="font-bold text-neutral-900 dark:text-white">{pkg.suvPrice}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-neutral-500">Innova Crysta (7+1):</span>
+                      <span className="text-neutral-500">Toyota Innova Crysta (7+1):</span>
                       <span className="font-bold text-amber-600 dark:text-amber-400">
                         <ShinyText text={pkg.innovaPrice} speed={3} />
                       </span>
                     </div>
                     {pkg.tempoPrice && (
                       <div className="flex justify-between">
-                        <span className="text-neutral-500">Tempo Traveller (12/17S):</span>
+                        <span className="text-neutral-500">Tempo Traveller (12+1):</span>
                         <span className="font-bold text-neutral-900 dark:text-white">{pkg.tempoPrice}</span>
                       </div>
                     )}
@@ -346,7 +347,7 @@ export default function RouteLandingTemplate({
                 <div className="mt-6 pt-4 border-t border-neutral-100 dark:border-neutral-700">
                   <MagneticButton pullFactor={0.2} className="w-full">
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20(${encodeURIComponent(routeName)}).`}
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(pkg.title)}%20(${encodeURIComponent(routeName)}).`}
                       target="_blank"
                       rel="noreferrer"
                       className="w-full py-2.5 px-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition"
@@ -361,13 +362,13 @@ export default function RouteLandingTemplate({
           </div>
         </div>
 
-        {/* Key Darshan & Sightseeing Halts */}
+        {/* Key Sightseeing Halts */}
         <div className="bg-white dark:bg-neutral-800 p-8 rounded-3xl border border-neutral-200 dark:border-neutral-700 space-y-4">
           <h2 className="text-xl sm:text-2xl font-black text-neutral-900 dark:text-white">
-            Key Darshan & Sightseeing Halts along the Route
+            Key Halts & Sightseeing Stops along the Route
           </h2>
           <p className="text-xs sm:text-sm text-neutral-500">
-            Our chauffeurs ensure timely darshan coordination, luggage safety during halts, and convenient restaurant stops.
+            Our chauffeurs plan comfortable stops, look after luggage during halts, and suggest clean restaurants along the way.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 pt-2">
             {halts.map((halt, i) => (

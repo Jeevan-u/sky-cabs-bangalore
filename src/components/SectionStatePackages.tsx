@@ -4,7 +4,7 @@ import React, { FC, useState } from "react";
 import Image from "next/image";
 import Heading from "@/shared/Heading";
 import Badge from "@/shared/Badge";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { WhatsAppIcon } from "@/components/icons";
 import { SpotlightCard, ShinyText, MagneticButton, AnimatedTabs } from "@/components/reactbits";
 
@@ -12,7 +12,7 @@ export interface SectionStatePackagesProps {
   className?: string;
 }
 
-type StateKey = "Andhra Pradesh" | "Karnataka" | "Tamil Nadu" | "Kerala";
+type StateKey = "Karnataka" | "Andhra Pradesh" | "Tamil Nadu" | "South India";
 
 interface DestinationCard {
   name: string;
@@ -23,208 +23,41 @@ interface DestinationCard {
 }
 
 const STATE_DATA: Record<StateKey, DestinationCard[]> = {
-  "Andhra Pradesh": [
-    {
-      name: "Tirupati Balaji",
-      tagline: "Lord Venkateswara Temple Darshan",
-      image: "/images/Tirupati.jpg",
-      dist: "570 KM",
-      days: "2-3 Days",
-    },
-    {
-      name: "Srisailam Dam & Temple",
-      tagline: "Mallikarjuna Jyotirlinga & Ghat Road",
-      image: "/images/srisailam-dam.jpg",
-      dist: "213 KM",
-      days: "1-2 Days",
-    },
-    {
-      name: "Srikalahasti",
-      tagline: "Vayu Linga & Rahu Ketu Pooja",
-      image: "/images/Srikalahasti.jpg",
-      dist: "540 KM",
-      days: "2 Days",
-    },
-    {
-      name: "Mahanandi & Yaganti",
-      tagline: "Ancient Shiva & Growing Nandi",
-      image: "/images/Yaganti.jpg",
-      dist: "310 KM",
-      days: "2 Days",
-    },
-    {
-      name: "Vijayawada & Amaravati",
-      tagline: "Kanaka Durga Goddess Temple",
-      image: "/images/Vijayawada.avif",
-      dist: "275 KM",
-      days: "1-2 Days",
-    },
-    {
-      name: "Rajahmundry & Godavari",
-      tagline: "Pushkar Ghats & Kotilingala Temple",
-      image: "/images/rajahmundry.jpg",
-      dist: "450 KM",
-      days: "2-3 Days",
-    },
-    {
-      name: "Vizag & Simhachalam",
-      tagline: "Varaha Lakshmi Narasimha & RK Beach",
-      image: "/images/vizag.jpg",
-      dist: "620 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Bhimavaram Pancharama",
-      tagline: "Somarama & Ksheerarama Kshetrams",
-      image: "/images/bhimavaram.jpg",
-      dist: "390 KM",
-      days: "2 Days",
-    },
-  ],
   Karnataka: [
-    {
-      name: "Hampi UNESCO Heritage",
-      tagline: "Vijayanagara Ruins & Virupaksha",
-      image: "/images/Hampi.jpg",
-      dist: "380 KM",
-      days: "2-3 Days",
-    },
-    {
-      name: "Gokarna & Murudeshwar",
-      tagline: "Atmalinga Beach & Giant Shiva",
-      image: "/images/murudeshwar.jpg",
-      dist: "680 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Dharmasthala Manjunatha",
-      tagline: "Lord Manjunatha Swamy Kshetram",
-      image: "/images/Dharmasthala.jpg",
-      dist: "780 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Kukke Subrahmanya",
-      tagline: "Sarpa Dosha Nivarana Temple",
-      image: "/images/Subrahmanya.jpg",
-      dist: "760 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Udupi Sri Krishna",
-      tagline: "Ashta Mathas & Kanakadasa Window",
-      image: "/images/Udupi.jpeg",
-      dist: "740 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Sringeri Sharada Peetham",
-      tagline: "Adi Shankaracharya Sacred Peetham",
-      image: "/images/Sringeri.jpg",
-      dist: "720 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Kollur Mookambika",
-      tagline: "Saraswati Shakti Peetham",
-      image: "/images/Mookambika.jpg",
-      dist: "750 KM",
-      days: "3-4 Days",
-    },
+    { name: "Mysuru Palace & Brindavan", tagline: "Palace Gardens & Chamundi Hills", image: "/images/images1.jpg", dist: "150 KM", days: "1 Day" },
+    { name: "Coorg (Madikeri)", tagline: "Coffee Plantations & Waterfalls", image: "/images/images2.jpg", dist: "260 KM", days: "2 Days" },
+    { name: "Chikmagalur", tagline: "Coffee Estates & Mullayanagiri", image: "/images/images3.jpg", dist: "250 KM", days: "2 Days" },
+    { name: "Hampi UNESCO Heritage", tagline: "Vijayanagara Ruins & Virupaksha", image: "/images/Hampi.jpg", dist: "380 KM", days: "2-3 Days" },
+    { name: "Gokarna & Murudeshwar", tagline: "Beach Temple & Coastal Drive", image: "/images/Gokarna.webp", dist: "480 KM", days: "3 Days" },
+    { name: "Dharmasthala Manjunatha", tagline: "Temple Town Getaway", image: "/images/Dharmasthala.jpg", dist: "300 KM", days: "2 Days" },
+    { name: "Udupi Sri Krishna", tagline: "Ashta Mathas & Coastal Cuisine", image: "/images/Udupi.jpeg", dist: "350 KM", days: "3 Days" },
+    { name: "Sringeri Sharada Peetham", tagline: "Adi Shankaracharya Peetham", image: "/images/Sringeri.jpg", dist: "330 KM", days: "2-3 Days" },
+  ],
+  "Andhra Pradesh": [
+    { name: "Tirupati Balaji Darshan", tagline: "Lord Venkateswara Temple", image: "/images/Tirupati.jpg", dist: "325 KM", days: "2 Days" },
+    { name: "Srikalahasti", tagline: "Vayu Linga & Rahu Ketu Pooja", image: "/images/Srikalahasti.jpg", dist: "320 KM", days: "2 Days" },
+    { name: "Visakhapatnam & Simhachalam", tagline: "Coastal City & Hill Temple", image: "/images/vizag.jpg", dist: "620 KM", days: "3-4 Days" },
+    { name: "Visakhapatnam & Simhachalam", tagline: "Coastal City & Hill Temple", image: "/images/vizag.jpg", dist: "620 KM", days: "3-4 Days" },
   ],
   "Tamil Nadu": [
-    {
-      name: "Rameswaram & Dhanushkodi",
-      tagline: "Ramanathaswamy & Holy Teerthams",
-      image: "/images/Rameswaram.jpg",
-      dist: "980 KM",
-      days: "4-5 Days",
-    },
-    {
-      name: "Arunachalam (Tiruvannamalai)",
-      tagline: "Agni Linga & Girivalam Yatra",
-      image: "/images/Arunachalam.jpg",
-      dist: "650 KM",
-      days: "3 Days",
-    },
-    {
-      name: "Thanjavur Brihadisvara",
-      tagline: "Chola UNESCO Big Temple",
-      image: "/images/Thanjavur.jpg",
-      dist: "820 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Kumbakonam Navagraha",
-      tagline: "9 Planet Temples Pilgrimage",
-      image: "/images/Kumbakonam.jpg",
-      dist: "810 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Chidambaram Nataraja",
-      tagline: "Akasha Lingam & Cosmic Dance",
-      image: "/images/Chidambaram.avif",
-      dist: "730 KM",
-      days: "3 Days",
-    },
-    {
-      name: "Srirangam Ranganathaswamy",
-      tagline: "Premier 108 Divya Desam",
-      image: "/images/Srirangam.jpg",
-      dist: "790 KM",
-      days: "3-4 Days",
-    },
-    {
-      name: "Thiruchendur Murugan",
-      tagline: "Sea-shore Arupadaiveedu Temple",
-      image: "/images/Thiruchendur.jpg",
-      dist: "1,020 KM",
-      days: "4-5 Days",
-    },
-    {
-      name: "Kanyakumari Sunrise Point",
-      tagline: "Triveni Sangam & Vivekananda Rock",
-      image: "/images/thiruvalluvar-statue-kanyakumari-tamil-nadu-hero.jpg",
-      dist: "1,150 KM",
-      days: "4-5 Days",
-    },
+    { name: "Ooty Nilgiris", tagline: "Hill Station & Tea Gardens", image: "/images/images4.jpg", dist: "265 KM", days: "2-3 Days" },
+    { name: "Chennai City Break", tagline: "Marina Beach & Temples", image: "/images/images1.jpg", dist: "345 KM", days: "2 Days" },
+    { name: "Pondicherry", tagline: "French Quarter & Coastal Retreat", image: "/images/images2.jpg", dist: "310 KM", days: "2-3 Days" },
+    { name: "Rameswaram & Dhanushkodi", tagline: "Ramanathaswamy Temple", image: "/images/Rameswaram.jpg", dist: "700 KM", days: "4 Days" },
+    { name: "Thanjavur Brihadisvara", tagline: "Chola UNESCO Big Temple", image: "/images/Thanjavur.jpg", dist: "600 KM", days: "3 Days" },
+    { name: "Kanyakumari Sunrise Point", tagline: "Triveni Sangam & Vivekananda Rock", image: "/images/thiruvalluvar-statue-kanyakumari-tamil-nadu-hero.jpg", dist: "700 KM", days: "4-5 Days" },
   ],
-  Kerala: [
-    {
-      name: "Guruvayur Sri Krishna",
-      tagline: "Bhuloka Vaikuntham Holy Temple",
-      image: "/images/Guruvayur.jpg",
-      dist: "980 KM",
-      days: "4 Days",
-    },
-    {
-      name: "Sabarimala (Pampa & Pandalam)",
-      tagline: "Lord Ayyappa Devasthanam Yatra",
-      image: "/images/Pampa.jpg",
-      dist: "1,080 KM",
-      days: "4-5 Days",
-    },
-    {
-      name: "Chottanikkara Bhagavathy",
-      tagline: "Powerful Mother Goddess Kshetram",
-      image: "/images/Chottanikkara.jpg",
-      dist: "1,010 KM",
-      days: "4 Days",
-    },
-    {
-      name: "Thiruvananthapuram",
-      tagline: "Padmanabhaswamy Temple",
-      image: "/images/Thiruvananthapuram.jpg",
-      dist: "1,180 KM",
-      days: "4-5 Days",
-    },
+  "South India": [
+    { name: "Wayanad", tagline: "Forests, Lakes & Waterfalls", image: "/images/images3.jpg", dist: "300 KM", days: "2-3 Days" },
+    { name: "Kochi & Munnar", tagline: "Backwaters & Tea Hills", image: "/images/images4.jpg", dist: "440 KM", days: "3 Days" },
+    { name: "Guruvayur Sri Krishna", tagline: "Bhuloka Vaikuntham Temple", image: "/images/Guruvayur.jpg", dist: "420 KM", days: "3 Days" },
+    { name: "Thiruvananthapuram", tagline: "Padmanabhaswamy Temple", image: "/images/Thiruvananthapuram.jpg", dist: "650 KM", days: "4 Days" },
   ],
 };
 
 const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" }) => {
-  const tabs: StateKey[] = ["Andhra Pradesh", "Karnataka", "Tamil Nadu", "Kerala"];
-  const [activeTab, setActiveTab] = useState<StateKey>("Andhra Pradesh");
+  const tabs: StateKey[] = ["Karnataka", "Andhra Pradesh", "Tamil Nadu", "South India"];
+  const [activeTab, setActiveTab] = useState<StateKey>("Karnataka");
   const [dynamicStateData, setDynamicStateData] = useState<Record<StateKey, DestinationCard[]>>(STATE_DATA);
 
   React.useEffect(() => {
@@ -233,10 +66,10 @@ const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" })
       .then((data) => {
         if (data.success && Array.isArray(data.packages) && data.packages.length > 0) {
           const grouped: Record<StateKey, DestinationCard[]> = {
+            Karnataka: [],
             "Andhra Pradesh": [],
-            "Karnataka": [],
             "Tamil Nadu": [],
-            "Kerala": [],
+            "South India": [],
           };
           data.packages.forEach((pkg: any) => {
             const st = pkg.state as StateKey;
@@ -244,7 +77,7 @@ const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" })
               grouped[st].push({
                 name: pkg.name,
                 tagline: pkg.tagline,
-                image: pkg.image || "/images/srisailam-dam.jpg",
+                image: pkg.image || "/images/images3.jpg",
                 dist: pkg.dist || "250 KM",
                 days: pkg.days || "1-2 Days",
               });
@@ -266,10 +99,10 @@ const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" })
   return (
     <div className={`nc-SectionStatePackages relative ${className}`} id="packages">
       <Heading
-        desc="Curated round-trip pilgrimage and holiday itineraries originating from Kukatpally and Hyderabad with experienced chauffeurs."
+        desc="Curated round-trip outstation and holiday itineraries from Begur and Bengaluru. Vehicle availability and fares are confirmed before booking."
         isCenter
       >
-        South India Pilgrimage & Holiday Packages
+        Outstation & Holiday Packages from Bengaluru
       </Heading>
 
       {/* Animated Spring Tabs */}
@@ -332,7 +165,7 @@ const SectionStatePackages: FC<SectionStatePackagesProps> = ({ className = "" })
                   </a>
                   <MagneticButton pullFactor={0.25}>
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20get%20a%20quote%20for%20the%20${encodeURIComponent(item.name)}%20(${encodeURIComponent(item.days)})%20package.`}
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20get%20a%20quote%20for%20the%20${encodeURIComponent(item.name)}%20(${encodeURIComponent(item.days)})%20package.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[10px] sm:text-xs shadow-xs transition inline-flex items-center justify-center touch-manipulation active:scale-95"

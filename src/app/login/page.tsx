@@ -12,7 +12,7 @@ import {
   TruckIcon,
 } from "@heroicons/react/24/outline";
 import { BoltIcon, ExclamationTriangleIcon } from "@/components/icons";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -25,10 +25,10 @@ export default function LoginPage() {
   const handleFillDemo = (type: "owner" | "driver") => {
     setErrorMsg("");
     if (type === "owner") {
-      setIdentifier("8106117704");
-      setPassword("Sadhguru@2026");
+      setIdentifier("9632345415");
+      setPassword("SkyCabs@2026");
     } else {
-      setIdentifier("9398522128");
+      setIdentifier("9632345415");
       setPassword("Driver@2026");
     }
   };
@@ -98,7 +98,7 @@ export default function LoginPage() {
           </div>
 
           <h2 className="text-2xl font-black text-neutral-900 dark:text-white tracking-tight uppercase">
-            Sri Sadhguru Travels
+            Sky Cabs Bangalore
           </h2>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">
             Operations Command Center & Chauffeur Duty Portal
@@ -152,7 +152,7 @@ export default function LoginPage() {
                 required
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
-                placeholder="e.g. 8106117704"
+                placeholder="e.g. 9632345415"
                 className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800/80 py-3 pl-10 pr-4 text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 font-medium"
               />
             </div>
@@ -196,12 +196,12 @@ export default function LoginPage() {
 
         {/* Footer Support Notice */}
         <div className="pt-3 text-center text-[11px] text-neutral-400 border-t border-neutral-100 dark:border-neutral-800 font-medium">
-          Chauffeur access or password reset? Call Proprietor{" "}
+          Chauffeur access or password reset? Call Team{" "}
           <a
-            href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+            href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
             className="font-bold text-primary-6000 hover:underline"
           >
-            {SADHGURU_CONTACT.primaryPhoneFormatted}
+            {SKY_CABS_CONTACT.primaryPhoneFormatted}
           </a>
         </div>
       </div>

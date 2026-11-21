@@ -22,7 +22,7 @@ import {
 import { BoltIcon } from "@/components/icons";
 import StatusBadge from "@/app/admin/components/StatusBadge";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { formatPickupDateTime } from "@/utils/formatPickupDateTime";
 import CameraOdometerModal from "@/components/CameraOdometerModal";
 
@@ -46,14 +46,14 @@ interface DriverTrip {
 export default function DriverPortalPage() {
   // Authentication State
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
-  const [loginPhone, setLoginPhone] = useState<string>("9398522128");
+  const [loginPhone, setLoginPhone] = useState<string>("9632345415");
   const [otpCode, setOtpCode] = useState<string>("");
   const [otpSent, setOtpSent] = useState<boolean>(false);
   const [authError, setAuthError] = useState<string>("");
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("sadhguru_driver_session");
+      const saved = localStorage.getItem("skycabs_driver_session");
       if (saved) {
         setIsAuthenticated(true);
       }
@@ -62,8 +62,8 @@ export default function DriverPortalPage() {
 
   // Driver Profile
   const driverName = "K. Shiva Kumar";
-  const driverPhone = "9398522128";
-  const assignedVehicle = "TS 08 UB 4512 (Innova Crysta)";
+  const driverPhone = "9632345415";
+  const assignedVehicle = "KA 08 UB 4512 (Innova Crysta)";
   const driverId = "usr-driver-1";
 
   // Dashboard Data
@@ -249,7 +249,7 @@ export default function DriverPortalPage() {
       // Trigger prefilled WhatsApp alert to the customer
       const cleanPhone = trip.customerPhone.replace(/[^0-9]/g, "");
       const msg = encodeURIComponent(
-        `Namaste ${trip.customerName}! Your Sri Sadhguru Travels cab (${assignedVehicle}) has ARRIVED at your pickup location: ${trip.pickupLocation}. Chauffeur ${driverName} (+91 ${driverPhone}) is waiting at your doorstep.`
+        `Namaste ${trip.customerName}! Your Sky Cabs Bangalore cab (${assignedVehicle}) has ARRIVED at your pickup location: ${trip.pickupLocation}. Chauffeur ${driverName} (+91 ${driverPhone}) is waiting at your doorstep.`
       );
       window.open(`https://wa.me/91${cleanPhone}?text=${msg}`, "_blank");
     } catch (err) {
@@ -325,7 +325,7 @@ export default function DriverPortalPage() {
       setAuthError("");
       try {
         localStorage.setItem(
-          "sadhguru_driver_session",
+          "skycabs_driver_session",
           JSON.stringify({ phone: loginPhone, driverName, loggedAt: new Date().toISOString() })
         );
       } catch {}
@@ -336,7 +336,7 @@ export default function DriverPortalPage() {
 
   const handleLogout = () => {
     try {
-      localStorage.removeItem("sadhguru_driver_session");
+      localStorage.removeItem("skycabs_driver_session");
     } catch {}
     setIsAuthenticated(false);
     setOtpSent(false);
@@ -357,9 +357,9 @@ export default function DriverPortalPage() {
                 <TruckIcon className="w-8 h-8" />
               </div>
             </div>
-            <h1 className="text-2xl font-black text-white">Sadhguru Driver Portal</h1>
+            <h1 className="text-2xl font-black text-white">Sky Cabs Bangalore Driver Portal</h1>
             <p className="text-xs text-neutral-400">
-              24x7 Commercial Fleet & Dispatch Network • Kukatpally Hub
+              24x7 Commercial Fleet & Dispatch Network • Begur Hub
             </p>
           </div>
 
@@ -384,7 +384,7 @@ export default function DriverPortalPage() {
                     type="tel"
                     value={loginPhone}
                     onChange={(e) => setLoginPhone(e.target.value)}
-                    placeholder="93985 22128"
+                    placeholder="96323 45415"
                     className="w-full pl-12 pr-4 py-3 rounded-2xl bg-neutral-800 border border-neutral-700 text-sm font-bold text-white outline-none focus:border-emerald-500"
                   />
                 </div>
@@ -402,14 +402,14 @@ export default function DriverPortalPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    setLoginPhone("9398522128");
+                    setLoginPhone("9632345415");
                     setOtpSent(true);
                     setOtpCode("123456");
                     setIsAuthenticated(true);
                     try {
                       localStorage.setItem(
-                        "sadhguru_driver_session",
-                        JSON.stringify({ phone: "9398522128", driverName, loggedAt: new Date().toISOString() })
+                        "skycabs_driver_session",
+                        JSON.stringify({ phone: "9632345415", driverName, loggedAt: new Date().toISOString() })
                       );
                     } catch {}
                   }}
@@ -460,7 +460,7 @@ export default function DriverPortalPage() {
           )}
 
           <div className="pt-4 border-t border-neutral-800 text-center text-[11px] text-neutral-500">
-            Sri Sadhguru Tours & Travels • Proprietor Rathan Kanna
+            Sky Cabs Bangalore • Team Sky Cabs Bangalore
           </div>
         </div>
       </div>
@@ -555,7 +555,7 @@ export default function DriverPortalPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span>LIVE GPS RADAR ACTIVE • Broadcasting location to Kukatpally Dispatch Hub</span>
+              <span>LIVE GPS RADAR ACTIVE • Broadcasting location to Begur Dispatch Hub</span>
             </div>
             {lastGpsCoords && (
               <span className="text-[11px] font-mono opacity-80 hidden sm:inline">
@@ -570,13 +570,13 @@ export default function DriverPortalPage() {
           <div>
             <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Chauffeur Duty Desk • Kukatpally Hub
+              Chauffeur Duty Desk • Begur Hub
             </div>
             <h2 className="text-base font-extrabold text-neutral-900 dark:text-white mt-1">
               Live Fleet Duty Status
             </h2>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
-              Set availability so Proprietor Rathan Kanna knows your current dispatch readiness.
+              Set availability so Team Sky Cabs Bangalore knows your current dispatch readiness.
             </p>
           </div>
 
@@ -643,7 +643,7 @@ export default function DriverPortalPage() {
                 No active trips assigned right now
               </h3>
               <p className="text-xs text-neutral-500 dark:text-neutral-400 max-w-sm mx-auto">
-                Keep your status set to <strong className="text-emerald-500">Available</strong>. When Proprietor Rathan Kanna assigns a ride, it will appear here immediately.
+                Keep your status set to <strong className="text-emerald-500">Available</strong>. When Team Sky Cabs Bangalore assigns a ride, it will appear here immediately.
               </p>
             </div>
           ) : (
@@ -870,12 +870,12 @@ export default function DriverPortalPage() {
 
         {/* 24x7 Helpline Footer */}
         <div className="text-center text-xs text-neutral-400 pt-4">
-          Sri Sadhguru Travels Chauffeur Desk • Helpline:{" "}
+          Sky Cabs Bangalore Chauffeur Desk • Helpline:{" "}
           <a
-            href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+            href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
             className="text-primary-6000 dark:text-primary-400 font-black hover:underline"
           >
-            {SADHGURU_CONTACT.primaryPhoneFormatted}
+            {SKY_CABS_CONTACT.primaryPhoneFormatted}
           </a>
         </div>
       </main>

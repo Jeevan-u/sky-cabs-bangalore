@@ -2,7 +2,7 @@ import AdminDashboardPage from "../page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Chauffeur & Driver Management | Sri Sadhguru Travels",
+  title: "Chauffeur & Driver Management | Sky Cabs Bangalore",
   description:
     "Manage verified highway pilots, active duty statuses, vehicle allocations, and contact records.",
 };

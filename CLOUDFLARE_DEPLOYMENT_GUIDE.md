@@ -1,7 +1,7 @@
 # 🚀 Cloudflare Production Deployment Guide
-**Sri Sadhguru Tours & Travels — Hyderabad, Telangana**
-*Proprietor: Sri Rathan Kanna (+91 81061 17704)*
-*Production Domain:* `https://www.srisadhgurutoursandtravels.com`
+**Sky Cabs Bangalore — Bengaluru, Karnataka**
+*Team: Sky Cabs Bangalore (+91 96323 45415)*
+*Production Domain:* `https://skycabsbangalore.com/`
 
 ---
 
@@ -20,7 +20,7 @@ During the pre-deployment security inspection, the following security leaks were
    - *Detail:* `.gitignore` strictly excludes `.env`, `.env.local`, `.data/`, and build artifacts from ever being committed to source control.
 4. **Domain Consistency**:
    - *Status:* **100% Unified** ✅
-   - *Detail:* All internal emails, canonical metadata, OpenGraph, Schema.org JSON-LD, sitemaps, robots, and API endpoints are now unified to `https://www.srisadhgurutoursandtravels.com`.
+   - *Detail:* All internal emails, canonical metadata, OpenGraph, Schema.org JSON-LD, sitemaps, robots, and API endpoints are now unified to `https://skycabsbangalore.com/`.
 
 ---
 
@@ -43,12 +43,12 @@ OPENROUTER_MODEL=google/gemini-2.5-flash
 
 1. In the [Cloudflare Dashboard](https://dash.cloudflare.com/):
    - Navigate to **Workers & Pages** ➔ **D1 SQL Database**.
-   - Click **Create Database**, name it `sadhguru-db`, and choose **APAC / India (Mumbai / Hyderabad)** for sub-millisecond edge access.
+   - Click **Create Database**, name it `sky-cabs-bangalore-db`, and choose **APAC / India (Mumbai / Bengaluru)** for sub-millisecond edge access.
 2. Copy your **Database ID** into `wrangler.toml`:
    ```toml
    [[d1_databases]]
    binding = "DB"
-   database_name = "sadhguru-db"
+   database_name = "sky-cabs-bangalore-db"
    database_id = "<YOUR_D1_DATABASE_ID>"
    ```
 3. Initialize the database schema:
@@ -76,7 +76,7 @@ This gives you zero-maintenance continuous delivery (builds and deploys automati
    ```
 2. In the [Cloudflare Dashboard](https://dash.cloudflare.com/):
    - Navigate to **Workers & Pages** ➔ **Create application** ➔ **Pages** ➔ **Connect to Git**.
-   - Select your repository (`project-4-chisfis-travel` or `sadhguru-travels`).
+   - Select your repository (`project-4-chisfis-travel` or `sky-cabs-bangalore`).
 3. Set Build & Framework configurations:
    - **Framework preset:** `Next.js`
    - **Build command:** `npm run build`
@@ -85,8 +85,8 @@ This gives you zero-maintenance continuous delivery (builds and deploys automati
 4. Add **Environment Variables** in Cloudflare Pages project settings:
    | Variable | Value | Description |
    |---|---|---|
-   | `NEXTAUTH_URL` | `https://www.srisadhgurutoursandtravels.com` | Base auth URL |
-   | `NEXTAUTH_SECRET` | `srisadhgurutravels_secret_jwt_token_auth_key_2026` | JWT secret |
+   | `NEXTAUTH_URL` | `https://skycabsbangalore.com/` | Base auth URL |
+   | `NEXTAUTH_SECRET` | `skycabsbangalore_secret_jwt_token_auth_key_2026` | JWT secret |
    | `OPENROUTER_API_KEY` | `sk-or-v1-...` | OpenRouter AI key |
    | `OPENROUTER_MODEL` | `google/gemini-2.5-flash` | AI model choice |
    | `NODE_VERSION` | `20.18.0` | Node runtime version |
@@ -115,12 +115,12 @@ If you prefer deploying directly from your terminal:
 
 ---
 
-## 5. Custom Domain Configuration (`www.srisadhgurutoursandtravels.com`)
+## 5. Custom Domain Configuration (`skycabsbangalore.com`)
 
 1. In your Cloudflare Pages project, click **Custom domains** ➔ **Set up a domain**.
 2. Add both hostnames:
-   - Primary: `www.srisadhgurutoursandtravels.com`
-   - Apex redirect: `srisadhgurutoursandtravels.com`
+   - Primary: `skycabsbangalore.com`
+   - Apex redirect: `skycabsbangalore.com`
 3. If your domain is already registered on Cloudflare DNS, Cloudflare will automatically configure the CNAME record in 1 click.
 4. If your domain is on GoDaddy / Namecheap:
    - Set CNAME record: `www` pointing to `<project-name>.pages.dev`
@@ -136,5 +136,5 @@ If you prefer deploying directly from your terminal:
 - [x] **All 64 Static & Dynamic Routes Built** (`npm run build`)
 - [x] **API Key Leaks Scrubbed & Isolated**
 - [x] **OpenRouter AI Integrated with Auto-Fallback**
-- [x] **Metadata & Sitemaps Unified to `www.srisadhgurutoursandtravels.com`**
+- [x] **Metadata & Sitemaps Unified to `skycabsbangalore.com`**
 - [x] **D1 Database Schema Ready for Cloudflare Edge**

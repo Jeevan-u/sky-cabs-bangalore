@@ -14,8 +14,8 @@ export interface SectionGridCategoryBoxProps {
 const DEMO_CATS: TaxonomyType[] = [
   {
     id: "1",
-    href: "/hyderabad-airport-cabs",
-    name: "RGIA Shamshabad Airport",
+    href: "/bangalore-airport-taxi",
+    name: "Kempegowda International Airport (BLR)",
     taxonomy: "category",
     count: 1420,
     thumbnail:
@@ -23,8 +23,8 @@ const DEMO_CATS: TaxonomyType[] = [
   },
   {
     id: "2",
-    href: "/hyderabad-to-srisailam-cabs",
-    name: "Srisailam Jyotirlinga",
+    href: "/bangalore-to-mysuru-cabs",
+    name: "Mysuru Palace",
     taxonomy: "category",
     count: 850,
     thumbnail:
@@ -32,7 +32,7 @@ const DEMO_CATS: TaxonomyType[] = [
   },
   {
     id: "3",
-    href: "/hyderabad-to-tirupati-cabs",
+    href: "/bangalore-to-tirupati-cabs",
     name: "Tirupati Balaji Darshan",
     taxonomy: "category",
     count: 1288,
@@ -41,8 +41,8 @@ const DEMO_CATS: TaxonomyType[] = [
   },
   {
     id: "4",
-    href: "/cabs-in-kamareddy-gandhari",
-    name: "Kamareddy & Gandhari",
+    href: "/cabs-in-indiranagar",
+    name: "Yelahanka & Jayanagar",
     taxonomy: "category",
     count: 940,
     thumbnail:
@@ -50,8 +50,8 @@ const DEMO_CATS: TaxonomyType[] = [
   },
   {
     id: "5",
-    href: "/hyderabad-to-yadagirigutta-cabs",
-    name: "Yadagirigutta Temple",
+    href: "/bangalore-to-ooty-cabs",
+    name: "Tirupati Temple",
     taxonomy: "category",
     count: 620,
     thumbnail:
@@ -59,8 +59,8 @@ const DEMO_CATS: TaxonomyType[] = [
   },
   {
     id: "6",
-    href: "/hyderabad-to-shirdi-cabs",
-    name: "Shirdi Saibaba Circuit",
+    href: "/bangalore-to-coorg-cabs",
+    name: "Coorg Coffee Estate Circuit",
     taxonomy: "category",
     count: 480,
     thumbnail:
@@ -68,8 +68,8 @@ const DEMO_CATS: TaxonomyType[] = [
   },
   {
     id: "7",
-    href: "/hyderabad-outstation-cabs",
-    name: "Vijayawada & Mantralayam",
+    href: "/bangalore-outstation-cabs",
+    name: "Chennai & Hampi",
     taxonomy: "category",
     count: 730,
     thumbnail:
@@ -78,7 +78,7 @@ const DEMO_CATS: TaxonomyType[] = [
   {
     id: "8",
     href: "/listing-car",
-    name: "Kukatpally & Hyderabad Cabs",
+    name: "Begur & Bengaluru Cabs",
     taxonomy: "category",
     count: 2150,
     thumbnail:

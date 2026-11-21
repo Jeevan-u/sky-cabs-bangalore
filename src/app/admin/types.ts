@@ -76,7 +76,7 @@ export interface TourPackageItem {
   id: string;
   name: string;
   tagline: string;
-  state: "Andhra Pradesh" | "Karnataka" | "Tamil Nadu" | "Kerala" | "Telangana" | string;
+  state: "Andhra Pradesh" | "Karnataka" | "Tamil Nadu" | "Kerala" | "Karnataka" | string;
   image: string;
   dist: string;
   days: string;

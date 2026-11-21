@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { TruckIcon, ChevronDownIcon, CheckIcon } from "@heroicons/react/24/outline";
-import { SADHGURU_FLEET, FleetVehicle } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, FleetVehicle } from "@/data/skyCabsFleet";
 
 export interface CustomVehicleSelectProps {
   value: string;
@@ -25,7 +25,7 @@ export const CustomVehicleSelect: React.FC<CustomVehicleSelectProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   const selectedVehicle =
-    SADHGURU_FLEET.find((v) => v.id === value) || SADHGURU_FLEET[2]; // Innova Crysta default
+    SKY_CABS_FLEET.find((v) => v.id === value) || SKY_CABS_FLEET[0]; // Prime Sedan default
 
   // Close on outside click
   useEffect(() => {
@@ -100,7 +100,7 @@ export const CustomVehicleSelect: React.FC<CustomVehicleSelectProps> = ({
 
             {/* Vehicle Options List */}
             <div className="overflow-y-auto max-h-72 divide-y divide-neutral-100 dark:divide-neutral-800/60 p-1">
-              {SADHGURU_FLEET.map((vehicle: FleetVehicle) => {
+              {SKY_CABS_FLEET.map((vehicle: FleetVehicle) => {
                 const isSelected = vehicle.id === value;
                 return (
                   <button

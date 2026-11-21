@@ -32,7 +32,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
         </Float>
 
         <TiltedCard
-          captionText="Sri Sadhguru Travel Excellence"
+          captionText="Sky Cabs Bangalore Excellence"
           containerHeight="100%"
           containerWidth="100%"
           imageHeight="100%"
@@ -43,7 +43,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
           showTooltip={false}
         >
           <div className="w-full relative">
-            <Image src={rightImg} alt="Sri Sadhguru Travel Features" className="drop-shadow-2xl" />
+            <Image src={rightImg} alt="Sky Cabs Bangalore Features" className="drop-shadow-2xl" />
           </div>
         </TiltedCard>
       </div>
@@ -56,14 +56,14 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
           Key Benefits
         </span>
         <h2 className="font-bold text-3xl sm:text-4xl mt-3 text-neutral-900 dark:text-neutral-100">
-          Why Travelers Trust <ShinyText text="Sri Sadhguru" speed={3} className="text-primary-600 font-extrabold" />
+          Why Travelers Trust <ShinyText text="Sky Cabs Bangalore" speed={3} className="text-primary-600 font-extrabold" />
         </h2>
 
         <div className="space-y-4 mt-8">
           <SpotlightCard className="p-5 !rounded-2xl hover:border-amber-400/40" spotlightColor="rgba(245, 158, 11, 0.2)">
             <Badge name="Passenger Safety" color="green" />
             <span className="block text-lg font-bold text-neutral-900 dark:text-neutral-100 mt-2">
-              Travel Safe... Travel Happy...
+              Reliable Cabs Across Bengaluru
             </span>
             <span className="block text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium mt-1">
               Every vehicle undergoes strict mechanical inspections. Chauffeurs are verified, experienced in long-distance highway routes and temple ghat roads.
@@ -86,7 +86,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
               Punctual Doorstep Pickups
             </span>
             <span className="block text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm leading-relaxed font-medium mt-1">
-              Operating across Kukatpally, KPHB, Miyapur, Hitec City, Shamshabad Airport & Gandhari. Guaranteed timely arrivals for flights and dawn departures.
+              Operating across Begur, Electronic City, Koramangala, Whitefield, Kempegowda International Airport (BLR) & Jayanagar. Guaranteed timely arrivals for flights and dawn departures.
             </span>
           </SpotlightCard>
         </div>

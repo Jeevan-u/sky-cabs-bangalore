@@ -1,7 +1,7 @@
 {
-  "name": "Sri Sadhguru Tours & Travels - Driver App",
-  "short_name": "Sadhguru Driver",
-  "description": "Commercial Cab & Bus Driver PWA for Sri Sadhguru Tours & Travels, Hyderabad",
+  "name": "Sky Cabs Bangalore",
+  "short_name": "Sky Cabs",
+  "description": "Cabs, airport transfers and outstation travel across Bengaluru with Sky Cabs Bangalore. Vehicles subject to availability.",
   "start_url": "/driver",
   "scope": "/",
   "display": "standalone",

@@ -1,14 +1,14 @@
 # Executive Presentation & Pitch Script
-## Presented to: Sri Rathan Kanna, Proprietor
-**Business:** Sri Sadhguru Tours & Travels  
-**Headquarters:** Kukatpally, Hyderabad & Gandhari, Kamareddy  
-**Fleet:** 5-Seater to 50-Seater (Swift, Ertiga, Innova Crysta, Tempo Travellers, Urbania, Luxury Buses)
+## Presented to: Sky Cabs Bangalore, Team
+**Business:** Sky Cabs Bangalore  
+**Headquarters:** Begur, Bengaluru & Jayanagar, Banashankari  
+**Fleet:** 4+1 to 52-Seater (Swift, Ertiga, Innova Crysta, Tempo Travellers, Urbania, Luxury Buses)
 
 ---
 
 ### 1. The Executive Problem: Why Aggregators & Old Methods Hurt Profits
-"Namaste Rathan Kanna Garu,  
-For over a decade, Sri Sadhguru Tours & Travels has built immense goodwill across Kukatpally, KPHB, and Gandhari through hard work, clean vehicles, and reliable service. But currently, the travels industry faces three major profit leaks:
+"Namaste Sky Cabs Bangalore Garu,  
+For over a decade, Sky Cabs Bangalore has built immense goodwill across Begur, Whitefield, and Jayanagar through hard work, clean vehicles, and reliable service. But currently, the travels industry faces three major profit leaks:
 
 1. **Ola & Uber Take 25% to 30% of Every Fare:** When you take leads through aggregators, you do all the hard work while they keep nearly a third of your profit.
 2. **Paper Duty Slips Cause Payment Delays:** Lost paper trip sheets, disputed odometer readings, and missing customer signatures cause corporate and wedding clients to delay payments by weeks.
@@ -22,13 +22,13 @@ Today, we are handing you **your own private digital ecosystem** designed specif
 
 #### 🚀 Superpower 1: Zero-Commission Direct Bookings & Instant WhatsApp Automation
 - Customers entering your website don't get routed to a generic call center.
-- Whether they choose an Airport transfer (₹1,299), an Innova Crysta outstation run (₹19/km), or a 17-seater Tempo Traveller for Srisailam, our **Interactive Fare Calculator** calculates the exact fare instantly.
-- With 1 tap, the booking request lands directly on your personal WhatsApp (`81061 17704`) with route, date, vehicle, and price pre-filled!
+- Whether they choose an Airport transfer (₹1,299), an Innova Crysta outstation run (₹19/km), or a 17-seater Tempo Traveller for Mysuru, our **Interactive Fare Calculator** calculates the exact fare instantly.
+- With 1 tap, the booking request lands directly on your personal WhatsApp (`+91 96323 45415`) with route, date, vehicle, and price pre-filled!
 
 #### ⭐ Superpower 2: Smart AI Review Gating (Guaranteed 4.9+ Star Google Profile)
 - This is your secret growth weapon. After every trip, your driver or admin sends the customer a quick link (`/review`).
-- **If the customer gives 5 Stars or 4 Stars:** Our built-in Gemini AI immediately crafts a natural, glowing review mentioning "Sri Sadhguru Travels" and "spotless clean cab". The customer simply taps **"Copy & Paste on Google Maps"**, which opens Google Reviews and deposits the 5-star review in seconds!
-- **If the customer gives 1 to 3 Stars:** The system **automatically blocks public posting**. Instead, it pops up an immediate private grievance form and alerts you directly on WhatsApp: *"Attention: Customer service escalation for Rathan Kanna"*. You resolve it privately, saving your Google reputation from ever being harmed!
+- **If the customer gives 5 Stars or 4 Stars:** Our built-in Gemini AI immediately crafts a natural, glowing review mentioning "Sky Cabs Bangalore" and "spotless clean cab". The customer simply taps **"Copy & Paste on Google Maps"**, which opens Google Reviews and deposits the 5-star review in seconds!
+- **If the customer gives 1 to 3 Stars:** The system **automatically blocks public posting**. Instead, it pops up an immediate private grievance form and alerts you directly on WhatsApp: *"Attention: Customer service escalation for Sky Cabs Bangalore"*. You resolve it privately, saving your Google reputation from ever being harmed!
 
 #### 📱 Superpower 3: 100% Digital Trip Duty Slips & Instant Signatures (`/trip-sheet`)
 - Your drivers no longer need physical paper books.
@@ -37,13 +37,13 @@ Today, we are handing you **your own private digital ecosystem** designed specif
 
 #### 📍 Superpower 4: Micro-Location SEO Hubs
 - We built dedicated landing pages optimized with Google Schema for:
-  - Kukatpally (`/cabs-in-kukatpally`)
-  - KPHB Colony (`/cabs-in-kphb`)
-  - Miyapur (`/cabs-in-miyapur`)
-  - Hitec City (`/cabs-in-hitec-city`)
-  - Shamshabad Airport (`/shamshabad-airport-taxi`)
-  - Medchal & Gandhari (`/cabs-in-medchal`)
-- Anyone searching for cabs in these areas will discover Sri Sadhguru Travels with embedded Google Maps and direct call buttons.
+  - Begur (`/cabs-in-begur`)
+  - Whitefield Colony (`/cabs-in-whitefield`)
+  - Indiranagar (`/cabs-in-indiranagar`)
+  - Whitefield (`/cabs-in-whitefield`)
+  - Kempegowda International Airport (BLR) (`/bangalore-airport-taxi`)
+  - Yelahanka & Jayanagar (`/cabs-in-yelahanka`)
+- Anyone searching for cabs in these areas will discover Sky Cabs Bangalore with embedded Google Maps and direct call buttons.
 
 ---
 
@@ -56,8 +56,8 @@ Today, we are handing you **your own private digital ecosystem** designed specif
 ---
 
 ### 4. Next Steps for Launch
-1. **Connect Official Domain:** Point `srisadhgurutravels.in` to the production server.
+1. **Connect Official Domain:** Point `skycabsbangalore.com` to the production server.
 2. **Start the Google Ads Campaign:** Turn on the prepared Google Ads campaign with a ₹500/day test budget to generate 200+ direct calls in the first month.
 3. **Train Drivers on Digital Trip Sheets:** Have your drivers bookmark `/trip-sheet` on their phones for instant customer sign-offs.
 
-*"With this system, Sri Sadhguru Tours & Travels is equipped to become the undisputed #1 car and bus travel operator in West Hyderabad."*
+*"With this system, Sky Cabs Bangalore is equipped to become the undisputed #1 car and bus travel operator in West Bengaluru."*

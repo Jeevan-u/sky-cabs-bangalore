@@ -10,7 +10,7 @@ import Image from "next/image";
 import travelhero2Image from "@/images/travelhero2.png";
 import Link from "next/link";
 import { Route } from "@/routers/types";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { PhoneIcon, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
 
 interface PageProps {
@@ -19,7 +19,7 @@ interface PageProps {
 }
 
 function getPostFromSlug(slugArray?: string[]) {
-  const slug = slugArray && slugArray.length > 0 ? slugArray[0] : "srisailam-guide";
+  const slug = slugArray && slugArray.length > 0 ? slugArray[0] : "mysuru-weekend-guide";
   return (
     DEMO_POSTS.find(
       (p) =>
@@ -39,21 +39,21 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
   const params = await props.params;
   const post = getPostFromSlug(params.slug);
-  const slug = params.slug && params.slug.length > 0 ? params.slug[0] : "srisailam-guide";
+  const slug = params.slug && params.slug.length > 0 ? params.slug[0] : "mysuru-weekend-guide";
 
   return {
     title: `${post.title}`,
     description: post.desc,
     alternates: {
-      canonical: `https://www.srisadhgurutoursandtravels.com/blog/${slug}`,
+      canonical: `https://skycabsbangalore.com/blog/${slug}`,
     },
     openGraph: {
-      title: `${post.title} | Sri Sadhguru Travels`,
+      title: `${post.title} | Sky Cabs Bangalore`,
       description: post.desc,
-      url: `https://www.srisadhgurutoursandtravels.com/blog/${slug}`,
+      url: `https://skycabsbangalore.com/blog/${slug}`,
       images: [
         {
-          url: typeof post.featuredImage === "string" ? post.featuredImage : "/images/srisailam-dam.jpg",
+          url: typeof post.featuredImage === "string" ? post.featuredImage : "/images/images1.jpg",
           alt: post.title,
         },
       ],
@@ -90,7 +90,7 @@ const Page = async (props: PageProps) => {
               <div className="ml-3">
                 <div className="flex items-center">
                   <a className="block font-semibold" href="/about">
-                    {post.author?.displayName || "Sri Rathan Kanna (Sri Sadhguru Travels)"}
+                    {post.author?.displayName || "Sky Cabs Bangalore (Sky Cabs Bangalore)"}
                   </a>
                 </div>
                 <div className="text-xs mt-[6px]">
@@ -120,7 +120,7 @@ const Page = async (props: PageProps) => {
         className="prose dark:prose-invert prose-sm !max-w-screen-md sm:prose lg:prose-lg mx-auto dark:prose-dark leading-relaxed"
       >
         <p>
-          Traveling by road across Telangana, Andhra Pradesh, and neighboring southern states offers some of the most
+          Traveling by road across Karnataka, Karnataka, and neighboring southern states offers some of the most
           rewarding cultural, spiritual, and scenic road trip experiences in India. However, successful highway journeys
           demand careful route planning, timely departure, verified vehicles, and skilled chauffeurs who understand local
           topography.
@@ -128,8 +128,8 @@ const Page = async (props: PageProps) => {
 
         <h3>Key Highway Route & Travel Timings</h3>
         <p>
-          When planning a road journey from Hyderabad (including central hubs like Kukatpally, KPHB Colony, Miyapur, Hitec City,
-          and Shamshabad Airport), connecting early to the Outer Ring Road (ORR) is essential to avoid city congestion.
+          When planning a road journey from Bengaluru (including central hubs like Begur, Electronic City, Koramangala, Whitefield,
+          and Kempegowda International Airport (BLR)), connecting early to the Outer Ring Road (ORR) is essential to avoid city congestion.
         </p>
         <ul>
           <li>
@@ -137,7 +137,7 @@ const Page = async (props: PageProps) => {
             and maximizes daytime darshan or sightseeing at your destination.
           </li>
           <li>
-            <strong>Highway Safety & Ghat Roads:</strong> High-altitude temple routes (such as Srisailam, Tirupati Ghat, and
+            <strong>Highway Safety & Ghat Roads:</strong> High-altitude temple routes (such as Mysuru, Tirupati Ghat, and
             Kondagattu) demand experienced drivers who maintain safe speeds and know optimal resting halts.
           </li>
           <li>
@@ -152,11 +152,11 @@ const Page = async (props: PageProps) => {
         </p>
         <ul>
           <li>
-            <strong>4 to 5 Passengers:</strong> AC Sedans (Maruti Swift Dzire, Toyota Etios) offer fuel-efficient and agile travel
+            <strong>4 to 5 Passengers:</strong> AC Sedans (Prime Sedan, Prime Sedan) offer fuel-efficient and agile travel
             for airport runs and compact outstation trips.
           </li>
           <li>
-            <strong>6 to 7 Passengers:</strong> Maruti Ertiga or Toyota Innova Crysta provides plush captain recliners, ample boot
+            <strong>6 to 7 Passengers:</strong> Maruti Suzuki Ertiga or Toyota Innova Crysta provides plush captain recliners, ample boot
             space for baggage, and dual AC blowers.
           </li>
           <li>
@@ -164,14 +164,14 @@ const Page = async (props: PageProps) => {
             generous aisle space, and surround audio/video entertainment for joint families and pilgrim groups.
           </li>
           <li>
-            <strong>32 to 50 Passengers:</strong> Full-size AC luxury tourist coaches deliver seamless transport for grand wedding
+            <strong>25 to 52 Passengers:</strong> Full-size AC luxury tourist coaches deliver seamless transport for grand wedding
             parties and corporate conventions.
           </li>
         </ul>
 
         <blockquote>
           <p>
-            &ldquo;Travel Safe... Travel Happy... Your Journey, Our Responsibility. Sri Sadhguru Tours & Travels provides 24x7 verified
+            &ldquo;Reliable Cabs Across Bengaluru · Safe, Comfortable & On-Time Travel Sky Cabs Bangalore provides 24x7 verified
             cabs, spotless vehicles, and transparent flat or per-km pricing with zero hidden surcharges.&rdquo;
           </p>
         </blockquote>
@@ -189,22 +189,22 @@ const Page = async (props: PageProps) => {
 
         <div className="my-8 p-6 bg-amber-50 dark:bg-amber-950/30 rounded-3xl border border-amber-200 dark:border-amber-800/40 not-prose">
           <h4 className="text-lg font-black text-amber-900 dark:text-amber-200">
-            Need Doorstep Cab or Bus Booking in Hyderabad?
+            Need Doorstep Cab or Bus Booking in Bengaluru?
           </h4>
           <p className="text-xs sm:text-sm text-amber-800 dark:text-amber-300/90 mt-1">
-            Sri Sadhguru Tours & Travels provides 24x7 doorstep dispatch from Kukatpally, KPHB, Miyapur, Hitec City, and Medchal.
+            Sky Cabs Bangalore provides 24x7 doorstep dispatch from Begur, Electronic City, Koramangala, Whitefield, and Hebbal.
             Call our dispatch desk directly or message us on WhatsApp for an instant fixed quote.
           </p>
           <div className="flex flex-wrap gap-3 mt-4">
             <a
-              href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+              href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
               className="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs rounded-xl shadow transition inline-flex items-center gap-1.5"
             >
               <PhoneIcon className="w-3.5 h-3.5" />
-              <span>Call: {SADHGURU_CONTACT.primaryPhoneFormatted}</span>
+              <span>Call: {SKY_CABS_CONTACT.primaryPhoneFormatted}</span>
             </a>
             <a
-              href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20am%20inquiring%20about%20${encodeURIComponent(post.title)}.`}
+              href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20am%20inquiring%20about%20${encodeURIComponent(post.title)}.`}
               target="_blank"
               rel="noreferrer"
               className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow transition inline-flex items-center gap-1.5"
@@ -221,10 +221,10 @@ const Page = async (props: PageProps) => {
   const renderTags = () => {
     const tags = [
       "Pilgrimage Tours",
-      "Hyderabad Cabs",
-      "Kukatpally Travels",
-      "Shamshabad Airport Taxi",
-      "Innova Crysta Rental",
+      "Bengaluru Cabs",
+      "Begur Travels",
+      "Kempegowda International Airport (BLR) Taxi",
+      "Toyota Innova Crysta Rental",
       "Tempo Traveller",
     ];
 
@@ -252,11 +252,11 @@ const Page = async (props: PageProps) => {
               AUTHOR & FLEET OPERATOR
             </span>
             <h2 className="text-lg font-bold text-neutral-900 dark:text-white">
-              Sri Rathan Kanna
+              Sky Cabs Bangalore
             </h2>
             <p className="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed font-medium">
-              Proprietor & Founder of Sri Sadhguru Tours & Travels. Overseeing 50+ commercial vehicles across Kukatpally,
-              Hyderabad, and Gandhari (Kamareddy). Dedicated to safe highway travel, zero-surge pricing, and transparent passenger logistics.
+              Proprietor & Founder of Sky Cabs Bangalore. Overseeing a wide range of vehicles across Begur,
+              Bengaluru, and Jayanagar (Yelahanka). Dedicated to safe highway travel, zero-surge pricing, and transparent passenger logistics.
             </p>
             <div className="pt-2">
               <Link href="/about" className="text-xs text-primary-6000 dark:text-primary-400 font-bold hover:underline inline-flex items-center gap-1">

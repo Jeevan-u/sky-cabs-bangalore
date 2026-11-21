@@ -16,44 +16,52 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const SITE_URL = "https://skycabsbangalore.com/";
+
 export const viewport: Viewport = {
   themeColor: "#059669",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.srisadhgurutoursandtravels.com"),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: SITE_URL,
+  },
   title: {
-    default: "SRI SADHGURU TOURS & TRAVELS | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
-    template: "%s | SRI SADHGURU TOURS & TRAVELS",
+    default: "Sky Cabs Bangalore | Reliable Cabs Across Bengaluru",
+    template: "%s | Sky Cabs Bangalore",
   },
   description:
-    "Book 24x7 cabs, airport taxi to Shamshabad RGIA, outstation pilgrimage packages to Srisailam & Tirupati, and luxury buses in Kukatpally, KPHB, Miyapur, Hitec City, Hyderabad. 50+ commercial vehicles: Swift Dzire, Innova Crysta, Tempo Traveller & AC Coaches. Proprietor: Sri Rathan Kanna. Call +91 81061 17704.",
+    "Book 24x7 cabs in Bengaluru with Sky Cabs Bangalore. Airport transfers to Kempegowda International Airport (BLR), outstation cabs to Mysuru, Tirupati, Coorg, Ooty, Chennai and Mangaluru, local rentals and group travel. Prime Sedan to 52-seater buses, subject to availability. Call +91 96323 45415.",
   keywords: [
-    "cabs in kukatpally",
-    "cabs in hyderabad",
-    "kukatpally taxi service",
-    "shamshabad airport taxi",
-    "hyderabad airport cab booking",
-    "innova crysta car rental hyderabad",
-    "swift dzire rental hyderabad",
-    "tempo traveller 12 seater hyderabad",
-    "tempo traveller 17 seater hyderabad",
-    "hyderabad to srisailam car rental",
-    "hyderabad to tirupati travels",
-    "hyderabad to shirdi cab package",
-    "kphb colony car rental",
-    "miyapur cab services",
-    "hitec city cab booking",
-    "sri sadhguru travels",
-    "sri sadhguru tours and travels kukatpally",
-    "rathan kanna travels",
-    "outstation cabs hyderabad",
-    "wedding bus rental hyderabad",
-    "corporate employee transport hyderabad",
+    "sky cabs bangalore",
+    "cabs in bangalore",
+    "cabs in bengaluru",
+    "bangalore airport taxi",
+    "kempegowda airport taxi",
+    "blr airport cab booking",
+    "outstation cabs bangalore",
+    "bangalore to mysuru cabs",
+    "bangalore to tirupati cabs",
+    "bangalore to coorg cabs",
+    "bangalore to ooty cabs",
+    "bangalore to chennai cabs",
+    "bangalore to mangaluru cabs",
+    "prime sedan rental bangalore",
+    "innova crysta car rental bangalore",
+    "tempo traveller 12 seater bangalore",
+    "force urbania rental bangalore",
+    "passenger bus rental bangalore",
+    "begur cabs",
+    "electronic city cabs",
+    "koramangala cabs",
+    "whitefield cabs",
+    "wedding bus rental bangalore",
+    "corporate employee transport bangalore",
   ],
-  authors: [{ name: "Sri Rathan Kanna", url: "https://www.srisadhgurutoursandtravels.com/author" }],
-  creator: "SRI SADHGURU TOURS & TRAVELS",
-  publisher: "SRI SADHGURU TOURS & TRAVELS",
+  authors: [{ name: "Sky Cabs Bangalore", url: SITE_URL }],
+  creator: "Sky Cabs Bangalore",
+  publisher: "Sky Cabs Bangalore",
   formatDetection: {
     email: true,
     address: true,
@@ -62,26 +70,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.srisadhgurutoursandtravels.com",
-    siteName: "SRI SADHGURU TOURS & TRAVELS",
-    title: "SRI SADHGURU TOURS & TRAVELS | 24x7 Cabs, Airport Taxi & Car Rentals in Hyderabad",
+    url: SITE_URL,
+    siteName: "Sky Cabs Bangalore",
+    title: "Sky Cabs Bangalore | Reliable Cabs Across Bengaluru",
     description:
-      "24x7 doorstep cab dispatch in Kukatpally, KPHB, Miyapur, Hitec City & Shamshabad Airport. 5 to 50 Seater commercial fleet. Zero-surge guaranteed rates. Call +91 81061 17704.",
+      "Airport transfers to Kempegowda International Airport (BLR), outstation cabs, local rentals and group travel across Bengaluru. Prime Sedan to 52-seater buses, subject to availability. Call +91 96323 45415.",
     images: [
       {
-        url: "/images/sri-sadhguru-travels-banner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "SRI SADHGURU TOURS & TRAVELS Commercial Fleet Hyderabad",
+        url: "/images/Airport-cabs.jpg",
+        alt: "Sky Cabs Bangalore airport taxi and cabs across Bengaluru",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SRI SADHGURU TOURS & TRAVELS | 24x7 Cabs in Hyderabad",
+    title: "Sky Cabs Bangalore | Cabs Across Bengaluru",
     description:
-      "Swift Dzire, Innova Crysta, Tempo Travellers & Luxury Buses. 15-min dispatch across Kukatpally, KPHB & Airport. Call +91 81061 17704.",
-    images: ["/images/sri-sadhguru-travels-banner.jpg"],
+      "Airport taxis, outstation cabs and group travel from Bengaluru. Prime Sedan to 52-seater buses, subject to availability. Call +91 96323 45415.",
+    images: ["/images/Airport-cabs.jpg"],
   },
   manifest: "/manifest.json",
   icons: {
@@ -92,7 +98,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Sadhguru Driver",
+    title: "Sky Cabs Bangalore",
   },
   robots: {
     index: true,

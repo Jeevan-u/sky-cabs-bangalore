@@ -18,7 +18,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { FESTIVAL_POSTERS } from "@/data/festivalOffers";
 import { COMPANIES_SERVED } from "@/data/companiesServed";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 export interface FestivalOffer {
   id: string;
@@ -73,7 +73,7 @@ export default function FestivalsView() {
   const [genFestival, setGenFestival] = useState("Makar Sankranti & Pongal");
   const [genVehicle, setGenVehicle] = useState("Toyota Innova Crysta & Tempo Traveller");
   const [genDiscount, setGenDiscount] = useState("Flat ₹500 OFF on Outstation Booking");
-  const [genAudience, setGenAudience] = useState("Family Village Homecoming & Srisailam/Tirupati Yatra");
+  const [genAudience, setGenAudience] = useState("Family Village Homecoming & Mysuru/Tirupati Yatra");
   const [copiedPrompt, setCopiedPrompt] = useState(false);
   const [copiedCopy, setCopiedCopy] = useState(false);
 
@@ -152,7 +152,7 @@ export default function FestivalsView() {
       discount_badge: "Flat ₹500 OFF",
       banner_title: "",
       description: "",
-      recommended_destinations: "Srisailam, Tirupati, Yadagirigutta",
+      recommended_destinations: "Mysuru, Tirupati, Mysuru",
       booking_code: "FEST" + Math.floor(100 + Math.random() * 900),
       start_date: new Date().toISOString().split("T")[0],
       end_date: new Date(Date.now() + 30 * 86400000).toISOString().split("T")[0],
@@ -293,7 +293,7 @@ export default function FestivalsView() {
         body: JSON.stringify({
           name: newCompanyName.trim(),
           industry: newCompanyIndustry,
-          location: newCompanyLocation.trim() || "Hyderabad Campus",
+          location: newCompanyLocation.trim() || "Bengaluru Campus",
           logo_text: logoTxt,
           accent_color: newCompanyColor,
         }),
@@ -306,7 +306,7 @@ export default function FestivalsView() {
           id: "comp-" + Date.now(),
           name: newCompanyName.trim(),
           industry: newCompanyIndustry,
-          location: newCompanyLocation.trim() || "Hyderabad Campus",
+          location: newCompanyLocation.trim() || "Bengaluru Campus",
           logo_text: logoTxt,
           accent_color: newCompanyColor,
           is_active: true,
@@ -336,30 +336,30 @@ export default function FestivalsView() {
   };
 
   // Generated text and prompt
-  const generatedAiImagePrompt = `High-resolution professional 8K marketing poster for "SRI SADHGURU TOURS & TRAVELS" celebrating ${genFestival}. A pristine modern white luxury commercial ${genVehicle} with official yellow commercial number plates and vibrant celebratory flower garlands, driving on a smooth 4-lane South India highway during golden sunrise. In the background, majestic temple gopurams of Srisailam / Tirupati rise amidst lush green rural landscapes. Clean bold banner header with typography reading "SRI SADHGURU TOURS & TRAVELS" in ALL CAPS, with gold/saffron badge: "${genDiscount}". Bottom contact banner displays phone numbers: "+91 81061 17704 / +91 93985 22128". Ultra-photorealistic, festive lighting, 8k commercial photography style.`;
+  const generatedAiImagePrompt = `High-resolution professional 8K marketing poster for "SKY CABS BANGALORE" celebrating ${genFestival}. A pristine modern white luxury commercial ${genVehicle} with official yellow commercial number plates and vibrant celebratory flower garlands, driving on a smooth 4-lane South India highway during golden sunrise. In the background, majestic temple gopurams of Mysuru / Tirupati rise amidst lush green rural landscapes. Clean bold banner header with typography reading "SKY CABS BANGALORE" in ALL CAPS, with gold/saffron badge: "${genDiscount}". Bottom contact banner displays phone numbers: "+91 96323 45415 / +91 96323 45415". Ultra-photorealistic, festive lighting, 8k commercial photography style.`;
 
-  const generatedSocialMediaCopy = `✨ *SRI SADHGURU TOURS & TRAVELS* ✨
+  const generatedSocialMediaCopy = `✨ *SKY CABS BANGALORE* ✨
 🎊 *${genFestival.toUpperCase()} FESTIVAL SPECIAL OFFER!* 🎊
 --------------------------------------------------
 Heading home for the festivities or planning a holy pilgrimage with family?
-Travel in complete luxury, safety, and comfort with Hyderabad's #1 rated travels!
+Travel in complete luxury, safety, and comfort with Bengaluru's #1 rated travels!
 
 🚗 *Featured Fleet:* ${genVehicle}
 🎁 *Special Offer:* ${genDiscount}
 🎯 *Ideal For:* ${genAudience}
 
-✅ 100% Sanitized AC Vehicles (Swift Dzire, Innova Crysta, 12/17s Tempo Travellers & Luxury Buses)
+✅ 100% Sanitized AC Vehicles (Prime Sedan, Innova Crysta, 12/17s Tempo Travellers & Luxury Buses)
 ✅ Senior Hill-Trained Verified Chauffeurs
 ✅ Zero Surge Guaranteed Rates & No Advance Required
-✅ Doorstep Pickup across Kukatpally, KPHB, Miyapur, Hitec City & Airport
+✅ Doorstep Pickup across Begur, Whitefield, Indiranagar, Whitefield & Airport
 
 📞 *Call 24x7 for Instant Booking:*
-📱 +91 ${SADHGURU_CONTACT.primaryPhone}
-📱 +91 ${SADHGURU_CONTACT.secondaryPhone}
-💬 *WhatsApp Booking:* https://wa.me/${SADHGURU_CONTACT.whatsappNumber}
-🌐 *Website:* https://www.srisadhgurutoursandtravels.com
+📱 +91 ${SKY_CABS_CONTACT.primaryPhone}
+📱 +91 ${SKY_CABS_CONTACT.secondaryPhone}
+💬 *WhatsApp Booking:* https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}
+🌐 *Website:* https://skycabsbangalore.com/
 
-#SriSadhguruTravels #SankrantiTravel #HyderabadCabs #InnovaCrysta #TempoTraveller #SrisailamTirupati`;
+#SkyCabsBangalore #SankrantiTravel #BengaluruCabs #InnovaCrysta #TempoTraveller #MysuruTirupati`;
 
   return (
     <div className="space-y-6">
@@ -575,9 +575,9 @@ Travel in complete luxury, safety, and comfort with Hyderabad's #1 rated travels
                 <option value="Dasara & Durga Navratri Yatra">Dasara & Durga Navratri Yatra</option>
                 <option value="Diwali Festival of Lights">Diwali Festival of Lights</option>
                 <option value="Ugadi Telugu New Year">Ugadi Telugu New Year</option>
-                <option value="Telangana Bonalu Jathara">Telangana Bonalu Jathara</option>
+                <option value="Karnataka Bonalu Jathara">Karnataka Bonalu Jathara</option>
                 <option value="New Year 2027 Pilgrimage">New Year 2027 Pilgrimage</option>
-                <option value="Mahashivaratri Srisailam Special">Mahashivaratri Srisailam Special</option>
+                <option value="Mahashivaratri Mysuru Special">Mahashivaratri Mysuru Special</option>
               </select>
             </div>
 
@@ -591,9 +591,9 @@ Travel in complete luxury, safety, and comfort with Hyderabad's #1 rated travels
                 className="w-full px-3 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-amber-500"
               >
                 <option value="Toyota Innova Crysta & Tempo Traveller">Toyota Innova Crysta & Tempo Traveller</option>
-                <option value="Swift Dzire & Maruti Ertiga">Swift Dzire & Maruti Ertiga</option>
+                <option value="Prime Sedan & Maruti Ertiga">Prime Sedan & Maruti Ertiga</option>
                 <option value="Force Urbania Executive Luxury Van">Force Urbania Executive Luxury Van</option>
-                <option value="32 to 50 Seater Luxury AC Bus">32 to 50 Seater Luxury AC Bus</option>
+                <option value="Passenger Buses (25 to 52 Seater)">Passenger Buses (25 to 52 Seater)</option>
               </select>
             </div>
 
@@ -723,7 +723,7 @@ Travel in complete luxury, safety, and comfort with Hyderabad's #1 rated travels
                   type="text"
                   value={newCompanyLocation}
                   onChange={(e) => setNewCompanyLocation(e.target.value)}
-                  placeholder="e.g. HITEC City Phase 2"
+                  placeholder="e.g. Whitefield Phase 2"
                   className="w-full px-3 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-amber-500"
                 />
               </div>
@@ -904,7 +904,7 @@ Travel in complete luxury, safety, and comfort with Hyderabad's #1 rated travels
                   type="text"
                   value={offerForm.recommended_destinations}
                   onChange={(e) => setOfferForm({ ...offerForm, recommended_destinations: e.target.value })}
-                  placeholder="e.g. Srisailam, Tirupati, Vijayawada, Yadagirigutta"
+                  placeholder="e.g. Mysuru, Tirupati, Vijayawada, Mysuru"
                   className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-xs font-medium outline-none focus:border-amber-500"
                 />
               </div>

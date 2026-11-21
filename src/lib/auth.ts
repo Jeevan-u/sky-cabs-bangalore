@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
         return {
           id: user.id,
           name: user.name,
-          email: user.email || `${user.phone}@srisadhgurutoursandtravels.com`,
+          email: user.email || `${user.phone}@skycabsbangalore.com`,
           phone: user.phone,
           role: user.role,
           assigned_vehicle: user.assigned_vehicle || "",
@@ -62,5 +62,5 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/login",
   },
-  secret: process.env.NEXTAUTH_SECRET || "sri-sadhguru-travels-secret-jwt-key-2026",
+  secret: process.env.NEXTAUTH_SECRET || "sky-cabs-bangalore-secret-jwt-key-2026",
 };

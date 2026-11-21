@@ -20,14 +20,14 @@ export async function POST(request: Request) {
       customerName = "Customer",
       driverName,
       vehicleName = "Cab",
-      pickupLocation = "Hyderabad",
-      dropLocation = "Shamshabad Airport",
+      pickupLocation = "Bengaluru",
+      dropLocation = "Kempegowda International Airport (BLR)",
       rating = 5,
       tags = [],
       additionalNotes = "",
     } = body;
 
-    const prompt = `You are a helpful assistant generating 3 realistic, authentic Google reviews written by a customer for "Sri Sadhguru Tours and Travels" (Hyderabad).
+    const prompt = `You are a helpful assistant generating 3 realistic, authentic Google reviews written by a customer for "Sky Cabs Bangalore" (Bengaluru).
 Trip Details:
 - Customer: ${customerName}
 - Vehicle: ${vehicleName}
@@ -40,7 +40,7 @@ Trip Details:
 Rules:
 1. Generate exactly 3 varied review options (Option 1: Detailed & Warm, Option 2: Quick & Professional, Option 3: Family/Comfort focused).
 2. Write in natural Indian English as a real customer writing on Google Maps. No robotic words, no hashtags, no marketing buzzwords.
-3. Mention "Sri Sadhguru Travels" or "Sadhguru Travels" naturally once.
+3. Mention "Sky Cabs Bangalore" or "Sky Cabs Bangalore" naturally once.
 4. Output JSON in this exact structure:
 {"options": ["Review text 1", "Review text 2", "Review text 3"]}`;
 
@@ -120,25 +120,25 @@ Rules:
     const hasPrice = tagSet.has("reasonable_price") || tagSet.has("Fair Price");
 
     const option1 = [
-      `Had a fantastic journey with Sri Sadhguru Travels from ${pickupLocation} to ${dropLocation}.`,
+      `Had a fantastic journey with Sky Cabs Bangalore from ${pickupLocation} to ${dropLocation}.`,
       hasPunctual ? `${driverMention} was right on time for pickup.` : `${driverMention} was very cooperative throughout.`,
       hasClean ? `The ${vehicleName} was spotless, sanitized, and smelled fresh.` : `The vehicle was very well maintained.`,
       hasAC ? `AC cooling was top notch, making the drive super relaxing.` : `Ride was very smooth and hassle-free.`,
       hasPrice ? `Pricing is very transparent with zero hidden charges.` : `Rates are very reasonable compared to other services.`,
-      `Highly recommended for airport drops and outstation trips in Hyderabad!`,
+      `Highly recommended for airport drops and outstation trips in Bengaluru!`,
     ].join(" ");
 
     const option2 = [
-      `Booked ${vehicleName} with Sri Sadhguru Tours & Travels for travel to ${dropLocation}.`,
+      `Booked ${vehicleName} with Sky Cabs Bangalore for travel to ${dropLocation}.`,
       hasPolite ? `Very polite, professional driving by ${driverMention}.` : `Driver was calm, courteous, and drove safely.`,
-      hasSafe ? `Felt completely safe during the ride with family.` : `Smooth driving even in heavy Hyderabad traffic.`,
+      hasSafe ? `Felt completely safe during the ride with family.` : `Smooth driving even in heavy Bengaluru traffic.`,
       hasPunctual ? `Reached our destination well ahead of time.` : `Timely pickup and drop.`,
-      `Great service by Rathan Kanna and his team. 5 stars!`,
+      `Great service by Sky Cabs Bangalore and his team. 5 stars!`,
     ].join(" ");
 
     const option3 = [
       `Excellent travel experience!`,
-      `Sri Sadhguru Travels provides top-notch cab service in ${pickupLocation}.`,
+      `Sky Cabs Bangalore provides top-notch cab service in ${pickupLocation}.`,
       hasClean && hasAC ? `Clean vehicle, chilled AC, and comfortable seating.` : `Very comfortable and clean vehicle.`,
       hasPrice ? `Best quotation guaranteed indeed, totally worth the price.` : `Very reasonable fare with trustworthy drivers.`,
       `Will definitely book with them again for our next temple tour & airport visits.`,
@@ -147,7 +147,7 @@ Rules:
     return NextResponse.json({
       success: true,
       reviews: [option1, option2, option3],
-      poweredBy: "Sadhguru AI Engine",
+      poweredBy: "Sky Cabs AI Engine",
     });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });

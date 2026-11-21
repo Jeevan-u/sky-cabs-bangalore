@@ -13,7 +13,7 @@ import MenuBar from "@/shared/MenuBar";
 import isInViewport from "@/utils/isInViewport";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 let WIN_PREV_POSITION = 0;
 if (typeof window !== "undefined") {
@@ -43,14 +43,14 @@ const NAV: NavItem[] = [
   },
   {
     name: "Call 24x7",
-    href: `tel:${SADHGURU_CONTACT.primaryPhone}`,
+    href: `tel:${SKY_CABS_CONTACT.primaryPhone}`,
     icon: PhoneIcon,
     isExternal: true,
     highlight: true,
   },
   {
     name: "WhatsApp",
-    href: `https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20book%20a%20cab/bus`,
+    href: `https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20book%20a%20cab/bus`,
     icon: WhatsAppIcon,
     isExternal: true,
     isWhatsApp: true,

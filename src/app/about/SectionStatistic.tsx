@@ -16,13 +16,13 @@ const STATS_DATA: Statistic[] = [
     id: "1",
     val: 5000,
     suffix: "+",
-    subHeading: "Happy passengers and families served across Telangana and Andhra Pradesh",
+    subHeading: "Happy passengers and families served across Bengaluru and Karnataka",
   },
   {
     id: "2",
     val: 50,
     suffix: "+",
-    subHeading: "Maintained fleet: 5-seater sedans, Ertigas, Innovas, Tempo Travellers & 50-seater buses",
+    subHeading: "Maintained fleet: Prime Sedan (4+1), Maruti Suzuki Ertigas, Innovas, Tempo Travellers & 52-seater buses",
   },
   {
     id: "3",
@@ -42,7 +42,7 @@ const SectionStatistic: FC<SectionStatisticProps> = ({ className = "" }) => {
       <Heading
         desc="Numbers that reflect our dedication to passenger safety, punctuality, and service quality"
       >
-        <ShinyText text="Sri Sadhguru at a Glance" speed={3.5} />
+        <ShinyText text="Sky Cabs Bangalore at a Glance" speed={3.5} />
       </Heading>
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
         {STATS_DATA.map((item) => (

@@ -46,7 +46,7 @@ const AccountPage = () => {
         <div className="flex-grow mt-10 md:mt-0 md:pl-16 max-w-3xl space-y-6">
           <div>
             <Label>Name</Label>
-            <Input className="mt-1.5" defaultValue="Sri Rathan Kanna" />
+            <Input className="mt-1.5" defaultValue="Sky Cabs Bangalore" />
           </div>
           {/* ---- */}
           <div>
@@ -60,12 +60,12 @@ const AccountPage = () => {
           {/* ---- */}
           <div>
             <Label>Username</Label>
-            <Input className="mt-1.5" defaultValue="@rathankanna" />
+            <Input className="mt-1.5" defaultValue="@skycabsbangalore" />
           </div>
           {/* ---- */}
           <div>
             <Label>Email</Label>
-            <Input className="mt-1.5" defaultValue="contact@srisadhgurutoursandtravels.com" />
+            <Input className="mt-1.5" defaultValue="skycabsbangalore@gmail.com" />
           </div>
           {/* ---- */}
           <div className="max-w-lg">
@@ -75,17 +75,17 @@ const AccountPage = () => {
           {/* ---- */}
           <div>
             <Label>Address</Label>
-            <Input className="mt-1.5" defaultValue="Kukatpally Housing Board (KPHB), Hyderabad, Telangana - 500072" />
+            <Input className="mt-1.5" defaultValue="Begur Housing Board (Whitefield), Bengaluru, Karnataka - 500072" />
           </div>
           {/* ---- */}
           <div>
             <Label>Phone number</Label>
-            <Input className="mt-1.5" defaultValue="+91 81061 17704" />
+            <Input className="mt-1.5" defaultValue="+91 96323 45415" />
           </div>
           {/* ---- */}
           <div>
             <Label>About you</Label>
-            <Textarea className="mt-1.5" defaultValue="Proprietor of Sri Sadhguru Tours & Travels. Managing 50+ commercial vehicles across Hyderabad, Kamareddy, and South India pilgrimage circuits." />
+            <Textarea className="mt-1.5" defaultValue="Sky Cabs Bangalore. Managing 50+ commercial vehicles across Bengaluru, Banashankari, and South India pilgrimage circuits." />
           </div>
           <div className="pt-2">
             <ButtonPrimary>Update info</ButtonPrimary>

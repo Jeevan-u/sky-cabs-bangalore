@@ -6,7 +6,7 @@ import {
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import { RateCardItem } from "../types";
-import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET } from "@/data/skyCabsFleet";
 import { SpotlightCard } from "@/components/reactbits";
 
 interface RateCardViewProps {
@@ -27,7 +27,7 @@ export default function RateCardView({
             Transparent Rate Card Engine
           </h3>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-0.5">
-            Standard outstation rates, flat airport fares, and driver batas for Hyderabad & Telangana
+            Standard outstation rates, flat airport fares, and driver batas for Bengaluru & Karnataka
           </p>
         </div>
         <button
@@ -41,7 +41,7 @@ export default function RateCardView({
 
       {/* Cards Grid with ReactBits SpotlightCard */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {SADHGURU_FLEET.map((fleet) => {
+        {SKY_CABS_FLEET.map((fleet) => {
           const customRate = rateCards.find((r) => r.vehicle_id === fleet.id);
           const perKm = customRate ? customRate.per_km_rate : fleet.perKmRate;
           const airport = customRate ? customRate.airport_flat_rate : fleet.airportFlatRate;
@@ -79,7 +79,7 @@ export default function RateCardView({
                 </div>
 
                 <div className="flex items-center justify-between py-1 border-b border-neutral-100 dark:border-neutral-800/80">
-                  <span className="text-neutral-500 dark:text-neutral-400 font-medium">Airport Transfer (Kukatpally)</span>
+                  <span className="text-neutral-500 dark:text-neutral-400 font-medium">Airport Transfer (Begur)</span>
                   <span className="font-black text-primary-600 dark:text-primary-400 text-sm">
                     ₹{airport}
                   </span>

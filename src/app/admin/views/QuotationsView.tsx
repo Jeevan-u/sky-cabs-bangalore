@@ -106,11 +106,11 @@ const QuotationsView: FC<QuotationsViewProps> = ({ searchFilter = "" }) => {
         // Dispatch WhatsApp quotation message to customer
         const cleanPhone = quote.customer_phone.replace(/[^0-9]/g, "");
         const msg = encodeURIComponent(
-          `Namaste ${quote.customer_name}! Sri Sadhguru Tours & Travels has reviewed your custom route request (ID: ${quote.id}).\n\n` +
+          `Namaste ${quote.customer_name}! Sky Cabs Bangalore has reviewed your custom route request (ID: ${quote.id}).\n\n` +
           `• Route: ${quote.pickup_address} -> ${quote.drop_address}\n` +
           `• Vehicle: ${quote.vehicle_type}\n` +
           `• Special Quotation: ₹${price.toLocaleString("en-IN")} (All-inclusive)\n\n` +
-          `Please reply YES to confirm and allocate driver, or call Proprietor Rathan Kanna: +91 8106117704.`
+          `Please reply YES to confirm and allocate driver, or call Team Sky Cabs Bangalore: +91 9632345415.`
         );
         window.open(`https://wa.me/91${cleanPhone}?text=${msg}`, "_blank");
       }

@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
       capacity: capacity || "4+1 Passenger",
       luggage: luggage || "2 Large Bags",
       ac: ac !== false,
-      image: image || "/images/fleet/swift-dzire.jpg",
+      image: image || "/images/fleet/prime-sedan-1.png",
       perKmRate: Number(perKmRate) || 12,
       airportFlatRate: Number(airportFlatRate) || 1299,
       local8hr80km: Number(local8hr80km) || 2199,

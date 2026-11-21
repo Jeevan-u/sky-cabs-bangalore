@@ -3,7 +3,7 @@
 import React, { FC, useState, useEffect } from "react";
 import { XMarkIcon, BanknotesIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
 import { ExpenseItem } from "../types";
-import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET } from "@/data/skyCabsFleet";
 
 interface ModalExpenseProps {
   isOpen: boolean;
@@ -38,8 +38,8 @@ export default function ModalExpense({
   editingExpense,
 }: ModalExpenseProps) {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [vehicleNumber, setVehicleNumber] = useState("TS 09 UB 4455");
-  const [vehicleName, setVehicleName] = useState("Swift Dzire");
+  const [vehicleNumber, setVehicleNumber] = useState("KA 09 UB 4455");
+  const [vehicleName, setVehicleName] = useState("Prime Sedan");
   const [driverName, setDriverName] = useState("K. Shiva Kumar");
   const [category, setCategory] = useState("Fuel (Diesel/Petrol)");
   const [amount, setAmount] = useState("2500");
@@ -52,7 +52,7 @@ export default function ModalExpense({
   useEffect(() => {
     if (editingExpense) {
       setDate(editingExpense.date || new Date().toISOString().split("T")[0]);
-      setVehicleNumber(editingExpense.vehicle_number || "TS 09 UB 4455");
+      setVehicleNumber(editingExpense.vehicle_number || "KA 09 UB 4455");
       setVehicleName(editingExpense.vehicle_name || "");
       setDriverName(editingExpense.driver_name || "");
       setCategory(editingExpense.category || "Fuel (Diesel/Petrol)");
@@ -63,8 +63,8 @@ export default function ModalExpense({
       setReceiptUrl(editingExpense.receipt_url || "");
     } else {
       setDate(new Date().toISOString().split("T")[0]);
-      setVehicleNumber("TS 09 UB 4455");
-      setVehicleName("Swift Dzire");
+      setVehicleNumber("KA 09 UB 4455");
+      setVehicleName("Prime Sedan");
       setDriverName("K. Shiva Kumar");
       setCategory("Fuel (Diesel/Petrol)");
       setAmount("2500");
@@ -192,7 +192,7 @@ export default function ModalExpense({
                 required
                 value={vehicleNumber}
                 onChange={(e) => setVehicleNumber(e.target.value)}
-                placeholder="TS 09 UB 4455"
+                placeholder="KA 09 UB 4455"
                 className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-xs font-bold uppercase"
               />
             </div>
@@ -204,7 +204,7 @@ export default function ModalExpense({
                 type="text"
                 value={vehicleName}
                 onChange={(e) => setVehicleName(e.target.value)}
-                placeholder="Innova Crysta / Swift Dzire"
+                placeholder="Innova Crysta / Prime Sedan"
                 className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-xs font-medium"
               />
             </div>
@@ -282,7 +282,7 @@ export default function ModalExpense({
               rows={2}
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder="e.g. IOCL Kukatpally (Full Tank Diesel), Invoice #98221"
+              placeholder="e.g. IOCL Begur (Full Tank Diesel), Invoice #98221"
               className="w-full p-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-xs font-medium"
             />
           </div>

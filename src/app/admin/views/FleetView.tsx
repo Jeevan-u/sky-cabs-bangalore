@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import StatusBadge from "../components/StatusBadge";
 import { DriverUserItem } from "../types";
-import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET } from "@/data/skyCabsFleet";
 import { TiltedCard } from "@/components/reactbits";
 import AdminTablePagination from "../components/AdminTablePagination";
 import ModalEditDriver from "../modals/ModalEditDriver";
@@ -104,7 +104,7 @@ export default function FleetView({
             </span>
           </div>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium mt-1">
-            {drivers.length} Verified Highway Chauffeurs • {SADHGURU_FLEET.length} Commercial Vehicle Categories
+            {drivers.length} Verified Highway Chauffeurs • {SKY_CABS_FLEET.length} Commercial Vehicle Categories
           </p>
         </div>
         <button
@@ -273,7 +273,7 @@ export default function FleetView({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SADHGURU_FLEET.map((v) => (
+          {SKY_CABS_FLEET.map((v) => (
             <TiltedCard key={v.id} maxAngle={10} scale={1.03} className="h-full">
               <div className="h-full p-5 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-xl hover:border-primary-500/40 dark:hover:border-primary-500/40 transition-all flex flex-col justify-between group">
                 <div>

@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { XMarkIcon, PrinterIcon } from "@heroicons/react/24/outline";
 import { DutySlipItem } from "../types";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 interface ModalPrintInvoiceProps {
   isOpen: boolean;
@@ -58,16 +58,16 @@ export default function ModalPrintInvoice({
           <div className="flex items-start justify-between border-b-2 border-neutral-900 dark:border-neutral-700 pb-4">
             <div>
               <h1 className="text-xl font-extrabold tracking-tight text-neutral-950 dark:text-white">
-                SRI SADHGURU TOURS & TRAVELS
+                SKY CABS BANGALORE
               </h1>
               <p className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider mt-0.5">
                 Premium Car Rentals • Airport Transfers • Outstation Packages
               </p>
               <p className="text-[10px] text-neutral-600 dark:text-neutral-400 mt-1 max-w-md">
-                KPHB Colony, Kukatpally, Hyderabad - 500072 & Gandhari, Kamareddy
+                Whitefield Colony, Begur, Bengaluru - 500072 & Jayanagar, Banashankari
               </p>
               <p className="text-[10px] text-neutral-600 dark:text-neutral-400">
-                Phone: <span className="font-semibold">{SADHGURU_CONTACT.primaryPhoneFormatted}</span> | Email: sadhgurutravels.hyd@gmail.com
+                Phone: <span className="font-semibold">{SKY_CABS_CONTACT.primaryPhoneFormatted}</span> | Email: skycabsbangalore@gmail.com
               </p>
             </div>
             <div className="text-right">
@@ -183,10 +183,10 @@ export default function ModalPrintInvoice({
             </div>
 
             <div className="text-right">
-              <p className="text-[10px] uppercase font-bold text-neutral-400">For Sri Sadhguru Tours & Travels</p>
+              <p className="text-[10px] uppercase font-bold text-neutral-400">For Sky Cabs Bangalore</p>
               <div className="mt-6">
                 <p className="font-bold text-xs text-neutral-900 dark:text-white">Authorized Signatory</p>
-                <p className="text-[10px] text-neutral-500">Sri Rathan Kanna (Proprietor)</p>
+                <p className="text-[10px] text-neutral-500">Sky Cabs Bangalore (Team)</p>
               </div>
             </div>
           </div>

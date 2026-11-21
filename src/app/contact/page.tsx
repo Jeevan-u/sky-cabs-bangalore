@@ -6,7 +6,7 @@ import Label from "@/components/Label";
 import Input from "@/shared/Input";
 import Textarea from "@/shared/Textarea";
 import ButtonPrimary from "@/shared/ButtonPrimary";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import {
   MapPinIcon,
@@ -29,18 +29,18 @@ export interface PageContactProps {}
 const info = [
   {
     icon: MapPinIcon,
-    title: "HYDERABAD & KAMAREDDY OFFICES",
-    desc: "Kukatpally Main Road, Hyderabad & Gandhari, Kamareddy, Telangana. Central Hubs: KPHB, Miyapur, Hitec City, Shamshabad Airport & Medchal.",
+    title: "BENGALURU OFFICE",
+    desc: "Begur Main Road, Bengaluru & Jayanagar, Yelahanka, Karnataka. Central Hubs: Electronic City, Koramangala, Whitefield, Kempegowda International Airport (BLR) & Hebbal.",
   },
   {
     icon: PhoneIcon,
     title: "PHONE & 24x7 DISPATCH",
-    desc: `+91 ${SADHGURU_CONTACT.primaryPhone} | +91 ${SADHGURU_CONTACT.secondaryPhone} (Prop: ${SADHGURU_CONTACT.proprietor})`,
+    desc: `+91 ${SKY_CABS_CONTACT.primaryPhone} | +91 ${SKY_CABS_CONTACT.secondaryPhone} `,
   },
   {
     icon: WhatsAppIcon,
     title: "WHATSAPP & SUPPORT",
-    desc: "+91 81061 17704 (Instant Quotes & Airport Transfers)",
+    desc: "+91 96323 45415 (Instant Quotes & Airport Transfers)",
   },
 ];
 
@@ -68,7 +68,7 @@ const PageContact: FC<PageContactProps> = ({}) => {
           customer_name: fullName.trim(),
           customer_phone: phone.trim(),
           trip_type: "outstation",
-          vehicle_type: "Swift Dzire / Innova Crysta",
+          vehicle_type: "Prime Sedan / Toyota Innova Crysta",
           pickup_address: route.trim(),
           drop_address: "Destination specified in notes",
           pickup_datetime: new Date().toISOString(),
@@ -103,10 +103,10 @@ const PageContact: FC<PageContactProps> = ({}) => {
               </StarBorder>
             </div>
             <h1 className="mt-4 text-3xl md:text-5xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight">
-              Contact Sri Sadhguru Travels
+              Contact Sky Cabs Bangalore
             </h1>
             <p className="mt-3 text-neutral-600 dark:text-neutral-300 text-sm sm:text-base font-medium">
-              Travel Safe... Travel Happy... Your Journey, Our Responsibility. Get guaranteed best quotations for airport rides, outstation trips, pilgrimages, and group buses.
+              Reliable Cabs Across Bengaluru · Safe, Comfortable & On-Time Travel Get guaranteed best quotations for airport rides, outstation trips, pilgrimages, and group buses.
             </p>
           </div>
 
@@ -146,17 +146,17 @@ const PageContact: FC<PageContactProps> = ({}) => {
                 <div className="flex flex-wrap items-center gap-3 mt-4">
                   <MagneticButton distance={0.2}>
                     <a
-                      href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                      href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                       className="px-5 py-2.5 rounded-full bg-primary-6000 text-white font-bold text-xs shadow-md shadow-primary-6000/25 hover:bg-primary-700 transition inline-flex items-center gap-1.5"
                     >
                       <PhoneIcon className="w-3.5 h-3.5" />
-                      <span>Call +91 {SADHGURU_CONTACT.primaryPhone}</span>
+                      <span>Call +91 {SKY_CABS_CONTACT.primaryPhone}</span>
                     </a>
                   </MagneticButton>
 
                   <MagneticButton distance={0.2}>
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20upcoming%20travel.`}
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20upcoming%20travel.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-5 py-2.5 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-md shadow-emerald-600/25 hover:bg-emerald-500 transition inline-flex items-center gap-1.5"
@@ -185,12 +185,12 @@ const PageContact: FC<PageContactProps> = ({}) => {
                     Request Received!
                   </h3>
                   <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 max-w-sm mx-auto font-medium">
-                    Your inquiry has been logged as <strong className="text-primary-6000 font-mono">{submittedBookingId}</strong>. Our Kukatpally operations desk will call or WhatsApp you within 15 minutes.
+                    Your inquiry has been logged as <strong className="text-primary-6000 font-mono">{submittedBookingId}</strong>. Our Begur operations desk will call or WhatsApp you within 15 minutes.
                   </p>
                   <div className="pt-4 flex flex-wrap justify-center gap-3">
                     <MagneticButton distance={0.2}>
                       <a
-                        href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20just%20submitted%20inquiry%20${submittedBookingId}%20for%20route%20${encodeURIComponent(route)}.%20Please%20share%20fare.`}
+                        href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20just%20submitted%20inquiry%20${submittedBookingId}%20for%20route%20${encodeURIComponent(route)}.%20Please%20share%20fare.`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md inline-flex items-center gap-1.5"
@@ -251,7 +251,7 @@ const PageContact: FC<PageContactProps> = ({}) => {
                       <Input
                         required
                         type="text"
-                        placeholder="e.g. Kukatpally to Shamshabad Airport / Srisailam"
+                        placeholder="e.g. Begur to Kempegowda International Airport (BLR) / Mysuru"
                         value={route}
                         onChange={(e) => setRoute(e.target.value)}
                         className="mt-1"
@@ -265,7 +265,7 @@ const PageContact: FC<PageContactProps> = ({}) => {
                         rows={3}
                         value={requirements}
                         onChange={(e) => setRequirements(e.target.value)}
-                        placeholder="e.g. Need Innova Crysta for 6 passengers with luggage on Friday 5:00 AM..."
+                        placeholder="e.g. Need Toyota Innova Crysta for 6 passengers with luggage on Friday 5:00 AM..."
                       />
                     </label>
 

@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Metadata } from "next";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 export const metadata: Metadata = {
   robots: {
@@ -30,13 +30,13 @@ const pricings: PricingItem[] = [
     pricing: "₹24,999",
     per: "/mo",
     features: [
-      "AC Sedan (Swift Dzire / Etios)",
+      "Prime Sedan (4+1)",
       "Dedicated Chauffeur & Sanitized Cab",
       "Daily Home-to-Office Pickup & Drop",
-      "Priority Hitec City / Madhapur Routing",
+      "Priority Whitefield / Whitefield Routing",
       "GST Invoice & Monthly Billing",
     ],
-    desc: "Fixed monthly transportation for business executives and IT professionals in Hyderabad.",
+    desc: "Fixed monthly transportation for business executives and IT professionals in Bengaluru.",
   },
   {
     isPopular: true,
@@ -59,12 +59,12 @@ const pricings: PricingItem[] = [
     pricing: "₹69,999",
     per: "/mo",
     features: [
-      "Force Tempo Traveller / Mini Bus",
+      "Tempo Traveller (12+1 Seater) / Mini Bus",
       "12 to 26 Seater Configuration",
       "Shift-Based Timed Employee Transit",
       "GPS Monitored Routes & Safety Assured",
       "Police Verified Professional Drivers",
-      "Custom Flexible Routes Across Hyderabad",
+      "Custom Flexible Routes Across Bengaluru",
     ],
     desc: "Comprehensive employee transit solution for offices, tech parks, hospitals, and schools.",
   },
@@ -118,7 +118,7 @@ const PageSubcription: FC<PageSubcriptionProps> = () => {
 
         <div className="mt-8 pt-4">
           <a
-            href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20am%20interested%20in%20the%20${encodeURIComponent(pricing.name)}%20monthly%20package.`}
+            href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20am%20interested%20in%20the%20${encodeURIComponent(pricing.name)}%20monthly%20package.`}
             target="_blank"
             rel="noopener noreferrer"
             className={`w-full py-3 rounded-full text-xs font-bold text-center block transition ${
@@ -144,7 +144,7 @@ const PageSubcription: FC<PageSubcriptionProps> = () => {
           Monthly Travel Packages
         </h2>
         <p className="mt-3 text-neutral-600 dark:text-neutral-400 text-sm md:text-base font-medium">
-          Reliable monthly cab contracts and staff shuttle transport across Kukatpally, Hitec City, Madhapur, and Hyderabad.
+          Reliable monthly cab contracts and staff shuttle transport across Begur, Whitefield, Whitefield, and Bengaluru.
         </p>
       </div>
 

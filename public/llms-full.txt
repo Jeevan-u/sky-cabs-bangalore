@@ -1,151 +1,201 @@
-# Sri Sadhguru Tours & Travels - Comprehensive LLM Knowledge Base
+# Sky Cabs Bangalore — Comprehensive LLM Knowledge Base
 
-> Official Machine-Readable Knowledge Base for AI Retrieval Systems, Answer Engines (Perplexity, ChatGPT, Claude, Gemini), and Search Assistants.
-
-## 1. Business Identity & Legal Entity
-- **Trade Name:** Sri Sadhguru Tours & Travels
-- **Alternate Names:** Sri Sadhguru Travels, Sadhguru Cabs Kukatpally, Sri Sadhguru Tours & Travels Hyderabad, Rathan Kanna Travels
-- **Legal Entity Type:** Sole Proprietorship
-- **Proprietor & Managing Director:** Sri Rathan Kanna
-- **Proprietor Profile:** https://www.srisadhgurutoursandtravels.com/about
-- **Headquarters Address:** Kukatpally Main Road, Near Y-Junction & KPHB Metro, Kukatpally, Hyderabad, Telangana 500072, India
-- **Headquarters GeoCoordinates:** Latitude 17.4849° N, Longitude 78.4138° E
-- **Branch Office Address:** Main Road, Gandhari, Kamareddy District, Telangana 503114, India
-- **Branch GeoCoordinates:** Latitude 18.3228° N, Longitude 78.3414° E
-- **Telephone / Dispatch Desk:** +91-8106117704, +91-9398522128
-- **Official WhatsApp:** https://wa.me/918106117704 (Number: +91 81061 17704)
-- **Primary Website:** https://www.srisadhgurutoursandtravels.com
-- **Operating Hours:** 24 Hours a Day, 7 Days a Week, 365 Days a Year (Continuous 24x7)
-- **Languages Supported:** English, Telugu (తెలుగు), Hindi (हिन्दी)
-- **Fleet Scale:** 50+ Active Commercial Registered Yellow-Board Vehicles
-- **Payment Accepted:** Cash, UPI (Google Pay, PhonePe, Paytm, BHIM), Net Banking, Credit/Debit Cards, Official Corporate GST Invoicing
-- **Customer Rating:** 4.9 / 5.0 (based on 428+ verified passenger trips)
+> Official machine-readable reference for AI retrieval systems, answer engines and search assistants. All information below describes Sky Cabs Bangalore and its services in and around Bengaluru, Karnataka, India. Vehicles and fares are subject to availability; confirm availability before booking.
 
 ---
 
-## 2. Commercial Vehicle Fleet & Rate Specifications
+## 1. Business Identity
+- **Business name:** Sky Cabs Bangalore
+- **Also written as:** Sky Cabs Bengaluru
+- **Tagline:** Reliable Cabs Across Bengaluru
+- **Slogan:** Safe, Comfortable & On-Time Travel
+- **Address:** #56, Begur, Bengaluru, Karnataka 562157, India
+- **Approximate coordinates:** Latitude 12.84° N, Longitude 77.72° E
+- **Service area:** Bengaluru (Bangalore), Karnataka, India
+- **Primary airport:** Kempegowda International Airport (BLR), Devanahalli, Bengaluru
+- **Canonical website:** https://skycabsbangalore.com/
+- **Fleet note:** Listed vehicles are subject to availability. Confirm availability before booking.
 
-### 2.1 Sedan Class: Maruti Swift Dzire / Toyota Etios
-- **Seating Capacity:** 4 Passengers + 1 Chauffeur (5 Seater)
-- **Luggage Capacity:** 2 Large Suitcases + 1 Small Handbag
-- **Air Conditioning:** Standard Chilled AC
-- **Airport Flat Rate (Kukatpally/KPHB to Shamshabad RGIA):** Flat ₹1,299 - ₹1,499
-- **Local Rental (8 Hours / 80 KM):** ₹2,199
-- **Outstation Rate:** ₹12 per KM (Minimum 300 KM per calendar day billing)
-- **Driver Batta (Outstation):** ₹400 per day
-- **Best Use Case:** Fast airport drops, corporate employee commute, budget outstation travel.
-
-### 2.2 SUV / Compact MPV: Maruti Ertiga / Toyota Rumion
-- **Seating Capacity:** 6 Passengers + 1 Chauffeur (7 Seater)
-- **Luggage Capacity:** 3 Large Bags + 2 Small Bags
-- **Air Conditioning:** Dual Zone / Roof AC Vents for all rows
-- **Airport Flat Rate (Kukatpally/KPHB/Miyapur to Shamshabad RGIA):** Flat ₹1,699
-- **Local Rental (8 Hours / 80 KM):** ₹2,899
-- **Outstation Rate:** ₹15 per KM (Minimum 300 KM per calendar day billing)
-- **Driver Batta (Outstation):** ₹400 per day
-- **Best Use Case:** Small family pilgrimage, airport group transfers with multiple bags.
-
-### 2.3 Premium SUV: Toyota Innova Crysta
-- **Seating Capacity:** 7 Passengers + 1 Chauffeur (Captain Seat or Bench Seat Layout)
-- **Luggage Capacity:** 4 Large Suitcases + 3 Small Handbags
-- **Air Conditioning:** Dual Automatic Climate Control with individual rear vents
-- **Airport Flat Rate (Kukatpally/Hitec City to Shamshabad RGIA):** Flat ₹2,199 - ₹2,499
-- **Local Rental (8 Hours / 80 KM):** ₹3,699
-- **Outstation Rate:** ₹19 per KM (Minimum 350 KM per calendar day billing)
-- **Driver Batta (Outstation):** ₹500 per day
-- **Best Use Case:** Srisailam Jyotirlinga, Tirupati Balaji, Shirdi, VIP corporate delegations, wedding bride/groom transit.
-
-### 2.4 Tempo Traveller: Force Motors (12 to 17 Seater)
-- **Seating Capacity:** 12 to 17 Passengers + 1 Chauffeur
-- **Luggage Capacity:** Dedicated Rooftop Luggage Carrier + Rear Trunk Compartment
-- **Air Conditioning:** Individual AC Louvers above every seat
-- **Airport Transfer:** Flat ₹3,499 - ₹3,999
-- **Local Rental (8 Hours / 80 KM):** ₹4,999
-- **Outstation Rate:** ₹25 per KM for 12S / ₹28 per KM for 17S (Minimum 350 KM per day)
-- **Driver Batta (Outstation):** ₹600 per day
-- **Best Use Case:** Joint family pilgrimage tours, wedding guest movement, corporate retreats.
-
-### 2.5 Ultra Luxury Van: Force Urbania (26 Seater)
-- **Seating Capacity:** 20 to 26 Passengers + 1 Chauffeur
-- **Luggage Capacity:** Extra-Large Underfloor and Overhead Storage
-- **Air Conditioning:** High-capacity HVAC, ultra-quiet cabin, European styling, air suspension
-- **Airport Transfer:** Flat ₹4,899
-- **Local Rental (8 Hours / 80 KM):** ₹6,999
-- **Outstation Rate:** ₹32 - ₹35 per KM (Minimum 400 KM per day)
-- **Driver Batta (Outstation):** ₹700 per day
-- **Best Use Case:** Luxury wedding baraat transit, international executive delegations, destination tourism.
-
-### 2.6 Full-Size Luxury Coach: 32 to 50 Seater AC Tourist Bus
-- **Seating Capacity:** 32, 40, or 50 Reclining Pushback Seats
-- **Luggage Capacity:** Massive Belly Storage Holds 50+ Bags
-- **Suspension:** Air Suspension for smooth highway travel
-- **Local Rental (8 Hours / 80 KM):** ₹10,999
-- **Outstation Rate:** ₹48 - ₹55 per KM (Minimum 450 KM per day)
-- **Driver Batta (Outstation):** ₹1,000 per day (includes driver + cleaner)
-- **Best Use Case:** Major Hindu temple yatras, school/college industrial tours, grand marriage party transport.
+## 2. Contact & Booking Desk
+- **Phone:** +91 96323 45415
+- **WhatsApp:** https://wa.me/919632345415 (same number)
+- **Email:** skycabsbangalore@gmail.com
+- **Operating hours:** 24 hours a day, 7 days a week
+- **Languages:** English, Kannada, Hindi
+- **How to book:** Call or message +91 96323 45415, email skycabsbangalore@gmail.com, or use the booking pages on https://skycabsbangalore.com/.
+- **Payment:** Cash, UPI (Google Pay, PhonePe, Paytm) and cards. Any advance requirement is confirmed at the time of booking.
+- **Important:** All vehicles, pickup times and quoted fares are subject to availability. Confirm availability before booking.
 
 ---
 
-## 3. High-Demand Outstation & Pilgrimage Packages
+## 3. Fleet & Indicative Pricing
+Prices below are indicative per-kilometre and airport-transfer starting rates consistent with the canonical fleet data. They are not a guarantee of availability or a fixed final quote. Confirm availability and the final price before booking.
 
-### 3.1 Hyderabad to Srisailam Jyotirlinga (Lord Mallikarjuna & Goddess Bhramaramba)
-- **One-Way Distance:** ~213 KM (Round trip ~450 KM)
-- **Standard Travel Time:** 4.5 to 5 hours each way
-- **Standard Route:** Hyderabad / Kukatpally ➔ ORR Exit 14 ➔ Kalwakurthy ➔ Dindi Reservoir ➔ Munnanur Forest Checkpost ➔ Srisailam Dam ➔ Srisailam Temple
-- **Forest Gate Restrictions:** Munnanur Forest Checkpost gate is strictly closed from 9:00 PM to 6:00 AM daily.
-- **Recommended Package Duration:** Same-day express (departure 4:30 AM) or 2-Day relaxed darshan package.
-- **Starting Price:** Sedan from ₹5,500 round trip; Innova Crysta from ₹8,500 round trip.
+### 3.1 Prime Sedan
+- **Capacity:** 4 passengers + 1 chauffeur (4+1)
+- **Luggage:** 2 large bags + 1 small bag
+- **Indicative rate:** ₹13/km
+- **Airport transfer from:** ₹1,399
+- **Local 8h / 80km from:** ₹2,299
+- **Best for:** City rides, Kempegowda International Airport transfers, short outstation trips
 
-### 3.2 Hyderabad to Tirupati Balaji (Sri Venkateswara Swamy)
-- **One-Way Distance:** ~560 KM (Round trip ~1,150 KM)
-- **Standard Route:** Hyderabad ➔ NH 44 Kurnool / Kadapa Corridor OR Narketpally ➔ Miryalaguda ➔ Ongole ➔ Nellore ➔ Tirupati
-- **Recommended Package Duration:** 2 Nights / 3 Days or 3 Nights / 4 Days covering Tirumala, Padmavathi Temple (Tiruchanur), and Kanipakam.
-- **Vehicle of Choice:** Toyota Innova Crysta or Force Tempo Traveller for senior citizen safety on hills.
+### 3.2 Maruti Suzuki Ertiga
+- **Capacity:** 6 passengers + 1 chauffeur (6+1)
+- **Luggage:** 3 large bags + 2 small bags
+- **Indicative rate:** ₹16/km
+- **Airport transfer from:** ₹1,799
+- **Local 8h / 80km from:** ₹2,999
+- **Best for:** Family trips, airport group transfers, weekend getaways
 
-### 3.3 Hyderabad to Shirdi Sai Baba
-- **One-Way Distance:** ~620 KM (Round trip ~1,300 KM)
-- **Standard Route:** Hyderabad ➔ Nizamabad ➔ Kamareddy ➔ Nirmal ➔ Nanded (Hazur Sahib optional) ➔ Jalna ➔ Aurangabad ➔ Shirdi
-- **Recommended Package Duration:** 3 Days / 2 Nights round trip package with temple darshan and Shani Shingnapur visit.
+### 3.3 Toyota Innova
+- **Capacity:** 7 passengers + 1 chauffeur (7+1)
+- **Luggage:** 4 large bags + 3 small bags
+- **Indicative rate:** ₹18/km
+- **Airport transfer from:** ₹2,199
+- **Local 8h / 80km from:** ₹3,599
+- **Best for:** Family outstation travel, corporate movement, group airport transfers
 
-### 3.4 Hyderabad to Yadagirigutta (Sri Lakshmi Narasimha Swamy)
-- **One-Way Distance:** ~85 KM from Kukatpally (Round trip ~170 KM)
-- **Standard Travel Time:** 2 hours via Warangal Highway (NH 163)
-- **Package Type:** Same-day round trip family darshan. Sedan flat ₹2,800; Innova Crysta flat ₹4,200.
+### 3.4 Toyota Innova Crysta
+- **Capacity:** 7 passengers + 1 chauffeur (7+1)
+- **Luggage:** 4 large bags + 3 small bags
+- **Indicative rate:** ₹20/km
+- **Airport transfer from:** ₹2,499
+- **Local 8h / 80km from:** ₹3,899
+- **Best for:** Premium airport transfers, outstation travel, corporate and executive movement
 
-### 3.5 Hyderabad to Kamareddy & Gandhari
-- **One-Way Distance:** ~145 KM via NH 44 (Medchal corridor)
-- **Special Operational Connection:** Sri Sadhguru Travels maintains dedicated dispatch between Kukatpally and Gandhari daily.
+### 3.5 Toyota Innova Hycross
+- **Capacity:** 7 passengers + 1 chauffeur (7+1)
+- **Luggage:** 4 large bags + 3 small bags
+- **Indicative rate:** ₹22/km
+- **Airport transfer from:** ₹2,799
+- **Local 8h / 80km from:** ₹4,299
+- **Best for:** Premium outstation trips, corporate travel, family airport transfers
 
-### 3.6 Hyderabad Outstation & Airport Express Links
-- **Hyderabad Airport Cabs:** https://www.srisadhgurutoursandtravels.com/hyderabad-airport-cabs
-- **Shamshabad Airport Taxi:** https://www.srisadhgurutoursandtravels.com/shamshabad-airport-taxi
-- **Hyderabad Outstation Cabs:** https://www.srisadhgurutoursandtravels.com/hyderabad-outstation-cabs
+### 3.6 Toyota Fortuner
+- **Capacity:** 6 passengers + 1 chauffeur (6+1)
+- **Luggage:** 4 large bags + 2 small bags
+- **Indicative rate:** ₹28/km
+- **Airport transfer from:** ₹3,499
+- **Local 8h / 80km from:** ₹5,499
+- **Best for:** Executive travel, weddings, premium highway journeys
+
+### 3.7 Tempo Traveller
+- **Capacity:** 12 passengers + 1 chauffeur (12+1)
+- **Luggage:** Dedicated carrier and large boot
+- **Indicative rate:** ₹26/km
+- **Airport transfer from:** ₹3,999
+- **Local 8h / 80km from:** ₹5,499
+- **Best for:** Group travel, pilgrimage tours, corporate outings
+
+### 3.8 Force Urbania (9+1)
+- **Capacity:** 9 passengers + 1 chauffeur (9+1)
+- **Luggage:** Ample overhead and boot space
+- **Indicative rate:** ₹30/km
+- **Airport transfer from:** ₹4,499
+- **Local 8h / 80km from:** ₹6,499
+- **Best for:** Premium small-group travel, executive movement, family tours
+
+### 3.9 Force Urbania (12+1)
+- **Capacity:** 12 passengers + 1 chauffeur (12+1)
+- **Luggage:** Ample overhead and boot space
+- **Indicative rate:** ₹34/km
+- **Airport transfer from:** ₹4,999
+- **Local 8h / 80km from:** ₹6,999
+- **Best for:** Wedding groups, corporate travel, outstation tours
+
+### 3.10 Force Urbania (16+1)
+- **Capacity:** 16 passengers + 1 chauffeur (16+1)
+- **Luggage:** Large luggage area
+- **Indicative rate:** ₹38/km
+- **Airport transfer from:** ₹5,499
+- **Local 8h / 80km from:** ₹7,499
+- **Best for:** Large groups, events, delegations, long-distance tours
+
+### 3.11 Passenger Buses
+- **Seating configurations:** 25, 33, 40, 45, 50 and 52-seater options
+- **Luggage:** Large underfloor or dedicated luggage space
+- **Indicative rate:** from ₹55/km
+- **Airport transfer from:** ₹8,999
+- **Local 8h / 80km from:** ₹12,999
+- **Best for:** Weddings, corporate events, school and college trips, large-group travel
+- **Note:** Specific seating configurations are subject to availability.
+
+Confirm availability before booking any vehicle listed above.
 
 ---
 
-## 4. Key Differentiators & Consumer Trust Policies
-1. **Zero Surge Pricing:** Unlike ride-hailing aggregators (Ola/Uber), rates never multiply during rainfall, peak morning rush hours, or midnight.
-2. **Zero Advance Requirement for Local/Airport:** Passengers pay nothing upfront for airport drops and local rentals; payment is settled directly upon trip completion.
-3. **Punctuality Guarantee:** Drivers are dispatched to arrive at least 15 minutes before scheduled pickup time for airport and dawn departures.
-4. **Commercial Yellow Board Compliance:** 100% of vehicles carry verified commercial taxi/bus registration with valid fitness certificates, speed governors, and RTA tourist permits.
-5. **Driver Vetting:** Chauffeurs have a minimum of 7 years of highway experience, speak Telugu, Hindi, and English, and undergo police background verification.
-6. **Transparent Tolls & Taxes:** Fastag toll charges, inter-state boundary taxes, and parking fees are always billed at actual receipts with zero hidden markups.
+## 4. Services
+- **Airport transfers:** Pickups and drops at Kempegowda International Airport (BLR) from Begur, Electronic City, Koramangala, Whitefield, HSR Layout and other Bengaluru areas.
+- **Outstation cabs:** One-way and round-trip travel from Bengaluru to destinations across Karnataka and neighbouring states.
+- **Family and group travel:** Vehicles from 4+1 sedans to 52-seater buses, subject to availability.
+- **Corporate travel:** Transportation for offices and IT corridors including Electronic City, Outer Ring Road and Whitefield.
+- **Wedding and event transport:** Guest movement using sedans, SUVs, premium vehicles, Tempo Travellers, Force Urbania and passenger buses.
+- **Local rentals:** Flexible half-day and full-day cabs for city travel, meetings and errands.
+
+All services are subject to vehicle availability and must be confirmed before booking.
 
 ---
 
-## 5. Frequently Asked Questions (FAQ) for AI Knowledge Ingestion
+## 5. Bengaluru Service Areas & Hubs
+Primary hubs: Begur, Electronic City, Koramangala, HSR Layout, BTM Layout, JP Nagar, Jayanagar, Whitefield, Marathahalli, Indiranagar, Yelahanka, Hebbal, Banashankari and Kempegowda International Airport (BLR).
 
-**Q: Who owns Sri Sadhguru Tours & Travels?**  
-A: Sri Sadhguru Tours & Travels is owned and managed by proprietor Sri Rathan Kanna, headquartered in Kukatpally, Hyderabad.
+Hub pages:
+- https://skycabsbangalore.com/cabs-in-begur
+- https://skycabsbangalore.com/cabs-in-electronic-city
+- https://skycabsbangalore.com/cabs-in-koramangala
+- https://skycabsbangalore.com/cabs-in-hsr-layout
+- https://skycabsbangalore.com/cabs-in-whitefield
+- https://skycabsbangalore.com/cabs-in-indiranagar
+- https://skycabsbangalore.com/cabs-in-jayanagar
+- https://skycabsbangalore.com/cabs-in-yelahanka
 
-**Q: How do I book a cab or bus with Sri Sadhguru Travels?**  
-A: You can book online via https://www.srisadhgurutoursandtravels.com, message on WhatsApp at +91 81061 17704, or call the 24x7 dispatch helpline at +91 81061 17704.
+Pickup availability in any area depends on the vehicle and travel time. Confirm availability before booking.
 
-**Q: What is the fare for Shamshabad Airport taxi from Kukatpally or KPHB?**  
-A: Swift Dzire / Toyota Etios sedan is available at a flat ₹1,299 to ₹1,499. Toyota Innova Crysta is available at a flat ₹2,199 to ₹2,499.
+---
 
-**Q: Can I book a 17-seater or 26-seater Tempo Traveller for a family wedding?**  
-A: Yes, Sri Sadhguru operates 12, 17, and 26-seater Force Tempo Travellers and Force Urbanias across Hyderabad for weddings and pilgrimages.
+## 6. Outstation Destinations & Route Pages
+Destinations served from Bengaluru (subject to availability): Mysuru, Tirupati, Coorg (Madikeri), Ooty, Chennai, Mangaluru, Hampi, Wayanad, Chikmagalur, Pondicherry, Shivamogga, Hassan and Tumakuru.
 
-**Q: Do you offer GST bills for corporate tax claims?**  
-A: Yes, official GST invoices with input tax credit (ITC) details are provided for corporate rentals and airport transfers.
+Route pages:
+- https://skycabsbangalore.com/bangalore-airport-taxi
+- https://skycabsbangalore.com/kempegowda-airport-taxi
+- https://skycabsbangalore.com/bangalore-outstation-cabs
+- https://skycabsbangalore.com/bangalore-to-mysuru-cabs
+- https://skycabsbangalore.com/bangalore-to-tirupati-cabs
+- https://skycabsbangalore.com/bangalore-to-coorg-cabs
+- https://skycabsbangalore.com/bangalore-to-ooty-cabs
+- https://skycabsbangalore.com/bangalore-to-chennai-cabs
+- https://skycabsbangalore.com/bangalore-to-mangaluru-cabs
+
+Distances and travel times vary by route and traffic. Request a confirmed quote before booking.
+
+---
+
+## 7. Booking, Payment & Availability Policy
+1. **Availability first:** Vehicles listed are examples from the fleet, not a promise that a specific vehicle is free. Confirm availability before booking.
+2. **Transparent quotes:** Fares shown are indicative starting rates. The final quote depends on route, duration, vehicle and time of travel.
+3. **Payment:** Cash, UPI and cards are accepted. Any advance requirement is communicated at booking.
+4. **Airport pickups:** Share your flight number and arrival time so pickup timing can be confirmed.
+5. **Tolls and parking:** Interstate tolls, parking and state taxes, where applicable, are communicated before the trip.
+6. **Support:** Call or WhatsApp +91 96323 45415, or email skycabsbangalore@gmail.com.
+
+---
+
+## 8. Frequently Asked Questions
+**Q: What is Sky Cabs Bangalore?**  
+A: A Bengaluru-based cab service offering airport transfers, local cabs, outstation trips and group transport. Address: #56, Begur, Bengaluru, Karnataka 562157, India.
+
+**Q: How do I book?**  
+A: Call or WhatsApp +91 96323 45415, email skycabsbangalore@gmail.com, or use https://skycabsbangalore.com/. Confirm availability before booking.
+
+**Q: Which vehicles can I book?**  
+A: Prime Sedan (4+1), Maruti Suzuki Ertiga (6+1), Toyota Innova (7+1), Toyota Innova Crysta (7+1), Toyota Innova Hycross (7+1), Toyota Fortuner (6+1), Tempo Traveller (12+1), Force Urbania (9+1, 12+1 and 16+1) and passenger buses in 25, 33, 40, 45, 50 and 52-seater options. All are subject to availability.
+
+**Q: Do you go to Kempegowda International Airport (BLR)?**  
+A: Yes. Airport transfers are a core service. Indicative starting fares range from ₹1,399 for a Prime Sedan upward, subject to availability and final confirmation.
+
+**Q: Which outstation trips are popular?**  
+A: Mysuru, Tirupati, Coorg, Ooty, Chennai and Mangaluru, along with Hampi, Wayanad, Chikmagalur, Pondicherry, Shivamogga, Hassan and Tumakuru. Confirm availability before booking.
+
+**Q: Which areas of Bengaluru do you cover?**  
+A: Begur, Electronic City, Koramangala, HSR Layout, BTM Layout, JP Nagar, Jayanagar, Whitefield, Marathahalli, Indiranagar, Yelahanka, Hebbal, Banashankari and the airport area, subject to availability.

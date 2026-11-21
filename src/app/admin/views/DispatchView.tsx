@@ -153,12 +153,12 @@ export default function DispatchView({
 
   // Generate WhatsApp dispatch message
   const handleSendWhatsAppToDriver = (b: BookingItem) => {
-    const phone = b.driverPhone || "9398522128";
+    const phone = b.driverPhone || "9632345415";
     const cleanPhone = phone.replace(/[^0-9]/g, "");
     const targetPhone = cleanPhone.startsWith("91") ? cleanPhone : `91${cleanPhone}`;
 
     const text =
-      `*SRI SADHGURU TRAVELS - TRIP DISPATCH*\n\n` +
+      `*SKY CABS BANGALORE - TRIP DISPATCH*\n\n` +
       `*Trip ID:* ${b.id}\n` +
       `*Customer:* ${b.customerName}\n` +
       `*Passenger Phone:* ${b.customerPhone}\n` +
@@ -169,7 +169,7 @@ export default function DispatchView({
       `*Google Maps Route:* https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
         b.pickupLocation
       )}&destination=${encodeURIComponent(b.dropLocation)}\n` +
-      `*Trip Sheet:* https://www.srisadhgurutoursandtravels.com/trip-sheet?booking=${b.id}\n\n` +
+      `*Trip Sheet:* https://skycabsbangalore.com/trip-sheet?booking=${b.id}\n\n` +
       `Please report to pickup 15 mins prior. Safe journey!`;
 
     const url = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
@@ -225,7 +225,7 @@ export default function DispatchView({
             <option value="airport">Airport Transfers</option>
             <option value="outstation">Outstation Tours</option>
             <option value="local">Local City (8hr/80km)</option>
-            <option value="pilgrimage">Pilgrimage (Srisailam/Tirupati)</option>
+            <option value="pilgrimage">Pilgrimage (Mysuru/Tirupati)</option>
           </select>
 
           <button

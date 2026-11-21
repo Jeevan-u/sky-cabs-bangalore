@@ -22,10 +22,10 @@ describe("locationProvider service", () => {
     const mockData = [
       {
         place_id: "101",
-        display_name: "Nexus Hyderabad Mall, KPHB Colony, Kukatpally, Hyderabad, Telangana",
-        display_place: "Nexus Hyderabad Mall",
-        lat: "17.485",
-        lon: "78.388",
+        display_name: "Orion Mall, Dr Rajkumar Road, Rajajinagar, Bengaluru, Karnataka",
+        display_place: "Orion Mall, Bengaluru",
+        lat: "12.9926",
+        lon: "77.5523",
       },
     ];
 
@@ -41,9 +41,10 @@ describe("locationProvider service", () => {
       expect.anything()
     );
     expect(results.length).toBe(1);
-    expect(results[0].name).toBe("Nexus Hyderabad Mall");
+    expect(results[0].name).toBe("Orion Mall");
+    expect(results[0].subtext).toContain("Rajajinagar");
     expect(results[0].isLive).toBe(true);
-    expect(results[0].lat).toBe(17.485);
+    expect(results[0].lat).toBe(12.9926);
   });
 
   it("falls back to Photon OSM when no LocationIQ key is provided", async () => {
@@ -54,14 +55,14 @@ describe("locationProvider service", () => {
         {
           properties: {
             osm_id: 202,
-            name: "Cyber Towers",
-            street: "Hitec City Main Road",
-            suburb: "Madhapur",
-            city: "Hyderabad",
-            state: "Telangana",
+            name: "Phoenix Marketcity",
+            street: "Whitefield Main Road",
+            suburb: "Whitefield",
+            city: "Bengaluru",
+            state: "Karnataka",
           },
           geometry: {
-            coordinates: [78.376, 17.447],
+            coordinates: [77.7499, 12.9698],
           },
         },
       ],
@@ -72,15 +73,15 @@ describe("locationProvider service", () => {
       json: async () => mockPhotonData,
     }) as any;
 
-    const results = await searchLivePlaces("Cyber Towers");
+    const results = await searchLivePlaces("Phoenix Marketcity");
 
     expect(global.fetch).toHaveBeenCalledWith(
-      expect.stringContaining("photon.komoot.io/api/?q=Cyber%20Towers"),
+      expect.stringContaining("photon.komoot.io/api/?q=Phoenix%20Marketcity&lat=12.97&lon=77.59"),
       expect.anything()
     );
     expect(results.length).toBe(1);
-    expect(results[0].name).toBe("Cyber Towers");
-    expect(results[0].subtext).toContain("Hitec City Main Road");
+    expect(results[0].name).toBe("Phoenix Marketcity");
+    expect(results[0].subtext).toContain("Whitefield Main Road");
     expect(results[0].isLive).toBe(true);
   });
 
@@ -91,14 +92,14 @@ describe("locationProvider service", () => {
       ok: true,
       json: async () => ({
         address: {
-          road: "JNTU Road",
-          suburb: "Kukatpally",
-          city: "Hyderabad",
+          road: "Hosur Road",
+          suburb: "Begur",
+          city: "Bengaluru",
         },
       }),
     }) as any;
 
-    const address = await reverseGeocodeCoordinates(17.4933, 78.3914);
-    expect(address).toBe("JNTU Road, Kukatpally, Hyderabad");
+    const address = await reverseGeocodeCoordinates(12.9352, 77.6245);
+    expect(address).toBe("Hosur Road, Begur, Bengaluru");
   });
 });

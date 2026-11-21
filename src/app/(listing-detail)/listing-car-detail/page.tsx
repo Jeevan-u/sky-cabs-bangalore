@@ -5,9 +5,9 @@ import ListingCarDetailClient from "./ListingCarDetailClient";
 export const metadata: Metadata = {
   title: "Commercial Fleet Vehicle Details & Booking",
   description:
-    "Explore vehicle specifications, seating capacity, luggage room, AC features, and hourly/per-km rates for Swift Dzire, Innova Crysta, Tempo Traveller & Luxury Buses.",
+    "Explore vehicle specifications, seating capacity, luggage room, AC features, and hourly/per-km rates for Prime Sedan, Innova Crysta, Tempo Traveller & Luxury Buses.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/listing-car-detail",
+    canonical: "https://skycabsbangalore.com/listing-car-detail",
   },
 };
 

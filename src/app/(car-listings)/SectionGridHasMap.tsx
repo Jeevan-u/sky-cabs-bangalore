@@ -25,12 +25,12 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
         {/* CARDSSSS */}
         <div className="min-h-screen w-full xl:w-[780px] 2xl:w-[880px] flex-shrink-0 xl:px-8 ">
           <Heading2
-            heading="Commercial Fleet in Hyderabad & Telangana"
+            heading="Commercial Fleet in Bengaluru & Karnataka"
             subHeading={
               <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
                 50+ Verified Commercial Vehicles
                 <span className="mx-2">·</span>
-                24/7 Service Across Kukatpally, Miyapur & Airport
+                24/7 Service Across Begur, Indiranagar & Airport
               </span>
             }
           />

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ALL_TOUR_PACKAGES } from "@/data/tourPackagesData";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   SparklesIcon,
   MapPinIcon,
@@ -16,11 +16,11 @@ import { WhatsAppIcon } from "@/components/icons";
 import { SpotlightCard, StarBorder, ShinyText } from "@/components/reactbits";
 
 export const metadata: Metadata = {
-  title: "Pilgrimage & South India Tour Packages | SRI SADHGURU TOURS & TRAVELS",
+  title: "Outstation & Tour Packages from Bengaluru | Sky Cabs Bangalore",
   description:
-    "Explore customized 1-Day to 6-Day pilgrimage and leisure tour packages from Hyderabad to Srisailam, Tirupati Balaji, Shirdi, Yadagirigutta, Andhra Temple Circuit, and South India. Transparent per-vehicle pricing with verified hill chauffeurs.",
+    "Explore custom outstation and weekend tour packages from Bengaluru to Mysuru, Tirupati, Coorg, Ooty, Chennai, Mangaluru and more. Transparent vehicle options and doorstep pickup across Bengaluru.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/package",
+    canonical: "https://skycabsbangalore.com/package",
   },
 };
 
@@ -40,17 +40,17 @@ export default function PackagesCatalogPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-neutral-900 dark:text-white leading-tight">
-            SRI SADHGURU PILGRIMAGE & TOUR PACKAGES
+            SKY CABS BANGALORE OUTSTATION & TOUR PACKAGES
           </h1>
           <p className="mt-3 text-xs sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            All-inclusive temple yatras and South India holiday tours with doorstep pickup across Hyderabad. Every package includes verified senior chauffeurs, commercial interstate permits, and zero-surge guaranteed pricing.
+            Outstation trips and weekend getaways with doorstep pickup across Bengaluru. Choose from sedans, SUVs, tempo travellers, Urbania and passenger buses. Vehicle availability and final pricing are confirmed before booking.
           </p>
         </div>
 
         {/* Side-by-Side Responsive Grid: 2 columns on mobile, 3 columns on desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {ALL_TOUR_PACKAGES.map((pkg) => {
-            const waBookingUrl = `https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20want%20to%20book%20the%20${encodeURIComponent(
+            const waBookingUrl = `https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20enquire%20about%20the%20${encodeURIComponent(
               pkg.title
             )}%20package.`;
 

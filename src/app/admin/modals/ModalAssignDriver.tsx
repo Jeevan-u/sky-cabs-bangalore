@@ -38,7 +38,7 @@ export default function ModalAssignDriver({
 
     setLoading(true);
     try {
-      const vNum = vehicleNumber.trim() || chosenDriver.assigned_vehicle || "TS 08 UB 4512";
+      const vNum = vehicleNumber.trim() || chosenDriver.assigned_vehicle || "KA 08 UB 4512";
 
       const res = await fetch("/api/bookings", {
         method: "PATCH",
@@ -58,7 +58,7 @@ export default function ModalAssignDriver({
           const targetPhone = cleanPhone.startsWith("91") ? cleanPhone : `91${cleanPhone}`;
 
           const text =
-            `*SRI SADHGURU TRAVELS - TRIP DISPATCH*\n\n` +
+            `*SKY CABS BANGALORE - TRIP DISPATCH*\n\n` +
             `*Trip ID:* ${booking.id}\n` +
             `*Passenger:* ${booking.customerName}\n` +
             `*Passenger Phone:* ${booking.customerPhone}\n` +
@@ -67,7 +67,7 @@ export default function ModalAssignDriver({
             `*From:* ${booking.pickupLocation}\n` +
             `*To:* ${booking.dropLocation}\n` +
             `*Google Maps Route:* https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(booking.pickupLocation)}&destination=${encodeURIComponent(booking.dropLocation)}\n` +
-            `*Duty Slip Link:* https://www.srisadhgurutoursandtravels.com/trip-sheet?booking=${booking.id}\n\n` +
+            `*Duty Slip Link:* https://skycabsbangalore.com/trip-sheet?booking=${booking.id}\n\n` +
             `Report 15 mins prior. Drive safe!`;
 
           const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
@@ -154,7 +154,7 @@ export default function ModalAssignDriver({
               type="text"
               value={vehicleNumber}
               onChange={(e) => setVehicleNumber(e.target.value)}
-              placeholder="e.g. TS 08 UB 4512"
+              placeholder="e.g. KA 08 UB 4512"
               className="w-full px-3.5 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white outline-none focus:border-primary-500"
             />
           </div>

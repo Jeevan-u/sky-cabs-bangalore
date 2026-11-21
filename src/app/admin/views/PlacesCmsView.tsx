@@ -95,7 +95,7 @@ export default function PlacesCmsView() {
             Operational Hubs & Places
           </h2>
           <p className="text-xs text-neutral-500 dark:text-neutral-400">
-            Manage 24x7 doorstep pickup stations shown in the &ldquo;Popular Hubs & RGIA Airport Routes&rdquo; carousel.
+            Manage 24x7 doorstep pickup stations shown in the &ldquo;Popular Hubs & BLR Airport Routes&rdquo; carousel.
           </p>
         </div>
 
@@ -253,7 +253,7 @@ export default function PlacesCmsView() {
                               {hub.name}
                             </div>
                             <div className="text-[11px] text-neutral-400">
-                              Sri Sadhguru 24x7 Doorstep Pickup Station
+                              Sky Cabs Bangalore 24x7 Doorstep Pickup Station
                             </div>
                           </div>
                         </div>

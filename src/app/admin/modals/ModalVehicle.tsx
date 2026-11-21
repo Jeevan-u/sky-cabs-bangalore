@@ -24,7 +24,7 @@ export default function ModalVehicle({
   const [capacity, setCapacity] = useState("4+1 Passenger");
   const [luggage, setLuggage] = useState("2 Large Bags");
   const [ac, setAc] = useState(true);
-  const [image, setImage] = useState("/images/fleet/swift-dzire.jpg");
+  const [image, setImage] = useState("/images/fleet/prime-sedan-1.png");
   const [perKmRate, setPerKmRate] = useState("12");
   const [airportFlatRate, setAirportFlatRate] = useState("1299");
   const [local8hr80km, setLocal8hr80km] = useState("2199");
@@ -63,7 +63,7 @@ export default function ModalVehicle({
       setCapacity("4+1 Passenger");
       setLuggage("2 Large Bags");
       setAc(true);
-      setImage("/images/fleet/swift-dzire.jpg");
+      setImage("/images/fleet/prime-sedan-1.png");
       setPerKmRate("12");
       setAirportFlatRate("1299");
       setLocal8hr80km("2199");
@@ -95,7 +95,7 @@ export default function ModalVehicle({
         capacity: capacity.trim() || "4+1 Passenger",
         luggage: luggage.trim() || "2 Large Bags",
         ac,
-        image: image.trim() || "/images/fleet/swift-dzire.jpg",
+        image: image.trim() || "/images/fleet/prime-sedan-1.png",
         perKmRate: parseInt(perKmRate, 10) || 12,
         airportFlatRate: parseInt(airportFlatRate, 10) || 1299,
         local8hr80km: parseInt(local8hr80km, 10) || 2199,
@@ -208,7 +208,7 @@ export default function ModalVehicle({
                 type="text"
                 value={capacity}
                 onChange={(e) => setCapacity(e.target.value)}
-                placeholder="7+1 / 6+1 Captain Seats"
+                placeholder="7+1 Passenger"
                 className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
               />
             </div>

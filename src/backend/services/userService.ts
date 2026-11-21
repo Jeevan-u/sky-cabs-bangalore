@@ -43,7 +43,7 @@ export const userService = {
       phone: data.phone,
       password: data.password,
       role: data.role || "driver",
-      assigned_vehicle: data.assigned_vehicle || "TS 08 UB 2026",
+      assigned_vehicle: data.assigned_vehicle || "KA 08 UB 2026",
       duty_status: data.duty_status || "Available",
     });
   },

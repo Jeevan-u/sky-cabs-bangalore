@@ -1,4 +1,5 @@
 import { ListingGalleryImage } from "@/components/listing-image-gallery/utils/types";
+import { PRIME_SEDAN_PHOTOS } from "@/data/fleetGallery";
 import carUtilities1 from "@/images/carUtilities/1.png";
 import carUtilities2 from "@/images/carUtilities/2.png";
 import carUtilities3 from "@/images/carUtilities/3.png";
@@ -9,14 +10,14 @@ import carUtilities7 from "@/images/carUtilities/7.png";
 import carUtilities8 from "@/images/carUtilities/8.png";
 
 export const PHOTOS: string[] = [
+  ...PRIME_SEDAN_PHOTOS,
   "/images/fleet/innova-crysta.jpg",
-  "/images/fleet/swift-dzire.jpg",
   "/images/fleet/maruti-ertiga.jpg",
-  "/images/fleet/tempo-traveller-17.jpg",
+  "/images/fleet/tempo-traveller.jpg",
   "/images/fleet/force-urbania.png",
-  "/images/fleet/luxury-coach-bus.jpg",
-  "/images/Airport-hyderabad.jpg",
-  "/images/srisailam-dam.jpg",
+  "/images/fleet/passenger-bus.jpg",
+  "/images/Airport-cabs.jpg",
+  "/images/images1.jpg",
 ];
 
 export const includes_demo = [
@@ -25,8 +26,8 @@ export const includes_demo = [
   { name: "Zero cancellation fee up to 3 hours before pickup" },
   { name: "Fastag enabled for nonstop expressway toll clearance" },
   { name: "Spotless vehicle interior cleaned & sanitized before every trip" },
-  { name: "Guaranteed on-time doorstep arrival across Hyderabad & Airport" },
-  { name: "All Telangana & South India commercial RTA permits active" },
+  { name: "Guaranteed on-time doorstep arrival across Bengaluru & Airport" },
+  { name: "All Karnataka & South India commercial RTA permits active" },
   { name: "Transparent digital duty slip generated upon trip completion" },
 ];
 

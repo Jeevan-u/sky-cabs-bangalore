@@ -16,7 +16,7 @@ import { WhatsAppIcon } from "@/components/icons";
 import CarCard from "@/components/CarCard";
 import StartRating from "@/components/StartRating";
 import { DEMO_CAR_LISTINGS } from "@/data/listings";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   SpotlightCard,
   StarBorder,
@@ -41,8 +41,8 @@ const AuthorPage: FC<AuthorPageProps> = () => {
           <div className="relative shrink-0">
             <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden border-4 border-amber-500/30 shadow-2xl bg-neutral-900 relative">
               <Image
-                src="/images/sri-sadhguru-travels-banner.jpg"
-                alt="Sri Rathan Kanna"
+                src="/images/logo.jpg"
+                alt="Sky Cabs Bangalore"
                 fill
                 className="object-cover"
                 priority
@@ -58,7 +58,7 @@ const AuthorPage: FC<AuthorPageProps> = () => {
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
               <StarBorder as="div" color="#d97706" speed="4s" className="inline-block">
                 <span className="px-3 py-0.5 text-xs font-black uppercase tracking-wider text-amber-700 dark:text-amber-300">
-                  Proprietor & Fleet Director
+                  Team & Fleet Director
                 </span>
               </StarBorder>
               <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
@@ -68,19 +68,19 @@ const AuthorPage: FC<AuthorPageProps> = () => {
 
             <div className="flex flex-wrap items-baseline gap-3 justify-center md:justify-start">
               <h1 className="text-2xl sm:text-4xl font-black text-neutral-950 dark:text-white tracking-tight">
-                Sri Rathan Kanna
+                Sky Cabs Bangalore
               </h1>
               <ShinyText text="Verified Fleet Owner" speed={3} className="text-xs font-bold text-emerald-600 dark:text-emerald-400" />
             </div>
 
             <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 max-w-2xl font-medium leading-relaxed">
-              Founder & Proprietor of <strong className="text-neutral-900 dark:text-white">Sri Sadhguru Tours & Travels</strong>. Under his dedicated leadership, Sri Sadhguru operates an extensive commercial fleet of 50+ vehicles spanning 5-seater sedans to 50-seater luxury coaches across Hyderabad, Kukatpally, Gandhari, and all of South India.
+              Founder & Team of <strong className="text-neutral-900 dark:text-white">Sky Cabs Bangalore</strong>. Under his dedicated leadership, Sky Cabs Bangalore operates an extensive commercial fleet of 50+ vehicles spanning 5-seater sedans to 50-seater luxury coaches across Bengaluru, Begur, Jayanagar, and all of South India.
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-1 text-xs text-neutral-500 dark:text-neutral-400 font-medium">
               <span className="flex items-center gap-1.5">
                 <MapPinIcon className="w-4 h-4 text-primary-6000" />
-                Kukatpally (HQ) & Gandhari Hub
+                Begur (HQ) & Jayanagar Hub
               </span>
               <span className="flex items-center gap-1.5">
                 <StarIcon className="w-4 h-4 text-amber-500 fill-amber-500" />
@@ -96,17 +96,17 @@ const AuthorPage: FC<AuthorPageProps> = () => {
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-3">
               <MagneticButton distance={0.2}>
                 <a
-                  href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                  href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                   className="px-5 py-2.5 rounded-full bg-primary-6000 hover:bg-primary-700 text-white font-bold text-xs shadow-md shadow-primary-6000/25 active:scale-95 transition-all flex items-center gap-2"
                 >
                   <PhoneIcon className="w-4 h-4" />
-                  <span>Call: +91 {SADHGURU_CONTACT.primaryPhone}</span>
+                  <span>Call: +91 {SKY_CABS_CONTACT.primaryPhone}</span>
                 </a>
               </MagneticButton>
 
               <MagneticButton distance={0.2}>
                 <a
-                  href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Rathan%20Kanna,%20I%20would%20like%20to%20inquire%20about%20a%20travel%20booking.`}
+                  href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sky Cabs Bangalore%20Kanna,%20I%20would%20like%20to%20inquire%20about%20a%20travel%20booking.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md shadow-emerald-600/25 active:scale-95 transition-all flex items-center gap-2"
@@ -163,10 +163,10 @@ const AuthorPage: FC<AuthorPageProps> = () => {
         {activeTab === "about" && (
           <div className="p-8 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 shadow-sm space-y-6 text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
             <h3 className="text-xl font-bold text-neutral-950 dark:text-white">
-              The Sri Sadhguru Promise · Personal Supervision by Rathan Kanna
+              The Sky Cabs Bangalore Promise · Personal Supervision by Sky Cabs Bangalore
             </h3>
             <p>
-              Founded with the vision to deliver dependable, safe, and transparent transportation across Telangana and South India, Sri Sadhguru Tours & Travels prioritizes customer peace of mind above all else. Unlike aggregator apps with fluctuating surge prices and random driver assignments, every trip booked through Sri Sadhguru is personally scheduled, verified, and tracked by our central operations desk.
+              Founded with the vision to deliver dependable, safe, and transparent transportation across Karnataka and South India, Sky Cabs Bangalore prioritizes customer peace of mind above all else. Unlike aggregator apps with fluctuating surge prices and random driver assignments, every trip booked through Sky Cabs Bangalore is personally scheduled, verified, and tracked by our central operations desk.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
@@ -190,7 +190,7 @@ const AuthorPage: FC<AuthorPageProps> = () => {
                 <TruckIcon className="w-8 h-8 text-amber-500 mb-2" />
                 <h4 className="font-bold text-neutral-900 dark:text-white text-base">24x7 Rapid Dispatch</h4>
                 <p className="text-xs text-neutral-500 mt-1">
-                  15-minute doorstep dispatch across Kukatpally, KPHB, Miyapur, Hitec City, and Shamshabad Airport.
+                  15-minute doorstep dispatch across Begur, Whitefield, Indiranagar, Whitefield, and Kempegowda International Airport (BLR).
                 </p>
               </div>
             </div>

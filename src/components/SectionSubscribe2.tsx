@@ -5,7 +5,7 @@ import ButtonCircle from "@/shared/ButtonCircle";
 import Badge from "@/shared/Badge";
 import Input from "@/shared/Input";
 import Image from "next/image";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { CheckCircleIcon } from "@/components/icons";
 import { ShinyText, MagneticButton, StarBorder, TiltedCard } from "@/components/reactbits";
 
@@ -20,8 +20,8 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
     e.preventDefault();
     if (!phone) return;
     const cleanPhone = phone.replace(/[^0-9]/g, "");
-    const msg = `Hi Sri Sadhguru Travels, I would like to request an instant cab quotation for my phone: ${cleanPhone}`;
-    window.open(`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+    const msg = `Hi Sky Cabs Bangalore, I would like to request an instant cab quotation for my phone: ${cleanPhone}`;
+    window.open(`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   return (
@@ -34,7 +34,7 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
           <ShinyText text="Need an Instant Quote or 24x7 Cab?" speed={3} />
         </h2>
         <span className="block mt-4 text-neutral-600 dark:text-neutral-400 font-medium leading-relaxed">
-          Get upfront pricing for Shamshabad Airport drops, Srisailam, Tirupati, or outstation family trips across Telangana and Andhra Pradesh.
+          Get upfront pricing for Kempegowda International Airport (BLR) drops, Mysuru, Tirupati, or outstation family trips across Bengaluru and Karnataka.
         </span>
 
         <ul className="space-y-3 mt-6">
@@ -87,7 +87,7 @@ const SectionSubscribe2: FC<SectionSubscribe2Props> = ({ className = "" }) => {
         >
           <div className="relative w-full aspect-[16/10] rounded-3xl overflow-hidden shadow-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800">
             <Image
-              alt="Sri Sadhguru Travel Transport"
+              alt="Sky Cabs Bangalore Transport"
               src="/images/Airport-cabs.jpg"
               fill
               className="object-cover"

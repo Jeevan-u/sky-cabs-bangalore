@@ -27,7 +27,7 @@ export async function searchLivePlaces(
     try {
       const url = `https://api.locationiq.com/v1/autocomplete?key=${locationIqKey}&q=${encodeURIComponent(
         q
-      )}&limit=6&countrycodes=in&viewbox=78.10,17.15,78.70,17.70&bounded=0&format=json`;
+      )}&limit=6&countrycodes=in&viewbox=77.35,12.75,77.90,13.35&bounded=0&format=json`;
 
       const res = await fetch(url, { signal: options?.signal });
       if (res.ok) {
@@ -36,11 +36,11 @@ export async function searchLivePlaces(
           return data.map((item: any, idx: number) => {
             const parts = (item.display_name || "").split(",");
             const title = parts[0]?.trim() || item.display_place || q;
-            const subtitle = parts.slice(1, 4).join(",").trim() || "Hyderabad & Telangana";
+            const subtitle = parts.slice(1, 4).join(",").trim() || "Bengaluru & Karnataka";
 
             let category: LocationResult["category"] = "hub";
             const lower = (item.display_name || "").toLowerCase();
-            if (lower.includes("airport") || lower.includes("rgia")) category = "airport";
+            if (lower.includes("airport") || lower.includes("blr")) category = "airport";
             else if (lower.includes("temple") || lower.includes("darshan")) category = "pilgrimage";
 
             return {
@@ -65,7 +65,7 @@ export async function searchLivePlaces(
   try {
     const photonUrl = `https://photon.komoot.io/api/?q=${encodeURIComponent(
       q
-    )}&lat=17.44&lon=78.38&limit=6`;
+    )}&lat=12.97&lon=77.59&limit=6`;
 
     const res = await fetch(photonUrl, { signal: options?.signal });
     if (res.ok) {
@@ -77,15 +77,15 @@ export async function searchLivePlaces(
           const subParts = [
             props.street !== title ? props.street : null,
             props.suburb || props.district,
-            props.city || props.county || "Hyderabad",
+            props.city || props.county || "Bengaluru",
             props.state,
           ].filter(Boolean);
 
-          const subtitle = subParts.length > 0 ? subParts.join(", ") : "Telangana, India";
+          const subtitle = subParts.length > 0 ? subParts.join(", ") : "Karnataka, India";
 
           let category: LocationResult["category"] = "hub";
           const lower = (title + " " + subtitle).toLowerCase();
-          if (lower.includes("airport") || lower.includes("rgia")) category = "airport";
+          if (lower.includes("airport") || lower.includes("blr")) category = "airport";
           else if (lower.includes("temple")) category = "pilgrimage";
 
           return {
@@ -128,7 +128,7 @@ export async function reverseGeocodeCoordinates(
         const addr = data.address || {};
         const suburb = addr.suburb || addr.neighbourhood || addr.residential;
         const road = addr.road;
-        const city = addr.city || addr.town || "Hyderabad";
+        const city = addr.city || addr.town || "Bengaluru";
 
         if (road && suburb) return `${road}, ${suburb}, ${city}`;
         if (suburb) return `${suburb}, ${city}`;
@@ -153,7 +153,7 @@ export async function reverseGeocodeCoordinates(
         addr.commercial ||
         addr.quarter;
       const road = addr.road || addr.street;
-      const city = addr.city || addr.town || addr.county || "Hyderabad";
+      const city = addr.city || addr.town || addr.county || "Bengaluru";
 
       if (suburb && road) return `${road}, ${suburb}, ${city}`;
       if (suburb) return `${suburb}, ${city}`;

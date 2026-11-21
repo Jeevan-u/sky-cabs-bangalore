@@ -18,12 +18,12 @@ describe("CustomVehicleSelect component", () => {
     fireEvent.click(trigger);
 
     expect(screen.getByText("Select Commercial Fleet")).toBeInTheDocument();
-    expect(screen.getByText("Swift Dzire / Toyota Etios")).toBeInTheDocument();
-    expect(screen.getByText("Force Tempo Traveller (12/17 Seater)")).toBeInTheDocument();
+    expect(screen.getByText("Prime Sedan")).toBeInTheDocument();
+    expect(screen.getByText("Tempo Traveller (12+1 Seater)")).toBeInTheDocument();
 
     // Click another vehicle
-    fireEvent.click(screen.getByText("Swift Dzire / Toyota Etios"));
-    expect(handleChange).toHaveBeenCalledWith("dzire-etios");
+    fireEvent.click(screen.getByText("Prime Sedan"));
+    expect(handleChange).toHaveBeenCalledWith("prime-sedan");
   });
 
   it("supports custom label and labelClassName", () => {

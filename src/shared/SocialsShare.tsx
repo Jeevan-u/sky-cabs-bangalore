@@ -15,22 +15,22 @@ const socials: SocialType[] = [
   {
     name: "Facebook",
     icon: "lab la-facebook-f",
-    href: "https://www.facebook.com/sharer/sharer.php?u=https://www.srisadhgurutoursandtravels.com",
+    href: "https://www.facebook.com/sharer/sharer.php?u=https://skycabsbangalore.com",
   },
   {
     name: "Twitter",
     icon: "lab la-twitter",
-    href: "https://twitter.com/intent/tweet?url=https://www.srisadhgurutoursandtravels.com&text=Sri%20Sadhguru%20Tours%20%26%20Travels%20Hyderabad",
+    href: "https://twitter.com/intent/tweet?url=https://skycabsbangalore.com&text=Sky%20Cabs%20Bangalore%20Tours%20%26%20Travels%20Bengaluru",
   },
   {
     name: "Linkedin",
     icon: "lab la-linkedin-in",
-    href: "https://www.linkedin.com/sharing/share-offsite/?url=https://www.srisadhgurutoursandtravels.com",
+    href: "https://www.linkedin.com/sharing/share-offsite/?url=https://skycabsbangalore.com",
   },
   {
     name: "WhatsApp",
     icon: "lab la-whatsapp",
-    href: "https://api.whatsapp.com/send?text=Sri%20Sadhguru%20Tours%20%26%20Travels%20Hyderabad%20https://www.srisadhgurutoursandtravels.com",
+    href: "https://api.whatsapp.com/send?text=Sky%20Cabs%20Bangalore%20Tours%20%26%20Travels%20Bengaluru%20https://skycabsbangalore.com",
   },
 ];
 

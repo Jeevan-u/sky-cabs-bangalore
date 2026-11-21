@@ -51,7 +51,7 @@ export default function ModalBookingDetails({
 
   const handleCustomerWhatsApp = () => {
     const text =
-      `*Sri Sadhguru Tours & Travels - Trip Update*\n\n` +
+      `*Sky Cabs Bangalore - Trip Update*\n\n` +
       `Namaste ${booking.customerName}!\n` +
       `Your booking *#${booking.id}* is currently: *${booking.status}*.\n` +
       `• Vehicle: ${booking.vehicleName} (${booking.vehicleNumber || "Assigned"})\n` +
@@ -61,8 +61,8 @@ export default function ModalBookingDetails({
       (booking.driverName
         ? `• Chauffeur: ${booking.driverName} (+91 ${booking.driverPhone})\n\n`
         : `• Chauffeur allocation in progress.\n\n`) +
-      `Live Journey Tracking: https://www.srisadhgurutoursandtravels.com/track-booking?id=${booking.id}\n\n` +
-      `24x7 Helpline: +91 81061 17704. Have a safe journey!`;
+      `Live Journey Tracking: https://skycabsbangalore.com/track-booking?id=${booking.id}\n\n` +
+      `24x7 Helpline: +91 96323 45415. Have a safe journey!`;
 
     window.open(`https://wa.me/${targetCustomerPhone}?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -70,7 +70,7 @@ export default function ModalBookingDetails({
   const handleDriverWhatsApp = () => {
     if (!booking.driverPhone) return;
     const text =
-      `*SRI SADHGURU TRAVELS - TRIP DISPATCH*\n\n` +
+      `*SKY CABS BANGALORE - TRIP DISPATCH*\n\n` +
       `*Trip ID:* ${booking.id}\n` +
       `*Passenger:* ${booking.customerName}\n` +
       `*Phone:* ${booking.customerPhone}\n` +

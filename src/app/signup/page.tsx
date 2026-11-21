@@ -17,7 +17,7 @@ export default function SignUpPage() {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState<"driver" | "customer">("driver");
-  const [vehicle, setVehicle] = useState("TS 08 UB 4512 (Innova Crysta)");
+  const [vehicle, setVehicle] = useState("KA 08 UB 4512 (Innova Crysta)");
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
 
@@ -87,7 +87,7 @@ export default function SignUpPage() {
             Register Chauffeur
           </h2>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">
-            Join the Sri Sadhguru Tours & Travels verified chauffeur roster
+            Join the Sky Cabs Bangalore verified chauffeur roster
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export default function SignUpPage() {
                 type="text"
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value)}
-                placeholder="e.g. TS 08 UB 4512 (Innova Crysta)"
+                placeholder="e.g. KA 08 UB 4512 (Innova Crysta)"
                 className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800/80 py-3 pl-10 pr-4 text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 font-medium"
               />
             </div>

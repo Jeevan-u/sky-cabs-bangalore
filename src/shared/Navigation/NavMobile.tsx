@@ -10,7 +10,7 @@ import ButtonPrimary from "@/shared/ButtonPrimary";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import SwitchDarkMode from "@/shared/SwitchDarkMode";
 import Link from "next/link";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { WhatsAppIcon, PhoneIcon, LockClosedIcon } from "@/components/icons";
 
 export interface NavMobileProps {
@@ -90,7 +90,7 @@ const NavMobile: React.FC<NavMobileProps> = ({
           <Logo />
           <div className="flex flex-col mt-4 text-neutral-600 dark:text-neutral-400 text-xs">
             <p className="leading-relaxed">
-              Travel Safe... Travel Happy... 5-Seater to 50-Seater Vehicles Available 24x7 across Hyderabad & Kamareddy.
+              Reliable Cabs Across Bengaluru 4+1 to 52-Seater Vehicles Available 24x7 across Bengaluru & Yelahanka.
             </p>
 
             <div className="flex items-center justify-between mt-4 pt-3 border-t border-neutral-100 dark:border-neutral-800">
@@ -112,14 +112,14 @@ const NavMobile: React.FC<NavMobileProps> = ({
       {/* Mobile CTAs with safe area padding */}
       <div className="p-5 space-y-3 pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)]">
         <a
-          href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+          href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
           className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary-6000 text-white font-bold text-xs shadow-md active:scale-98 transition-all touch-manipulation"
         >
           <PhoneIcon className="w-4 h-4 text-white" />
-          <span>Call 24x7: +91 {SADHGURU_CONTACT.primaryPhone}</span>
+          <span>Call 24x7: +91 {SKY_CABS_CONTACT.primaryPhone}</span>
         </a>
         <a
-          href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}`}
+          href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full min-h-[48px] flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md active:scale-98 transition-all touch-manipulation"

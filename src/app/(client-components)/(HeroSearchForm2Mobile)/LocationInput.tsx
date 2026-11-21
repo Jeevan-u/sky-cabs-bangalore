@@ -86,23 +86,23 @@ const LocationInput: FC<Props> = ({
             ? renderSearchValues({
                 heading: "Pickup Hubs & Metro Stops",
                 items: [
-                  "Kukatpally Housing Board (KPHB)",
-                  "Shamshabad RGI Airport (RGIA)",
-                  "Miyapur Metro Station & Allwyn Colony",
-                  "Hitec City / Madhapur IT Corridor",
+                  "Begur Housing Board (Whitefield)",
+                  "Devanahalli RGI Airport (BLR)",
+                  "Indiranagar Metro Station & Allwyn Colony",
+                  "Whitefield / Whitefield IT Corridor",
                   "Secunderabad Railway Station",
-                  "Medchal Junction & Kompally",
+                  "Yelahanka Junction & Kompally",
                 ],
               })
             : renderSearchValues({
-                heading: "Popular Pilgrimage & Outstation Routes",
+                heading: "Popular Outstation Routes from Bengaluru",
                 items: [
-                  "Srisailam Mallikarjuna Swamy Temple",
+                  "Mysuru Palace & Chamundi Hills",
                   "Tirupati Balaji Darshan",
-                  "Kamareddy Hub & Gandhari",
-                  "Yadagirigutta Sri Lakshmi Narasimha Swamy",
-                  "Shirdi Saibaba Temple",
-                  "Vijayawada Kanaka Durga Temple",
+                  "Coorg (Madikeri)",
+                  "Ooty Nilgiris",
+                  "Chennai City",
+                  "Mangaluru Coastal Route",
                 ],
               })}
         </div>

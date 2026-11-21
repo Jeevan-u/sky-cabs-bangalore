@@ -19,37 +19,37 @@ const STACK_CARDS: StackCardItem[] = [
   {
     id: "innova",
     image: "/images/fleet/innova-crysta.jpg",
-    title: "Toyota Innova Crysta (7+1 VIP)",
-    subtitle: "Dual Chilled AC · Hill Road Spec · Airport & Outstation",
+    title: "Toyota Innova Crysta (7+1)",
+    subtitle: "Spacious AC cabin · Airport & outstation travel",
     tag: "Most Popular",
   },
   {
-    id: "srisailam",
-    image: "/images/srisailam-dam.jpg",
-    title: "Srisailam Mallikarjuna Jyotirlinga",
-    subtitle: "213 KM · Nallamala Forest & Dam View · Hill-Trained Driver",
-    tag: "Pilgrimage Special",
+    id: "mysuru",
+    image: "/images/images1.jpg",
+    title: "Mysuru Palace & Chamundi Hills",
+    subtitle: "150 KM · Same-day return · Palace & gardens",
+    tag: "Weekend Special",
   },
   {
     id: "airport",
-    image: "/images/Airport-hyderabad.jpg",
-    title: "RGIA Shamshabad Airport Taxi",
-    subtitle: "Guaranteed Zero Surge · 24x7 Doorstep Pickup across Hyderabad",
-    tag: "Fixed Rates",
+    image: "/images/Airport-cabs.jpg",
+    title: "Kempegowda International Airport (BLR) Taxi",
+    subtitle: "24x7 doorstep pickups across Bengaluru",
+    tag: "Airport Transfers",
   },
   {
     id: "tempo",
-    image: "/images/fleet/tempo-traveller-17.jpg",
-    title: "Force Urbania & Tempo Traveller",
-    subtitle: "12 to 26 Push-Back Seats · Wedding & Corporate Convoys",
+    image: "/images/fleet/tempo-traveller.jpg",
+    title: "Tempo Traveller & Force Urbania",
+    subtitle: "9+1 to 16+1 seating · Weddings & group tours",
     tag: "Group Travel",
   },
   {
     id: "tirupati",
     image: "/images/Tirupati.jpg",
-    title: "Tirupati Balaji 2-Day Package",
-    subtitle: "Lord Venkateswara Darshan · Verified Highway Chauffeurs",
-    tag: "Devotional Tour",
+    title: "Tirupati Balaji Outstation Trip",
+    subtitle: "Lord Venkateswara Darshan · 2-day packages",
+    tag: "Outstation",
   },
 ];
 
@@ -125,7 +125,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
               className="absolute top-2 left-1 sm:left-3 z-20 w-[54%] sm:w-[50%] aspect-[16/10]"
             >
               <TiltedCard
-                captionText="Doorstep Pickups · Kukatpally & Hyderabad"
+                captionText="Doorstep Pickups · Begur & Bengaluru"
                 containerHeight="100%"
                 containerWidth="100%"
                 rotateAmplitude={12}
@@ -135,7 +135,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
                 <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 dark:border-neutral-700/80 bg-neutral-900 relative group">
                   <Image
                     src="/images/fleet/innova-crysta.jpg"
-                    alt="Sri Sadhguru Innova Crysta Cab"
+                    alt="Sky Cabs Bangalore Toyota Innova Crysta Cab"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 768px) 50vw, 300px"
@@ -147,14 +147,14 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
                       VIP Fleet
                     </span>
                     <h5 className="text-xs sm:text-sm font-black drop-shadow">
-                      Innova Crysta (7+1)
+                      Toyota Innova Crysta (7+1)
                     </h5>
                   </div>
                 </div>
               </TiltedCard>
             </Float>
 
-            {/* CARD 2: BOTTOM-LEFT RESORT / PILGRIMAGE PHOTO (Srisailam Dam Ghat Road) */}
+            {/* CARD 2: BOTTOM-LEFT RESORT / PILGRIMAGE PHOTO (Mysuru Dam Ghat Road) */}
             <Float
               duration={5.6}
               offset={-12}
@@ -171,8 +171,8 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
               >
                 <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/80 dark:border-neutral-700/80 bg-neutral-900 relative group">
                   <Image
-                    src="/images/srisailam-dam.jpg"
-                    alt="Srisailam Tour Package"
+                    src="/images/images1.jpg"
+                    alt="Mysuru Tour Package"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 768px) 50vw, 280px"
@@ -183,7 +183,7 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
                       Pilgrimage Special
                     </span>
                     <h5 className="text-xs sm:text-sm font-black drop-shadow">
-                      Srisailam Jyotirlinga
+                      Mysuru Jyotirlinga
                     </h5>
                   </div>
                 </div>
@@ -208,8 +208,8 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
                 <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 border-white/90 dark:border-neutral-700/90 bg-neutral-900 relative group">
                   <BorderBeam size={220} duration={8} colorFrom="#f59e0b" colorTo="#0284c7" borderWidth={1.5} />
                   <Image
-                    src="/images/Airport-hyderabad.jpg"
-                    alt="Shamshabad Airport Taxi"
+                    src="/images/Airport-cabs.jpg"
+                    alt="Kempegowda International Airport (BLR) Taxi"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                     sizes="(max-width: 768px) 45vw, 260px"
@@ -217,10 +217,10 @@ export const AnimatedHeroGallery: React.FC<{ className?: string }> = ({
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 text-white pointer-events-none">
                     <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-500 text-neutral-950 block w-fit mb-1 shadow">
-                      RGIA Airport
+                      Kempegowda International Airport (BLR)
                     </span>
                     <h5 className="text-xs sm:text-base font-black drop-shadow leading-tight">
-                      Shamshabad Taxi
+                      Kempegowda Taxi
                     </h5>
                     <p className="text-[10px] sm:text-xs text-neutral-300 font-medium mt-0.5">
                       Fixed Non-Surge Rates

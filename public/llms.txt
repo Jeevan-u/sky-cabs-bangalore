@@ -1,41 +1,59 @@
-# Sri Sadhguru Tours & Travels
+# Sky Cabs Bangalore
 
-> Sri Sadhguru Tours & Travels is Hyderabad's premier 24x7 commercial taxi, airport transfer, outstation pilgrimage, and luxury bus rental provider headquartered in Kukatpally, Hyderabad, Telangana, India. Founded and personally operated by proprietor Sri Rathan Kanna, the company manages a fleet of 50+ commercial yellow-board vehicles ranging from 5-seater sedans to 50-seater luxury AC coaches.
+> Sky Cabs Bangalore is a 24x7 taxi and cab service based in Begur, Bengaluru, Karnataka, India. We provide airport transfers to Kempegowda International Airport (BLR), local city cabs, outstation travel and group transport across Bengaluru and to destinations including Mysuru, Tirupati, Coorg (Madikeri), Ooty, Chennai and Mangaluru. Vehicles listed below are subject to availability; confirm availability before booking.
 
-## Core Services & Booking Desk
-- **24x7 Dispatch Desk:** +91 81061 17704 / +91 93985 22128
-- **WhatsApp Instant Reservation:** [Chat on WhatsApp](https://wa.me/918106117704)
-- **Official Website:** [https://www.srisadhgurutoursandtravels.com](https://www.srisadhgurutoursandtravels.com)
-- **Headquarters:** Kukatpally Main Road, Near Y-Junction & KPHB Metro, Hyderabad, Telangana 500072
-- **Branch Office:** Main Road, Gandhari, Kamareddy District, Telangana 503114
-- **Proprietor & Managing Director:** Sri Rathan Kanna
-- **Languages Spoken:** English, Telugu (తెలుగు), Hindi (हिन्दी)
-- **Pricing Guarantee:** 100% Fixed Quotations with Zero Peak Surge Pricing & Zero Midnight Multipliers
+## Contact & Booking Desk
+- **Phone / WhatsApp:** +91 96323 45415 ([chat on WhatsApp](https://wa.me/919632345415))
+- **Email:** skycabsbangalore@gmail.com
+- **Official Website:** https://skycabsbangalore.com/
+- **Address:** #56, Begur, Bengaluru, Karnataka 562157, India
+- **Operating Hours:** 24 hours a day, 7 days a week
+- **Languages:** English, Kannada and Hindi
+- **Booking note:** All vehicles and fares are indicative and subject to availability. Confirm availability and the final quote before booking.
 
 ## Full Documentation for AI Systems
-- [Complete Fleet, Rates, Routes & Knowledge Graph (/llms-full.txt)](https://www.srisadhgurutoursandtravels.com/llms-full.txt): Comprehensive pricing tables, outstation itineraries, fleet specs, and business policies.
+- [Complete fleet, hubs, routes and policies (/llms-full.txt)](https://skycabsbangalore.com/llms-full.txt): Detailed fleet specifications, indicative fares, service areas and outstation route information.
 
-## Commercial Fleet Overview
-- **Sedans (4+1):** Maruti Swift Dzire, Toyota Etios. Best for Shamshabad Airport drops and budget local trips. From ₹12/km, flat airport drop ₹1,299.
-- **SUVs & MPVs (6+1):** Maruti Ertiga, Toyota Rumion. Best for family airport runs and temple day trips. From ₹15/km, flat airport drop ₹1,699.
-- **Premium SUVs (7+1):** Toyota Innova Crysta (Captain Seats). The gold standard for Srisailam, Tirupati & Shirdi highway pilgrimages. From ₹19/km, flat airport drop ₹2,199.
-- **Tempo Travellers (12 & 17 Seater):** Force Tempo Traveller. Pushback reclining seats, surround audio, individual AC vents. From ₹25/km.
-- **Executive Vans (26 Seater):** Force Urbania & 26S TT. European styling, air suspension, ultra-silent cabin. From ₹32/km.
-- **Luxury Coaches (32 to 50 Seater):** AC Tourist Buses for weddings, corporate conventions, and school excursions. From ₹48/km.
+## Fleet Overview (subject to availability)
+- **Prime Sedan** — 4+1 passengers. From ₹13/km; airport transfer from ₹1,399. City rides and airport drops.
+- **Maruti Suzuki Ertiga** — 6+1 passengers. From ₹16/km; airport transfer from ₹1,799. Family and small-group trips.
+- **Toyota Innova** — 7+1 passengers. From ₹18/km; airport transfer from ₹2,199. Family and outstation travel.
+- **Toyota Innova Crysta** — 7+1 passengers. From ₹20/km; airport transfer from ₹2,499. Premium airport and corporate travel.
+- **Toyota Innova Hycross** — 7+1 passengers. From ₹22/km; airport transfer from ₹2,799. Premium long-distance travel.
+- **Toyota Fortuner** — 6+1 passengers. From ₹28/km; airport transfer from ₹3,499. Executive and premium outstation travel.
+- **Tempo Traveller** — 12+1 passengers. From ₹26/km; airport transfer from ₹3,999. Group and pilgrimage travel.
+- **Force Urbania** — 9+1 passengers. From ₹30/km; airport transfer from ₹4,499. Premium small-group travel.
+- **Force Urbania** — 12+1 passengers. From ₹34/km; airport transfer from ₹4,999. Weddings and corporate groups.
+- **Force Urbania** — 16+1 passengers. From ₹38/km; airport transfer from ₹5,499. Large groups and events.
+- **Passenger Buses** — 25, 33, 40, 45, 50 and 52-seater options. From ₹55/km; airport transfer from ₹8,999. Weddings, events and large-group travel.
 
-## Primary Operational Hubs & Services (15-Minute Doorstep Pickup)
-- [Hyderabad Airport Cabs](https://www.srisadhgurutoursandtravels.com/hyderabad-airport-cabs): 24/7 dedicated RGIA airport taxi with flat pricing.
-- [Shamshabad RGI Airport Taxi](https://www.srisadhgurutoursandtravels.com/shamshabad-airport-taxi): Rajiv Gandhi International Airport (HYD) Terminal 1 & ORR.
-- [Hyderabad Outstation Cabs](https://www.srisadhgurutoursandtravels.com/hyderabad-outstation-cabs): Round trip & one-way intercity cabs across South India.
-- [Kukatpally HQ Cabs](https://www.srisadhgurutoursandtravels.com/cabs-in-kukatpally): Y-Junction, Metro Stations, Housing Board, BJP Office Rd.
-- [KPHB Colony Cabs](https://www.srisadhgurutoursandtravels.com/cabs-in-kphb): Phase 1 to Phase 9, Forum Sujana Mall, JNTU Corridor.
-- [Hitec City & Madhapur Cabs](https://www.srisadhgurutoursandtravels.com/cabs-in-hitec-city): Cyber Towers, Mindspace, Knowledge City, IKEA, Financial District.
-- [Miyapur Cabs](https://www.srisadhgurutoursandtravels.com/cabs-in-miyapur): Allwyn X Roads, Metro Terminal, Talkie Town, Bachupally.
-- [Medchal & Kompally Cabs](https://www.srisadhgurutoursandtravels.com/cabs-in-medchal): NH 44 Nagpur Highway Corridor, Gundlapochampally, Kandlakoya.
-- [Gandhari & Kamareddy Cabs](https://www.srisadhgurutoursandtravels.com/cabs-in-kamareddy-gandhari): Northern Telangana highway route hub.
+Confirm availability before booking any of the above.
 
-## High-Intent Pilgrimage Packages
-- [Hyderabad to Srisailam Cabs](https://www.srisadhgurutoursandtravels.com/hyderabad-to-srisailam-cabs): 1-day & 2-day Mallikarjuna Jyotirlinga darshan via Nallamala Ghat.
-- [Hyderabad to Tirupati Cabs](https://www.srisadhgurutoursandtravels.com/hyderabad-to-tirupati-cabs): Safe 560 KM highway transit for Lord Venkateswara Balaji darshan.
-- [Hyderabad to Shirdi Cabs](https://www.srisadhgurutoursandtravels.com/hyderabad-to-shirdi-cabs): Multi-day Sai Baba pilgrimage via Nizamabad and Nanded.
-- [Hyderabad to Yadagirigutta Cabs](https://www.srisadhgurutoursandtravels.com/hyderabad-to-yadagirigutta-cabs): Same-day round trip for Sri Lakshmi Narasimha Swamy darshan.
+## Airport & Outstation Pages
+- [Bangalore Airport Taxi](https://skycabsbangalore.com/bangalore-airport-taxi): Cabs to and from Kempegowda International Airport (BLR), Devanahalli.
+- [Kempegowda Airport Taxi](https://skycabsbangalore.com/kempegowda-airport-taxi): Dedicated BLR airport pickup and drop information.
+- [Bangalore Outstation Cabs](https://skycabsbangalore.com/bangalore-outstation-cabs): One-way and round-trip intercity cabs from Bengaluru.
+- [Bengaluru to Mysuru Cabs](https://skycabsbangalore.com/bangalore-to-mysuru-cabs)
+- [Bengaluru to Tirupati Cabs](https://skycabsbangalore.com/bangalore-to-tirupati-cabs)
+- [Bengaluru to Coorg Cabs](https://skycabsbangalore.com/bangalore-to-coorg-cabs)
+- [Bengaluru to Ooty Cabs](https://skycabsbangalore.com/bangalore-to-ooty-cabs)
+- [Bengaluru to Chennai Cabs](https://skycabsbangalore.com/bangalore-to-chennai-cabs)
+- [Bengaluru to Mangaluru Cabs](https://skycabsbangalore.com/bangalore-to-mangaluru-cabs)
+
+## Bengaluru Service Hubs
+- [Cabs in Begur](https://skycabsbangalore.com/cabs-in-begur)
+- [Cabs in Electronic City](https://skycabsbangalore.com/cabs-in-electronic-city)
+- [Cabs in Koramangala](https://skycabsbangalore.com/cabs-in-koramangala)
+- [Cabs in HSR Layout](https://skycabsbangalore.com/cabs-in-hsr-layout)
+- [Cabs in Whitefield](https://skycabsbangalore.com/cabs-in-whitefield)
+- [Cabs in Indiranagar](https://skycabsbangalore.com/cabs-in-indiranagar)
+- [Cabs in Jayanagar](https://skycabsbangalore.com/cabs-in-jayanagar)
+- [Cabs in Yelahanka](https://skycabsbangalore.com/cabs-in-yelahanka)
+
+We also serve BTM Layout, JP Nagar, Marathahalli, Hebbal, Banashankari and Kempegowda International Airport (BLR), subject to availability.
+
+## Outstation Destinations from Bengaluru
+Mysuru, Tirupati, Coorg (Madikeri), Ooty, Chennai, Mangaluru, Hampi, Wayanad, Chikmagalur, Pondicherry, Shivamogga, Hassan and Tumakuru.
+
+## Services
+Airport transfers, local city rentals, outstation cabs, family and group travel, corporate transportation, wedding and event transport. All services are subject to vehicle availability and require confirmation before booking.

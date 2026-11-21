@@ -16,8 +16,8 @@ export default function ModalAddDriver({
 }: ModalAddDriverProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [assignedVehicle, setAssignedVehicle] = useState("TS 08 UB 4512 (Innova Crysta)");
-  const [password, setPassword] = useState("sadhguru123");
+  const [assignedVehicle, setAssignedVehicle] = useState("KA 08 UB 4512 (Innova Crysta)");
+  const [password, setPassword] = useState("skycabs123");
   const [loading, setLoading] = useState(false);
 
   if (!isOpen) return null;
@@ -112,7 +112,7 @@ export default function ModalAddDriver({
               type="text"
               value={assignedVehicle}
               onChange={(e) => setAssignedVehicle(e.target.value)}
-              placeholder="e.g. TS 08 UB 4512 (Innova Crysta)"
+              placeholder="e.g. KA 08 UB 4512 (Innova Crysta)"
               className="w-full px-3.5 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white outline-none focus:border-primary-500"
             />
           </div>

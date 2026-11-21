@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET } from "@/data/skyCabsFleet";
 import { RateCardItem } from "../types";
 
 interface ModalNewBookingProps {
@@ -22,8 +22,8 @@ export default function ModalNewBooking({
   const [customerPhone, setCustomerPhone] = useState("");
   const [tripType, setTripType] = useState<string>("airport");
   const [vehicleId, setVehicleId] = useState<string>("innova-crysta");
-  const [pickupLocation, setPickupLocation] = useState("Kukatpally, Hyderabad");
-  const [dropLocation, setDropLocation] = useState("Shamshabad RGI Airport");
+  const [pickupLocation, setPickupLocation] = useState("Begur, Bengaluru");
+  const [dropLocation, setDropLocation] = useState("Devanahalli RGI Airport");
   const [pickupDateTime, setPickupDateTime] = useState(
     new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString().slice(0, 16)
   );
@@ -33,7 +33,7 @@ export default function ModalNewBooking({
 
   if (!isOpen) return null;
 
-  const selectedVehicle = SADHGURU_FLEET.find((f) => f.id === vehicleId) || SADHGURU_FLEET[2];
+  const selectedVehicle = SKY_CABS_FLEET.find((f) => f.id === vehicleId) || SKY_CABS_FLEET[2];
 
   const computedPrice =
     tripType === "airport"
@@ -143,7 +143,7 @@ export default function ModalNewBooking({
                 onChange={(e) => setTripType(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white outline-none font-medium"
               >
-                <option value="airport">Airport Transfer (Shamshabad)</option>
+                <option value="airport">Airport Transfer (Devanahalli)</option>
                 <option value="outstation">Outstation Round-Trip</option>
                 <option value="local">Local City (8hr / 80km)</option>
                 <option value="pilgrimage">Temple Pilgrimage</option>
@@ -158,7 +158,7 @@ export default function ModalNewBooking({
                 onChange={(e) => setVehicleId(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white outline-none font-medium"
               >
-                {SADHGURU_FLEET.map((f) => (
+                {SKY_CABS_FLEET.map((f) => (
                   <option key={f.id} value={f.id}>
                     {f.name} ({f.capacity})
                   </option>

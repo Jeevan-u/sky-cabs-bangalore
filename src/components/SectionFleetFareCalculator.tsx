@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import ButtonPrimary from "@/shared/ButtonPrimary";
-import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   AirplaneIcon,
   ClockIcon,
@@ -35,14 +35,14 @@ interface FareCalculationResult {
 export default function SectionFleetFareCalculator() {
   const router = useRouter();
   const [tripType, setTripType] = useState<"airport" | "local" | "outstation">("airport");
-  const [selectedVehicleId, setSelectedVehicleId] = useState<string>("dzire-etios");
+  const [selectedVehicleId, setSelectedVehicleId] = useState<string>("prime-sedan");
   const [airportTrip, setAirportTrip] = useState<"drop" | "pickup" | "round">("drop");
-  const [airportHub, setAirportHub] = useState<string>("Kukatpally / KPHB");
+  const [airportHub, setAirportHub] = useState<string>("Begur / Electronic City");
   const [outstationKm, setOutstationKm] = useState<number>(300);
   const [outstationDays, setOutstationDays] = useState<number>(1);
   const [localHours, setLocalHours] = useState<number>(8);
 
-  const selectedVehicle = SADHGURU_FLEET.find((v) => v.id === selectedVehicleId) || SADHGURU_FLEET[0];
+  const selectedVehicle = SKY_CABS_FLEET.find((v) => v.id === selectedVehicleId) || SKY_CABS_FLEET[0];
 
   const calculateFare = (): FareCalculationResult => {
     let total = 0;
@@ -52,10 +52,10 @@ export default function SectionFleetFareCalculator() {
       let base = selectedVehicle.airportFlatRate;
       if (airportTrip === "round") {
         total = base * 1.85; // discount for roundtrip
-        breakdown = `${selectedVehicle.name} · Roundtrip between ${airportHub} & Shamshabad Airport (Toll Fastag & Parking extra as actual)`;
+        breakdown = `${selectedVehicle.name} · Roundtrip between ${airportHub} & Kempegowda International Airport (BLR) (Toll Fastag & Parking extra as actual)`;
       } else {
         total = base;
-        breakdown = `${selectedVehicle.name} · 1-Way ${airportTrip === "drop" ? "Drop to" : "Pickup from"} Shamshabad Airport (${airportHub})`;
+        breakdown = `${selectedVehicle.name} · 1-Way ${airportTrip === "drop" ? "Drop to" : "Pickup from"} Kempegowda International Airport (BLR) (${airportHub})`;
       }
     } else if (tripType === "local") {
       total = selectedVehicle.local8hr80km;
@@ -63,7 +63,7 @@ export default function SectionFleetFareCalculator() {
         const extraHours = localHours - 8;
         total += extraHours * (selectedVehicle.perKmRate * 12);
       }
-      breakdown = `${selectedVehicle.name} · Local Hyderabad Rental (${localHours} Hours / up to 80 KMs base). Fuel included.`;
+      breakdown = `${selectedVehicle.name} · Local Bengaluru Rental (${localHours} Hours / up to 80 KMs base). Fuel included.`;
     } else {
       // Outstation
       const minKmPerDay = 300;
@@ -88,22 +88,22 @@ export default function SectionFleetFareCalculator() {
 
   const handleWhatsAppBooking = () => {
     const text = encodeURIComponent(
-      `Hello Sri Sadhguru Travels,\nI would like to book a cab with the following details:\n\n` +
+      `Hello Sky Cabs Bangalore,\nI would like to book a cab with the following details:\n\n` +
         `• Vehicle: ${result.vehicleName}\n` +
         `• Trip Type: ${result.tripType}\n` +
-        `• Route/Hub: ${tripType === "airport" ? airportHub + " <-> Shamshabad Airport" : tripType === "local" ? "Hyderabad Local City" : `Outstation (${outstationKm} KM, ${outstationDays} Days)`}\n` +
+        `• Route/Hub: ${tripType === "airport" ? airportHub + " <-> Kempegowda International Airport (BLR)" : tripType === "local" ? "Bengaluru Local City" : `Outstation (${outstationKm} KM, ${outstationDays} Days)`}\n` +
         `• Estimated Fare: ₹${result.estimatedTotal.toLocaleString("en-IN")}\n` +
         `• Details: ${result.breakdown}\n\n` +
         `Please confirm driver availability and final quotation.`
     );
-    window.open(`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${text}`, "_blank");
+    window.open(`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${text}`, "_blank");
   };
 
   const handleOnlineBooking = () => {
-    const pickup = tripType === "airport" ? `${airportHub}, Hyderabad` : "Kukatpally (HQ), Hyderabad";
+    const pickup = tripType === "airport" ? `${airportHub}, Bengaluru` : "Begur (HQ), Bengaluru";
     const drop =
       tripType === "airport"
-        ? "Shamshabad Airport (RGIA)"
+        ? "Kempegowda International Airport (BLR)"
         : tripType === "local"
         ? "Local City (8h / 80km)"
         : `Outstation Tour (${outstationKm} KM)`;
@@ -126,7 +126,7 @@ export default function SectionFleetFareCalculator() {
           Transparent Cab Fare & Tour Calculator
         </h2>
         <p className="text-sm lg:text-base text-neutral-600 dark:text-neutral-300 mt-2">
-          Calculate instant estimated pricing with zero hidden charges for Airport transfers, Hyderabad city local packages, and outstation pilgrimages.
+          Calculate instant estimated pricing with zero hidden charges for Airport transfers, Bengaluru city local packages, and outstation pilgrimages.
         </p>
       </div>
 
@@ -169,7 +169,7 @@ export default function SectionFleetFareCalculator() {
               Step 2: Select Vehicle Type
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-              {SADHGURU_FLEET.map((v) => (
+              {SKY_CABS_FLEET.map((v) => (
                 <button
                   key={v.id}
                   type="button"
@@ -216,12 +216,12 @@ export default function SectionFleetFareCalculator() {
                   onChange={(e) => setAirportHub(e.target.value)}
                   className="w-full text-xs sm:text-sm rounded-xl border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 py-2 px-3"
                 >
-                  <option value="Kukatpally / KPHB">Kukatpally / KPHB Colony</option>
-                  <option value="Miyapur / Chandanagar">Miyapur / Chandanagar</option>
-                  <option value="Hitec City / Madhapur">Hitec City / Madhapur / Gachibowli</option>
-                  <option value="Medchal / Kompally">Medchal / Kompally</option>
-                  <option value="Secunderabad / Begumpet">Secunderabad / Begumpet</option>
-                  <option value="Gandhari / Kamareddy">Gandhari / Kamareddy</option>
+                  <option value="Begur / Electronic City">Begur / Electronic City</option>
+                  <option value="Koramangala / Chandanagar">Koramangala / Chandanagar</option>
+                  <option value="Whitefield / Marathahalli">Whitefield / Marathahalli / Outer Ring Road</option>
+                  <option value="Hebbal / Yelahanka">Hebbal / Yelahanka</option>
+                  <option value="Majestic / Begumpet">Majestic / Begumpet</option>
+                  <option value="Jayanagar / Yelahanka">Jayanagar / Yelahanka</option>
                 </select>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function SectionFleetFareCalculator() {
                     }}
                     className="text-[11px] px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200"
                   >
-                    Srisailam (440 km)
+                    Mysuru (440 km)
                   </button>
                   <button
                     type="button"
@@ -297,7 +297,7 @@ export default function SectionFleetFareCalculator() {
                     }}
                     className="text-[11px] px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200"
                   >
-                    Shirdi (1240 km)
+                    Coorg (1240 km)
                   </button>
                   <button
                     type="button"
@@ -307,7 +307,7 @@ export default function SectionFleetFareCalculator() {
                     }}
                     className="text-[11px] px-2.5 py-1 rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200"
                   >
-                    Vijayawada (550 km)
+                    Chennai (550 km)
                   </button>
                 </div>
               </div>
@@ -405,11 +405,11 @@ export default function SectionFleetFareCalculator() {
             </MagneticButton>
 
             <a
-              href={`tel:+91${SADHGURU_CONTACT.primaryPhone}`}
+              href={`tel:+91${SKY_CABS_CONTACT.primaryPhone}`}
               className="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-xl border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-semibold text-xs transition-all text-center"
             >
               <PhoneIcon className="w-4 h-4 text-neutral-500" />
-              <span>Call Proprietor: +91 {SADHGURU_CONTACT.primaryPhone}</span>
+              <span>Call +91 {SKY_CABS_CONTACT.primaryPhone}</span>
             </a>
           </div>
 

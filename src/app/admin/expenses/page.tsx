@@ -2,7 +2,7 @@ import AdminDashboardPage from "../page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fleet Operations Expenses Ledger | Sri Sadhguru Travels",
+  title: "Fleet Operations Expenses Ledger | Sky Cabs Bangalore",
   description:
     "Track fuel bills, FASTag toll charges, garage maintenance, chauffeur batta, and state permits.",
 };

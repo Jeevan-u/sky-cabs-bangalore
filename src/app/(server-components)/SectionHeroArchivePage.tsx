@@ -34,21 +34,21 @@ const SectionHeroArchivePage: FC<SectionHeroArchivePageProps> = ({
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 text-amber-700 dark:text-amber-400 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
             <SparklesIcon className="w-3.5 h-3.5 text-amber-500" />
-            <span>24x7 Cab & Bus Booking · Hyderabad</span>
+            <span>24x7 Cab & Bus Booking · Bengaluru</span>
           </div>
           <h1 className="font-bold text-4xl md:text-5xl xl:text-6xl leading-[110%] text-neutral-900 dark:text-neutral-100">
             Our Commercial Fleet & Tours
           </h1>
           <div className="flex items-center text-base md:text-lg text-neutral-500 dark:text-neutral-400">
             <i className="text-2xl las la-map-marked"></i>
-            <span className="ml-2.5">Hyderabad, Telangana & Andhra Pradesh</span>
+            <span className="ml-2.5">Bengaluru, Bengaluru & Karnataka</span>
             <span className="mx-3">·</span>
             {listingType ? (
               listingType
             ) : (
               <>
                 <i className="text-2xl las la-car"></i>
-                <span className="ml-2.5">50+ Commercial Vehicles</span>
+                <span className="ml-2.5">Vehicles for Every Group Size</span>
               </>
             )}
           </div>
@@ -63,7 +63,7 @@ const SectionHeroArchivePage: FC<SectionHeroArchivePageProps> = ({
                 <ArrowRightIcon className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://wa.me/918106117704?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20inquire%20about%20fleet%20availability%20and%20rates."
+                href="https://wa.me/919632345415?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20inquire%20about%20fleet%20availability%20and%20rates."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition inline-flex items-center gap-2"

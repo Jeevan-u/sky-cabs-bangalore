@@ -40,7 +40,7 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
       const seats = Number(item.seats) || 5;
       const titleLower = item.title.toLowerCase();
       if (selectedCategory === "sedan") {
-        return seats <= 5 || titleLower.includes("dzire") || titleLower.includes("etios");
+        return seats <= 5 || titleLower.includes("sedan");
       }
       if (selectedCategory === "suv") {
         return (seats >= 6 && seats <= 8) || titleLower.includes("ertiga") || titleLower.includes("innova");
@@ -81,10 +81,10 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
 
       <div id="fleet-catalog-heading" className="scroll-mt-24 pt-4">
         <Heading2
-          heading="Sri Sadhguru Commercial Fleet (5 to 50 Seater)"
+          heading="Sky Cabs Bangalore Commercial Fleet (5 to 50 Seater)"
           subHeading={
             <span className="block text-neutral-500 dark:text-neutral-400 mt-2 text-sm sm:text-base font-medium">
-              50+ Verified Commercial Vehicles across Telangana & AP · Showing{" "}
+              50+ Verified Commercial Vehicles across Karnataka & AP · Showing{" "}
               <span className="font-bold text-neutral-900 dark:text-white">
                 {startIndex + 1}–{Math.min(startIndex + ITEMS_PER_PAGE, filteredVehicles.length)}
               </span>{" "}
@@ -145,12 +145,12 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
           Planning a Group Pilgrimage, Corporate Outing, or Wedding Convoy?
         </h3>
         <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto leading-relaxed">
-          From Swift Dzire sedans to 50-seater air-suspension luxury coaches, Sri Sadhguru Travels guarantees transparent per-km rates, verified chauffeurs, and 100% on-time dispatch.
+          From Prime Sedan sedans to 50-seater air-suspension luxury coaches, Sky Cabs Bangalore guarantees transparent per-km rates, verified chauffeurs, and 100% on-time dispatch.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <MagneticButton pullFactor={0.25}>
             <a
-              href="https://wa.me/918106117704?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20inquire%20about%20group%20booking%20and%20fleet%20rates."
+              href="https://wa.me/919632345415?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20inquire%20about%20group%20booking%20and%20fleet%20rates."
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md transition inline-flex items-center gap-2"
@@ -161,11 +161,11 @@ const SectionGridFilterCard: FC<SectionGridFilterCardProps> = ({
           </MagneticButton>
           <MagneticButton pullFactor={0.25}>
             <a
-              href="tel:+918106117704"
+              href="tel:+919632345415"
               className="px-6 py-3 rounded-full bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 text-neutral-800 dark:text-neutral-200 font-bold text-xs sm:text-sm transition inline-flex items-center gap-2"
             >
               <PhoneIcon className="w-4 h-4 text-primary-6000" />
-              <span>Call +91 81061 17704</span>
+              <span>Call +91 96323 45415</span>
             </a>
           </MagneticButton>
         </div>

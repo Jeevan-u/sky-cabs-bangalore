@@ -113,7 +113,7 @@ export default function DutySlipsView({
     const targetPhone = cleanPhone.startsWith("91") ? cleanPhone : `91${cleanPhone}`;
 
     const text =
-      `*SRI SADHGURU TOURS & TRAVELS - TRIP INVOICE*\n\n` +
+      `*SKY CABS BANGALORE - TRIP INVOICE*\n\n` +
       `*Invoice No:* ${slip.id}\n` +
       `*Customer:* ${slip.customer_name}\n` +
       `*Chauffeur:* ${slip.driver_name} (${slip.vehicle_number})\n` +
@@ -121,8 +121,8 @@ export default function DutySlipsView({
       `*Total KMs:* ${slip.total_km} KM (${slip.start_km} to ${slip.end_km})\n` +
       `*Toll / Parking:* ₹${slip.toll_parking}\n` +
       `*Total Final Bill:* ₹${slip.total_amount}\n\n` +
-      `Thank you for traveling with Sri Sadhguru Travels! Please rate our service:\n` +
-      `https://www.srisadhgurutoursandtravels.com/review?name=${encodeURIComponent(
+      `Thank you for traveling with Sky Cabs Bangalore! Please rate our service:\n` +
+      `https://skycabsbangalore.com/review?name=${encodeURIComponent(
         slip.customer_name
       )}&driver=${encodeURIComponent(slip.driver_name)}`;
 

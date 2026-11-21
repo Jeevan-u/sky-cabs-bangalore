@@ -15,7 +15,7 @@ import {
 import { CheckIcon, WhatsAppIcon } from "@/components/icons";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   SpotlightCard,
   StarBorder,
@@ -34,8 +34,8 @@ const PayPage: FC = () => {
   const customerName = searchParams?.get("customerName") || "Valued Customer";
   const customerPhone = searchParams?.get("customerPhone") || "";
   const vehicle = searchParams?.get("vehicle") || "Toyota Innova Crysta";
-  const pickup = searchParams?.get("pickup") || "Kukatpally, Hyderabad";
-  const drop = searchParams?.get("drop") || "Shamshabad Airport (RGIA)";
+  const pickup = searchParams?.get("pickup") || "Begur, Bengaluru";
+  const drop = searchParams?.get("drop") || "Kempegowda International Airport (BLR)";
   const date = searchParams?.get("date") || "Scheduled as requested";
   const price = searchParams?.get("price") || "1,999";
   const payment = searchParams?.get("payment") === "advance_token" ? "Advance Token" : "Pay to Chauffeur at End";
@@ -51,7 +51,7 @@ const PayPage: FC = () => {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Sri Sadhguru Travels, I just confirmed booking *${bookingId}* for ${vehicle}.\nRoute: ${pickup} -> ${drop}\nPassenger: ${customerName} (${customerPhone})\nScheduled: ${date}\nEstimated Fare: ₹${price}. Please share chauffeur details.`
+    `Hi Sky Cabs Bangalore, I just confirmed booking *${bookingId}* for ${vehicle}.\nRoute: ${pickup} -> ${drop}\nPassenger: ${customerName} (${customerPhone})\nScheduled: ${date}\nEstimated Fare: ₹${price}. Please share chauffeur details.`
   );
 
   return (
@@ -69,7 +69,7 @@ const PayPage: FC = () => {
             Booking Confirmed!
           </h1>
           <p className="text-neutral-600 dark:text-neutral-300 text-sm sm:text-base max-w-lg mx-auto font-medium">
-            Thank you, <span className="font-bold text-neutral-900 dark:text-white">{customerName}</span>. Your vehicle reservation with Sri Sadhguru Tours & Travels is confirmed.
+            Thank you, <span className="font-bold text-neutral-900 dark:text-white">{customerName}</span>. Your vehicle reservation with Sky Cabs Bangalore is confirmed.
           </p>
 
           {/* Booking Reference Pill */}
@@ -199,7 +199,7 @@ const PayPage: FC = () => {
             {/* WhatsApp Confirmation */}
             <MagneticButton distance={0.2} className="w-full">
               <a
-                href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${whatsappMessage}`}
+                href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/25 active:scale-95 transition-all"
@@ -220,11 +220,11 @@ const PayPage: FC = () => {
             </button>
 
             <a
-              href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+              href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
               className="flex items-center gap-1.5 text-xs font-bold text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
             >
               <PhoneIcon className="w-4 h-4" />
-              <span>24x7 Help: +91 {SADHGURU_CONTACT.primaryPhone}</span>
+              <span>24x7 Help: +91 {SKY_CABS_CONTACT.primaryPhone}</span>
             </a>
 
             <Link

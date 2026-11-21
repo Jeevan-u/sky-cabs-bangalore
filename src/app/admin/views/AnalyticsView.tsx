@@ -12,7 +12,7 @@ import {
   SparklesIcon,
 } from "@heroicons/react/24/outline";
 import { DutySlipItem, RateCardItem, ExpenseItem, BookingItem, DriverUserItem, AdminTabType } from "../types";
-import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET } from "@/data/skyCabsFleet";
 import { SpotlightCard, AnimatedCounter } from "@/components/reactbits";
 import { PlusIcon } from "@heroicons/react/24/outline";
 
@@ -129,11 +129,11 @@ export default function AnalyticsView({
   // Vehicle Profitability Matrix (Revenue vs Incurred Expenses)
   const vehicleMatrix = useMemo(() => {
     const list = [
-      { number: "TS 09 UB 4455", name: "Swift Dzire", category: "Sedan" },
-      { number: "TS 08 EX 9090", name: "Toyota Innova Crysta", category: "Premium SUV" },
-      { number: "TS 07 TT 1717", name: "Force Tempo Traveller", category: "Tempo Traveller" },
-      { number: "TS 09 ER 6677", name: "Maruti Ertiga", category: "SUV" },
-      { number: "TS 08 LB 5050", name: "Luxury Coach (50 Seater)", category: "Luxury Coach" },
+      { number: "KA 09 UB 4455", name: "Prime Sedan", category: "Sedan" },
+      { number: "KA 08 EX 9090", name: "Toyota Innova Crysta", category: "Premium SUV" },
+      { number: "KA 07 TT 1717", name: "Tempo Traveller (12+1 Seater)", category: "Tempo Traveller" },
+      { number: "KA 09 ER 6677", name: "Maruti Ertiga", category: "SUV" },
+      { number: "KA 08 LB 5050", name: "Passenger Buses", category: "Luxury Coach" },
     ];
 
     return list.map((v, i) => {
@@ -160,7 +160,7 @@ export default function AnalyticsView({
 
   const exportFinancialReport = () => {
     const reportData = [
-      ["SRI SADHGURU TOURS & TRAVELS - P&L FINANCIAL STATEMENT"],
+      ["SKY CABS BANGALORE - P&L FINANCIAL STATEMENT"],
       [`Generated At: ${new Date().toLocaleString("en-IN")}`],
       [`Timeframe: ${timeframe.toUpperCase()}`],
       [""],
@@ -545,7 +545,7 @@ export default function AnalyticsView({
           </div>
 
           <p className="text-[11px] text-neutral-400 mt-6 pt-4 border-t border-emerald-500/20 font-medium">
-            100% of customer trip payments are deposited directly to Sri Sadhguru Tours & Travels UPI and bank accounts.
+            100% of customer trip payments are deposited directly to Sky Cabs Bangalore UPI and bank accounts.
           </p>
         </div>
       </div>

@@ -14,7 +14,7 @@ import {
   SparklesIcon,
   ExclamationTriangleIcon,
 } from "@/components/icons";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { Confetti } from "@/components/reactbits";
 
 export default function TripSheetPage() {
@@ -24,11 +24,11 @@ export default function TripSheetPage() {
   const [customer, setCustomer] = useState("M. Ranga Rao");
   const [bookingId, setBookingId] = useState(paramBookingId || "BK-1001");
   const [phone, setPhone] = useState("9849012345");
-  const [vehicle, setVehicle] = useState("TS 08 UB 4512 (Innova Crysta)");
+  const [vehicle, setVehicle] = useState("KA 08 UB 4512 (Innova Crysta)");
   const [driver, setDriver] = useState("K. Shiva Kumar");
   const [startTime, setStartTime] = useState("");
-  const [pickup, setPickup] = useState("Kukatpally, Hyderabad");
-  const [drop, setDrop] = useState("Shamshabad RGI Airport");
+  const [pickup, setPickup] = useState("Begur, Bengaluru");
+  const [drop, setDrop] = useState("Devanahalli RGI Airport");
 
   const [endTime, setEndTime] = useState("");
   const [duration, setDuration] = useState("");
@@ -197,7 +197,7 @@ export default function TripSheetPage() {
         customer_name: customer,
         customer_phone: phone,
         driver_name: driver,
-        vehicle_number: vehicle.includes("(") ? vehicle.split("(")[0].trim() : "TS 08 UB 4512",
+        vehicle_number: vehicle.includes("(") ? vehicle.split("(")[0].trim() : "KA 08 UB 4512",
         vehicle_model: vehicle,
         trip_route: `${pickup} -> ${drop}`,
         start_km: Number(startKm) || 0,
@@ -242,7 +242,7 @@ export default function TripSheetPage() {
 
   const reviewUrl = `/review/${bookingId || "SSG-105"}?name=${encodeURIComponent(customer)}&driver=${encodeURIComponent(driver)}&vehicle=${encodeURIComponent(vehicle)}&pickup=${encodeURIComponent(pickup)}&drop=${encodeURIComponent(drop)}&phone=${encodeURIComponent(phone)}`;
 
-  const whatsappReviewMessage = `Namaste ${customer || "Sir/Madam"}!%0A%0AThank you for traveling with *Sri Sadhguru Tours and Travels* from *${pickup}* to *${drop}*.%0A%0AWe hope your journey with driver *${driver}* was safe and comfortable.%0A%0A*Please take 15 seconds to rate your trip and share your feedback here:*%0A${typeof window !== "undefined" ? window.location.origin : ""}${reviewUrl}%0A%0AYour support helps us serve you better!%0A- *Rathan Kanna*, Sri Sadhguru Travels`;
+  const whatsappReviewMessage = `Namaste ${customer || "Sir/Madam"}!%0A%0AThank you for traveling with *Sky Cabs Bangalore* from *${pickup}* to *${drop}*.%0A%0AWe hope your journey with driver *${driver}* was safe and comfortable.%0A%0A*Please take 15 seconds to rate your trip and share your feedback here:*%0A${typeof window !== "undefined" ? window.location.origin : ""}${reviewUrl}%0A%0AYour support helps us serve you better!%0A- *Sky Cabs Bangalore*, Sky Cabs Bangalore`;
 
   return (
     <div className="min-h-screen bg-neutral-100 dark:bg-neutral-950 py-8 px-3 sm:px-6 print:p-0 print:bg-white text-neutral-900 dark:text-neutral-100 font-sans">
@@ -260,12 +260,12 @@ export default function TripSheetPage() {
                   Verified Duty
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-black tracking-tight">{SADHGURU_CONTACT.fullName}</h1>
+              <h1 className="text-2xl sm:text-3xl font-black tracking-tight">{SKY_CABS_CONTACT.fullName}</h1>
               <p className="text-neutral-300 text-xs mt-1">
-                Prop: <span className="font-bold text-white">{SADHGURU_CONTACT.proprietor}</span> · Kukatpally (HQ) & Gandhari Hub
+                <span className="font-bold text-white">Begur, Bengaluru</span> · Doorstep pickup & dispatch
               </p>
               <p className="text-amber-400 text-xs font-semibold mt-0.5">
-                Dispatch Phone: {SADHGURU_CONTACT.primaryPhoneFormatted} | {SADHGURU_CONTACT.secondaryPhoneFormatted}
+                Dispatch Phone: {SKY_CABS_CONTACT.primaryPhoneFormatted} | {SKY_CABS_CONTACT.secondaryPhoneFormatted}
               </p>
             </div>
             <div className="bg-white/10 backdrop-blur rounded-2xl p-3 border border-white/10 text-center sm:text-right shrink-0">
@@ -552,7 +552,7 @@ export default function TripSheetPage() {
                   Duty Slip {savedSlipId || "Finalized"} Successfully Saved!
                 </h3>
                 <p className="text-xs text-emerald-800 dark:text-emerald-400 font-medium">
-                  The duty slip has been permanently logged in Sri Sadhguru operations command center. You can now send the verified receipt and review request to the passenger!
+                  The duty slip has been permanently logged in Sky Cabs Bangalore operations command center. You can now send the verified receipt and review request to the passenger!
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-3">

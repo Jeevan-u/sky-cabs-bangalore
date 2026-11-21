@@ -1,5 +1,5 @@
 /**
- * Sri Sadhguru Travels - Intelligent Car Dashboard Odometer OCR Service
+ * Sky Cabs Bangalore - Intelligent Car Dashboard Odometer OCR Service
  * Recognizes digital LCD and analog odometer readings from vehicle speed boards.
  */
 

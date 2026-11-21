@@ -12,9 +12,9 @@ import { StarBorder, ShinyText } from "@/components/reactbits";
 export const metadata: Metadata = {
   title: "Travel Guides, Pilgrimage Routes & Car Rental Insights",
   description:
-    "Expert travel guides, Srisailam & Tirupati pilgrimage tips, Shamshabad airport taxi advice, and vehicle booking guides from Sri Sadhguru Travels.",
+    "Expert travel guides, Mysuru & Tirupati pilgrimage tips, Kempegowda airport taxi advice, and vehicle booking guides from Sky Cabs Bangalore.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/blog",
+    canonical: "https://skycabsbangalore.com/blog",
   },
 };
 
@@ -44,10 +44,10 @@ const BlogPage: React.FC = () => {
             </StarBorder>
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight">
-            Sri Sadhguru Travel Blog & Highway Guides
+            Sky Cabs Bangalore Blog & Highway Guides
           </h1>
           <p className="text-sm md:text-base text-neutral-600 dark:text-neutral-400 font-medium">
-            Explore trusted road trip advice, temple darshan schedules, airport taxi tips, and vehicle hire comparisons across Hyderabad, Telangana, and South India.
+            Explore trusted road trip advice, temple darshan schedules, airport taxi tips, and vehicle hire comparisons across Bengaluru, Karnataka, and South India.
           </p>
         </div>
 

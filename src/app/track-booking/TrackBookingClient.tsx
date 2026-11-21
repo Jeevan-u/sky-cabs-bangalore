@@ -16,7 +16,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { WhatsAppIcon, ExclamationTriangleIcon } from "@/components/icons";
 import StatusBadge from "@/app/admin/components/StatusBadge";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { formatPickupDateTime } from "@/utils/formatPickupDateTime";
 import {
   SpotlightCard,
@@ -82,8 +82,8 @@ export default function TrackBookingPage() {
             customerPhone: found.customer_phone || "",
             tripType: found.trip_type || "airport",
             vehicleName: found.vehicle_type || "Toyota Innova Crysta",
-            pickupLocation: found.pickup_address || "Kukatpally, Hyderabad",
-            dropLocation: found.drop_address || "Shamshabad Airport",
+            pickupLocation: found.pickup_address || "Begur, Bengaluru",
+            dropLocation: found.drop_address || "Kempegowda International Airport (BLR)",
             pickupDateTime: found.pickup_datetime || new Date().toISOString(),
             estimatedPrice: found.estimated_price || 0,
             status: found.status || "Pending",
@@ -312,7 +312,7 @@ export default function TrackBookingPage() {
                     Direct Coordination
                   </h4>
                   <p className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5 leading-relaxed">
-                    Direct 1-tap phone calls to your chauffeur or our 24x7 Kukatpally dispatch desk.
+                    Direct 1-tap phone calls to your chauffeur or our 24x7 Begur dispatch desk.
                   </p>
                 </div>
               </SpotlightCard>
@@ -325,19 +325,19 @@ export default function TrackBookingPage() {
                   Need Help Finding Your Booking?
                 </h4>
                 <p className="text-xs text-blue-200 mt-1 max-w-sm font-medium">
-                  Our Hyderabad dispatch team is on duty 24x7. We can locate your booking instantly via WhatsApp or phone call.
+                  Our Bengaluru dispatch team is on duty 24x7. We can locate your booking instantly via WhatsApp or phone call.
                 </p>
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 <a
-                  href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                  href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                   className="px-4 py-2.5 rounded-xl bg-white text-blue-950 font-black text-xs hover:bg-neutral-100 transition shadow inline-flex items-center gap-1.5"
                 >
                   <PhoneIcon className="w-3.5 h-3.5" />
-                  <span>{SADHGURU_CONTACT.primaryPhoneFormatted}</span>
+                  <span>{SKY_CABS_CONTACT.primaryPhoneFormatted}</span>
                 </a>
                 <a
-                  href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20need%20help%20tracking%20my%20cab%20booking.`}
+                  href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20need%20help%20tracking%20my%20cab%20booking.`}
                   target="_blank"
                   rel="noreferrer"
                   className="px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-500 transition shadow inline-flex items-center gap-1.5"
@@ -402,7 +402,7 @@ export default function TrackBookingPage() {
                         Chauffeur Allocation In Progress
                       </p>
                       <p className="text-[11px] text-neutral-500 mt-1 font-medium">
-                        Our Kukatpally dispatch desk is assigning the nearest clean vehicle for your schedule.
+                        Our Begur dispatch desk is assigning the nearest clean vehicle for your schedule.
                       </p>
                     </div>
                   )}
@@ -539,7 +539,7 @@ export default function TrackBookingPage() {
                 </p>
                 <div className="mt-4">
                   <a
-                    href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sadhguru%20Travels,%20I%20need%20help%20tracking%20my%20booking%20for%20${encodeURIComponent(searchTerm)}`}
+                    href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20need%20help%20tracking%20my%20booking%20for%20${encodeURIComponent(searchTerm)}`}
                     target="_blank"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 text-white font-bold text-xs shadow-sm hover:bg-emerald-500 transition"
                   >

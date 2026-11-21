@@ -25,72 +25,72 @@ const FEATURED_REVIEWS = [
   {
     id: 1,
     clientName: "Suresh Reddy",
-    clientAddress: "KPHB Phase 1, Hyderabad",
+    clientAddress: "Electronic City Phase 1, Bengaluru",
     vehicle: "Toyota Innova Crysta",
-    tripType: "Pilgrimage: Hyderabad to Tirupati (Innova Crysta)",
+    tripType: "Pilgrimage: Bengaluru to Tirupati (Toyota Innova Crysta)",
     rating: 5,
     content:
-      "Booked Innova Crysta for our family pilgrimage to Tirupati with Sri Sadhguru Travels. Driver Shiva arrived 15 mins early, the vehicle was spotless, and the AC was chilling throughout. Best quotation and polite coordination by proprietor Rathan Kanna!",
+      "Booked Toyota Innova Crysta for our family pilgrimage to Tirupati with Sky Cabs Bangalore. Driver Shiva arrived 15 mins early, the vehicle was spotless, and the AC was chilling throughout. Best quotation and polite coordination by Sky Cabs Bangalore!",
   },
   {
     id: 2,
     clientName: "Praveen Varma",
-    clientAddress: "Miyapur Metro Station Hub",
-    vehicle: "Swift Dzire (Sedan)",
-    tripType: "Airport Transfer: Miyapur to RGIA Shamshabad",
+    clientAddress: "Koramangala Metro Station Hub",
+    vehicle: "Prime Sedan (Sedan)",
+    tripType: "Airport Transfer: Koramangala to Kempegowda International Airport (BLR)",
     rating: 5,
     content:
-      "Frequent flyer to Shamshabad Airport. Sri Sadhguru's airport taxi is 100% on-time, guaranteed fixed pricing with no surge drama. Driver was courteous and drove safely.",
+      "Frequent flyer to Kempegowda International Airport (BLR). Sky Cabs Bangalore's airport taxi is 100% on-time, guaranteed fixed pricing with no surge drama. Driver was courteous and drove safely.",
   },
   {
     id: 3,
     clientName: "K. Ananya Sharma",
-    clientAddress: "Hitec City / Madhapur",
-    vehicle: "Force Tempo Traveller (17 Seater)",
+    clientAddress: "Whitefield / Marathahalli",
+    vehicle: "Tempo Traveller (12+1)",
     tripType: "Event: 2 Tempo Travellers for Wedding Convoy",
     rating: 5,
     content:
-      "Arranged 2 Tempo Travellers for my brother's wedding guests in Hyderabad. Smooth coordination, clean pushback seats, and experienced highway drivers. Highly recommended!",
+      "Arranged 2 Tempo Travellers for my brother's wedding guests in Bengaluru. Smooth coordination, clean pushback seats, and experienced highway drivers. Highly recommended!",
   },
   {
     id: 4,
     clientName: "B. Venkatesh",
-    clientAddress: "Kukatpally Y-Junction",
-    tripType: "Outstation: Srisailam Weekend Tour (Maruti Ertiga)",
+    clientAddress: "Begur Silk Board Junction",
+    tripType: "Outstation: Mysuru Weekend Tour (Maruti Suzuki Ertiga)",
     rating: 5,
     content:
-      "Excellent ghat road driving through Nallamala forest to Srisailam. Very comfortable journey with senior citizens on board. Honest per-km billing without hidden charges.",
+      "Excellent ghat road driving through Western Ghats forest to Mysuru. Very comfortable journey with senior citizens on board. Honest per-km billing without hidden charges.",
   },
 ];
 
 const TICKER_REVIEWS = [
   {
     name: "Dr. Venkat Rao",
-    route: "Kukatpally to Shamshabad Airport",
+    route: "Begur to Kempegowda International Airport (BLR)",
     rating: 5,
     comment: "Spotless cab and 10-minute rapid dispatch. Zero surge pricing!",
   },
   {
     name: "M. Harish",
-    route: "Hyderabad to Srisailam 2-Day Yatra",
+    route: "Bengaluru to Mysuru 2-Day Yatra",
     rating: 5,
     comment: "Very polite driver who handled the ghat road safely. Family was very happy.",
   },
   {
     name: "B. Sridhar",
-    route: "Gandhari to Hyderabad Outstation",
+    route: "Jayanagar to Bengaluru Outstation",
     rating: 5,
     comment: "Reliable travel service. Digital duty slip received on WhatsApp instantly.",
   },
   {
     name: "K. Rajesh",
-    route: "KPHB to Tirupati Balaji Round Trip",
+    route: "Electronic City to Tirupati Balaji Round Trip",
     rating: 5,
-    comment: "Innova Crysta was immaculate. Chauffeur knew all temple route timings.",
+    comment: "Toyota Innova Crysta was immaculate. Chauffeur knew all temple route timings.",
   },
   {
     name: "N. Vijay",
-    route: "Hitec City to Bangalore Outstation",
+    route: "Whitefield to Bangalore Outstation",
     rating: 5,
     comment: "Transparent per-km billing and no surprise driver batta charges.",
   },
@@ -126,7 +126,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
   return (
     <div className={`nc-SectionClientSay relative ${className}`}>
       <Heading
-        desc="Real feedback from families, corporate travelers, and pilgrims who travel with Sri Sadhguru"
+        desc="Real feedback from families, corporate travelers, and pilgrims who travel with Sky Cabs Bangalore"
         isCenter
       >
         Passenger Testimonials
@@ -271,7 +271,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 text-xs font-bold transition shadow-sm border border-neutral-200/60 dark:border-neutral-700"
           >
             <SparklesIcon className="w-4 h-4 text-amber-500" />
-            <ShinyText text="Traveled with Sri Sadhguru? Leave a 5-Star Review" speed={3.5} />
+            <ShinyText text="Traveled with Sky Cabs Bangalore? Leave a 5-Star Review" speed={3.5} />
           </Link>
         </MagneticButton>
       </div>

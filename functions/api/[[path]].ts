@@ -25,7 +25,7 @@ export async function onRequest(context: any) {
   }
 
   if (path.startsWith("/api/auth/csrf")) {
-    return new Response(JSON.stringify({ csrfToken: "sadhguru-csrf-token" }), { status: 200, headers });
+    return new Response(JSON.stringify({ csrfToken: "sky-cabs-csrf-token" }), { status: 200, headers });
   }
 
   if (path.startsWith("/api/auth/providers")) {
@@ -52,56 +52,56 @@ export async function onRequest(context: any) {
     const category = url.searchParams.get("category");
     const allRoutes = [
       {
-        id: "route-srisailam",
-        title: "Hyderabad to Srisailam Jyotirlinga Yatra",
-        from_location: "Kukatpally / Hyderabad",
-        to_location: "Srisailam Temple",
+        id: "route-mysuru",
+        title: "Bengaluru to Mysuru Cabs",
+        from_location: "Bengaluru",
+        to_location: "Mysuru",
         category: "outstation_route",
-        distance_km: 213,
-        sedan_price: 4800,
-        suv_price: 6500,
-        tt_price: 10500,
-        is_published: true,
-        description: "Ghat road transit through Nallamala forest, Dindi reservoir & Dam viewpoint.",
-      },
-      {
-        id: "route-tirupati",
-        title: "Hyderabad to Tirupati Balaji Darshan",
-        from_location: "Hyderabad",
-        to_location: "Tirumala / Tirupati",
-        category: "outstation_route",
-        distance_km: 570,
-        sedan_price: 12500,
-        suv_price: 16500,
-        tt_price: 25000,
-        is_published: true,
-        description: "Comfortable highway pilgrimage with experienced senior drivers.",
-      },
-      {
-        id: "hub-kukatpally",
-        title: "Kukatpally Hub (Y-Junction)",
-        from_location: "Kukatpally",
-        to_location: "Shamshabad Airport / City",
-        category: "popular_hub",
-        distance_km: 42,
-        sedan_price: 1299,
-        suv_price: 2199,
-        tt_price: 3499,
-        is_published: true,
-        description: "Headquarters & rapid dispatch hub with average 10-15 minute doorstep pickup.",
-      },
-      {
-        id: "hub-gandhari",
-        title: "Gandhari / Kamareddy Hub",
-        from_location: "Gandhari",
-        to_location: "Hyderabad / Nizamabad",
-        category: "popular_hub",
-        distance_km: 145,
+        distance_km: 150,
         sedan_price: 3200,
         suv_price: 4500,
         tt_price: 7500,
         is_published: true,
-        description: "District connecting hub for outstation & return Hyderabad journeys.",
+        description: "Comfortable highway transfer to Mysuru Palace, Chamundi Hills and Brindavan Gardens.",
+      },
+      {
+        id: "route-tirupati",
+        title: "Bengaluru to Tirupati Balaji Darshan",
+        from_location: "Bengaluru",
+        to_location: "Tirupati",
+        category: "outstation_route",
+        distance_km: 310,
+        sedan_price: 6500,
+        suv_price: 9500,
+        tt_price: 15500,
+        is_published: true,
+        description: "Comfortable highway pilgrimage with experienced senior drivers. Subject to availability.",
+      },
+      {
+        id: "hub-begur",
+        title: "Begur Hub",
+        from_location: "Begur",
+        to_location: "Kempegowda International Airport (BLR) / City",
+        category: "popular_hub",
+        distance_km: 42,
+        sedan_price: 1399,
+        suv_price: 2199,
+        tt_price: 3999,
+        is_published: true,
+        description: "Rapid dispatch hub for airport runs and city rides across Bengaluru.",
+      },
+      {
+        id: "hub-electronic-city",
+        title: "Electronic City Hub",
+        from_location: "Electronic City",
+        to_location: "Kempegowda International Airport (BLR) / Central Bengaluru",
+        category: "popular_hub",
+        distance_km: 38,
+        sedan_price: 1599,
+        suv_price: 2499,
+        tt_price: 4499,
+        is_published: true,
+        description: "Corporate and airport transfer hub serving Electronic City and south Bengaluru.",
       },
     ];
 
@@ -116,51 +116,51 @@ export async function onRequest(context: any) {
   if (path.startsWith("/api/tours-cms")) {
     const packages = [
       {
-        id: "pkg-srisailam",
-        name: "Srisailam Dam & Jyotirlinga",
-        tagline: "Mallikarjuna Jyotirlinga & Ghat Road",
-        state: "Andhra Pradesh",
-        image: "/images/srisailam-dam.jpg",
-        dist: "213 KM",
+        id: "pkg-mysuru",
+        name: "Mysuru Palace & Chamundi",
+        tagline: "Heritage Palace & Hill Temple from Bengaluru",
+        state: "Karnataka",
+        image: "/images/Tirupati.jpg",
+        dist: "150 KM",
         days: "1-2 Days",
         price: 4500,
-        features: ["VIP Darshan Assistance", "Ghat Road Certified Chauffeur", "Patala Ganga Ropeway Stop", "Dindi Dam Route"],
+        features: ["Doorstep Pickup in Bengaluru", "Mysuru Palace & Brindavan Gardens", "Experienced Chauffeur", "Subject to Availability"],
         is_published: true,
       },
       {
         id: "pkg-tirupati",
         name: "Tirupati Balaji Darshan",
-        tagline: "Lord Venkateswara Temple Darshan",
+        tagline: "Lord Venkateswara Temple Darshan from Bengaluru",
         state: "Andhra Pradesh",
         image: "/images/Tirupati.jpg",
-        dist: "570 KM",
+        dist: "310 KM",
         days: "2-3 Days",
         price: 8200,
         features: ["Alipiri Checkpoint Guidance", "Tirumala Ghat Ascent Expert", "Padmavathi Ammavari Temple", "Clean AC Fleet"],
         is_published: true,
       },
       {
-        id: "pkg-srikalahasti",
-        name: "Srikalahasti Rahu Ketu",
-        tagline: "Vayu Linga & Rahu Ketu Pooja",
-        state: "Andhra Pradesh",
-        image: "/images/Srikalahasti.jpg",
-        dist: "540 KM",
-        days: "2 Days",
-        price: 7900,
-        features: ["Special Pooja Timing Advisory", "Highway Cruiser", "Kanipakam Extension Option"],
+        id: "pkg-coorg",
+        name: "Coorg (Madikeri)",
+        tagline: "Coffee Plantations & Abbey Falls",
+        state: "Karnataka",
+        image: "/images/images1.jpg",
+        dist: "250 KM",
+        days: "2-3 Days",
+        price: 7200,
+        features: ["Hill Driving Specialist", "Raja's Seat Sunset", "Spacious Boot for Coffee Purchases"],
         is_published: true,
       },
       {
-        id: "pkg-yaganti",
-        name: "Mahanandi & Yaganti",
-        tagline: "Ancient Shiva & Growing Nandi",
-        state: "Andhra Pradesh",
-        image: "/images/Yaganti.jpg",
-        dist: "310 KM",
-        days: "2 Days",
-        price: 6200,
-        features: ["Belum Caves Route", "Ancient Temple Tour", "Experienced Chauffeurs"],
+        id: "pkg-ooty",
+        name: "Ooty & Kodaikanal",
+        tagline: "Queen of Hill Stations & Lakes",
+        state: "Tamil Nadu",
+        image: "/images/images1.jpg",
+        dist: "270 KM",
+        days: "3-4 Days",
+        price: 9500,
+        features: ["Experienced Hill Chauffeur", "Tea Garden Tours", "Comfortable Seating for Long Drives"],
         is_published: true,
       },
     ];
@@ -176,58 +176,66 @@ export async function onRequest(context: any) {
     const hubs = [
       {
         id: "hub-1",
-        name: "Kukatpally (IDL Lake)",
-        href: "/cabs-in-kukatpally",
+        name: "Begur",
+        href: "/cabs-in-begur",
         count: 240,
-        thumbnail: "/images/hubs/kukatpally-hq.jpg",
+        thumbnail: "/images/hubs/begur-hub.jpg",
         is_published: true,
       },
       {
         id: "hub-2",
-        name: "Shamshabad Airport (RGIA)",
-        href: "/shamshabad-airport-taxi",
-        count: 512,
-        thumbnail: "/images/hubs/shamshabad-airport.jpg",
+        name: "Electronic City",
+        href: "/cabs-in-electronic-city",
+        count: 320,
+        thumbnail: "/images/hubs/electronic-city.jpg",
         is_published: true,
       },
       {
         id: "hub-3",
-        name: "KPHB Colony (Nexus Mall)",
-        href: "/cabs-in-kphb",
-        count: 180,
-        thumbnail: "/images/hubs/kphb-colony.jpg",
+        name: "Koramangala",
+        href: "/cabs-in-koramangala",
+        count: 280,
+        thumbnail: "/images/hubs/koramangala-hub.jpg",
         is_published: true,
       },
       {
         id: "hub-4",
-        name: "Hitec City (Cyber Towers)",
-        href: "/cabs-in-hitec-city",
-        count: 320,
-        thumbnail: "/images/hubs/hitec-city.jpg",
+        name: "HSR Layout",
+        href: "/cabs-in-hsr-layout",
+        count: 210,
+        thumbnail: "/images/hubs/whitefield-hub.jpg",
         is_published: true,
       },
       {
         id: "hub-5",
-        name: "Miyapur (Ameenpur Lake)",
-        href: "/cabs-in-miyapur",
-        count: 155,
-        thumbnail: "/images/hubs/miyapur-hub.jpg",
+        name: "Whitefield",
+        href: "/cabs-in-whitefield",
+        count: 360,
+        thumbnail: "/images/hubs/electronic-city.jpg",
         is_published: true,
       },
       {
         id: "hub-6",
-        name: "Medchal (Oxygen Park)",
-        href: "/cabs-in-medchal",
-        count: 140,
-        thumbnail: "/images/hubs/medchal-kompally.jpg",
+        name: "Indiranagar",
+        href: "/cabs-in-indiranagar",
+        count: 190,
+        thumbnail: "/images/hubs/begur-hub.jpg",
         is_published: true,
       },
       {
         id: "hub-7",
-        name: "Gandhari & Kamareddy Hub",
-        href: "/cabs-in-kamareddy-gandhari",
-        count: 360,
-        thumbnail: "/images/hubs/kamareddy-gandhari.jpg",
+        name: "Jayanagar",
+        href: "/cabs-in-jayanagar",
+        count: 250,
+        thumbnail: "/images/hubs/hsr-layout-hub.jpg",
+        is_published: true,
+      },
+      {
+        id: "hub-8",
+        name: "Yelahanka",
+        href: "/cabs-in-yelahanka",
+        count: 160,
+        thumbnail: "/images/hubs/jayanagar-hub.jpg",
         is_published: true,
       },
     ];
@@ -242,24 +250,24 @@ export async function onRequest(context: any) {
   if (path.startsWith("/api/fleet")) {
     const vehicles = [
       {
-        id: "dzire-etios",
-        name: "Swift Dzire / Toyota Etios",
+        id: "prime-sedan",
+        name: "Prime Sedan",
         category: "Sedan",
         capacity: "4+1 Passenger",
         luggage: "2 Large + 1 Small Bags",
         ac: true,
-        image: "/images/fleet/swift-dzire.jpg",
+        image: "/images/fleet/prime-sedan.jpg",
         perKmRate: 12,
         airportFlatRate: 1299,
         local8hr80km: 2199,
         features: ["Dual AC", "Clean & Sanitized", "Music System", "Comfortable Legroom", "Fastag Enabled"],
         description: "Ideal for city commutes, quick airport pickups, and budget-friendly small family outstation trips.",
-        bestFor: "Airport Drops, KPHB/Hitec City Local, One-Way Outstation",
+        bestFor: "Airport Drops, Whitefield / Koramangala Local, One-Way Outstation",
         is_published: true,
       },
       {
-        id: "ertiga-rumion",
-        name: "Maruti Ertiga / Toyota Rumion",
+        id: "ertiga",
+        name: "Maruti Suzuki Ertiga",
         category: "SUV",
         capacity: "6+1 Passenger",
         luggage: "3 Large + 2 Small Bags",
@@ -270,14 +278,14 @@ export async function onRequest(context: any) {
         local8hr80km: 2899,
         features: ["Roof AC Vents", "Adjustable Rear Seats", "Spacious Boot", "Phone Chargers", "Toll/Fastag Ready"],
         description: "The most economical 6-seater for family outings, airport group transfers, and weekend temple visits.",
-        bestFor: "Family Trips, Airport Transfers, Yadagirigutta / Vemulawada",
+        bestFor: "Family Trips, Airport Transfers, Mysuru / Coorg",
         is_published: true,
       },
       {
         id: "innova-crysta",
         name: "Toyota Innova Crysta",
         category: "Premium SUV",
-        capacity: "7+1 / 6+1 Captain Seats",
+        capacity: "7+1 Passenger",
         luggage: "4 Large + 3 Small Bags",
         ac: true,
         image: "/images/fleet/innova-crysta.jpg",
@@ -286,30 +294,30 @@ export async function onRequest(context: any) {
         local8hr80km: 3699,
         features: ["Plush Captain Recliners", "Dual Automatic Climate Control", "Highway Cruiser", "Premium Comfort", "GPS Tracking"],
         description: "The gold standard for long-distance highway travel, pilgrimage tours, VIP guest transport, and corporate rentals.",
-        bestFor: "Tirupati, Shirdi, Srisailam, Corporate VIP & Wedding Escorts",
+        bestFor: "Tirupati, Coorg, Mysuru, Corporate VIP & Wedding Escorts",
         is_published: true,
       },
       {
         id: "tempo-traveller-12",
-        name: "Force Tempo Traveller (12/17 Seater)",
+        name: "Tempo Traveller (12+1 Seater)",
         category: "Tempo Traveller",
-        capacity: "12 to 17 Passengers",
+        capacity: "12+1 Passenger",
         luggage: "Dedicated Carrier & Large Boot",
         ac: true,
-        image: "/images/fleet/tempo-traveller-17.jpg",
+        image: "/images/fleet/tempo-traveller.jpg",
         perKmRate: 25,
         airportFlatRate: 3499,
         local8hr80km: 4999,
         features: ["Pushback Luxury Seats", "Surround Sound Audio/Video", "Individual AC Vents", "Spacious Aisle", "Experienced Hill Drivers"],
-        description: "Perfect for group pilgrimages, marriage guest logistics, and corporate team day-outs from Hyderabad.",
+        description: "Perfect for group pilgrimages, marriage guest logistics, and corporate team day-outs from Bengaluru.",
         bestFor: "Large Family Pilgrimage, Wedding Functions, Corporate Trips",
         is_published: true,
       },
       {
         id: "tempo-traveller-26",
-        name: "Force Urbania & 26-Seater TT",
+        name: "Force Urbania (16+1 Seater)",
         category: "Tempo Traveller",
-        capacity: "20 to 26 Passengers",
+        capacity: "16+1 Passenger",
         luggage: "Extra Spacious Luggage Area",
         ac: true,
         image: "/images/fleet/force-urbania.png",
@@ -323,12 +331,12 @@ export async function onRequest(context: any) {
       },
       {
         id: "luxury-bus-50",
-        name: "Luxury AC Bus / Coach (32 to 50 Seater)",
+        name: "Passenger Buses (25, 33, 40, 45, 50 & 52 Seater)",
         category: "Luxury Coach",
-        capacity: "32 to 50 Passengers",
+        capacity: "25, 33, 40, 45, 50 & 52 Seater",
         luggage: "Huge Belly Storage",
         ac: true,
-        image: "/images/fleet/luxury-coach-bus.jpg",
+        image: "/images/fleet/passenger-bus.jpg",
         perKmRate: 48,
         airportFlatRate: 6999,
         local8hr80km: 11999,
@@ -369,32 +377,32 @@ export async function onRequest(context: any) {
         customer_name: "Venkat Rao",
         customer_phone: "9848012345",
         trip_type: "airport",
-        vehicle_type: "Swift Dzire (Sedan)",
-        pickup_address: "Kukatpally Housing Board Colony, Phase 3, Hyderabad",
-        drop_address: "RGIA Shamshabad Airport, Hyderabad",
+        vehicle_type: "Prime Sedan",
+        pickup_address: "#56, Begur, Bengaluru, Karnataka 562157",
+        drop_address: "Kempegowda International Airport (BLR), Devanahalli, Bengaluru",
         pickup_datetime: new Date().toISOString(),
         estimated_price: 1399,
         status: "Confirmed",
         driver_name: "K. Shiva Kumar",
-        driver_phone: "9398522128",
-        vehicle_number: "TS 09 UB 4455",
+        driver_phone: "9632345415",
+        vehicle_number: "KA 09 UB 4455",
         created_at: new Date().toISOString(),
       },
       {
         id: "BK-1002",
         customer_name: "Anand Reddy",
         customer_phone: "9988776655",
-        trip_type: "pilgrimage",
+        trip_type: "outstation",
         vehicle_type: "Toyota Innova Crysta",
-        pickup_address: "Miyapur Metro Station, Hyderabad",
-        drop_address: "Srisailam Mallikarjuna Swamy Temple, AP",
+        pickup_address: "Indiranagar Metro Station, Bengaluru",
+        drop_address: "Tirupati Balaji Temple, Tirupati",
         pickup_datetime: new Date(Date.now() + 86400000).toISOString(),
         estimated_price: 6500,
         status: "Driver Assigned",
         driver_name: "M. Ramesh",
-        driver_phone: "8106117704",
-        vehicle_number: "TS 08 UB 4512",
-        notes: "Family pilgrimage with elderly parents. Need neat vehicle.",
+        driver_phone: "9632345415",
+        vehicle_number: "KA 08 UB 4512",
+        notes: "Family trip with elderly parents. Need neat vehicle. Subject to availability.",
         created_at: new Date().toISOString(),
       },
       {
@@ -402,15 +410,15 @@ export async function onRequest(context: any) {
         customer_name: "Suresh Babu",
         customer_phone: "9876543210",
         trip_type: "outstation",
-        vehicle_type: "Force Tempo Traveller (12 Seater)",
-        pickup_address: "Hitec City Cyber Towers, Madhapur",
-        drop_address: "Tirupati Balaji Temple & Alipiri",
+        vehicle_type: "Tempo Traveller (12+1 Seater)",
+        pickup_address: "Whitefield, Bengaluru",
+        drop_address: "Tirupati Balaji Temple & Alipiri, Tirupati",
         pickup_datetime: new Date().toISOString(),
         estimated_price: 18500,
         status: "On Route",
         driver_name: "S. Rajesh Goud",
         driver_phone: "9121045678",
-        vehicle_number: "TS 07 UA 9988",
+        vehicle_number: "KA 07 UA 9988",
         created_at: new Date().toISOString(),
       },
     ];
@@ -466,7 +474,7 @@ export async function onRequest(context: any) {
                 INSERT INTO odometer_records (id, booking_id, driver_id, driver_name, vehicle_number, start_km, start_time, status)
                 VALUES (?, ?, ?, ?, ?, ?, datetime('now'), 'Start_Submitted')
                 ON CONFLICT(booking_id) DO UPDATE SET start_km = excluded.start_km, start_time = excluded.start_time, status = 'Start_Submitted'
-              `).bind(odoId, refBookingId, driver_id || "DRV-101", driver_name || "K. Shiva Kumar", vehicle_number || "TS 09 UB 4455", start_km || 42100).run();
+              `).bind(odoId, refBookingId, driver_id || "DRV-101", driver_name || "K. Shiva Kumar", vehicle_number || "KA 09 UB 4455", start_km || 42100).run();
             } catch (e) {
               console.warn("D1 odo start error:", e);
             }
@@ -478,7 +486,7 @@ export async function onRequest(context: any) {
               id: odoId,
               booking_id: refBookingId,
               driver_name: driver_name || "K. Shiva Kumar",
-              vehicle_number: vehicle_number || "TS 09 UB 4455",
+              vehicle_number: vehicle_number || "KA 09 UB 4455",
               start_km: start_km || 42100,
               status: "Start_Submitted",
             }
@@ -506,7 +514,7 @@ export async function onRequest(context: any) {
                 INSERT INTO duty_slips (id, booking_id, customer_name, customer_phone, driver_name, vehicle_number, vehicle_model, trip_route, start_km, end_km, total_km, total_amount, completed_at)
                 VALUES (?, ?, 'Valued Passenger', '9848012345', ?, ?, 'Toyota Innova Crysta', 'City to Airport / Outstation', ?, ?, ?, ?, datetime('now'))
                 ON CONFLICT(booking_id) DO UPDATE SET end_km = excluded.end_km, total_km = excluded.total_km, total_amount = excluded.total_amount, completed_at = excluded.completed_at
-              `).bind(dsId, refBookingId, driver_name || "K. Shiva Kumar", vehicle_number || "TS 09 UB 4455", end_km ? end_km - computedTotalKm : 42100, end_km || 42148, computedTotalKm, Math.max(1299, computedTotalKm * 18)).run();
+              `).bind(dsId, refBookingId, driver_name || "K. Shiva Kumar", vehicle_number || "KA 09 UB 4455", end_km ? end_km - computedTotalKm : 42100, end_km || 42148, computedTotalKm, Math.max(1299, computedTotalKm * 18)).run();
             } catch (e) {
               console.warn("D1 odo end error:", e);
             }
@@ -551,7 +559,7 @@ export async function onRequest(context: any) {
           id: "ODO-8001",
           booking_id: "BK-1001",
           driver_name: "K. Shiva Kumar",
-          vehicle_number: "TS 09 UB 4455",
+          vehicle_number: "KA 09 UB 4455",
           start_km: 42100,
           end_km: 42148,
           total_km: 48,
@@ -562,7 +570,7 @@ export async function onRequest(context: any) {
           id: "ODO-8002",
           booking_id: "BK-1002",
           driver_name: "M. Ramesh",
-          vehicle_number: "TS 08 UB 4512",
+          vehicle_number: "KA 08 UB 4512",
           start_km: 68400,
           end_km: 0,
           total_km: 0,
@@ -595,9 +603,9 @@ export async function onRequest(context: any) {
         customer_name: "Venkat Rao",
         customer_phone: "9848012345",
         driver_name: "K. Shiva Kumar",
-        vehicle_number: "TS 09 UB 4455",
-        vehicle_model: "Swift Dzire",
-        trip_route: "Kukatpally Phase 3 to Shamshabad Airport",
+        vehicle_number: "KA 09 UB 4455",
+        vehicle_model: "Prime Sedan",
+        trip_route: "Begur to Kempegowda International Airport (BLR)",
         start_km: 42100,
         end_km: 42148,
         total_km: 48,
@@ -650,8 +658,8 @@ export async function onRequest(context: any) {
           occasion: "Harvest Festival Homecoming",
           discount_badge: "Flat ₹500 OFF",
           banner_title: "SANKRANTI VILLAGE HOMECOMING YATRA",
-          description: "Comfortable family trips from Kukatpally, KPHB & Miyapur to Andhra Pradesh & Telangana native towns.",
-          recommended_destinations: ["Vijayawada", "Guntur", "Rajahmundry", "Warangal", "Nizamabad"],
+          description: "Comfortable family trips from Begur, Whitefield & Indiranagar to Andhra Pradesh & Karnataka native towns.",
+          recommended_destinations: ["Vijayawada", "Guntur", "Rajahmundry", "Warangal", "Tumakuru"],
           booking_code: "SANKRANTI2026",
           start_date: "2026-01-05",
           end_date: "2026-01-20",
@@ -659,12 +667,12 @@ export async function onRequest(context: any) {
         },
         {
           id: "offer-shivaratri",
-          festival_name: "Maha Shivaratri Srisailam Special",
+          festival_name: "Maha Shivaratri Mysuru Special",
           occasion: "Mallikarjuna Swamy Jyotirlinga Darshan",
           discount_badge: "VIP Darshan Free Assistance",
-          banner_title: "SRISAILAM SHIVARATRI BRAHMOTSAVAM",
+          banner_title: "MYSURU MAHA SHIVARATRI SPECIAL",
           description: "Same day & 2-day packages with ghat-road certified expert chauffeurs and zero hill surge.",
-          recommended_destinations: ["Srisailam Temple", "Patala Ganga", "Sakshi Ganapathi", "Shikharam"],
+          recommended_destinations: ["Mysuru Temple", "Patala Ganga", "Sakshi Ganapathi", "Shikharam"],
           booking_code: "SHIVA2026",
           start_date: "2026-02-15",
           end_date: "2026-03-05",
@@ -790,7 +798,7 @@ export async function onRequest(context: any) {
       // Default curated client companies fallback
       const defaultCompanies = [
         { id: "comp-1", name: "Dr. Reddy's Laboratories", industry: "Pharmaceutical", location: "Bachupally Campus", logo_text: "DR. REDDY'S", accent_color: "#7b1fa2" },
-        { id: "comp-2", name: "Aurobindo Pharma", industry: "Pharmaceutical", location: "HITEC City & Ameerpet", logo_text: "AUROBINDO", accent_color: "#c2185b" },
+        { id: "comp-2", name: "Aurobindo Pharma", industry: "Pharmaceutical", location: "Whitefield & Ameerpet", logo_text: "AUROBINDO", accent_color: "#c2185b" },
         { id: "comp-3", name: "Hetero Drugs", industry: "Pharmaceutical", location: "Sanath Nagar Hub", logo_text: "HETERO", accent_color: "#e65100" },
         { id: "comp-4", name: "Microsoft IDC", industry: "Information Technology", location: "Gachibowli Campus", logo_text: "MICROSOFT", accent_color: "#0288d1" },
         { id: "comp-5", name: "Amazon Development Centre", industry: "Information Technology", location: "Financial District", logo_text: "AMAZON", accent_color: "#ff8f00" },
@@ -811,7 +819,7 @@ export async function onRequest(context: any) {
           await context.env.DB.prepare(`
             INSERT INTO client_companies (id, name, industry, location, logo_text, accent_color, is_active)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-          `).bind(id, body.name, body.industry || "Corporate", body.location || "Hyderabad Campus", logoText, body.accent_color || "#0288d1", 1).run();
+          `).bind(id, body.name, body.industry || "Corporate", body.location || "Bengaluru Campus", logoText, body.accent_color || "#0288d1", 1).run();
         }
 
         return new Response(JSON.stringify({
@@ -867,23 +875,25 @@ export async function onRequest(context: any) {
         } catch {}
 
         const formattedMessage =
-          `*SRI SADHGURU TOURS & TRAVELS*\n` +
+          `*SKY CABS BANGALORE*\n` +
           `24x7 Cab & Bus Booking Confirmation\n` +
           `-----------------------------------------\n` +
           `• *Booking Ref:* ${refId}\n` +
           `• *Customer:* ${customerName || "Valued Passenger"} (${customerPhone || "N/A"})\n` +
           `• *Vehicle:* ${vehicleType || "Toyota Innova Crysta"}\n` +
           `• *Trip Category:* ${(tripType || "airport").toUpperCase()}\n` +
-          `• *Pickup:* ${pickupAddress || "Kukatpally, Hyderabad"}\n` +
-          `• *Destination:* ${dropAddress || "Shamshabad Airport"}\n` +
+          `• *Pickup:* ${pickupAddress || "Begur, Bengaluru"}\n` +
+          `• *Destination:* ${dropAddress || "Kempegowda International Airport (BLR)"}\n` +
           `• *Pickup Time:* ${formattedDate}\n` +
           `• *Estimated Fare:* ₹${Number(estimatedPrice || 0).toLocaleString("en-IN")}\n` +
           (notes ? `• *Notes:* ${notes}\n` : ``) +
           `-----------------------------------------\n` +
-          `• *24x7 Dispatch:* +91 8106117704 | +91 9398522128\n` +
-          `*Thank you for choosing SRI SADHGURU TOURS & TRAVELS!*`;
+          `• *24x7 Dispatch:* +91 96323 45415\n` +
+          `• *Address:* #56, Begur, Bengaluru, Karnataka 562157\n` +
+          `• *Email:* skycabsbangalore@gmail.com\n` +
+          `*Thank you for choosing SKY CABS BANGALORE!*`;
 
-        const adminPhone = context.env?.ADMIN_WHATSAPP_NUMBER || "918106117704";
+        const adminPhone = context.env?.ADMIN_WHATSAPP_NUMBER || "919632345415";
         const waApiKey = context.env?.WHATSAPP_API_KEY || context.env?.WHATSAPP_CLOUD_API_TOKEN;
         const phoneId = context.env?.WHATSAPP_PHONE_NUMBER_ID;
 
@@ -969,21 +979,21 @@ export async function onRequest(context: any) {
             JSON.stringify({
               success: true,
               reviews: [
-                "Booked cab with Sri Sadhguru Tours & Travels. Excellent coordination by proprietor Rathan Kanna. Driver was punctual and polite!",
-                "Most reliable airport taxi service from Kukatpally. Spotless AC car and transparent fixed pricing without surge drama.",
-                "Traveled to Srisailam with family. Chauffeur drove very safely on the ghat roads. Highly recommend Sri Sadhguru Travels!",
+                "Booked cab with Sky Cabs Bangalore. Excellent coordination from the Sky Cabs Bangalore team. Driver was punctual and polite!",
+                "Most reliable airport taxi service from Begur. Spotless AC car and transparent fixed pricing without surge drama.",
+                "Travelled to Mysuru with family. Chauffeur drove very safely and arrived on time. Highly recommend Sky Cabs Bangalore!",
               ],
-              poweredBy: "Sri Sadhguru Verified Reviews",
+              poweredBy: "Sky Cabs Bangalore Verified Reviews",
             }),
             { status: 200, headers }
           );
         }
         
-        const prompt = `You are generating 3 realistic Google reviews written by a customer for "Sri Sadhguru Tours and Travels" (Hyderabad).
+        const prompt = `You are generating 3 realistic Google reviews written by a customer for "Sky Cabs Bangalore" (Bengaluru).
 Trip Details:
 - Customer: ${body.customerName || "Customer"}
 - Vehicle: ${body.vehicleName || "Innova Crysta"}
-- Route: ${body.pickupLocation || "Kukatpally"} to ${body.dropLocation || "Shamshabad Airport"}
+- Route: ${body.pickupLocation || "Begur"} to ${body.dropLocation || "Kempegowda International Airport (BLR)"}
 - Rating: ${body.rating || 5} out of 5 stars
 Output JSON in this exact structure: {"options": ["Review text 1", "Review text 2", "Review text 3"]}`;
 
@@ -1022,11 +1032,11 @@ Output JSON in this exact structure: {"options": ["Review text 1", "Review text 
         JSON.stringify({
           success: true,
           reviews: [
-            "Booked cab with Sri Sadhguru Tours & Travels. Excellent coordination by proprietor Rathan Kanna. Driver was punctual and polite!",
-            "Most reliable airport taxi service from Kukatpally. Spotless AC car and transparent fixed pricing without surge drama.",
-            "Traveled to Srisailam with family. Chauffeur drove very safely on the ghat roads. Highly recommend Sri Sadhguru Travels!",
+            "Booked cab with Sky Cabs Bangalore. Excellent coordination from the Sky Cabs Bangalore team. Driver was punctual and polite!",
+            "Most reliable airport taxi service from Begur. Spotless AC car and transparent fixed pricing without surge drama.",
+            "Travelled to Mysuru with family. Chauffeur drove very safely and arrived on time. Highly recommend Sky Cabs Bangalore!",
           ],
-          poweredBy: "Sri Sadhguru Verified Heuristics",
+          poweredBy: "Sky Cabs Bangalore Verified Heuristics",
         }),
         { status: 200, headers }
       );

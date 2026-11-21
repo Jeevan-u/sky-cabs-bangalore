@@ -26,7 +26,7 @@ import {
   BanknotesIcon,
 } from "@heroicons/react/24/outline";
 import { AdminTabType } from "../types";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { ShinyText, MagneticButton, AnimatedCounter, Dock } from "@/components/reactbits";
 
 interface AdminSidebarProps {
@@ -173,7 +173,7 @@ export default function AdminSidebar({
     {
       icon: <PhoneIcon className="w-4 h-4 text-emerald-500" />,
       label: "WhatsApp Support",
-      href: `https://wa.me/91${SADHGURU_CONTACT.primaryPhone}`,
+      href: `https://wa.me/91${SKY_CABS_CONTACT.primaryPhone}`,
       external: true,
     },
   ];
@@ -213,7 +213,7 @@ export default function AdminSidebar({
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
                 <h1 className="font-extrabold text-neutral-900 dark:text-white text-sm tracking-tight truncate uppercase leading-none">
-                  Sri Sadhguru
+                  Sky Cabs Bangalore
                 </h1>
                 <span className="text-[9px] font-bold uppercase px-1 py-0.2 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30">
                   ADMIN
@@ -339,10 +339,10 @@ export default function AdminSidebar({
           {!isCollapsed && (
             <div className="min-w-0 flex-1">
               <p className="text-xs font-bold text-neutral-900 dark:text-white truncate">
-                Rathan Kanna
+                Sky Cabs Bangalore
               </p>
               <p className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate font-mono">
-                {SADHGURU_CONTACT.primaryPhoneFormatted}
+                {SKY_CABS_CONTACT.primaryPhoneFormatted}
               </p>
             </div>
           )}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Logo from "@/shared/Logo";
 import SocialsList1 from "@/shared/SocialsList1";
 import FooterNav from "./FooterNav";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { Route } from "@/routers/types";
 import {
   BoltIcon,
@@ -31,46 +31,51 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Services",
     links: [
-      { href: "/shamshabad-airport-taxi", label: "Airport Taxi Transfers" },
-      { href: "/hyderabad-to-srisailam-cabs", label: "Srisailam Tour Packages" },
-      { href: "/hyderabad-to-tirupati-cabs", label: "Tirupati Balaji Darshan" },
+      { href: "/kempegowda-airport-taxi", label: "Airport Taxi Transfers" },
+      { href: "/bangalore-to-mysuru-cabs", label: "Mysuru Tour Packages" },
+      { href: "/bangalore-to-tirupati-cabs", label: "Tirupati Balaji Darshan" },
       { href: "/listing-car", label: "Local Hourly Rentals (8h / 80km)" },
       { href: "/contact", label: "Wedding & Event Transport" },
-      { href: "/cabs-in-hitec-city", label: "Corporate Employee Transport" },
+      { href: "/cabs-in-whitefield", label: "Corporate Employee Transport" },
     ],
   },
   {
     title: "Popular Routes",
     links: [
-      { href: "/hyderabad-to-srisailam-cabs", label: "Hyderabad to Srisailam Jyotirlinga" },
-      { href: "/hyderabad-to-tirupati-cabs", label: "Hyderabad to Tirupati Balaji" },
-      { href: "/hyderabad-to-shirdi-cabs", label: "Hyderabad to Shirdi Sai Baba" },
-      { href: "/hyderabad-to-yadagirigutta-cabs", label: "Hyderabad to Yadagirigutta (Yadadri)" },
-      { href: "/blog/vijayawada-trip", label: "Hyderabad to Vijayawada Guide" },
-      { href: "/blog/south-india-circuits", label: "South India Pilgrimage Circuits" },
+      { href: "/bangalore-to-mysuru-cabs", label: "Bengaluru to Mysuru Palace" },
+      { href: "/bangalore-to-tirupati-cabs", label: "Bengaluru to Tirupati Balaji" },
+      { href: "/bangalore-to-coorg-cabs", label: "Bengaluru to Coorg (Madikeri)" },
+      { href: "/bangalore-to-ooty-cabs", label: "Bengaluru to Ooty" },
+      { href: "/bangalore-to-chennai-cabs", label: "Bengaluru to Chennai Guide" },
+      { href: "/blog/tirupati-from-bengaluru", label: "Tirupati Guide from Bengaluru" },
     ],
   },
   {
     title: "Service Hubs",
     links: [
-      { href: "/cabs-in-kukatpally", label: "Kukatpally (Headquarters)" },
-      { href: "/shamshabad-airport-taxi", label: "Shamshabad Airport Express" },
-      { href: "/cabs-in-kphb", label: "KPHB Colony" },
-      { href: "/cabs-in-miyapur", label: "Miyapur Highway Hub" },
-      { href: "/cabs-in-hitec-city", label: "Hitec City & Madhapur" },
-      { href: "/cabs-in-medchal", label: "Medchal & ORR Gateway" },
-      { href: "/cabs-in-kamareddy-gandhari", label: "Kamareddy & Gandhari Hub" },
+      { href: "/cabs-in-begur", label: "Begur (Headquarters)" },
+      { href: "/kempegowda-airport-taxi", label: "Kempegowda International Airport (BLR) Express" },
+      { href: "/cabs-in-electronic-city", label: "Electronic City" },
+      { href: "/cabs-in-koramangala", label: "Koramangala Highway Hub" },
+      { href: "/cabs-in-whitefield", label: "Whitefield & Marathahalli" },
+      { href: "/cabs-in-hsr-layout", label: "Hebbal & ORR Gateway" },
+      { href: "/cabs-in-indiranagar", label: "Yelahanka & Jayanagar Hub" },
     ],
   },
   {
     title: "Our Fleet",
     links: [
-      { href: "/listing-car-detail?vehicle=dzire-etios", label: "Swift Dzire & Toyota Etios (Sedan)" },
-      { href: "/listing-car-detail?vehicle=ertiga-rumion", label: "Maruti Ertiga (6+1 MPV)" },
-      { href: "/listing-car-detail?vehicle=innova-crysta", label: "Toyota Innova Crysta (7+1 VIP)" },
-      { href: "/listing-car-detail?vehicle=tempo-traveller-12-17", label: "Force Tempo Traveller (12 & 17 Seater)" },
-      { href: "/listing-car-detail?vehicle=urbania-26", label: "Force Urbania Luxury Van (26 Seater)" },
-      { href: "/listing-car-detail?vehicle=luxury-bus-32-50", label: "Luxury AC Coaches (32 & 50 Seater)" },
+      { href: "/listing-car-detail?vehicle=prime-sedan", label: "Prime Sedan (4+1)" },
+      { href: "/listing-car-detail?vehicle=ertiga", label: "Maruti Suzuki Ertiga (6+1)" },
+      { href: "/listing-car-detail?vehicle=innova", label: "Toyota Innova (7+1)" },
+      { href: "/listing-car-detail?vehicle=innova-crysta", label: "Toyota Innova Crysta (7+1)" },
+      { href: "/listing-car-detail?vehicle=innova-hycross", label: "Toyota Innova Hycross (7+1)" },
+      { href: "/listing-car-detail?vehicle=fortuner", label: "Toyota Fortuner (6+1)" },
+      { href: "/listing-car-detail?vehicle=tempo-traveller-12", label: "Tempo Traveller (12+1)" },
+      { href: "/listing-car-detail?vehicle=urbania-9", label: "Force Urbania (9+1)" },
+      { href: "/listing-car-detail?vehicle=urbania-12", label: "Force Urbania (12+1)" },
+      { href: "/listing-car-detail?vehicle=urbania-16", label: "Force Urbania (16+1)" },
+      { href: "/listing-car-detail?vehicle=passenger-bus", label: "Passenger Buses (25 to 52 Seater)" },
     ],
   },
 ];
@@ -135,7 +140,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-2 space-y-5">
               <Logo />
               <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
-                Sri Sadhguru Tours & Travels is Hyderabad&apos;s trusted commercial car rental service. Operating a modern fleet of 4-seater sedans, luxury SUVs, and group tempo travellers for city, outstation, and pilgrimage travel.
+                Sky Cabs Bangalore is Bengaluru&apos;s trusted commercial car rental service. Operating a modern fleet of 4-seater sedans, luxury SUVs, and group tempo travellers for city, outstation, and pilgrimage travel.
               </p>
 
               {/* Direct Booking Call Card */}
@@ -145,22 +150,22 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3 mt-2 flex-wrap">
                   <a
-                    href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                    href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                     className="font-mono text-xs font-bold text-neutral-900 dark:text-white hover:text-primary-6000 transition-colors"
                   >
-                    +91 {SADHGURU_CONTACT.primaryPhone}
+                    +91 {SKY_CABS_CONTACT.primaryPhone}
                   </a>
                   <span className="text-neutral-300 dark:text-neutral-700">·</span>
                   <a
-                    href={`tel:${SADHGURU_CONTACT.secondaryPhone}`}
+                    href={`tel:${SKY_CABS_CONTACT.secondaryPhone}`}
                     className="font-mono text-xs font-bold text-neutral-900 dark:text-white hover:text-primary-6000 transition-colors"
                   >
-                    +91 {SADHGURU_CONTACT.secondaryPhone}
+                    +91 {SKY_CABS_CONTACT.secondaryPhone}
                   </a>
                 </div>
                 <div className="mt-2.5">
                   <a
-                    href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hello%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking.`}
+                    href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hello%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20inquire%20about%20a%20cab%20booking.`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500"
@@ -206,18 +211,18 @@ const Footer: React.FC = () => {
           <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-neutral-500 dark:text-neutral-400">
             <div>
               <p className="font-extrabold tracking-wide uppercase text-neutral-900 dark:text-white">
-                © {new Date().getFullYear()} SRI SADHGURU TOURS & TRAVELS. All rights reserved.
+                © {new Date().getFullYear()} Sky Cabs Bangalore. All rights reserved.
               </p>
               <p className="text-[11px] text-neutral-400 dark:text-neutral-500 mt-0.5">
-                Headquarters: Kukatpally, Hyderabad, Telangana 500072. Proprietor: {SADHGURU_CONTACT.proprietor}.
+                Headquarters: Begur, Bengaluru, Karnataka 562157. .
               </p>
               <p className="text-[11px] text-neutral-600 dark:text-neutral-400 mt-1 font-medium flex items-center gap-1.5">
                 <span>Developed by</span>
                 <a
-                  href="tel:+916301253789"
+                  href="tel:"
                   className="font-bold text-neutral-900 dark:text-white hover:text-primary-6000 dark:hover:text-primary-400 transition-colors"
                 >
-                  INDENTDEV +916301253789
+                  
                 </a>
               </p>
             </div>
@@ -241,12 +246,12 @@ const Footer: React.FC = () => {
               </Link>
               <span>·</span>
               <a
-                href="tel:+916301253789"
+                href="tel:"
                 className="px-2.5 py-1 rounded-full bg-neutral-200/80 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-semibold hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors inline-flex items-center gap-1.5"
-                title="Developed by INDENTDEV +916301253789"
+                title=""
               >
                 <WrenchScrewdriverIcon className="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
-                <span>Developed by INDENTDEV +916301253789</span>
+                <span></span>
               </a>
             </div>
           </div>

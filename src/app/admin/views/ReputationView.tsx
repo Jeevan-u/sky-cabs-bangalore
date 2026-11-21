@@ -33,9 +33,9 @@ export default function ReputationView({ reviews }: ReputationViewProps) {
     const targetPhone = cleanPhone.startsWith("91") ? cleanPhone : `91${cleanPhone}`;
 
     const text =
-      `*Sri Sadhguru Tours & Travels - Management Follow-up*\n\n` +
+      `*Sky Cabs Bangalore - Management Follow-up*\n\n` +
       `Dear ${r.customer_name},\n` +
-      `This is Rathan Kanna, Proprietor of Sri Sadhguru Travels. I noticed your recent trip feedback regarding: "${r.feedback_notes || "service issues"}".\n\n` +
+      `This is Sky Cabs Bangalore, Sky Cabs Bangalore. I noticed your recent trip feedback regarding: "${r.feedback_notes || "service issues"}".\n\n` +
       `I sincerely apologize for any inconvenience caused. We take pride in spotless service. I would like to speak with you directly and resolve this. Please let me know when you are available for a quick call.`;
 
     const url = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;

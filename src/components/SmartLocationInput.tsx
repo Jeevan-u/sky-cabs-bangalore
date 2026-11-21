@@ -24,82 +24,52 @@ export interface LocationSuggestion {
   isLive?: boolean;
 }
 
-// Comprehensive database of Hyderabad Hubs, Colonies, IT corridors & Transit
+// Comprehensive database of Bengaluru Hubs, Colonies, IT corridors & Transit
 const PICKUP_SUGGESTIONS: LocationSuggestion[] = [
-  // Primary Hyderabad Hubs & Kukatpally / KPHB Sector
-  { id: "p1", name: "Kukatpally, Hyderabad", subtext: "IDL Lake · JNTU Road · Doorstep 15-Min Pickup", category: "hub", popular: true },
-  { id: "p2", name: "KPHB Colony Phase 1-9, Hyderabad", subtext: "Nexus Hyderabad Mall · Remedy Hospital · Temple Road", category: "hub", popular: true },
-  { id: "p3", name: "JNTU Hyderabad / Forum Mall", subtext: "JNTU College Metro · Nizampet X Road · Pragathi Nagar Connector", category: "hub", popular: true },
-  { id: "p4", name: "Miyapur, Hyderabad", subtext: "Metro Terminal · Allwyn Colony · Bollaram Road", category: "hub", popular: true },
-  { id: "p5", name: "Nizampet & Pragathi Nagar", subtext: "Grampanchayat · Silver Oaks School · Bachupally Connector", category: "hub" },
-  { id: "p6", name: "Bachupally & Bowrampet", subtext: "Outer Ring Road Exit 4 · VNR VJIET · Mallampet", category: "hub" },
-  { id: "p7", name: "Chandanagar & BHEL", subtext: "Lingampally Station · Gangaram · Mumbai Highway", category: "hub" },
-  { id: "p8", name: "Hafeezpet & Allwyn", subtext: "Hafeezpet Flyover · MMTS Station · Aditya Nagar", category: "hub" },
-
-  // Cyberabad IT Corridors
-  { id: "p9", name: "Hitec City / Madhapur", subtext: "Cyber Towers · Mindspace IT Park · Inorbit Mall", category: "hub", popular: true },
-  { id: "p10", name: "Gachibowli Financial District", subtext: "DLF Cyber City · Waverock · Wipro Circle · ORR Junction", category: "hub", popular: true },
-  { id: "p11", name: "Kondapur & Botanical Garden", subtext: "KIMS Hospital · Raghvendra Colony · Heritage Hospital", category: "hub" },
-  { id: "p12", name: "Nallagandla & Tellapur", subtext: "Aparna Sarovar · Citizens Hospital · Neopolis Connector", category: "hub" },
-  { id: "p13", name: "Manikonda & Puppalguda", subtext: "Lanco Hills · Golden Temple · Alkapur Township", category: "hub" },
-  { id: "p14", name: "Jubilee Hills & Banjara Hills", subtext: "Road No 1-12 · Film Nagar · Apollo Hospital · KBR Park", category: "hub" },
-
-  // Core City & Central Transit
-  { id: "p15", name: "Begumpet & Ameerpet", subtext: "Metro Interchange · Lifestyle · Old Airport Road", category: "hub" },
-  { id: "p16", name: "Secunderabad Railway Station", subtext: "Platform 1 & 10 · Clock Tower · Paradise Circle", category: "airport", popular: true },
-  { id: "p17", name: "Nampally / Hyderabad Deccan Station", subtext: "Platform 1 & 6 Portico Pickup", category: "airport" },
-  { id: "p18", name: "Kacheguda Railway Station", subtext: "Barkatpura · Nimboliadda Connector", category: "airport" },
-  { id: "p19", name: "Mehdipatnam & Tolichowki", subtext: "PVNR Expressway Ramp · Rethi Bowli · Gachibowli Flyover", category: "hub" },
-  { id: "p20", name: "Attapur & Rajendranagar", subtext: "Pillar No 100-200 · Agricultural University", category: "hub" },
-
-  // Airport & Northern Hubs
-  { id: "p21", name: "Shamshabad Airport (RGIA)", subtext: "Departures Ramp / Arrivals Gate 1-4 · Fixed Non-Surge Tariff", category: "airport", popular: true },
-  { id: "p22", name: "Medchal & Kompally Hub", subtext: "NH 44 Express · Decathlon · Runway 9 · Doolapally", category: "hub" },
-  { id: "p23", name: "Alwal & AS Rao Nagar", subtext: "Sainikpuri · ECIL X Roads · Kapra", category: "hub" },
-  { id: "p24", name: "Uppal & LB Nagar", subtext: "Metro Terminal · Stadium · Nagole · Sagar Ring Road", category: "hub" },
-  { id: "p25", name: "Gandhari, Kamareddy Hub", subtext: "Sri Sadhguru Regional Branch Office · NH 44 Transit", category: "hub" },
+  { id: "p1", name: "Begur, Bengaluru", subtext: "Business address · #56, Begur, Bengaluru 562157", category: "hub", popular: true },
+  { id: "p2", name: "Electronic City Phase 1-9", subtext: "IT corridor · Phase 1 to Phase 9 · ORR connector", category: "hub", popular: true },
+  { id: "p3", name: "Koramangala, Bengaluru", subtext: "Metro station · 80 Feet Road · Forum Mall", category: "hub", popular: true },
+  { id: "p4", name: "HSR Layout, Bengaluru", subtext: "BDA Layout · 27th Main · Sector 1-7", category: "hub", popular: true },
+  { id: "p5", name: "BTM Layout & JP Nagar", subtext: "Metro stations · Silk Board connector", category: "hub" },
+  { id: "p6", name: "Jayanagar & Banashankari", subtext: "South Bengaluru residential & metro hubs", category: "hub" },
+  { id: "p7", name: "Whitefield, Bengaluru", subtext: "ITPL · Manyata Tech Park · Metro station", category: "hub", popular: true },
+  { id: "p8", name: "Marathahalli & Outer Ring Road", subtext: "Kundalahalli · ORR · Indiranagar junction", category: "hub" },
+  { id: "p9", name: "Indiranagar, Bengaluru", subtext: "100 Feet Road · Metro station · 12th Main", category: "hub" },
+  { id: "p10", name: "Yelahanka & Hebbal", subtext: "Airport road · Outer Ring Road junction", category: "hub" },
+  { id: "p11", name: "Majestic Railway Station", subtext: "Platform portico · Central Bengaluru", category: "airport", popular: true },
+  { id: "p12", name: "Kempegowda International Airport (BLR)", subtext: "Devanahalli · Arrivals & Departures · 24x7", category: "airport", popular: true },
 ];
 
 const DESTINATION_SUGGESTIONS: LocationSuggestion[] = [
-  // Airport
-  { id: "d1", name: "Shamshabad Airport (RGIA)", subtext: "Fixed Non-Surge Tariff · 24x7 Express ORR Transit", category: "airport", popular: true },
-  
-  // Pilgrimages
-  { id: "d2", name: "Srisailam Mallikarjuna Jyotirlinga", subtext: "213 KM · Nallamala Ghat Road · 1 or 2 Day Tour", category: "pilgrimage", popular: true },
-  { id: "d3", name: "Tirupati Balaji Darshan", subtext: "560 KM · Seven Hills Special · 2-3 Day Package", category: "pilgrimage", popular: true },
-  { id: "d4", name: "Shirdi Sai Baba Temple (Maharashtra)", subtext: "610 KM · Divine Yatra Chauffeurs", category: "pilgrimage" },
-  { id: "d5", name: "Yadagirigutta Lakshmi Narasimha Swamy", subtext: "65 KM · Warangal Highway Day Tour", category: "pilgrimage", popular: true },
-  { id: "d6", name: "Vemulawada Rajarajeshwara Temple", subtext: "150 KM · Karimnagar Highway Special", category: "pilgrimage" },
-  { id: "d7", name: "Basara Gnana Saraswathi Temple", subtext: "210 KM · Godavari River Ghat Route", category: "pilgrimage" },
-  { id: "d8", name: "Mantralayam Raghavendra Swamy Mutt", subtext: "260 KM · Tungabhadra River Route", category: "pilgrimage" },
-  
-  // Local Packages
-  { id: "d9", name: "Local City Rental (8 Hours / 80 KMs)", subtext: "Full Day City Sightseeing · Shopping · Meetings", category: "local", popular: true },
-  { id: "d10", name: "Local City Rental (4 Hours / 40 KMs)", subtext: "Half Day Commute · Quick Business Meetings", category: "local" },
-  { id: "d11", name: "Local City Rental (12 Hours / 120 KMs)", subtext: "Extended Full Day · Night Events · Marriages", category: "local" },
-
-  // Outstation Cities
-  { id: "d12", name: "Vijayawada & Kanaka Durga Temple", subtext: "275 KM · 6-Lane Expressway · One-Way / Round-Trip", category: "outstation", popular: true },
-  { id: "d13", name: "Warangal & Ramappa UNESCO Temple", subtext: "150 KM · Heritage Capital Corridor", category: "outstation" },
-  { id: "d14", name: "Bangalore (Karnataka)", subtext: "570 KM · NH 44 Smooth Corridor Transit", category: "outstation" },
-  { id: "d15", name: "Goa Beach Holiday Circuit", subtext: "650 KM · Western Ghats Leisure Tour", category: "outstation" },
-  { id: "d16", name: "Nizamabad & Kamareddy Hub", subtext: "160 KM · NH 44 Express Highway", category: "outstation" },
+  { id: "d1", name: "Kempegowda International Airport (BLR)", subtext: "Devanahalli · Fixed airport fare · 24x7", category: "airport", popular: true },
+  { id: "d2", name: "Mysuru Palace & Chamundi Hills", subtext: "150 KM · 3 Hrs · Same-day return", category: "outstation", popular: true },
+  { id: "d3", name: "Tirupati Balaji Darshan", subtext: "325 KM · 6 Hrs · 2-day packages", category: "pilgrimage", popular: true },
+  { id: "d4", name: "Coorg (Madikeri)", subtext: "260 KM · 5.5 Hrs · Coffee estates & falls", category: "outstation", popular: true },
+  { id: "d5", name: "Ooty Nilgiris", subtext: "265 KM · 6 Hrs · Hill station getaway", category: "outstation", popular: true },
+  { id: "d6", name: "Chennai City", subtext: "345 KM · 6 Hrs · Expressway transfer", category: "outstation" },
+  { id: "d7", name: "Mangaluru", subtext: "350 KM · 7 Hrs · Coastal route", category: "outstation" },
+  { id: "d8", name: "Hampi, Hospet", subtext: "380 KM · UNESCO heritage weekend", category: "outstation" },
+  { id: "d9", name: "Local City Rental (8 Hours / 80 KMs)", subtext: "Full-day Bengaluru travel", category: "local", popular: true },
+  { id: "d10", name: "Local City Rental (4 Hours / 40 KMs)", subtext: "Half-day city commute", category: "local" },
+  { id: "d11", name: "Local City Rental (12 Hours / 120 KMs)", subtext: "Extended day & event travel", category: "local" },
+  { id: "d12", name: "Wayanad", subtext: "300 KM · Forests, lakes & waterfalls", category: "outstation" },
+  { id: "d13", name: "Chikmagalur", subtext: "250 KM · Coffee estates & Mullayanagiri", category: "outstation" },
+  { id: "d14", name: "Pondicherry", subtext: "310 KM · French quarter retreat", category: "outstation" },
+  { id: "d15", name: "Hassan & Belur", subtext: "190 KM · Hoysala temples", category: "outstation" },
 ];
 
 // Offline GPS landmarks for fast nearest-neighbor fallback
-const HYDERABAD_GPS_LANDMARKS = [
-  { name: "Kukatpally, Hyderabad", lat: 17.4933, lng: 78.3914, subtext: "Near IDL Lake & Metro" },
-  { name: "KPHB Colony Phase 3, Hyderabad", lat: 17.4934, lng: 78.3995, subtext: "Near Nexus Mall & Remedy" },
-  { name: "Miyapur Metro Hub, Hyderabad", lat: 17.4969, lng: 78.3562, subtext: "Near Miyapur Bus Depot" },
-  { name: "Hitec City / Cyber Towers, Hyderabad", lat: 17.4474, lng: 78.3762, subtext: "Madhapur IT Corridor" },
-  { name: "Gachibowli Financial District, Hyderabad", lat: 17.4401, lng: 78.3489, subtext: "Near ORR & Wipro Circle" },
-  { name: "Kondapur & Botanical Garden, Hyderabad", lat: 17.4687, lng: 78.3582, subtext: "Near KIMS Hospital" },
-  { name: "Nizampet & Pragathi Nagar, Hyderabad", lat: 17.5186, lng: 78.3844, subtext: "Bachupally Highway Hub" },
-  { name: "Banjara Hills & Jubilee Hills, Hyderabad", lat: 17.4156, lng: 78.4357, subtext: "Road No 12 Circle" },
-  { name: "Secunderabad Railway Station, Hyderabad", lat: 17.4399, lng: 78.4983, subtext: "Platform Portico" },
-  { name: "Shamshabad Airport (RGIA), Hyderabad", lat: 17.2403, lng: 78.4294, subtext: "Departures / Arrivals" },
-  { name: "Medchal & Kompally Hub, Hyderabad", lat: 17.6297, lng: 78.4814, subtext: "NH 44 Outer Hub" },
-  { name: "Gandhari, Kamareddy Hub", lat: 18.2917, lng: 78.3389, subtext: "Sri Sadhguru Regional Branch" },
+const BENGALURU_GPS_LANDMARKS = [
+  { name: "Begur, Bengaluru", lat: 12.8407, lng: 77.7238, subtext: "Business address · #56, Begur" },
+  { name: "Electronic City, Bengaluru", lat: 12.8452, lng: 77.6602, subtext: "IT corridor · Phase 1 to Phase 9" },
+  { name: "Koramangala, Bengaluru", lat: 12.9352, lng: 77.6245, subtext: "80 Feet Road · Forum Mall" },
+  { name: "HSR Layout, Bengaluru", lat: 12.9116, lng: 77.6389, subtext: "27th Main · Sector 1-7" },
+  { name: "Whitefield, Bengaluru", lat: 12.9698, lng: 77.7499, subtext: "ITPL · Manyata Tech Park" },
+  { name: "Indiranagar, Bengaluru", lat: 12.9719, lng: 77.6412, subtext: "100 Feet Road · Metro" },
+  { name: "Jayanagar, Bengaluru", lat: 12.9290, lng: 77.5816, subtext: "South Bengaluru hub" },
+  { name: "Yelahanka, Bengaluru", lat: 13.1006, lng: 77.5960, subtext: "Airport road · Outer hub" },
+  { name: "Majestic Railway Station, Bengaluru", lat: 12.9767, lng: 77.5713, subtext: "Central Bengaluru · Platform portico" },
+  { name: "Kempegowda International Airport (BLR), Bengaluru", lat: 13.1986, lng: 77.7066, subtext: "Devanahalli · Arrivals / Departures" },
 ];
 
 export interface SmartLocationInputProps {
@@ -242,11 +212,11 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
           console.warn("[GPS] Online reverse lookup bypassed, using nearest landmark:", err);
         }
 
-        // Nearest-neighbor fallback among Hyderabad hubs
-        let nearest = HYDERABAD_GPS_LANDMARKS[0];
+        // Nearest-neighbor fallback among Bengaluru hubs
+        let nearest = BENGALURU_GPS_LANDMARKS[0];
         let minDistance = Number.MAX_VALUE;
 
-        HYDERABAD_GPS_LANDMARKS.forEach((landmark) => {
+        BENGALURU_GPS_LANDMARKS.forEach((landmark) => {
           const dLat = landmark.lat - latitude;
           const dLng = landmark.lng - longitude;
           const dist = Math.sqrt(dLat * dLat + dLng * dLng);
@@ -374,7 +344,7 @@ export const SmartLocationInput: React.FC<SmartLocationInputProps> = ({
             {/* Header / GPS shortcut in popup */}
             <div className="p-2.5 bg-neutral-50/90 dark:bg-neutral-800/90 border-b border-neutral-100 dark:border-neutral-800 flex items-center justify-between text-[11px] gap-2">
               <span className="font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-1.5 truncate">
-                <span>{type === "pickup" ? "Select Hyderabad Pickup Hub" : "Select Destination"}</span>
+                <span>{type === "pickup" ? "Select Bengaluru Pickup Hub" : "Select Destination"}</span>
                 {isSearchingLive && (
                   <span className="text-[10px] text-amber-500 font-normal">searching...</span>
                 )}

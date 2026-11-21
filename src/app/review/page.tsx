@@ -5,9 +5,9 @@ import ReviewPageClient from "./ReviewPageClient";
 export const metadata: Metadata = {
   title: "Share Your Travel Review & Feedback",
   description:
-    "Leave your verified passenger review for Sri Sadhguru Tours & Travels. Share your feedback on chauffeur punctuality, cab cleanliness, and AC comfort.",
+    "Leave your verified passenger review for Sky Cabs Bangalore. Share your feedback on chauffeur punctuality, cab cleanliness, and AC comfort.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/review",
+    canonical: "https://skycabsbangalore.com/review",
   },
 };
 

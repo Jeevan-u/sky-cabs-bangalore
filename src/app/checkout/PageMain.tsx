@@ -13,7 +13,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { SparklesIcon, ExclamationTriangleIcon, ShieldCheckIcon } from "@/components/icons";
 import ButtonPrimary from "@/shared/ButtonPrimary";
-import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   SpotlightCard,
   AnimatedCounter,
@@ -28,23 +28,23 @@ import CustomDateTimePicker from "@/components/CustomDateTimePicker";
 import SmartLocationInput from "@/components/SmartLocationInput";
 
 const POPULAR_PICKUPS = [
-  "Kukatpally (HQ / Y-Junction)",
-  "KPHB Colony Phase 1-9",
-  "Miyapur Metro Station",
-  "Hitec City / Madhapur",
-  "Gachibowli / Financial Dist",
-  "Shamshabad RGIA Airport",
-  "Secunderabad Railway Station",
+  "Begur, Bengaluru",
+  "Electronic City, Bengaluru",
+  "Koramangala, Bengaluru",
+  "HSR Layout, Bengaluru",
+  "Whitefield, Bengaluru",
+  "Indiranagar Metro Station",
+  "Kempegowda International Airport (BLR)",
 ];
 
 const POPULAR_DROPS = [
-  "Shamshabad Airport (RGIA)",
-  "Srisailam Mallikarjuna Temple",
+  "Kempegowda International Airport (BLR)",
+  "Mysuru Palace, Mysuru",
   "Tirupati Balaji Darshan",
-  "Vijayawada Kanaka Durga",
-  "Shirdi Sai Baba Temple",
-  "Warangal / Yadagirigutta",
-  "Local City Travel (8h/80km)",
+  "Coorg (Madikeri)",
+  "Ooty Nilgiris",
+  "Chennai City",
+  "Local Bengaluru Travel (8h/80km)",
 ];
 
 const CheckOutPagePageMain: FC = () => {
@@ -59,8 +59,8 @@ const CheckOutPagePageMain: FC = () => {
   // Form State
   const [vehicleId, setVehicleId] = useState(initialVehicleId);
   const [tripType, setTripType] = useState<string>(initialTripType);
-  const [pickupAddress, setPickupAddress] = useState(searchParams?.get("pickup") || "Kukatpally, Hyderabad");
-  const [dropAddress, setDropAddress] = useState(searchParams?.get("drop") || "Shamshabad Airport (RGIA)");
+  const [pickupAddress, setPickupAddress] = useState(searchParams?.get("pickup") || "Begur, Bengaluru");
+  const [dropAddress, setDropAddress] = useState(searchParams?.get("drop") || "Kempegowda International Airport (BLR)");
   
   // Date & Time defaults
   const todayStr = new Date().toISOString().split("T")[0];
@@ -80,7 +80,7 @@ const CheckOutPagePageMain: FC = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const currentVehicle =
-    SADHGURU_FLEET.find((v) => v.id === vehicleId) || SADHGURU_FLEET[2];
+    SKY_CABS_FLEET.find((v) => v.id === vehicleId) || SKY_CABS_FLEET[2];
 
   // Dynamic price calculation
   let calculatedPrice = currentVehicle.airportFlatRate;
@@ -183,7 +183,7 @@ const CheckOutPagePageMain: FC = () => {
             Confirm Your Reservation
           </h1>
           <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 font-medium">
-            Sri Sadhguru Tours & Travels · Chauffeur allocation starts immediately upon confirmation
+            Sky Cabs Bangalore · Chauffeur allocation starts immediately upon confirmation
           </p>
         </div>
 
@@ -193,7 +193,7 @@ const CheckOutPagePageMain: FC = () => {
               <ExclamationTriangleIcon className="w-4 h-4 text-rose-500 shrink-0" />
               <span>{errorMessage}</span>
             </span>
-            <a href={`tel:${SADHGURU_CONTACT.primaryPhone}`} className="underline font-bold">
+            <a href={`tel:${SKY_CABS_CONTACT.primaryPhone}`} className="underline font-bold">
               Call Dispatch
             </a>
           </div>
@@ -262,11 +262,11 @@ const CheckOutPagePageMain: FC = () => {
               {/* Pickup Address */}
               <div>
                 <SmartLocationInput
-                  label="Doorstep Pickup Location in Hyderabad / Telangana"
+                  label="Doorstep Pickup Location in Bengaluru / Karnataka"
                   labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
                   value={pickupAddress}
                   onChange={(val) => setPickupAddress(val)}
-                  placeholder="e.g. Flat 302, KPHB Phase 3, Kukatpally / Hotel Reception..."
+                  placeholder="e.g. Flat 302, Whitefield Phase 3, Begur / Hotel Reception..."
                   type="pickup"
                   enableGps={true}
                 />
@@ -292,7 +292,7 @@ const CheckOutPagePageMain: FC = () => {
                   labelClassName="text-xs font-bold text-neutral-700 dark:text-neutral-300 block mb-2"
                   value={dropAddress}
                   onChange={(val) => setDropAddress(val)}
-                  placeholder="e.g. Shamshabad Airport Departures / Srisailam Temple..."
+                  placeholder="e.g. Kempegowda International Airport (BLR) Departures / Mysuru Temple..."
                   type="drop"
                 />
                 {/* Quick Chips */}
@@ -605,7 +605,7 @@ const CheckOutPagePageMain: FC = () => {
                   <span className="text-[11px] text-neutral-500">24x7 Direct Dispatch Desk</span>
                 </div>
                 <a
-                  href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                  href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                   className="px-3 py-1.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-bold text-xs inline-flex items-center gap-1.5"
                 >
                   <PhoneIcon className="w-3.5 h-3.5" />

@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       name: name.trim(),
       tagline: tagline.trim(),
       state,
-      image: image?.trim() || "/images/srisailam-dam.jpg",
+      image: image?.trim() || "/images/images1.jpg",
       dist: dist?.trim() || "250 KM",
       days: days?.trim() || "1-2 Days",
       price: price ? Number(price) : undefined,

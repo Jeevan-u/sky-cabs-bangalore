@@ -477,7 +477,7 @@ export default function OverviewView({
                   className="p-2.5 rounded-xl bg-neutral-100/70 dark:bg-neutral-800/60 hover:bg-neutral-200/70 dark:hover:bg-neutral-700/60 text-center transition-colors border border-neutral-200/50 dark:border-neutral-700/50"
                 >
                   <span className="text-[10px] font-bold text-neutral-500 dark:text-neutral-400 block uppercase">Airport</span>
-                  <span className="text-xs font-black text-neutral-800 dark:text-neutral-200">RGIA Fly</span>
+                  <span className="text-xs font-black text-neutral-800 dark:text-neutral-200">BLR Fly</span>
                 </button>
                 <button
                   onClick={onOpenNewBookingModal}

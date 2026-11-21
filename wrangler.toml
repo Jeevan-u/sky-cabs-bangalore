@@ -1,16 +1,16 @@
-name = "sri-sadhguru-travels"
+name = "sky-cabs-bangalore"
 pages_build_output_dir = "out-cf"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
 # Cloudflare D1 Database Binding
-# Execute schema with: npx wrangler d1 execute sadhguru-db --remote --file=./src/lib/db/schema.sql
+# Execute schema with: npx wrangler d1 execute sky-cabs-bangalore-db --remote --file=./src/lib/db/schema.sql
 [[d1_databases]]
 binding = "DB"
-database_name = "sadhguru-db"
+database_name = "sky-cabs-bangalore-db"
 database_id = "186d4e5b-ad3a-4f6e-b834-ae761c56090e"
 
 [vars]
-NEXTAUTH_URL = "https://www.srisadhgurutoursandtravels.com"
-NEXTAUTH_SECRET = "production-sadhguru-travels-secret-key-2026"
+NEXTAUTH_URL = "https://skycabsbangalore.com/"
+NEXTAUTH_SECRET = "production-sky-cabs-bangalore-secret-key-2026"
 OPENROUTER_MODEL = "google/gemini-2.5-flash"

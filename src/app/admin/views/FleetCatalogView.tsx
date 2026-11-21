@@ -353,7 +353,7 @@ export default function FleetCatalogView() {
                   <span>Rate Card Engine Pricing Matrix</span>
                 </h4>
                 <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  Direct tariff comparison across all vehicle tiers for Hyderabad, Telangana & Interstate routes.
+                  Direct tariff comparison across all vehicle tiers for Bengaluru, Karnataka & Interstate routes.
                 </p>
               </div>
               <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold">

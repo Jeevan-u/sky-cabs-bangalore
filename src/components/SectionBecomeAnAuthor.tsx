@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import rightImgDemo from "@/images/BecomeAnAuthorImg.png";
 import Logo from "@/shared/Logo";
 import Image from "next/image";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { WhatsAppIcon, PhoneIcon } from "@/components/icons";
 import { MagneticButton, ShinyText, StarBorder, TiltedCard } from "@/components/reactbits";
 
@@ -28,8 +28,8 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
           Planning a <ShinyText text="Pilgrimage, Wedding, or Airport Trip?" speed={3} />
         </h2>
         <p className="block mt-4 text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
-          Get dedicated 5-Seater to 50-Seater vehicles at guaranteed best rates.
-          We provide clean, air-conditioned sedans, Ertigas, Innova Crystas,
+          Get dedicated 4+1 to 52-Seater vehicles at guaranteed best rates.
+          We provide clean, air-conditioned sedans, Maruti Suzuki Ertigas, Toyota Innova Crystas,
           Tempo Travellers, and luxury tourist buses with courteous, professional
           chauffeurs.
         </p>
@@ -37,7 +37,7 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
         <div className="flex flex-wrap gap-3 mt-6 sm:mt-8">
           <MagneticButton pullFactor={0.25}>
             <a
-              href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20upcoming%20trip.`}
+              href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20get%20a%20quote%20for%20my%20upcoming%20trip.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition"
@@ -49,18 +49,18 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
 
           <MagneticButton pullFactor={0.25}>
             <a
-              href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+              href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary-6000 hover:bg-primary-700 text-white font-bold text-xs shadow-md transition"
             >
               <PhoneIcon className="w-4 h-4" />
-              <span>Call: 81061 17704</span>
+              <span>Call: 96323 45415</span>
             </a>
           </MagneticButton>
         </div>
       </div>
       <div className="lg:col-span-6 w-full flex justify-center">
         <TiltedCard
-          captionText="Sri Sadhguru Group & Wedding Convoys"
+          captionText="Sky Cabs Bangalore Group & Wedding Convoys"
           containerHeight="100%"
           containerWidth="100%"
           imageHeight="100%"
@@ -71,7 +71,7 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
           showTooltip={false}
         >
           <div className="w-full relative">
-            <Image alt="Sri Sadhguru Travel Transport" src={rightImg} className="drop-shadow-2xl" />
+            <Image alt="Sky Cabs Bangalore Transport" src={rightImg} className="drop-shadow-2xl" />
           </div>
         </TiltedCard>
       </div>

@@ -142,7 +142,7 @@ export default function ModalRoute({
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g. Hyderabad to Srisailam Jyotirlinga Yatra"
+              placeholder="e.g. Bengaluru to Mysuru Heritage Tour"
               className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium focus:ring-2 focus:ring-primary-500"
             />
           </div>
@@ -157,7 +157,7 @@ export default function ModalRoute({
                 required
                 value={fromLocation}
                 onChange={(e) => setFromLocation(e.target.value)}
-                placeholder="Hyderabad / Kukatpally"
+                placeholder="Bengaluru / Begur"
                 className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
               />
             </div>
@@ -170,7 +170,7 @@ export default function ModalRoute({
                 required
                 value={toLocation}
                 onChange={(e) => setToLocation(e.target.value)}
-                placeholder="Srisailam / Tirupati"
+                placeholder="Mysuru / Tirupati"
                 className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
               />
             </div>

@@ -3,7 +3,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import Badge from "@/shared/Badge";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { PhoneIcon, WhatsAppIcon, MapPinIcon, SparklesIcon } from "@/components/icons";
 import {
   TiltedCard,
@@ -36,8 +36,8 @@ const SectionLegacy: FC<SectionLegacyProps> = ({ className = "" }) => {
             <TiltedCard maxAngle={10} scale={1.03} className="w-full max-w-sm">
               <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-400/40">
                 <Image
-                  src="/images/sri-sadhguru-travels-banner.jpg"
-                  alt="Sri Sadhguru Travels Official Flyer - Prop: Rathan Kanna"
+                  src="/images/sky-cabs-banner.jpg"
+                  alt="Sky Cabs Bangalore Official Flyer - "
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 400px"
@@ -51,34 +51,34 @@ const SectionLegacy: FC<SectionLegacyProps> = ({ className = "" }) => {
             <div className="inline-flex items-center gap-2">
               <StarBorder as="div" color="#f59e0b" speed="4s" className="p-[1.5px]">
                 <span className="text-xs font-bold text-amber-400 px-1">
-                  Prop: Rathan Kanna
+                  
                 </span>
               </StarBorder>
-              <Badge name="Kukatpally & Kamareddy" color="blue" />
+              <Badge name="Begur & Yelahanka" color="blue" />
             </div>
 
             <h2 className="text-3xl md:text-5xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight leading-tight">
-              <ShinyText text="Sri Sadhguru Tours & Travels" speed={3} />
+              <ShinyText text="Sky Cabs Bangalore" speed={3} />
             </h2>
 
             <p className="text-base sm:text-lg font-bold text-amber-600 dark:text-amber-400 italic">
-              &ldquo;Travel Safe... Travel Happy... Your Journey... Our Responsibility...&rdquo;
+              &ldquo;Reliable Cabs Across Bengaluru · Safe, Comfortable & On-Time Travel&rdquo;
             </p>
 
             <div className="space-y-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-300 font-medium leading-relaxed">
               <p>
                 Founded with a strong commitment to passenger safety and punctuality,{" "}
                 <strong className="text-neutral-900 dark:text-neutral-100 font-bold">
-                  Sri Sadhguru Tours & Travels
+                  Sky Cabs Bangalore
                 </strong>{" "}
-                has grown into a trusted travel brand across Hyderabad and Telangana.
-                With our central hubs at <strong className="text-neutral-900 dark:text-neutral-100 font-bold">Kukatpally (Hyderabad)</strong> and{" "}
-                <strong className="text-neutral-900 dark:text-neutral-100 font-bold">Gandhari (Kamareddy)</strong>,
-                we operate a seamless fleet of 5-Seater to 50-Seater vehicles.
+                has grown into a trusted travel brand across Bengaluru and Karnataka.
+                With our central hubs at <strong className="text-neutral-900 dark:text-neutral-100 font-bold">Begur (Bengaluru)</strong> and{" "}
+                <strong className="text-neutral-900 dark:text-neutral-100 font-bold">Jayanagar (Yelahanka)</strong>,
+                we operate a seamless fleet of 4+1 to 52-Seater vehicles.
               </p>
               <p>
-                Whether you need a swift RGIA Shamshabad airport drop, a devotional pilgrimage tour
-                to Srisailam or Tirupati, a corporate event convoy, or a luxury tourist bus for a
+                Whether you need a swift Kempegowda International Airport (BLR) airport drop, a devotional pilgrimage tour
+                to Mysuru or Tirupati, a corporate event convoy, or a luxury tourist bus for a
                 grand family wedding, our verified chauffeurs ensure a smooth and memorable journey.
               </p>
             </div>
@@ -90,13 +90,13 @@ const SectionLegacy: FC<SectionLegacyProps> = ({ className = "" }) => {
               </span>
               <div className="flex flex-wrap gap-2 text-xs font-semibold">
                 {[
-                  "Kukatpally (HQ)",
-                  "KPHB Colony",
-                  "Miyapur Highway",
-                  "Hitec City / Madhapur",
-                  "Shamshabad Airport",
-                  "Medchal & Kompally",
-                  "Gandhari / Kamareddy",
+                  "Begur (HQ)",
+                  "Electronic City",
+                  "Koramangala Highway",
+                  "Whitefield / Marathahalli",
+                  "Kempegowda International Airport (BLR)",
+                  "Hebbal & Yelahanka",
+                  "Jayanagar / Yelahanka",
                 ].map((hub) => (
                   <span
                     key={hub}
@@ -110,19 +110,19 @@ const SectionLegacy: FC<SectionLegacyProps> = ({ className = "" }) => {
             </div>
 
             <div className="pt-4 flex flex-wrap gap-4 items-center">
-              <a href={`tel:${SADHGURU_CONTACT.primaryPhone}`}>
+              <a href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}>
                 <ShimmerButton
                   background="linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
                   className="px-6 py-3.5 text-sm font-bold shadow-md shadow-amber-500/25"
                 >
                   <PhoneIcon className="w-4 h-4 text-white" />
-                  <span>Call +91 {SADHGURU_CONTACT.primaryPhone}</span>
+                  <span>Call +91 {SKY_CABS_CONTACT.primaryPhone}</span>
                 </ShimmerButton>
               </a>
 
               <MagneticButton pullFactor={0.25}>
                 <a
-                  href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}`}
+                  href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition"

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ALL_TOUR_PACKAGES, TourPackageDetail } from "@/data/tourPackagesData";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   SparklesIcon,
   MapPinIcon,
@@ -36,10 +36,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pkg) return { title: "Package Not Found" };
 
   return {
-    title: `${pkg.title} | SRI SADHGURU TOURS & TRAVELS`,
-    description: `${pkg.tagline}. Complete itinerary, vehicle pricing (Sedan, Ertiga, Crysta, Tempo Traveller, Luxury Bus) and verified chauffeur booking from Hyderabad.`,
+    title: `${pkg.title} | Sky Cabs Bangalore`,
+    description: `${pkg.tagline}. Outstation tour from Bengaluru with vehicle options including sedan, Ertiga, Innova, Fortuner, Urbania and passenger buses. Confirm availability and final fare before booking.`,
     alternates: {
-      canonical: `https://www.srisadhgurutoursandtravels.com/package/${pkg.slug}`,
+      canonical: `https://skycabsbangalore.com/package/${pkg.slug}`,
     },
   };
 }
@@ -52,7 +52,7 @@ export default async function PackageDetailPage({ params }: Props) {
     notFound();
   }
 
-  const defaultWaMessage = `Hello Sri Sadhguru Travels, I would like to book the *${pkg.title}* (${pkg.duration}). Please share vehicle availability & final quotation.`;
+  const defaultWaMessage = `Hello Sky Cabs Bangalore, I would like to enquire about the *${pkg.title}* (${pkg.duration}). Please share vehicle availability and a final quotation.`;
 
   return (
     <div className="nc-PackageDetailPage py-10 sm:py-16">
@@ -100,7 +100,7 @@ export default async function PackageDetailPage({ params }: Props) {
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
-                href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(defaultWaMessage)}`}
+                href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(defaultWaMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-lg transition"
@@ -110,11 +110,11 @@ export default async function PackageDetailPage({ params }: Props) {
               </a>
 
               <a
-                href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-neutral-800/80 hover:bg-neutral-700 text-white font-bold text-xs sm:text-sm border border-neutral-700 transition"
               >
                 <PhoneIcon className="w-4 h-4 text-amber-400" />
-                <span>+91 {SADHGURU_CONTACT.primaryPhone}</span>
+                <span>+91 {SKY_CABS_CONTACT.primaryPhone}</span>
               </a>
             </div>
           </div>
@@ -152,7 +152,7 @@ export default async function PackageDetailPage({ params }: Props) {
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
             {pkg.vehicleRates.map((vRate) => {
-              const bookingText = `Hello Sri Sadhguru Travels, I want to book ${vRate.name} for *${pkg.title}* at ${vRate.priceDisplay}.`;
+              const bookingText = `Hello Sky Cabs Bangalore, I would like to check availability of ${vRate.name} for *${pkg.title}* at ${vRate.priceDisplay}.`;
 
               return (
                 <SpotlightCard
@@ -186,7 +186,7 @@ export default async function PackageDetailPage({ params }: Props) {
                     </div>
 
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(bookingText)}`}
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(bookingText)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-1 py-1.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold shadow-sm transition"
@@ -293,15 +293,15 @@ export default async function PackageDetailPage({ params }: Props) {
         {/* Bottom Booking Box */}
         <div className="p-6 sm:p-8 rounded-3xl bg-neutral-900 border border-neutral-800 text-white text-center space-y-4">
           <h2 className="text-xl sm:text-2xl font-black uppercase">
-            Ready to Begin Your Sacred Journey?
+            Ready to Plan Your Bengaluru Outstation Trip?
           </h2>
           <p className="text-xs sm:text-sm text-neutral-400 max-w-xl mx-auto">
-            Book now with zero advance deposit required. 15-minute doorstep dispatch across Kukatpally, KPHB, Miyapur, Hitec City, and Shamshabad Airport.
+            Doorstep pickup across Begur, Electronic City, Koramangala, Whitefield and other Bengaluru areas. Vehicle availability and final fare are confirmed before booking.
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <a
-              href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(defaultWaMessage)}`}
+              href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(defaultWaMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-lg transition"

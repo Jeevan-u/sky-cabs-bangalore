@@ -1,15 +1,15 @@
-# Sri Sadhguru Tours & Travels - Master SEO & AEO Optimization Plan
+# Sky Cabs Bangalore - Master SEO & AEO Optimization Plan
 
 ## Objective
-Elevate Sri Sadhguru Tours & Travels (`https://srisadhgurutravels.in`) to rank #1 on Google Organic Search, Google Maps Local Pack, and AI Answer Engines (Perplexity, ChatGPT, Claude, Gemini) across Hyderabad, Kukatpally, KPHB, Miyapur, Hitec City, Medchal, and major South India pilgrimage routes.
+Elevate Sky Cabs Bangalore (`https://skycabsbangalore.com/`) to rank #1 on Google Organic Search, Google Maps Local Pack, and AI Answer Engines (Perplexity, ChatGPT, Claude, Gemini) across Bengaluru, Begur, Whitefield, Indiranagar, Whitefield, Yelahanka, and major South India pilgrimage routes.
 
 ---
 
 ## Executed 4-Phase Architecture
 
 ### Phase 1: Core Technical SEO & De-Indexation Fix
-- **Canonical Root De-coupling**: Removed blanket `canonical: "https://srisadhgurutravels.in"` from `RootLayout` (`src/app/layout.tsx`). Child pages now declare self-referencing canonical URLs to eliminate duplicate content signals.
-- **Title Tag Normalization**: Retained `template: "%s | Sri Sadhguru Travels Hyderabad"` in `RootLayout`. Stripped redundant brand suffix patterns from child page titles across all regional and airport landing pages.
+- **Canonical Root De-coupling**: Removed blanket `canonical: "https://skycabsbangalore.com/"` from `RootLayout` (`src/app/layout.tsx`). Child pages now declare self-referencing canonical URLs to eliminate duplicate content signals.
+- **Title Tag Normalization**: Retained `template: "%s | Sky Cabs Bangalore Bengaluru"` in `RootLayout`. Stripped redundant brand suffix patterns from child page titles across all regional and airport landing pages.
 - **Semantic Hierarchy (`<h1>` Injections)**:
   - Homepage (`src/app/(server-components)/SectionHero.tsx`): Primary `<h1>` with keyword enrichment.
   - About (`src/app/about/SectionHero.tsx`): Semantic `<h1>` for company identity.
@@ -24,8 +24,8 @@ Elevate Sri Sadhguru Tours & Travels (`https://srisadhgurutravels.in`) to rank #
 ---
 
 ### Phase 2: Navigation & URL Integrity Repair
-- **Fleet Query Parameter Integrity**: Updated all vehicles in `src/data/jsons/__carsListing.json` with deep links passing `?vehicle=` query parameters (`dzire-etios`, `innova-crysta`, `ertiga-rumion`, `tempo-traveller-12-17`, `urbania-26`, `luxury-bus-32-50`).
-- **Dynamic Blog Routing**: Updated `src/data/posts.ts` from static anchor hashes to genuine dynamic routes (`/blog/srisailam-guide`, `/blog/tirupati-balaji`, etc.).
+- **Fleet Query Parameter Integrity**: Updated all vehicles in `src/data/jsons/__carsListing.json` with deep links passing `?vehicle=` query parameters (`prime-sedan`, `innova-crysta`, `ertiga`, `tempo-traveller-12`, `urbania-16`, `passenger-bus`).
+- **Dynamic Blog Routing**: Updated `src/data/posts.ts` from static anchor hashes to genuine dynamic routes (`/blog/mysuru-guide`, `/blog/tirupati-balaji`, etc.).
 - **Local Review Funnel**: Configured Google Maps local review query link in `src/app/review/page.tsx`.
 
 ---
@@ -40,18 +40,18 @@ Elevate Sri Sadhguru Tours & Travels (`https://srisadhgurutravels.in`) to rank #
 - **Structured Data Optimization**:
   - Deduplicated `FAQPage` schemas by isolating global FAQs to homepage via `HomepageFaqSchema` and local landing FAQs to `LocationLandingTemplate`.
   - Added rich `Product` and `Vehicle` schema catalogue in `src/components/StructuredData.tsx` for all 6 fleet categories.
-  - Added exact GeoCoordinates for operational hubs (Kukatpally, Shamshabad Airport, KPHB, Hitec City, Miyapur, Medchal, Gandhari).
+  - Added exact GeoCoordinates for operational hubs (Begur, Kempegowda International Airport (BLR), Whitefield, Whitefield, Indiranagar, Yelahanka, Jayanagar).
   - Injected `knowsLanguage: ["en", "te", "hi"]` across LocalBusiness, TaxiService, and Person schemas.
 
 ---
 
 ### Phase 4: High-Intent Commercial URL Expansion & Sitemap
 - **Dedicated Pilgrimage Landing Pages**:
-  - `src/app/hyderabad-to-srisailam-cabs/page.tsx`
-  - `src/app/hyderabad-to-tirupati-cabs/page.tsx`
-  - `src/app/hyderabad-to-shirdi-cabs/page.tsx`
-  - `src/app/hyderabad-to-yadagirigutta-cabs/page.tsx`
-  - `src/app/cabs-in-kamareddy-gandhari/page.tsx`
+  - `src/app/bengaluru-to-mysuru-cabs/page.tsx`
+  - `src/app/bengaluru-to-tirupati-cabs/page.tsx`
+  - `src/app/bengaluru-to-coorg-cabs/page.tsx`
+  - `src/app/bangalore-to-mysuru-cabs/page.tsx`
+  - `src/app/cabs-in-jayanagar/page.tsx`
 - **Sitemap Restructuring (`src/app/sitemap.ts`)**:
   - Included all primary hubs, outstation pilgrimage landing pages, fleet archive, and blog guides with prioritized weights (1.0 to 0.7) and change frequencies.
   - Excluded transactional `/checkout` and `/subscription` routes from indexing.

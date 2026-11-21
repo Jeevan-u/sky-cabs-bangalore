@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { SADHGURU_FLEET } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET } from "@/data/skyCabsFleet";
 import { RateCardItem } from "../types";
 
 interface ModalRateCardProps {
@@ -18,9 +18,9 @@ export default function ModalRateCard({
   rateCards,
   onRatesUpdated,
 }: ModalRateCardProps) {
-  const [selectedVehicleId, setSelectedVehicleId] = useState<string>("dzire-etios");
+  const [selectedVehicleId, setSelectedVehicleId] = useState<string>("prime-sedan");
 
-  const currentFleet = SADHGURU_FLEET.find((f) => f.id === selectedVehicleId) || SADHGURU_FLEET[0];
+  const currentFleet = SKY_CABS_FLEET.find((f) => f.id === selectedVehicleId) || SKY_CABS_FLEET[0];
   const existingCard = rateCards.find((r) => r.vehicle_id === selectedVehicleId);
 
   const [perKm, setPerKm] = useState<number>(existingCard?.per_km_rate || currentFleet.perKmRate);
@@ -33,7 +33,7 @@ export default function ModalRateCard({
 
   const handleVehicleChange = (id: string) => {
     setSelectedVehicleId(id);
-    const fl = SADHGURU_FLEET.find((f) => f.id === id) || SADHGURU_FLEET[0];
+    const fl = SKY_CABS_FLEET.find((f) => f.id === id) || SKY_CABS_FLEET[0];
     const ex = rateCards.find((r) => r.vehicle_id === id);
     setPerKm(ex?.per_km_rate || fl.perKmRate);
     setAirport(ex?.airport_flat_rate || fl.airportFlatRate);
@@ -83,7 +83,7 @@ export default function ModalRateCard({
             <h3 className="text-base font-extrabold text-neutral-900 dark:text-white tracking-tight">
               Update Rate Slabs
             </h3>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">Adjust standard fares for Hyderabad operations</p>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">Adjust standard fares for Bengaluru operations</p>
           </div>
           <button
             onClick={onClose}
@@ -103,7 +103,7 @@ export default function ModalRateCard({
               onChange={(e) => handleVehicleChange(e.target.value)}
               className="w-full px-3.5 py-2.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white font-medium outline-none"
             >
-              {SADHGURU_FLEET.map((f) => (
+              {SKY_CABS_FLEET.map((f) => (
                 <option key={f.id} value={f.id}>
                   {f.name} ({f.category})
                 </option>

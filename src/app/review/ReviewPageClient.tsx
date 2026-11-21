@@ -20,7 +20,7 @@ import {
   CheckBadgeIcon,
   TruckIcon,
 } from "@/components/icons";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { Confetti, BorderBeam } from "@/components/reactbits";
 
 const HIGHLIGHT_TAGS = [
@@ -62,8 +62,8 @@ export default function ReviewPage() {
   const [customerPhone, setCustomerPhone] = useState(searchParams?.get("phone") || "");
   const [driverName, setDriverName] = useState(searchParams?.get("driver") || "K. Shiva Kumar");
   const [vehicleName, setVehicleName] = useState(searchParams?.get("vehicle") || "Toyota Innova Crysta");
-  const [pickupLocation, setPickupLocation] = useState(searchParams?.get("pickup") || "Kukatpally, Hyderabad");
-  const [dropLocation, setDropLocation] = useState(searchParams?.get("drop") || "Shamshabad RGI Airport");
+  const [pickupLocation, setPickupLocation] = useState(searchParams?.get("pickup") || "Begur, Bengaluru");
+  const [dropLocation, setDropLocation] = useState(searchParams?.get("drop") || "Devanahalli RGI Airport");
 
   const [rating, setRating] = useState(5);
   const [selectedTags, setSelectedTags] = useState<string[]>([
@@ -132,9 +132,9 @@ export default function ReviewPage() {
     setCustomizedReview(reviewOptions[idx]);
   };
 
-  // Google Review URL for Sri Sadhguru Tours and Travels Kukatpally
+  // Google Review URL for Sky Cabs Bangalore Begur
   const googleReviewSearchUrl =
-    "https://www.google.com/maps/search/?api=1&query=Sri+Sadhguru+Tours+and+Travels+Kukatpally+Hyderabad";
+    "https://www.google.com/maps/search/?api=1&query=Sky+Cabs+Bangalore+Begur+Bengaluru";
 
   const handleCopyAndRedirect = async () => {
     const textToCopy = customizedReview || reviewOptions[selectedReviewIndex] || "";
@@ -199,10 +199,10 @@ export default function ReviewPage() {
             Trip Experience & Review
           </span>
           <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-            {SADHGURU_CONTACT.brandName}
+            {SKY_CABS_CONTACT.brandName}
           </h1>
           <p className="text-blue-100 text-xs mt-1">
-            Travel Safe... Travel Happy... · Prop: {SADHGURU_CONTACT.proprietor}
+            Reliable Cabs Across Bengaluru
           </p>
 
           <div className="mt-4 bg-black/25 backdrop-blur-md rounded-2xl py-2 px-4 inline-flex items-center gap-1.5 text-xs text-amber-200 border border-white/10">
@@ -269,11 +269,11 @@ export default function ReviewPage() {
             <div className="bg-amber-950/40 border border-amber-600/40 rounded-2xl p-5 space-y-4">
               <div className="flex items-center gap-2 text-amber-300 font-bold text-sm">
                 <ShieldCheckIcon className="w-5 h-5 text-amber-400 shrink-0" />
-                <h3>Direct Feedback to Sri Sadhguru Management</h3>
+                <h3>Direct Feedback to Sky Cabs Bangalore Management</h3>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                We sincerely apologize that your experience was not 5 stars. Proprietor{" "}
-                <span className="font-semibold text-amber-200">Rathan Kanna</span> personally reviews all feedback to
+                We sincerely apologize that your experience was not 5 stars. Team{" "}
+                <span className="font-semibold text-amber-200">Sky Cabs Bangalore</span> personally reviews all feedback to
                 take immediate corrective action.
               </p>
 
@@ -281,7 +281,7 @@ export default function ReviewPage() {
                 <div className="p-4 bg-emerald-900/40 border border-emerald-500/50 rounded-xl text-center space-y-3">
                   <p className="text-emerald-300 text-sm font-semibold flex items-center justify-center gap-1.5">
                     <CheckCircleIcon className="w-5 h-5 text-emerald-400 shrink-0" />
-                    <span>Thank you. Your grievance has been recorded directly for the proprietor.</span>
+                    <span>Thank you. Your grievance has been recorded directly for the team.</span>
                   </p>
                   {whatsappEscalationUrl && (
                     <a
@@ -291,7 +291,7 @@ export default function ReviewPage() {
                       className="inline-flex items-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md transition"
                     >
                       <WhatsAppIcon className="w-4 h-4 fill-white shrink-0" />
-                      <span>Chat Immediately with Rathan Kanna on WhatsApp</span>
+                      <span>Chat Immediately with Sky Cabs Bangalore on WhatsApp</span>
                     </a>
                   )}
                 </div>
@@ -430,30 +430,24 @@ export default function ReviewPage() {
           {/* Contact Support */}
           <div className="border-t border-slate-700/60 pt-4 text-center text-xs text-slate-400">
             Need to book your next trip? Call{" "}
-            <a href={`tel:${SADHGURU_CONTACT.primaryPhone}`} className="text-amber-400 font-bold">
-              {SADHGURU_CONTACT.primaryPhoneFormatted}
+            <a href={`tel:${SKY_CABS_CONTACT.primaryPhone}`} className="text-amber-400 font-bold">
+              {SKY_CABS_CONTACT.primaryPhoneFormatted}
             </a>{" "}
             or WhatsApp{" "}
             <a
-              href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}`}
+              href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}`}
               target="_blank"
               rel="noreferrer"
               className="text-emerald-400 font-bold"
             >
-              81061 17704
+              {SKY_CABS_CONTACT.primaryPhoneFormatted}
             </a>
           </div>
         </div>
       </div>
 
       <div className="text-center text-[11px] text-slate-500 mt-6 space-y-1">
-        <div>© {new Date().getFullYear()} Sri Sadhguru Tours & Travels · All Rights Reserved</div>
-        <div>
-          Developed by{" "}
-          <a href="tel:+916301253789" className="text-slate-400 hover:text-white font-semibold underline decoration-dotted">
-            INDENTDEV +916301253789
-          </a>
-        </div>
+        <div>© {new Date().getFullYear()} Sky Cabs Bangalore · All Rights Reserved</div>
       </div>
     </div>
   );

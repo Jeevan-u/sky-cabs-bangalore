@@ -3,9 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact & 24x7 Cab Booking Desk",
   description:
-    "Contact Sri Sadhguru Tours & Travels Kukatpally headquarters or Gandhari branch. 24x7 dispatch phone: +91 81061 17704. Instant WhatsApp quotes.",
+    "Contact Sky Cabs Bangalore Begur headquarters or Jayanagar branch. 24x7 dispatch phone: +91 96323 45415. Instant WhatsApp quotes.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/contact",
+    canonical: "https://skycabsbangalore.com/contact",
   },
 };
 

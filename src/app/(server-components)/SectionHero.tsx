@@ -5,7 +5,7 @@ import imagePng from "@/images/hero-right.png";
 import Image from "next/image";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import { Route } from "@/routers/types";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   SparklesIcon,
   WhatsAppIcon,
@@ -36,10 +36,10 @@ export interface SectionHeroProps {
 }
 
 const HERO_SPECIALTIES = [
-  "Shamshabad Airport Taxi (Fixed Non-Surge Rates)",
-  "Srisailam Mallikarjuna & Tirupati Tour Packages",
-  "24x7 Cabs in Kukatpally, KPHB & Hitec City",
-  "12 to 50 Seater Luxury Tempo Travellers & Buses",
+  "Kempegowda International Airport (BLR) Taxi - Transparent Fares",
+  "Mysuru, Tirupati & Coorg Tour Packages",
+  "24x7 Cabs in Begur, Electronic City & Whitefield",
+  "9+1 to 52-Seater Tempo Travellers, Urbania & Buses",
 ];
 
 const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
@@ -68,7 +68,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-500/40 shadow-lg bg-white dark:bg-neutral-900 flex-shrink-0 flex items-center justify-center p-1">
               <Image
                 src="/images/logo-light.png"
-                alt="SRI SADHGURU TOURS & TRAVELS"
+                alt="Sky Cabs Bangalore"
                 width={56}
                 height={56}
                 className="w-full h-full object-contain block dark:hidden"
@@ -76,7 +76,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
               />
               <Image
                 src="/images/logo-dark.png"
-                alt="SRI SADHGURU TOURS & TRAVELS"
+                alt="Sky Cabs Bangalore"
                 width={56}
                 height={56}
                 className="w-full h-full object-contain hidden dark:block"
@@ -102,10 +102,10 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             {/* Primary brand headline */}
             <div className="w-full max-w-xl">
               <span className="block uppercase font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-neutral-900 dark:text-white">
-                SRI SADHGURU
+                Sky Cabs Bangalore
               </span>
               <span className="block uppercase font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 bg-clip-text text-transparent mt-1">
-                TOURS & TRAVELS
+                RELIABLE CABS
               </span>
             </div>
 
@@ -120,9 +120,10 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl">
-            Travel Safe... Travel Happy... Your Journey, Our Responsibility.
-            5-Seater to 50-Seater Vehicles Available 24x7 across Kukatpally,
-            KPHB, Miyapur, Hitec City, Shamshabad Airport & Gandhari.
+            Reliable Cabs Across Bengaluru · Safe, Comfortable & On-Time Travel.
+            Choose from Prime Sedans to 52-seater passenger buses for airport transfers,
+            outstation trips and group travel across Bengaluru. Vehicles are subject to
+            availability - confirm availability before booking.
           </p>
 
           {/* CTAs with ShimmerButton & MagneticButton */}
@@ -139,7 +140,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
 
             <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
               <a
-                href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20book%20a%20cab/bus`}
+                href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20book%20a%20cab/bus`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto justify-center inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-md hover:shadow-emerald-500/30 transition min-h-[48px]"
@@ -169,7 +170,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             <SpotlightCard className="p-2 sm:p-3 !rounded-2xl text-center sm:text-left" spotlightColor="rgba(245, 158, 11, 0.2)">
               <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[10px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 <TruckIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 flex-shrink-0" />
-                <span>5 to 50 Seats</span>
+                <span>4+1 to 52 Seats</span>
               </div>
             </SpotlightCard>
 

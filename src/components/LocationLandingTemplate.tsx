@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import SadhguruBookingForm from "@/components/SadhguruBookingForm";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import SkyCabsBookingForm from "@/components/SkyCabsBookingForm";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   MapPinIcon,
   BoltIcon,
@@ -28,60 +28,75 @@ interface LocationPageProps {
 }
 
 const HUB_LANDMARKS: Record<string, { image: string; title: string; subtitle: string }> = {
-  kphb: {
-    image: "/images/hubs/kphb-colony.jpg",
-    title: "Nexus Hyderabad Mall (Outside View & Facade)",
-    subtitle: "24x7 doorstep cab dispatch across KPHB Phases 1-9, Nexus Mall facade & JNTU corridor.",
+  begur: {
+    image: "/images/hubs/begur-hub.jpg",
+    title: "Begur Base – Sky Cabs Bangalore",
+    subtitle: "Doorstep dispatch across Begur, Electronic City and the Bengaluru–Hosur corridor, subject to availability.",
   },
   airport: {
-    image: "/images/hubs/shamshabad-airport.jpg",
-    title: "Rajiv Gandhi International Airport (RGIA Main Entrance)",
-    subtitle: "Dedicated airport taxi fleet with real-time flight tracking & zero surge fares.",
+    image: "/images/hubs/kempegowda-airport.jpg",
+    title: "Kempegowda International Airport (BLR) – Terminal Entrance",
+    subtitle: "Flight-time based pickups and drops at Devanahalli and across Bengaluru.",
   },
-  shamshabad: {
-    image: "/images/hubs/shamshabad-airport.jpg",
-    title: "Rajiv Gandhi International Airport (RGIA Main Entrance)",
-    subtitle: "Dedicated airport taxi fleet with real-time flight tracking & zero surge fares.",
+  kempegowda: {
+    image: "/images/hubs/kempegowda-airport.jpg",
+    title: "Kempegowda International Airport (BLR) – Terminal Entrance",
+    subtitle: "Flight-time based pickups and drops at Devanahalli and across Bengaluru.",
   },
-  kukatpally: {
-    image: "/images/hubs/kukatpally-hq.jpg",
-    title: "IDL Lake (Rangadhamuni Cheruvu) - Kukatpally",
-    subtitle: "Headquartered in Kukatpally with rapid 10-15 minute arrivals across Y-Junction and metro stations.",
+  devanahalli: {
+    image: "/images/hubs/kempegowda-airport.jpg",
+    title: "Kempegowda International Airport (BLR) – Terminal Entrance",
+    subtitle: "Flight-time based pickups and drops at Devanahalli and across Bengaluru.",
   },
-  miyapur: {
-    image: "/images/hubs/miyapur-hub.jpg",
-    title: "Ameenpur Lake (Biodiversity Heritage Site) - Miyapur",
-    subtitle: "Express highway access via ORR Exit 4 and Mumbai Highway NH 65 corridor.",
+  "electronic city": {
+    image: "/images/hubs/electronic-city.jpg",
+    title: "Electronic City Tech Corridor – Phase 1 & 2",
+    subtitle: "Pickups across Electronic City, Hosa Road, Bommasandra and the Sarjapur Road junction.",
   },
-  medchal: {
-    image: "/images/hubs/medchal-kompally.jpg",
-    title: "Kandlakoya Oxygen Park - Medchal & Kompally",
-    subtitle: "Serving North Hyderabad, ORR Exit 6, and outstation highway travel toward Kamareddy & Nizamabad.",
+  koramangala: {
+    image: "/images/hubs/electronic-city.jpg",
+    title: "Koramangala 5th Block & Forum Mall",
+    subtitle: "Neighbourhood pickups around Koramangala, BTM Layout and the Inner Ring Road.",
   },
-  kompally: {
-    image: "/images/hubs/medchal-kompally.jpg",
-    title: "Kandlakoya Oxygen Park - Medchal & Kompally",
-    subtitle: "Serving North Hyderabad, ORR Exit 6, and outstation highway travel toward Kamareddy & Nizamabad.",
+  hsr: {
+    image: "/images/hubs/electronic-city.jpg",
+    title: "HSR Layout Sectors 1 to 7",
+    subtitle: "Commuter and family pickups around HSR Layout, Sarjapur Road and the Outer Ring Road.",
   },
-  hitec: {
-    image: "/images/hubs/hitec-city.jpg",
-    title: "Cyber Towers & Durgam Cheruvu - Hitec City",
-    subtitle: "Corporate cabs, GST invoicing, and executive chauffeur service for IT corridors.",
+  whitefield: {
+    image: "/images/hubs/electronic-city.jpg",
+    title: "Whitefield ITPL & Phoenix Marketcity",
+    subtitle: "Corporate and residential pickups across Whitefield, Brookefield and Varthur Road.",
   },
-  madhapur: {
-    image: "/images/hubs/hitec-city.jpg",
-    title: "Cyber Towers & Durgam Cheruvu - Hitec City",
-    subtitle: "Corporate cabs, GST invoicing, and executive chauffeur service for IT corridors.",
+  marathahalli: {
+    image: "/images/hubs/electronic-city.jpg",
+    title: "Marathahalli Bridge & Outer Ring Road",
+    subtitle: "Pickups along the ORR tech corridor, Kundalahalli and Varthur Road.",
   },
-  kamareddy: {
-    image: "/images/hubs/kamareddy-gandhari.jpg",
-    title: "Historic Domakonda Fort - Kamareddy & Gandhari",
-    subtitle: "Regular direct round-trip and one-way car rentals between Hyderabad and Kamareddy/Gandhari.",
+  indiranagar: {
+    image: "/images/hubs/electronic-city.jpg",
+    title: "Indiranagar 100 Feet Road & Metro",
+    subtitle: "Neighbourhood pickups around Indiranagar, Domlur and Old Airport Road.",
   },
-  gandhari: {
-    image: "/images/hubs/kamareddy-gandhari.jpg",
-    title: "Historic Domakonda Fort - Kamareddy & Gandhari",
-    subtitle: "Regular direct round-trip and one-way car rentals between Hyderabad and Kamareddy/Gandhari.",
+  jayanagar: {
+    image: "/images/hubs/begur-hub.jpg",
+    title: "Jayanagar 4th Block & Shopping Complex",
+    subtitle: "South Bengaluru pickups across Jayanagar, JP Nagar and Banashankari.",
+  },
+  banashankari: {
+    image: "/images/hubs/begur-hub.jpg",
+    title: "Jayanagar 4th Block & Shopping Complex",
+    subtitle: "South Bengaluru pickups across Jayanagar, JP Nagar and Banashankari.",
+  },
+  yelahanka: {
+    image: "/images/hubs/hsr-layout-hub.jpg",
+    title: "Yelahanka Satellite Town & Airport Road",
+    subtitle: "North Bengaluru and airport-corridor pickups around Yelahanka, Hebbal and Devanahalli.",
+  },
+  hebbal: {
+    image: "/images/hubs/hsr-layout-hub.jpg",
+    title: "Yelahanka Satellite Town & Airport Road",
+    subtitle: "North Bengaluru and airport-corridor pickups around Yelahanka, Hebbal and Devanahalli.",
   },
 };
 
@@ -96,26 +111,41 @@ function resolveHubLandmark(locationName: string) {
 }
 
 const DEFAULT_COORDS: Record<string, { lat: string; lng: string; postalCode: string; locality: string }> = {
-  kukatpally: { lat: "17.4849", lng: "78.4138", postalCode: "500072", locality: "Kukatpally, Hyderabad" },
-  shamshabad: { lat: "17.2403", lng: "78.4294", postalCode: "500409", locality: "Shamshabad, Hyderabad" },
-  airport: { lat: "17.2403", lng: "78.4294", postalCode: "500409", locality: "Shamshabad, Hyderabad" },
-  kphb: { lat: "17.4938", lng: "78.3995", postalCode: "500072", locality: "KPHB Colony, Hyderabad" },
-  hitec: { lat: "17.4474", lng: "78.3762", postalCode: "500081", locality: "Hitec City, Hyderabad" },
-  madhapur: { lat: "17.4474", lng: "78.3762", postalCode: "500081", locality: "Madhapur, Hyderabad" },
-  miyapur: { lat: "17.4968", lng: "78.3562", postalCode: "500049", locality: "Miyapur, Hyderabad" },
-  medchal: { lat: "17.6297", lng: "78.4814", postalCode: "501401", locality: "Medchal, Hyderabad" },
-  kompally: { lat: "17.5353", lng: "78.4878", postalCode: "500014", locality: "Kompally, Hyderabad" },
-  kamareddy: { lat: "18.3228", lng: "78.3414", postalCode: "503114", locality: "Kamareddy" },
-  gandhari: { lat: "18.3228", lng: "78.3414", postalCode: "503114", locality: "Gandhari, Kamareddy" },
-  srisailam: { lat: "16.0748", lng: "78.8682", postalCode: "518101", locality: "Srisailam" },
-  tirupati: { lat: "13.6288", lng: "79.4192", postalCode: "517501", locality: "Tirupati" },
-  shirdi: { lat: "19.7667", lng: "74.4764", postalCode: "423109", locality: "Shirdi" },
-  yadagirigutta: { lat: "17.5878", lng: "78.9405", postalCode: "508115", locality: "Yadagirigutta" },
+  begur: { lat: "12.8570", lng: "77.6680", postalCode: "562157", locality: "Begur, Bengaluru" },
+  "electronic city": { lat: "12.8452", lng: "77.6602", postalCode: "560100", locality: "Electronic City, Bengaluru" },
+  koramangala: { lat: "12.9352", lng: "77.6245", postalCode: "560034", locality: "Koramangala, Bengaluru" },
+  "hsr layout": { lat: "12.9116", lng: "77.6412", postalCode: "560102", locality: "HSR Layout, Bengaluru" },
+  "btm layout": { lat: "12.9165", lng: "77.6101", postalCode: "560076", locality: "BTM Layout, Bengaluru" },
+  "jp nagar": { lat: "12.9086", lng: "77.5882", postalCode: "560078", locality: "JP Nagar, Bengaluru" },
+  jayanagar: { lat: "12.9250", lng: "77.5938", postalCode: "560011", locality: "Jayanagar, Bengaluru" },
+  whitefield: { lat: "12.9698", lng: "77.7499", postalCode: "560066", locality: "Whitefield, Bengaluru" },
+  marathahalli: { lat: "12.9569", lng: "77.7011", postalCode: "560037", locality: "Marathahalli, Bengaluru" },
+  indiranagar: { lat: "12.9719", lng: "77.6412", postalCode: "560038", locality: "Indiranagar, Bengaluru" },
+  yelahanka: { lat: "13.1006", lng: "77.5960", postalCode: "560064", locality: "Yelahanka, Bengaluru" },
+  hebbal: { lat: "13.0358", lng: "77.5970", postalCode: "560024", locality: "Hebbal, Bengaluru" },
+  banashankari: { lat: "12.9250", lng: "77.5460", postalCode: "560070", locality: "Banashankari, Bengaluru" },
+  airport: { lat: "13.1986", lng: "77.7066", postalCode: "560300", locality: "Devanahalli, Bengaluru" },
+  kempegowda: { lat: "13.1986", lng: "77.7066", postalCode: "560300", locality: "Devanahalli, Bengaluru" },
+  devanahalli: { lat: "13.1986", lng: "77.7066", postalCode: "560300", locality: "Devanahalli, Bengaluru" },
+  mysuru: { lat: "12.2958", lng: "76.6394", postalCode: "570001", locality: "Mysuru, Karnataka" },
+  tirupati: { lat: "13.6288", lng: "79.4192", postalCode: "517501", locality: "Tirupati, Andhra Pradesh" },
+  coorg: { lat: "12.4244", lng: "75.7382", postalCode: "571201", locality: "Madikeri (Coorg), Karnataka" },
+  madikeri: { lat: "12.4244", lng: "75.7382", postalCode: "571201", locality: "Madikeri (Coorg), Karnataka" },
+  ooty: { lat: "11.4102", lng: "76.6950", postalCode: "643001", locality: "Ooty, Tamil Nadu" },
+  chennai: { lat: "13.0827", lng: "80.2707", postalCode: "600001", locality: "Chennai, Tamil Nadu" },
+  mangaluru: { lat: "12.9141", lng: "74.8560", postalCode: "575001", locality: "Mangaluru, Karnataka" },
+  hampi: { lat: "15.3350", lng: "76.4600", postalCode: "583221", locality: "Hampi, Karnataka" },
+  wayanad: { lat: "11.6054", lng: "76.1310", postalCode: "673121", locality: "Wayanad, Kerala" },
+  chikmagalur: { lat: "13.3153", lng: "75.7775", postalCode: "577101", locality: "Chikmagalur, Karnataka" },
+  pondicherry: { lat: "11.9416", lng: "79.8083", postalCode: "605001", locality: "Puducherry" },
+  shivamogga: { lat: "13.8476", lng: "75.5690", postalCode: "577201", locality: "Shivamogga, Karnataka" },
+  hassan: { lat: "13.0072", lng: "76.1028", postalCode: "573201", locality: "Hassan, Karnataka" },
+  tumakuru: { lat: "13.2000", lng: "77.0000", postalCode: "572100", locality: "Tumakuru, Karnataka" },
 };
 
 function resolveCoords(locationName: string, passed?: { latitude: string; longitude: string }, passedPostal?: string) {
   if (passed) {
-    return { lat: passed.latitude, lng: passed.longitude, postalCode: passedPostal || "500072", locality: "Hyderabad" };
+    return { lat: passed.latitude, lng: passed.longitude, postalCode: passedPostal || "562157", locality: "Bengaluru, Karnataka" };
   }
   const lower = locationName.toLowerCase();
   for (const [key, val] of Object.entries(DEFAULT_COORDS)) {
@@ -123,7 +153,7 @@ function resolveCoords(locationName: string, passed?: { latitude: string; longit
       return val;
     }
   }
-  return { lat: "17.4849", lng: "78.4138", postalCode: "500072", locality: "Hyderabad" };
+  return { lat: "12.9716", lng: "77.5946", postalCode: "560001", locality: "Bengaluru, Karnataka" };
 }
 
 export default function LocationLandingTemplate({
@@ -145,18 +175,18 @@ export default function LocationLandingTemplate({
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": "TaxiService",
-    name: `Sri Sadhguru Tours & Travels - ${locationName}`,
+    name: `${SKY_CABS_CONTACT.brandName} - ${locationName}`,
     image: hubLandmark
-      ? `https://www.srisadhgurutoursandtravels.com${hubLandmark.image}`
-      : "https://www.srisadhgurutoursandtravels.com/images/sri-sadhguru-travels-banner.jpg",
-    telephone: "+91-8106117704",
+      ? `${SKY_CABS_CONTACT.website}${hubLandmark.image.replace(/^\//, "")}`
+      : `${SKY_CABS_CONTACT.website}images/Airport-cabs.jpg`,
+    telephone: `+91-${SKY_CABS_CONTACT.primaryPhone}`,
     priceRange: "₹₹",
-    knowsLanguage: ["en", "te", "hi"],
+    knowsLanguage: ["en", "kn", "hi", "ta", "te"],
     address: {
       "@type": "PostalAddress",
       streetAddress: locationName,
       addressLocality: resolved.locality,
-      addressRegion: "Telangana",
+      addressRegion: "Karnataka",
       postalCode: resolved.postalCode,
       addressCountry: "IN",
     },
@@ -179,7 +209,7 @@ export default function LocationLandingTemplate({
       opens: "00:00",
       closes: "23:59",
     },
-    areaServed: [locationName, "Hyderabad", "Telangana", "Andhra Pradesh"],
+    areaServed: [locationName, "Bengaluru", "Karnataka", "South India"],
   };
 
   const faqSchemaJson = {
@@ -195,7 +225,7 @@ export default function LocationLandingTemplate({
     })),
   };
 
-  const mapQuery = encodeURIComponent(`${locationName}, Hyderabad, Telangana`);
+  const mapQuery = encodeURIComponent(`${locationName}, Bengaluru, Karnataka`);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 py-10 px-4">
@@ -237,32 +267,32 @@ export default function LocationLandingTemplate({
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-4 sm:mt-6 text-xs">
             <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5 text-[11px] sm:text-xs">
               <BoltIcon className="w-3.5 h-3.5 text-amber-400" />
-              <span>15-Minute Rapid Pickup</span>
+              <span>Prompt Doorstep Pickup</span>
             </span>
             <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5 text-[11px] sm:text-xs">
               <TruckIcon className="w-3.5 h-3.5 text-emerald-400" />
-              <span>5-Seater to 50-Seater Fleet</span>
+              <span>Prime Sedan to 52-Seater Buses (On Request)</span>
             </span>
             <span className="bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 inline-flex items-center gap-1.5 text-[11px] sm:text-xs">
               <AirplaneIcon className="w-3.5 h-3.5 text-sky-400" />
-              <span>Flat Rate Shamshabad Airport Cabs</span>
+              <span>Kempegowda Airport (BLR) Transfers</span>
             </span>
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-6 sm:mt-8">
             <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
               <a
-                href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                 className="w-full sm:w-auto min-h-[48px] px-6 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-lg transition flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
               >
                 <PhoneIcon className="w-4 h-4 text-slate-950" />
-                <span>Instant Call: {SADHGURU_CONTACT.primaryPhoneFormatted}</span>
+                <span>Instant Call: {SKY_CABS_CONTACT.primaryPhoneFormatted}</span>
               </a>
             </MagneticButton>
 
             <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
               <a
-                href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20need%20a%20cab%20in%20${encodeURIComponent(locationName)}.`}
+                href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20need%20a%20cab%20in%20${encodeURIComponent(locationName)}.`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto min-h-[48px] px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
@@ -288,7 +318,7 @@ export default function LocationLandingTemplate({
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-6 sm:p-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider w-fit mb-2 shadow">
                 <MapPinIcon className="w-3.5 h-3.5 text-slate-950" />
-                <span>Prominent Landmark & Operational Hub</span>
+                <span>Prominent Landmark & Pickup Area</span>
               </div>
               <h2 className="text-white text-xl sm:text-3xl font-black tracking-tight drop-shadow-md">
                 {hubLandmark.title}
@@ -306,13 +336,13 @@ export default function LocationLandingTemplate({
             <BoltIcon className="w-6 h-6 text-amber-500" />
             <span>Book Your Cab in {locationName}</span>
           </h2>
-          <SadhguruBookingForm />
+          <SkyCabsBookingForm />
         </div>
 
         {/* Local Area Context & Landmarks */}
         <div className="bg-white dark:bg-neutral-800 p-8 rounded-3xl border border-neutral-200 dark:border-neutral-700 space-y-4">
           <h2 className="text-xl font-black text-neutral-900 dark:text-white">
-            Why Choose Sri Sadhguru Travels in {locationName}?
+            Why Choose Sky Cabs Bangalore in {locationName}?
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
             {description}
@@ -380,7 +410,7 @@ export default function LocationLandingTemplate({
                   </span>
                   <MagneticButton pullFactor={0.2}>
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Inquiry%20for%20${encodeURIComponent(locationName)}%20to%20${encodeURIComponent(r.destination)}`}
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20inquiry%20for%20${encodeURIComponent(locationName)}%20to%20${encodeURIComponent(r.destination)}`}
                       target="_blank"
                       rel="noreferrer"
                       className="text-[11px] sm:text-xs font-bold text-emerald-600 hover:underline inline-flex items-center gap-1"

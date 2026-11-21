@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Badge from "@/shared/Badge";
 import Heading from "@/shared/Heading";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { ClockIcon, ArrowRightIcon } from "@/components/icons";
 import { SpotlightCard, ShinyText, MagneticButton, StarBorder, Float } from "@/components/reactbits";
 
@@ -15,58 +15,58 @@ export interface SectionPopularRoutesProps {
 
 const routes = [
   {
-    route: "Hyderabad to Srisailam",
-    href: "/hyderabad-to-srisailam-cabs",
-    dist: "213 km",
-    duration: "4.5 Hrs",
+    route: "Bengaluru to Mysuru",
+    href: "/bangalore-to-mysuru-cabs",
+    dist: "150 km",
+    duration: "3 Hrs",
     price: "₹4,500",
-    image: "/images/srisailam-dam.jpg",
-    highlight: "Mallikarjuna Jyotirlinga",
+    image: "/images/images1.jpg",
+    highlight: "Mysuru Palace & Chamundi Hills",
   },
   {
-    route: "Hyderabad to Tirupati",
-    href: "/hyderabad-to-tirupati-cabs",
-    dist: "570 km",
-    duration: "9.5 Hrs",
+    route: "Bengaluru to Tirupati",
+    href: "/bangalore-to-tirupati-cabs",
+    dist: "325 km",
+    duration: "6 Hrs",
     price: "₹8,200",
     image: "/images/Tirupati.jpg",
     highlight: "Lord Venkateswara Temple",
   },
   {
-    route: "Hyderabad to Vijayawada",
-    href: "/blog/vijayawada-trip",
-    dist: "275 km",
-    duration: "5.0 Hrs",
-    price: "₹3,800",
-    image: "/images/Vijayawada.avif",
-    highlight: "Kanaka Durga Temple",
+    route: "Bengaluru to Coorg",
+    href: "/bangalore-to-coorg-cabs",
+    dist: "260 km",
+    duration: "5.5 Hrs",
+    price: "₹7,800",
+    image: "/images/images2.jpg",
+    highlight: "Coffee Plantations & Abbey Falls",
   },
   {
-    route: "Hyderabad to Yadagirigutta",
-    href: "/hyderabad-to-yadagirigutta-cabs",
-    dist: "65 km",
-    duration: "1.5 Hrs",
-    price: "₹2,499",
-    image: "/images/warangal.jpg",
-    highlight: "Yadadri Temple Same-Day",
+    route: "Bengaluru to Ooty",
+    href: "/bangalore-to-ooty-cabs",
+    dist: "265 km",
+    duration: "6 Hrs",
+    price: "₹9,499",
+    image: "/images/images3.jpg",
+    highlight: "Nilgiri Hills & Tea Gardens",
   },
   {
-    route: "Hyderabad to Shirdi",
-    href: "/hyderabad-to-shirdi-cabs",
-    dist: "590 km",
-    duration: "10.5 Hrs",
-    price: "₹8,900",
-    image: "/images/shirdi.jpeg",
-    highlight: "Sai Baba Samadhi Mandir",
+    route: "Bengaluru to Chennai",
+    href: "/bangalore-to-chennai-cabs",
+    dist: "345 km",
+    duration: "6 Hrs",
+    price: "₹10,999",
+    image: "/images/images4.jpg",
+    highlight: "Marina Beach & City Temples",
   },
   {
-    route: "Hyderabad to Vizag",
-    href: "/blog/south-india-circuits",
-    dist: "620 km",
-    duration: "11 Hrs",
-    price: "₹9,500",
-    image: "/images/vizag.jpg",
-    highlight: "Simhachalam & RK Beach",
+    route: "Bengaluru to Mangaluru",
+    href: "/bangalore-to-mangaluru-cabs",
+    dist: "350 km",
+    duration: "7 Hrs",
+    price: "₹11,500",
+    image: "/images/Gokarna.webp",
+    highlight: "Coastal temples & beaches",
   },
 ];
 
@@ -180,7 +180,7 @@ const SectionPopularRoutes: FC<SectionPopularRoutesProps> = ({ className = "" })
 
                   <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20book%20a%20cab%20for%20${encodeURIComponent(item.route)}.`}
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20book%20a%20cab%20for%20${encodeURIComponent(item.route)}.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full justify-center inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-primary-6000 hover:bg-primary-700 text-white text-[11px] sm:text-xs font-bold transition shadow-sm touch-manipulation active:scale-95"

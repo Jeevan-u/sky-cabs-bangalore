@@ -15,7 +15,7 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import { ExclamationTriangleIcon, ArrowRightIcon, WhatsAppIcon } from "@/components/icons";
-import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import CustomVehicleSelect from "@/components/CustomVehicleSelect";
 import CustomDateTimePicker from "@/components/CustomDateTimePicker";
 
@@ -34,8 +34,8 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
 }) => {
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
-  const [pickupAddress, setPickupAddress] = useState(defaultPickup || "Gachibowli, Hyderabad");
-  const [dropAddress, setDropAddress] = useState(defaultDrop || "Nagarjuna Sagar Dam");
+  const [pickupAddress, setPickupAddress] = useState(defaultPickup || "Outer Ring Road, Bengaluru");
+  const [dropAddress, setDropAddress] = useState(defaultDrop || "Chikmagalur Dam");
   const [vehicleId, setVehicleId] = useState("innova-crysta");
   const [pickupDate, setPickupDate] = useState(new Date().toISOString().split("T")[0]);
   const [pickupTime, setPickupTime] = useState("06:00 AM");
@@ -63,7 +63,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
       (pos) => {
         const { latitude, longitude } = pos.coords;
         setGpsLocation({ lat: latitude, lng: longitude });
-        setPickupAddress(`GPS Pin: ${latitude.toFixed(4)}°N, ${longitude.toFixed(4)}°E (Hyderabad Outer Hub)`);
+        setPickupAddress(`GPS Pin: ${latitude.toFixed(4)}°N, ${longitude.toFixed(4)}°E (Bengaluru Outer Hub)`);
         setIsLocating(false);
       },
       (err) => {
@@ -86,7 +86,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
     setErrorMessage("");
 
     const selectedFleetObj =
-      SADHGURU_FLEET.find((v) => v.id === vehicleId) || SADHGURU_FLEET[2];
+      SKY_CABS_FLEET.find((v) => v.id === vehicleId) || SKY_CABS_FLEET[2];
     const resolvedVehicleType = `${selectedFleetObj.name} (${selectedFleetObj.capacity})`;
 
     try {
@@ -146,7 +146,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
               Request Custom Route Quote
             </h2>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
-              Pickup from any location (Gachibowli, Financial Dist, Shamirpet, or custom towns) with Google Maps routing & manual proprietor quotation.
+              Pickup from any location (Outer Ring Road, Financial Dist, Yelahanka, or custom towns) with Google Maps routing & a transparent quotation.
             </p>
 
             {errorMessage && (
@@ -180,7 +180,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                     required
                     value={pickupAddress}
                     onChange={(e) => setPickupAddress(e.target.value)}
-                    placeholder="e.g. Gachibowli, or paste Google Maps link (https://maps.app.goo.gl/...)"
+                    placeholder="e.g. Outer Ring Road, or paste Google Maps link (https://maps.app.goo.gl/...)"
                     className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                   />
                 </div>
@@ -198,7 +198,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
                     required
                     value={dropAddress}
                     onChange={(e) => setDropAddress(e.target.value)}
-                    placeholder="e.g. Nagarjuna Sagar Dam, or paste Google Maps link (https://maps.app.goo.gl/...)"
+                    placeholder="e.g. Chikmagalur Dam, or paste Google Maps link (https://maps.app.goo.gl/...)"
                     className="w-full pl-10 pr-4 py-2.5 min-h-[44px] rounded-2xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-base sm:text-xs font-medium text-neutral-900 dark:text-white outline-none focus:border-primary-500"
                   />
                 </div>
@@ -301,7 +301,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
               Quote Request Dispatched!
             </h3>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 max-w-md mx-auto">
-              Your custom route request (ID: <span className="font-mono font-bold text-primary-6000">{submittedQuote.id}</span>) has been received by Proprietor Rathan Kanna at our Kukatpally Command Center.
+              Your custom route request (ID: <span className="font-mono font-bold text-primary-6000">{submittedQuote.id}</span>) has been received by Sky Cabs Bangalore at our Begur Command Center.
             </p>
 
             <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-200/80 dark:border-neutral-700/80 text-left text-xs space-y-1.5">
@@ -329,7 +329,7 @@ const CustomRouteModal: FC<CustomRouteModalProps> = ({
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <a
-                href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20just%20submitted%20Custom%20Quote%20Request%20%23${submittedQuote.id}%20from%20${encodeURIComponent(submittedQuote.pickup_address)}%20to%20${encodeURIComponent(submittedQuote.drop_address)}.%20Please%20quote%20best%20rate.`}
+                href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20just%20submitted%20Custom%20Quote%20Request%20%23${submittedQuote.id}%20from%20${encodeURIComponent(submittedQuote.pickup_address)}%20to%20${encodeURIComponent(submittedQuote.drop_address)}.%20Please%20quote%20best%20rate.`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition"

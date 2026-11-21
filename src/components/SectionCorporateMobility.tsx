@@ -16,7 +16,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { WhatsAppIcon, SparklesIcon } from "@/components/icons";
 import { CORPORATE_SERVICES } from "@/data/corporateServices";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { SpotlightCard, StarBorder, ShinyText } from "@/components/reactbits";
 
 export interface SectionCorporateMobilityProps {
@@ -44,7 +44,7 @@ const SectionCorporateMobility: FC<SectionCorporateMobilityProps> = ({ className
           CORPORATE & SPECIALIZED EMPLOYEE TRANSPORT
         </h2>
         <p className="mt-2.5 text-xs sm:text-sm md:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-          Hyderabad&apos;s most reliable 24x7 shift commute partner for leading pharmaceutical complexes, IT campuses, and multinational organizations. 100% verified chauffeurs, live telematics dispatch, and guaranteed zero downtime.
+          Bengaluru&apos;s most reliable 24x7 shift commute partner for leading pharmaceutical complexes, IT campuses, and multinational organizations. 100% verified chauffeurs, live telematics dispatch, and guaranteed zero downtime.
         </p>
       </div>
 
@@ -54,7 +54,7 @@ const SectionCorporateMobility: FC<SectionCorporateMobilityProps> = ({ className
         <div className="group relative rounded-3xl overflow-hidden border border-neutral-200/80 dark:border-neutral-800 bg-neutral-900 shadow-xl flex flex-col justify-end min-h-[220px] sm:min-h-[340px]">
           <Image
             src="/images/corporate/fleet-boarding-corporate.jpg"
-            alt="Corporate employees boarding Sri Sadhguru Tours & Travels luxury coach bus at Cyber Towers"
+            alt="Corporate employees boarding Sky Cabs Bangalore luxury coach bus at Manyata Tech Park"
             fill
             sizes="(max-width: 768px) 50vw, 50vw"
             className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
@@ -79,7 +79,7 @@ const SectionCorporateMobility: FC<SectionCorporateMobilityProps> = ({ className
         <div className="group relative rounded-3xl overflow-hidden border border-neutral-200/80 dark:border-neutral-800 bg-neutral-900 shadow-xl flex flex-col justify-end min-h-[220px] sm:min-h-[340px]">
           <Image
             src="/images/corporate/command-center-dispatch.jpg"
-            alt="Sri Sadhguru Tours & Travels 24x7 transportation operations control room and command center"
+            alt="Sky Cabs Bangalore 24x7 transportation operations control room and command center"
             fill
             sizes="(max-width: 768px) 50vw, 50vw"
             className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
@@ -92,7 +92,7 @@ const SectionCorporateMobility: FC<SectionCorporateMobilityProps> = ({ className
               <span>24x7 Operations Command</span>
             </div>
             <h3 className="text-xs sm:text-lg md:text-xl font-black uppercase text-white leading-tight">
-              KUKATPALLY CENTRAL FLEET DISPATCH RADAR
+              BENGALURU CENTRAL FLEET DISPATCH RADAR
             </h3>
             <p className="hidden sm:block text-xs text-neutral-300 mt-1 line-clamp-2">
               Live GPS telematics, speed tracking, route deviation alerts, and instantaneous standby vehicle deployment.
@@ -167,7 +167,7 @@ const SectionCorporateMobility: FC<SectionCorporateMobilityProps> = ({ className
 
                 <div className="flex items-center gap-2">
                   <a
-                    href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hello%20Sri%20Sadhguru%20Travels,%20we%20would%20like%20to%20inquire%20about%20Corporate%20Transport%20services%20(${encodeURIComponent(
+                    href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hello%20Sky%20Cabs%20Bangalore,%20we%20would%20like%20to%20inquire%20about%20Corporate%20Transport%20services%20(${encodeURIComponent(
                       service.title
                     )}).`}
                     target="_blank"
@@ -179,9 +179,9 @@ const SectionCorporateMobility: FC<SectionCorporateMobilityProps> = ({ className
                   </a>
 
                   <a
-                    href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+                    href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
                     className="inline-flex items-center justify-center p-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 hover:bg-amber-500/20 text-neutral-800 dark:text-neutral-200 transition"
-                    title={`Call: +91 ${SADHGURU_CONTACT.primaryPhone}`}
+                    title={`Call: +91 ${SKY_CABS_CONTACT.primaryPhone}`}
                   >
                     <PhoneIcon className="w-4 h-4" />
                   </a>

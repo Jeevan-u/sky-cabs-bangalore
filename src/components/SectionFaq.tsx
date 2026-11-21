@@ -2,7 +2,7 @@
 
 import React, { FC, useState } from "react";
 import Heading from "@/shared/Heading";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { SpotlightCard, ShinyText } from "@/components/reactbits";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -12,20 +12,20 @@ export interface SectionFaqProps {
 
 const faqs = [
   {
-    q: "How can I book a vehicle with Sri Sadhguru Travels?",
-    a: "Booking is effortless: Call or WhatsApp us directly at +91 81061 17704 or +91 93985 22128. Mention your pickup location, destination, travel dates, and preferred vehicle size (5-seater to 50-seater). We confirm your booking with an instant transparent quotation.",
+    q: "How can I book a vehicle with Sky Cabs Bangalore?",
+    a: "Booking is effortless: Call or WhatsApp us directly at +91 96323 45415 or +91 96323 45415. Mention your pickup location, destination, travel dates, and preferred vehicle size (4+1 to 52-seater). We confirm your booking with an instant transparent quotation.",
   },
   {
-    q: "What vehicle types are available at Sri Sadhguru Travels?",
-    a: "We maintain a comprehensive fleet: 5-seater sedans (Swift Dzire, Toyota Etios), 7-seater MPVs (Maruti Ertiga), premium SUVs (Toyota Innova Crysta), group travellers (Force Urbania & Tempo Traveller 12-17 seaters), and luxury tourist coaches (22 to 50-seater push-back AC buses).",
+    q: "What vehicle types are available at Sky Cabs Bangalore?",
+    a: "We maintain a comprehensive fleet: Prime Sedan (4+1) (Prime Sedan, Prime Sedan), 7-seater MPVs (Maruti Suzuki Ertiga), premium SUVs (Toyota Innova Crysta), group travellers (Force Urbania & Tempo Traveller (12+1) and Force Urbania (9+1, 12+1, 16+1)), and luxury tourist coaches (25 to 52-seater push-back AC buses).",
   },
   {
     q: "Do you provide 24x7 Airport Transfers and Wedding Transport?",
-    a: "Yes! Our dispatch desk operates 24 hours a day, 7 days a week. We provide punctual doorstep pickups for Rajiv Gandhi International Airport (RGIA) Shamshabad and dedicated convoys for weddings, family functions, and corporate outings.",
+    a: "Yes! Our dispatch desk operates 24 hours a day, 7 days a week. We provide punctual doorstep pickups for Kempegowda International Airport (BLR) Kempegowda and dedicated convoys for weddings, family functions, and corporate outings.",
   },
   {
-    q: "Do you provide pilgrimage packages for Srisailam, Tirupati, and Shirdi?",
-    a: "Yes, pilgrimage travel is our specialty. We operate 1-day, 2-day, and multi-day packages to Srisailam Jyotirlinga, Tirupati Balaji, Shirdi, Yadagirigutta, and Basara with drivers who have extensive experience navigating temple hill roads and darshan schedules.",
+    q: "Do you provide pilgrimage packages for Mysuru, Tirupati, and Coorg?",
+    a: "Yes, outstation travel is our specialty. We operate 1-day, 2-day, and multi-day packages to Mysuru, Tirupati Balaji, Coorg, Ooty, Chennai, Mangaluru and other destinations. Vehicle availability, fares and final itinerary are confirmed before booking."
   },
   {
     q: "Are tolls, parking, and driver allowances transparently explained?",
@@ -97,12 +97,12 @@ const SectionFaq: FC<SectionFaqProps> = ({ className = "" }) => {
 
         <div className="pt-6 text-center">
           <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">
-            Have another question? Speak to Proprietor Rathan Kanna:{" "}
+            Have another question? Speak to Sky Cabs Bangalore:{" "}
             <a
-              href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+              href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
               className="text-primary-6000 dark:text-primary-400 font-bold underline ml-1"
             >
-              Call +91 {SADHGURU_CONTACT.primaryPhone}
+              Call +91 {SKY_CABS_CONTACT.primaryPhone}
             </a>
           </p>
         </div>

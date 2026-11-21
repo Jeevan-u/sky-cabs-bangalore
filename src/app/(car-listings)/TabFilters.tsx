@@ -9,10 +9,10 @@ import ButtonClose from "@/shared/ButtonClose";
 import Checkbox from "@/shared/Checkbox";
 import Slider from "rc-slider";
 
-// Sri Sadhguru Commercial Fleet Categories
+// Sky Cabs Bangalore Commercial Fleet Categories
 const typeOfCar = [
-  { name: "Sedan (4+1)", description: "Swift Dzire / Etios · ₹12/km" },
-  { name: "SUV / MPV (6+1)", description: "Maruti Ertiga / Rumion · ₹15/km" },
+  { name: "Sedan (4+1)", description: "Prime Sedan · ₹13/km" },
+  { name: "SUV / MPV (6+1)", description: "Maruti Suzuki Ertiga · ₹16/km" },
   { name: "Premium SUV (7+1)", description: "Toyota Innova Crysta · ₹19/km" },
   { name: "Tempo Traveller (12/17S)", description: "Force TT Luxury · ₹25/km" },
   { name: "Force Urbania (26S)", description: "European Van · ₹32/km" },
@@ -29,18 +29,18 @@ const carSpecifications = [
 ];
 
 const tripServices = [
-  { name: "Airport Express (RGIA Shamshabad)", defaultChecked: true },
-  { name: "Outstation Pilgrimage (Srisailam/Tirupati)", defaultChecked: true },
+  { name: "Airport Express (BLR Devanahalli)", defaultChecked: true },
+  { name: "Outstation Pilgrimage (Mysuru/Tirupati)", defaultChecked: true },
   { name: "Local City Rental (8h / 80km)" },
   { name: "Wedding & Group Transport" },
 ];
 
 const pickupHubs = [
-  { name: "Kukatpally & KPHB (HQ)", defaultChecked: true },
-  { name: "Miyapur & Chandanagar" },
-  { name: "Hitec City & Madhapur" },
-  { name: "Shamshabad Airport" },
-  { name: "Gandhari / Kamareddy Hub" },
+  { name: "Begur & Whitefield (HQ)", defaultChecked: true },
+  { name: "Indiranagar & Chandanagar" },
+  { name: "Whitefield & Whitefield" },
+  { name: "Kempegowda International Airport (BLR)" },
+  { name: "Jayanagar / Banashankari Hub" },
 ];
 
 const TabFilters = () => {

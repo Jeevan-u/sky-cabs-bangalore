@@ -156,7 +156,7 @@ export default function AdminHeader({
             ) : (
               <>
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Kukatpally Dispatch Live</span>
+                <span>Begur Dispatch Live</span>
               </>
             )}
           </div>

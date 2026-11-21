@@ -8,10 +8,10 @@ export interface SectionStatsCounterProps {
 }
 
 const stats = [
-  { val: 50, suffix: "+", l: "Fleet of Vehicles", sub: "5-Seater to 50-Seater" },
-  { val: 5000, suffix: "+", l: "Happy Passengers", sub: "Across Telangana & AP" },
+  { val: 50, suffix: "+", l: "Fleet of Vehicles", sub: "4+1 to 52-Seater" },
+  { val: 5000, suffix: "+", l: "Happy Passengers", sub: "Across Bengaluru & Karnataka" },
   { val: 100, suffix: "+", l: "Outstation Routes", sub: "Interstate & Hill Stations" },
-  { val: 10, suffix: "+", l: "Years of Trust", sub: "Prop: Rathan Kanna" },
+  { val: 10, suffix: "+", l: "Years of Trust", sub: "" },
 ];
 
 const SectionStatsCounter: FC<SectionStatsCounterProps> = ({ className = "" }) => {

@@ -5,9 +5,9 @@ import TrackBookingClient from "./TrackBookingClient";
 export const metadata: Metadata = {
   title: "Track Your Trip & Cab Booking Status",
   description:
-    "Real-time trip tracking for Sri Sadhguru Travels passengers. Check assigned chauffeur details, vehicle number, pickup timing, and route updates.",
+    "Real-time trip tracking for Sky Cabs Bangalore passengers. Check assigned chauffeur details, vehicle number, pickup timing, and route updates.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/track-booking",
+    canonical: "https://skycabsbangalore.com/track-booking",
   },
 };
 

@@ -54,8 +54,8 @@ const DEMO_CAR_LISTINGS = __carsListing.map((post, index): CarDataType => {
     isAds: !index ? true : (post.isAds ? true : null),
     author: {
       ...DEMO_AUTHORS[0],
-      displayName: "Sri Sadhguru Fleet",
-      jobName: "Verified Operator · Kukatpally HQ",
+      displayName: "Sky Cabs Bangalore Fleet",
+      jobName: "Verified Operator · Begur, Bengaluru",
     },
     listingCategory: DEFAULT_CATEGORY,
     featuredImage: (post as any).featuredImage || carsImgs[index % carsImgs.length],

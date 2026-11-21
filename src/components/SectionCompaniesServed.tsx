@@ -50,7 +50,7 @@ const SectionCompaniesServed: FC<SectionCompaniesServedProps> = ({ className = "
           COMPANIES WE&apos;VE SERVED
         </h2>
         <p className="mt-1.5 text-xs sm:text-sm text-neutral-500 dark:text-neutral-400">
-          Trusted corporate transport partner for organizations across Hyderabad and beyond.
+          Trusted corporate transport partner for organizations across Bengaluru and beyond.
         </p>
       </div>
 

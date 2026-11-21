@@ -5,7 +5,7 @@ import Link from "next/link";
 import { SparklesIcon, TagIcon, CalendarDaysIcon, ArrowRightIcon, TruckIcon } from "@heroicons/react/24/outline";
 import { WhatsAppIcon } from "@/components/icons";
 import { FESTIVAL_POSTERS, FestivalPoster } from "@/data/festivalOffers";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { SpotlightCard } from "@/components/reactbits";
 
 export interface SectionFestivalOffersProps {
@@ -79,7 +79,7 @@ const SectionFestivalOffers: FC<SectionFestivalOffersProps> = ({ className = "" 
       {/* Side-by-Side Responsive Grid: 2 columns on mobile, 3 on desktop (never single stacked) */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {activePosters.map((poster) => {
-          const waMessage = `Hello Sri Sadhguru Travels, I want to book festival offer '${poster.festivalName}' with code *${poster.bookingCode}*. Please share available vehicles.`;
+          const waMessage = `Hello Sky Cabs Bangalore, I want to book festival offer '${poster.festivalName}' with code *${poster.bookingCode}*. Please share available vehicles.`;
 
           return (
             <SpotlightCard
@@ -140,7 +140,7 @@ const SectionFestivalOffers: FC<SectionFestivalOffersProps> = ({ className = "" 
                 </div>
 
                 <a
-                  href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(waMessage)}`}
+                  href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(waMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] flex items-center gap-1.5 shadow-sm transition active:scale-95"

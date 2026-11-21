@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,23 +31,23 @@ export async function POST(req: NextRequest) {
     } catch {}
 
     const formattedMessage =
-      `*SRI SADHGURU TOURS & TRAVELS*\n` +
+      `*SKY CABS BANGALORE*\n` +
       `24x7 Cab & Bus Booking Confirmation\n` +
       `-----------------------------------------\n` +
       `• *Booking Ref:* ${refId}\n` +
       `• *Customer:* ${customerName || "Valued Passenger"} (${customerPhone || "N/A"})\n` +
       `• *Vehicle:* ${vehicleType || "Toyota Innova Crysta"}\n` +
       `• *Trip Category:* ${(tripType || "airport").toUpperCase()}\n` +
-      `• *Pickup:* ${pickupAddress || "Kukatpally, Hyderabad"}\n` +
-      `• *Destination:* ${dropAddress || "Shamshabad Airport"}\n` +
+      `• *Pickup:* ${pickupAddress || "Begur, Bengaluru"}\n` +
+      `• *Destination:* ${dropAddress || "Kempegowda International Airport (BLR)"}\n` +
       `• *Pickup Time:* ${formattedDate}\n` +
       `• *Estimated Fare:* ₹${Number(estimatedPrice || 0).toLocaleString("en-IN")}\n` +
       (notes ? `• *Notes:* ${notes}\n` : ``) +
       `-----------------------------------------\n` +
-      `• *24x7 Dispatch:* +91 ${SADHGURU_CONTACT.primaryPhone} | +91 ${SADHGURU_CONTACT.secondaryPhone}\n` +
-      `*Thank you for choosing SRI SADHGURU TOURS & TRAVELS!*`;
+      `• *24x7 Dispatch:* +91 ${SKY_CABS_CONTACT.primaryPhone} | +91 ${SKY_CABS_CONTACT.secondaryPhone}\n` +
+      `*Thank you for choosing SKY CABS BANGALORE!*`;
 
-    const adminWhatsApp = process.env.ADMIN_WHATSAPP_NUMBER || SADHGURU_CONTACT.whatsappNumber;
+    const adminWhatsApp = process.env.ADMIN_WHATSAPP_NUMBER || SKY_CABS_CONTACT.whatsappNumber;
     const waApiKey = process.env.WHATSAPP_API_KEY || process.env.WHATSAPP_CLOUD_API_TOKEN;
     const phoneId = process.env.WHATSAPP_PHONE_NUMBER_ID;
 

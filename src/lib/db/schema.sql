@@ -1,4 +1,4 @@
--- Cloudflare D1 / SQLite Database Schema for Sri Sadhguru Tours & Travels
+-- Cloudflare D1 / SQLite Database Schema for Sky Cabs Bangalore
 
 -- 1. Reset / Clear existing tables for fresh initialization
 DROP TABLE IF EXISTS reviews;

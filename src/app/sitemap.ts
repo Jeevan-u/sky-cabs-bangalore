@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.srisadhgurutoursandtravels.com";
+  const baseUrl = "https://skycabsbangalore.com/";
   const currentDate = new Date().toISOString();
 
   interface RouteConfig {
@@ -11,49 +11,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   const routes: RouteConfig[] = [
-    // 1. Core Homepage
+    // 1. Core homepage
     { path: "", priority: 1.0, changeFrequency: "daily" },
 
-    // 2. High-Priority Local Hubs & Airport Express
-    { path: "/shamshabad-airport-taxi", priority: 0.95, changeFrequency: "daily" },
-    { path: "/hyderabad-airport-cabs", priority: 0.95, changeFrequency: "daily" },
-    { path: "/hyderabad-outstation-cabs", priority: 0.95, changeFrequency: "daily" },
-    { path: "/cabs-in-kukatpally", priority: 0.95, changeFrequency: "daily" },
-    { path: "/cabs-in-kphb", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/cabs-in-hitec-city", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/cabs-in-miyapur", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/cabs-in-medchal", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/cabs-in-kamareddy-gandhari", priority: 0.9, changeFrequency: "weekly" },
+    // 2. Airport & outstation gateways
+    { path: "/bangalore-airport-taxi", priority: 0.95, changeFrequency: "daily" },
+    { path: "/kempegowda-airport-taxi", priority: 0.95, changeFrequency: "daily" },
+    { path: "/bangalore-outstation-cabs", priority: 0.95, changeFrequency: "daily" },
 
-    // 3. High-Intent Commercial Pilgrimage Routes
-    { path: "/hyderabad-to-srisailam-cabs", priority: 0.95, changeFrequency: "weekly" },
-    { path: "/hyderabad-to-tirupati-cabs", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/hyderabad-to-shirdi-cabs", priority: 0.9, changeFrequency: "weekly" },
-    { path: "/hyderabad-to-yadagirigutta-cabs", priority: 0.9, changeFrequency: "weekly" },
+    // 3. Outstation routes from Bengaluru
+    { path: "/bangalore-to-mysuru-cabs", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/bangalore-to-tirupati-cabs", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/bangalore-to-coorg-cabs", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/bangalore-to-ooty-cabs", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/bangalore-to-chennai-cabs", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/bangalore-to-mangaluru-cabs", priority: 0.9, changeFrequency: "weekly" },
 
-    // 4. Commercial Fleet Pages
+    // 4. Bengaluru service hubs
+    { path: "/cabs-in-begur", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-electronic-city", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-koramangala", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-hsr-layout", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-whitefield", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-indiranagar", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-jayanagar", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/cabs-in-yelahanka", priority: 0.9, changeFrequency: "weekly" },
+
+    // 5. Fleet pages
     { path: "/listing-car", priority: 0.85, changeFrequency: "weekly" },
     { path: "/listing-car-detail", priority: 0.8, changeFrequency: "weekly" },
 
-    // 5. Trust, Author & Contact
+    // 6. Trust, service area & contact
     { path: "/about", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/locations", priority: 0.8, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.8, changeFrequency: "monthly" },
-    { path: "/author", priority: 0.75, changeFrequency: "monthly" },
     { path: "/track-booking", priority: 0.7, changeFrequency: "monthly" },
     { path: "/review", priority: 0.7, changeFrequency: "monthly" },
 
-    // 6. Blog & Road Trip Travel Guides
+    // 7. Travel guides
     { path: "/blog", priority: 0.8, changeFrequency: "weekly" },
-    { path: "/blog/srisailam-guide", priority: 0.75, changeFrequency: "monthly" },
-    { path: "/blog/tirupati-balaji", priority: 0.75, changeFrequency: "monthly" },
-    { path: "/blog/airport-taxi-guide", priority: 0.75, changeFrequency: "monthly" },
-    { path: "/blog/south-india-circuits", priority: 0.75, changeFrequency: "monthly" },
-    { path: "/blog/vijayawada-trip", priority: 0.75, changeFrequency: "monthly" },
-    { path: "/blog/shirdi-yatra", priority: 0.75, changeFrequency: "monthly" },
   ];
 
   return routes.map((r) => ({
-    url: `${baseUrl}${r.path}`,
+    url: new URL(r.path || "/", baseUrl).toString(),
     lastModified: currentDate,
     changeFrequency: r.changeFrequency,
     priority: r.priority,

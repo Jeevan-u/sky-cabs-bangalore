@@ -24,7 +24,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/driver/"],
       },
     ],
-    sitemap: "https://www.srisadhgurutoursandtravels.com/sitemap.xml",
-    host: "https://www.srisadhgurutoursandtravels.com",
+    sitemap: "https://skycabsbangalore.com/sitemap.xml",
+    host: "https://skycabsbangalore.com/",
   };
 }

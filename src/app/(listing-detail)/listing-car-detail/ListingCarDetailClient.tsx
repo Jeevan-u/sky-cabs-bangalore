@@ -9,11 +9,13 @@ import Badge from "@/shared/Badge";
 import ButtonPrimary from "@/shared/ButtonPrimary";
 import ButtonSecondary from "@/shared/ButtonSecondary";
 import Image from "next/image";
-import { Amenities_demos, includes_demo, PHOTOS } from "./constant";
+import { Amenities_demos, includes_demo } from "./constant";
+import FleetImageSlider from "@/components/FleetImageSlider";
+import { getVehiclePhotos } from "@/data/fleetGallery";
 import LikeSaveBtns from "@/components/LikeSaveBtns";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Route } from "next";
-import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import {
   AnimatedCounter,
   SpotlightCard,
@@ -39,13 +41,9 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
   const [selectedTripType, setSelectedTripType] = useState<"airport" | "outstation" | "local">("airport");
 
   const currentVehicle =
-    SADHGURU_FLEET.find(
-      (v) =>
-        v.id === selectedVehicleId ||
-        (selectedVehicleId === "tempo-traveller-12-17" && v.id === "tempo-traveller-12") ||
-        (selectedVehicleId === "urbania-26" && v.id === "tempo-traveller-26") ||
-        (selectedVehicleId === "luxury-bus-32-50" && v.id === "luxury-coach-bus")
-    ) || SADHGURU_FLEET[2]; // Default Innova Crysta
+    SKY_CABS_FLEET.find((v) => v.id === selectedVehicleId) || SKY_CABS_FLEET[0]; // Default Prime Sedan
+
+  const vehiclePhotos = getVehiclePhotos(currentVehicle.image, currentVehicle.id);
 
   // Dynamic estimated price calculation
   let displayPrice = currentVehicle.airportFlatRate;
@@ -81,7 +79,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
 
         {/* Title */}
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight">
-          {currentVehicle.name} ({currentVehicle.capacity}) - Sri Sadhguru Commercial Fleet
+          {currentVehicle.name} ({currentVehicle.capacity}) - Sky Cabs Bangalore Commercial Fleet
         </h1>
 
         {/* Rating & Hub */}
@@ -90,7 +88,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
           <span>·</span>
           <span className="flex items-center text-neutral-600 dark:text-neutral-400 font-medium">
             <MapPinIcon className="w-4 h-4 mr-1 text-primary-6000" />
-            Kukatpally Headquarters, Hyderabad & RGIA Shamshabad Express
+            Begur Headquarters, Bengaluru & BLR Devanahalli Express
           </span>
         </div>
 
@@ -100,7 +98,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
           <span className="ml-2.5 text-neutral-500 dark:text-neutral-400">
             Fleet Operator:{" "}
             <span className="text-neutral-900 dark:text-neutral-200 font-bold">
-              Sri Sadhguru Tours & Travels (Prop: Rathan Kanna)
+              Sky Cabs Bangalore
             </span>
           </span>
         </div>
@@ -184,15 +182,15 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-600 dark:text-neutral-300 leading-relaxed font-medium space-y-4">
           <p>
-            Experience unmatched travel comfort with Sri Sadhguru Tours & Travels.
+            Experience unmatched travel comfort with Sky Cabs Bangalore.
             The {currentVehicle.name} is meticulously maintained and equipped with high-efficiency
             dual air conditioning, pushback ergonomic seats, and ample luggage space for both city commutes
             and outstation highway tours.
           </p>
           <p>
             Driven by experienced highway and ghat road chauffeurs who know every highway shortcut and temple darshan
-            procedure across Telangana, Andhra Pradesh, Karnataka, and Tamil Nadu. Whether you need a midnight pickup
-            at Shamshabad RGIA Airport or a multi-day family pilgrimage to Srisailam, Tirupati, or Shirdi, we guarantee
+            procedure across Karnataka, Andhra Pradesh, Karnataka, and Tamil Nadu. Whether you need a midnight pickup
+            at Devanahalli BLR Airport or a multi-day family pilgrimage to Mysuru, Tirupati, or Coorg, we guarantee
             spotless cleanliness, 100% on-time arrival, and honest per-km billing without hidden charges.
           </p>
         </div>
@@ -236,7 +234,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
           <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Commercial Fleet Leadership</h2>
           <StarBorder as="div" color="#d97706" speed="5s" className="inline-block">
             <span className="px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-400">
-              Verified Proprietor
+              Verified Team
             </span>
           </StarBorder>
         </div>
@@ -251,18 +249,18 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
           />
           <div>
             <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
-              Sri Sadhguru Tours & Travels
+              Sky Cabs Bangalore
             </h3>
             <div className="mt-1 flex items-center text-sm text-neutral-500 dark:text-neutral-400 font-medium">
               <StartRating point={4.9} reviewCount={428} />
               <span className="mx-2">·</span>
-              <span>Proprietor: Sri Rathan Kanna</span>
+              <span>Team: Sky Cabs Bangalore</span>
             </div>
           </div>
         </div>
 
         <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed font-medium">
-          Operating from Kukatpally (Hyderabad) and Gandhari (Kamareddy), Sri Sadhguru Tours & Travels manages over 50
+          Operating from Begur (Bengaluru) and Jayanagar (Banashankari), Sky Cabs Bangalore manages over 50
           commercial vehicles ranging from 5-seater sedans to 50-seater luxury coaches. We maintain a zero-commission,
           zero-surge policy so you always get the lowest authentic rate.
         </p>
@@ -275,11 +273,11 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
           </MagneticButton>
           <MagneticButton distance={0.2}>
             <a
-              href={`tel:${SADHGURU_CONTACT.primaryPhone}`}
+              href={`tel:${SKY_CABS_CONTACT.primaryPhone}`}
               className="px-5 py-2.5 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 text-xs font-bold transition flex items-center gap-1.5 shadow-sm"
             >
               <PhoneIcon className="w-4 h-4" />
-              Call: +91 {SADHGURU_CONTACT.primaryPhone}
+              Call: +91 {SKY_CABS_CONTACT.primaryPhone}
             </a>
           </MagneticButton>
         </div>
@@ -307,11 +305,11 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
             className="p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-850 border border-neutral-200 dark:border-neutral-700/80 shadow-sm"
           >
             <div className="flex items-center justify-between">
-              <span className="font-bold text-sm text-neutral-900 dark:text-white">Suresh Babu · Hyderabad</span>
+              <span className="font-bold text-sm text-neutral-900 dark:text-white">Suresh Babu · Bengaluru</span>
               <StarRating rating={5} />
             </div>
             <p className="text-xs text-neutral-600 dark:text-neutral-300 mt-2 leading-relaxed">
-              &ldquo;Booked an Innova Crysta for our family pilgrimage to Srisailam. The vehicle arrived 15 mins early in Kukatpally, clean seats, polite driver who negotiated the ghat road smoothly. Zero hassle billing.&rdquo;
+              &ldquo;Booked an Innova Crysta for our family pilgrimage to Mysuru. The vehicle arrived 15 mins early in Begur, clean seats, polite driver who negotiated the ghat road smoothly. Zero hassle billing.&rdquo;
             </p>
           </SpotlightCard>
 
@@ -320,11 +318,11 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
             className="p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-850 border border-neutral-200 dark:border-neutral-700/80 shadow-sm"
           >
             <div className="flex items-center justify-between">
-              <span className="font-bold text-sm text-neutral-900 dark:text-white">Dr. Venkat Rao · Miyapur</span>
+              <span className="font-bold text-sm text-neutral-900 dark:text-white">Dr. Venkat Rao · Indiranagar</span>
               <StarRating rating={5} />
             </div>
             <p className="text-xs text-neutral-600 dark:text-neutral-300 mt-2 leading-relaxed">
-              &ldquo;Regular traveler for early morning Shamshabad Airport drop. Sri Sadhguru is the most reliable taxi service in Hyderabad. No sudden cancellations or surge pricing.&rdquo;
+              &ldquo;Regular traveler for early morning Kempegowda International Airport (BLR) drop. Sky Cabs Bangalore is the most reliable taxi service in Bengaluru. No sudden cancellations or surge pricing.&rdquo;
             </p>
           </SpotlightCard>
         </div>
@@ -340,12 +338,12 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
             Operational Hub & Service Locations
           </h2>
           <span className="block mt-2 text-neutral-500 dark:text-neutral-400 text-sm">
-            Kukatpally Main Hub, Hyderabad, Telangana - 500072. Doorstep pickup across KPHB, Miyapur, Hitec City, Medchal & RGIA.
+            Begur Main Hub, Bengaluru, Karnataka - 500072. Doorstep pickup across Whitefield, Indiranagar, Whitefield, Yelahanka & BLR.
           </span>
         </div>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
 
-        {/* Authentic Hyderabad Google Map */}
+        {/* Authentic Bengaluru Google Map */}
         <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-inner border border-neutral-200 dark:border-neutral-700">
           <iframe
             width="100%"
@@ -353,7 +351,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=Kukatpally,Hyderabad,Telangana&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Begur,Bengaluru,Karnataka&t=&z=13&ie=UTF8&iwloc=&output=embed"
           ></iframe>
         </div>
       </div>
@@ -451,7 +449,7 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
 
           <MagneticButton distance={0.2} className="w-full">
             <a
-              href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20want%20to%20book%20the%20${encodeURIComponent(currentVehicle.name)}%20for%20${selectedTripType}%20trip.`}
+              href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20want%20to%20book%20the%20${encodeURIComponent(currentVehicle.name)}%20for%20${selectedTripType}%20trip.`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md shadow-emerald-600/25 transition"
@@ -469,54 +467,23 @@ const ListingCarDetailPage: FC<ListingCarDetailPageProps> = ({}) => {
     <div className="nc-ListingCarDetailPage">
       {/* VEHICLE PHOTO SHOWCASE */}
       <header className="rounded-3xl overflow-hidden mt-6">
-        <div className="relative grid grid-cols-4 gap-2 h-72 sm:h-96">
-          <div
-            className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden cursor-pointer"
-            onClick={handleOpenModalImageGallery}
-          >
-            <Image
-              fill
-              src={PHOTOS[0]}
-              alt="Sri Sadhguru Fleet"
-              className="object-cover hover:scale-105 transition-transform duration-500"
-              priority
-            />
-          </div>
+        <div className="relative h-72 sm:h-96">
+          <FleetImageSlider
+            images={vehiclePhotos}
+            alt={`${currentVehicle.name} - Sky Cabs Bangalore`}
+            className="rounded-2xl"
+            objectFit={currentVehicle.image.endsWith(".png") ? "contain" : "cover"}
+            priority
+          />
 
-          <div
-            className="col-span-1 row-span-2 relative rounded-2xl overflow-hidden cursor-pointer"
+          <button
+            type="button"
             onClick={handleOpenModalImageGallery}
-          >
-            <Image
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-500"
-              src={PHOTOS[1]}
-              alt="Sri Sadhguru Fleet"
-            />
-          </div>
-
-          {PHOTOS.slice(2, 4).map((item, index) => (
-            <div
-              key={index}
-              className="relative rounded-2xl overflow-hidden cursor-pointer"
-              onClick={handleOpenModalImageGallery}
-            >
-              <Image
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-                src={item}
-                alt="Sri Sadhguru Fleet"
-              />
-            </div>
-          ))}
-
-          <div
-            className="absolute hidden md:flex items-center gap-2 left-4 bottom-4 px-4 py-2.5 rounded-2xl bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm text-neutral-900 dark:text-white text-xs font-bold cursor-pointer hover:bg-white shadow-md z-10"
-            onClick={handleOpenModalImageGallery}
+            className="absolute hidden md:flex items-center gap-2 left-4 top-4 px-4 py-2.5 rounded-2xl bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm text-neutral-900 dark:text-white text-xs font-bold hover:bg-white shadow-md z-20"
           >
             <Squares2X2Icon className="h-4 w-4" />
             <span>Show all fleet photos</span>
-          </div>
+          </button>
         </div>
       </header>
 

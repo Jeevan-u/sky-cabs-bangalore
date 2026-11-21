@@ -11,7 +11,7 @@ interface ModalTourPackageProps {
   editingPackage?: TourPackageItem | null;
 }
 
-const STATES = ["Andhra Pradesh", "Karnataka", "Tamil Nadu", "Kerala", "Telangana"];
+const STATES = ["Andhra Pradesh", "Karnataka", "Tamil Nadu", "Kerala", "Karnataka"];
 
 export default function ModalTourPackage({
   isOpen,
@@ -22,7 +22,7 @@ export default function ModalTourPackage({
   const [name, setName] = useState("");
   const [tagline, setTagline] = useState("");
   const [state, setState] = useState("Andhra Pradesh");
-  const [image, setImage] = useState("/images/srisailam-dam.jpg");
+  const [image, setImage] = useState("/images/images1.jpg");
   const [dist, setDist] = useState("250 KM");
   const [days, setDays] = useState("1-2 Days");
   const [price, setPrice] = useState("4500");
@@ -45,7 +45,7 @@ export default function ModalTourPackage({
       setName("");
       setTagline("");
       setState("Andhra Pradesh");
-      setImage("/images/srisailam-dam.jpg");
+      setImage("/images/images1.jpg");
       setDist("250 KM");
       setDays("1-2 Days");
       setPrice("4500");
@@ -69,7 +69,7 @@ export default function ModalTourPackage({
         name: name.trim(),
         tagline: tagline.trim(),
         state,
-        image: image.trim() || "/images/srisailam-dam.jpg",
+        image: image.trim() || "/images/images1.jpg",
         dist: dist.trim() || "250 KM",
         days: days.trim() || "1-2 Days",
         price: parseInt(price, 10) || 4500,
@@ -145,7 +145,7 @@ export default function ModalTourPackage({
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Srisailam Dam & Temple"
+                placeholder="e.g. Mysuru Dam & Temple"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium focus:ring-2 focus:ring-primary-500"
               />
             </div>
@@ -229,7 +229,7 @@ export default function ModalTourPackage({
                 type="text"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-                placeholder="/images/srisailam-dam.jpg or https://..."
+                placeholder="/images/images1.jpg or https://..."
                 className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
               />
               <PhotoIcon className="w-4 h-4 text-neutral-400 absolute left-3 top-3" />

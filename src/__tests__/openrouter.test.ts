@@ -70,8 +70,8 @@ describe('OpenRouterClient', () => {
           method: 'POST',
           headers: expect.objectContaining({
             Authorization: 'Bearer sk-or-v1-mock-key',
-            'HTTP-Referer': 'https://www.srisadhgurutoursandtravels.com',
-            'X-Title': 'Sri Sadhguru Tours & Travels',
+            'HTTP-Referer': 'https://skycabsbangalore.com/',
+            'X-Title': 'Sky Cabs Bangalore',
           }),
         })
       );

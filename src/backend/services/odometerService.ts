@@ -38,7 +38,7 @@ export const odometerService = {
         booking_id: data.booking_id,
         driver_id: data.driver_id || "DRV-101",
         driver_name: data.driver_name || "Chauffeur",
-        vehicle_number: data.vehicle_number || "TS 08 UB 2026",
+        vehicle_number: data.vehicle_number || "KA 08 UB 2026",
         start_km: data.start_km,
         start_photo_url: data.start_photo_url || "/images/odometer-start-sample.jpg",
       });

@@ -18,9 +18,9 @@ export default function ModalPlaceHub({
   editingHub,
 }: ModalPlaceHubProps) {
   const [name, setName] = useState("");
-  const [href, setHref] = useState("/shamshabad-airport-taxi");
+  const [href, setHref] = useState("/bangalore-airport-taxi");
   const [count, setCount] = useState("250");
-  const [thumbnail, setThumbnail] = useState("/images/hubs/kukatpally-hq.jpg");
+  const [thumbnail, setThumbnail] = useState("/images/hubs/begur-hub.jpg");
   const [isPublished, setIsPublished] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -33,9 +33,9 @@ export default function ModalPlaceHub({
       setIsPublished(editingHub.is_published !== false);
     } else {
       setName("");
-      setHref("/shamshabad-airport-taxi");
+      setHref("/bangalore-airport-taxi");
       setCount("250");
-      setThumbnail("/images/hubs/kukatpally-hq.jpg");
+      setThumbnail("/images/hubs/begur-hub.jpg");
       setIsPublished(true);
     }
   }, [editingHub, isOpen]);
@@ -53,9 +53,9 @@ export default function ModalPlaceHub({
     try {
       const payload = {
         name: name.trim(),
-        href: href.trim() || "/shamshabad-airport-taxi",
+        href: href.trim() || "/bangalore-airport-taxi",
         count: parseInt(count, 10) || 100,
-        thumbnail: thumbnail.trim() || "/images/hubs/kukatpally-hq.jpg",
+        thumbnail: thumbnail.trim() || "/images/hubs/begur-hub.jpg",
         is_published: isPublished,
       };
 
@@ -123,7 +123,7 @@ export default function ModalPlaceHub({
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. Kukatpally (IDL Lake) or RGIA Shamshabad"
+              placeholder="e.g. Begur or BLR Devanahalli"
               className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium focus:ring-2 focus:ring-primary-500"
             />
           </div>
@@ -137,7 +137,7 @@ export default function ModalPlaceHub({
                 type="text"
                 value={href}
                 onChange={(e) => setHref(e.target.value)}
-                placeholder="/cabs-in-kukatpally"
+                placeholder="/cabs-in-begur"
                 className="w-full px-3 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
               />
             </div>
@@ -164,7 +164,7 @@ export default function ModalPlaceHub({
                 type="text"
                 value={thumbnail}
                 onChange={(e) => setThumbnail(e.target.value)}
-                placeholder="/images/hubs/kukatpally-hq.jpg or https://..."
+                placeholder="/images/hubs/begur-hub.jpg or https://..."
                 className="w-full pl-9 pr-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
               />
               <PhotoIcon className="w-4 h-4 text-neutral-400 absolute left-3 top-3" />

@@ -45,7 +45,7 @@ const SectionHero: FC<SectionHeroProps> = ({
 
         <div className="flex-grow w-full max-w-md h-72 sm:h-96 relative">
           <TiltedCard
-            captionText="Sri Sadhguru Commercial Passenger Fleet"
+            captionText="Sky Cabs Bangalore Commercial Passenger Fleet"
             containerHeight="100%"
             containerWidth="100%"
             imageHeight="100%"
@@ -58,10 +58,10 @@ const SectionHero: FC<SectionHeroProps> = ({
             overlayContent={
               <div className="p-4 bg-gradient-to-t from-black/80 via-black/30 to-transparent w-full rounded-b-3xl">
                 <p className="text-white font-extrabold text-sm drop-shadow">
-                  50+ Commercial Vehicles · Telangana & AP
+                  Vehicles for Every Group Size · Bengaluru & Karnataka
                 </p>
                 <p className="text-neutral-300 text-xs font-semibold">
-                  Kukatpally, Hyderabad & Gandhari Hubs
+                  Begur, Bengaluru & Jayanagar Hubs
                 </p>
               </div>
             }
@@ -71,7 +71,7 @@ const SectionHero: FC<SectionHeroProps> = ({
                 fill
                 className="object-cover"
                 src={rightImg}
-                alt="Sri Sadhguru Travel"
+                alt="Sky Cabs Bangalore"
                 sizes="(max-width: 768px) 100vw, 500px"
               />
             </div>

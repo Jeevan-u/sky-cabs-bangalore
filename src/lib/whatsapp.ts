@@ -1,9 +1,9 @@
 /**
- * Hybrid WhatsApp Automation Service for Sri Sadhguru Tours & Travels
+ * Hybrid WhatsApp Automation Service for Sky Cabs Bangalore
  * Handles both WhatsApp Cloud API (HTTP Webhook/Dispatch) and 1-click wa.me deep links.
  */
 
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 
 export interface BookingWhatsAppPayload {
   bookingId: string;
@@ -61,7 +61,7 @@ export const whatsappService = {
     }
 
     const msg =
-      `*SRI SADHGURU TOURS & TRAVELS*\n` +
+      `*SKY CABS BANGALORE*\n` +
       `24x7 Cab & Bus Booking Confirmation\n` +
       `-----------------------------------------\n` +
       `• *Booking Ref:* ${payload.bookingId}\n` +
@@ -74,10 +74,10 @@ export const whatsappService = {
       `• *Estimated Fare:* ₹${payload.estimatedPrice.toLocaleString("en-IN")}\n` +
       (payload.notes ? `• *Notes:* ${payload.notes}\n` : ``) +
       `-----------------------------------------\n` +
-      `• *24x7 Support:* +91 ${SADHGURU_CONTACT.primaryPhone} | +91 ${SADHGURU_CONTACT.secondaryPhone}\n` +
-      `*Thank you for choosing Sri Sadhguru Travels!*`;
+      `• *24x7 Support:* +91 ${SKY_CABS_CONTACT.primaryPhone} | +91 ${SKY_CABS_CONTACT.secondaryPhone}\n` +
+      `*Thank you for choosing Sky Cabs Bangalore!*`;
 
-    return `https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(msg)}`;
   },
 
   /**
@@ -85,7 +85,7 @@ export const whatsappService = {
    */
   getDutySlipBillLink(payload: DutySlipWhatsAppPayload): string {
     const msg =
-      `*SRI SADHGURU TOURS & TRAVELS*\n` +
+      `*SKY CABS BANGALORE*\n` +
       `Official Trip Duty Slip & Bill\n` +
       `-----------------------------------------\n` +
       `• *Bill ID:* ${payload.dutySlipId}\n` +
@@ -100,22 +100,22 @@ export const whatsappService = {
       `• *Driver Bata:* ₹${payload.driverBata}\n` +
       `• *FINAL TOTAL BILL:* ₹${payload.totalAmount.toLocaleString("en-IN")}\n` +
       `-----------------------------------------\n` +
-      `Prop: Rathan Kanna · Kukatpally & Gandhari\n` +
-      `• *Leave us a review:* https://www.srisadhgurutoursandtravels.com/review`;
+      `Sky Cabs Bangalore · #56, Begur, Bengaluru 562157\n` +
+      `• *Leave us a review:* https://skycabsbangalore.com/review`;
 
     const targetPhone = payload.customerPhone.replace(/[^0-9]/g, "");
-    const recipient = targetPhone.length === 10 ? `91${targetPhone}` : targetPhone || SADHGURU_CONTACT.whatsappNumber;
+    const recipient = targetPhone.length === 10 ? `91${targetPhone}` : targetPhone || SKY_CABS_CONTACT.whatsappNumber;
 
     return `https://wa.me/${recipient}?text=${encodeURIComponent(msg)}`;
   },
 
   /**
-   * Generates private escalation WhatsApp link to Rathan Kanna for negative (1-3 star) feedback
+   * Generates private escalation WhatsApp link to Sky Cabs Bangalore for negative (1-3 star) feedback
    */
   getReviewEscalationLink(payload: ReviewEscalationPayload): string {
     const msg =
       `*ATTENTION: CUSTOMER SERVICE ESCALATION*\n` +
-      `Sri Sadhguru Travels - Private Customer Feedback\n` +
+      `Sky Cabs Bangalore - Private Customer Feedback\n` +
       `-----------------------------------------\n` +
       `• *Rating:* ${payload.overallRating} / 5 Stars\n` +
       `• *Customer:* ${payload.customerName}\n` +
@@ -124,7 +124,7 @@ export const whatsappService = {
       `-----------------------------------------\n` +
       `• *Action Required:* Please contact this customer immediately to resolve their grievance before any public posting.`;
 
-    return `https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${encodeURIComponent(msg)}`;
   },
 
   /**

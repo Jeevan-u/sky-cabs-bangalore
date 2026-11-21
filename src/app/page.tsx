@@ -4,7 +4,7 @@ import { PageGradientASCII, SectionTransitionWave } from "@/components/ClientVis
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com",
+    canonical: "https://skycabsbangalore.com",
   },
 };
 import SectionHero from "@/app/(server-components)/SectionHero";
@@ -22,7 +22,7 @@ import SectionBecomeAnAuthor from "@/components/SectionBecomeAnAuthor";
 import SectionClientSay from "@/components/SectionClientSay";
 import SectionStatsCounter from "@/components/SectionStatsCounter";
 import SectionPopularRoutes from "@/components/SectionPopularRoutes";
-import SectionSrisailamPackage from "@/components/SectionSrisailamPackage";
+import SectionMysuruPackage from "@/components/SectionMysuruPackage";
 import SectionStatePackages from "@/components/SectionStatePackages";
 import SectionFleetOverview from "@/components/SectionFleetOverview";
 import SectionWhyChooseUs from "@/components/SectionWhyChooseUs";
@@ -37,59 +37,75 @@ import { AnimatedRouteBeam, ScrollReveal, ScrollVelocity } from "@/components/re
 const POPULAR_HUBS: TaxonomyType[] = [
   {
     id: "1",
-    href: "/cabs-in-kukatpally" as any,
-    name: "Kukatpally (IDL Lake)",
+    href: "/cabs-in-begur" as any,
+    name: "Begur (Bengaluru East)",
     taxonomy: "category",
     count: 240,
-    thumbnail: "/images/hubs/kukatpally-hq.jpg",
+    thumbnail: "/images/hubs/begur-hub.jpg",
   },
   {
     id: "2",
-    href: "/shamshabad-airport-taxi" as any,
-    name: "Shamshabad Airport (RGIA)",
+    href: "/kempegowda-airport-taxi" as any,
+    name: "Kempegowda International Airport (BLR)",
     taxonomy: "category",
     count: 512,
-    thumbnail: "/images/hubs/shamshabad-airport.jpg",
+    thumbnail: "/images/hubs/kempegowda-airport.jpg",
   },
   {
     id: "3",
-    href: "/cabs-in-kphb" as any,
-    name: "KPHB Colony (Nexus Mall)",
+    href: "/cabs-in-electronic-city" as any,
+    name: "Electronic City (Nexus Mall)",
     taxonomy: "category",
     count: 180,
-    thumbnail: "/images/hubs/kphb-colony.jpg",
+    thumbnail: "/images/hubs/koramangala-hub.jpg",
   },
   {
     id: "4",
-    href: "/cabs-in-hitec-city" as any,
-    name: "Hitec City (Cyber Towers)",
+    href: "/cabs-in-whitefield" as any,
+    name: "Whitefield (IT Corridor)",
     taxonomy: "category",
     count: 320,
-    thumbnail: "/images/hubs/hitec-city.jpg",
+    thumbnail: "/images/hubs/electronic-city.jpg",
   },
   {
     id: "5",
-    href: "/cabs-in-miyapur" as any,
-    name: "Miyapur (Ameenpur Lake)",
+    href: "/cabs-in-koramangala" as any,
+    name: "Koramangala (80 Feet Road)",
     taxonomy: "category",
     count: 155,
-    thumbnail: "/images/hubs/miyapur-hub.jpg",
+    thumbnail: "/images/hubs/whitefield-hub.jpg",
   },
   {
     id: "6",
-    href: "/cabs-in-medchal" as any,
-    name: "Medchal (Oxygen Park)",
+    href: "/cabs-in-hsr-layout" as any,
+    name: "HSR Layout (Sector 2)",
     taxonomy: "category",
     count: 140,
-    thumbnail: "/images/hubs/medchal-kompally.jpg",
+    thumbnail: "/images/hubs/hsr-layout-hub.jpg",
   },
   {
     id: "7",
-    href: "/cabs-in-kamareddy-gandhari" as any,
-    name: "Gandhari & Kamareddy Hub",
+    href: "/cabs-in-indiranagar" as any,
+    name: "Indiranagar (12th Main)",
     taxonomy: "category",
     count: 360,
-    thumbnail: "/images/hubs/kamareddy-gandhari.jpg",
+    thumbnail: "/images/hubs/jayanagar-hub.jpg",
+  },
+  {
+    id: "8",
+    href: "/cabs-in-jayanagar" as any,
+    name: "Jayanagar (4th Block)",
+    taxonomy: "category",
+    count: 210,
+    thumbnail: "/images/images1.jpg",
+  },
+  {
+    id: "9",
+    href: "/cabs-in-yelahanka" as any,
+    name: "Yelahanka (Airport Road)",
+    taxonomy: "category",
+    count: 175,
+    thumbnail: "/images/images2.jpg",
   },
 ];
 
@@ -138,8 +154,8 @@ function PageHome() {
         <ScrollReveal animation="fade-up">
           <SectionSliderNewCategories
             categories={POPULAR_HUBS}
-            heading="Popular Hubs & RGIA Airport Routes"
-            subHeading="Prompt 24x7 doorstep pickups across Kukatpally, KPHB, Miyapur, Hitec City, Medchal & Shamshabad Airport"
+            heading="Popular Bengaluru Hubs & Kempegowda Airport Routes"
+            subHeading="24x7 doorstep pickups across Begur, Electronic City, Koramangala, HSR Layout, Whitefield, Indiranagar, Jayanagar, Yelahanka and Kempegowda International Airport (BLR). Vehicles subject to availability."
             sliderStyle="style2"
           />
         </ScrollReveal>
@@ -158,8 +174,8 @@ function PageHome() {
         <div className="py-6 overflow-hidden rounded-2xl bg-amber-500/10 dark:bg-amber-400/5 border border-amber-500/20">
           <ScrollVelocity
             texts={[
-              "HYDERABAD TO SRISAILAM · 24X7 AIRPORT TAXI · FIXED NON-SURGE RATES ·",
-              "KUKATPALLY · KPHB · MIYAPUR · HITEC CITY · SHAMSHABAD RGIA ·",
+              "BENGALURU TO MYSURU · 24X7 KEMPEGOWDA AIRPORT TAXI · TRANSPARENT FARES ·",
+              "BEGUR · ELECTRONIC CITY · KORAMANGALA · WHITEFIELD · KEMPEGOWDA BLR ·",
             ]}
             velocity={1.6}
             className="text-amber-600 dark:text-amber-400 font-black tracking-wider text-sm sm:text-lg md:text-xl uppercase"
@@ -169,17 +185,17 @@ function PageHome() {
         {/* FLUID ANIMATED TRANSITION WAVE */}
         <SectionTransitionWave lineColor="rgba(245, 158, 11, 0.4)" waveAmpX={28} waveAmpY={14} waveSpeedX={0.012} className="opacity-35 dark:opacity-20" />
 
-        {/* 5. DEDICATED SRISAILAM TOUR PACKAGE */}
+        {/* 5. DEDICATED MYSURU TOUR PACKAGE */}
         <ScrollReveal animation="slide-left">
-          <SectionSrisailamPackage />
+          <SectionMysuruPackage />
         </ScrollReveal>
 
-        {/* 6. SOUTH INDIA STATE PACKAGES (AP, KA, TN, KL) */}
+        {/* 6. KARNATAKA & SOUTH INDIA GETAWAY PACKAGES */}
         <ScrollReveal animation="fade-up">
           <SectionStatePackages />
         </ScrollReveal>
 
-        {/* 7. COMPLETE 5 TO 50 SEATER FLEET OVERVIEW */}
+        {/* 7. COMPLETE 4+1 TO 52-SEATER FLEET OVERVIEW */}
         <ScrollReveal animation="zoom-in">
           <SectionFleetOverview />
         </ScrollReveal>
@@ -188,15 +204,15 @@ function PageHome() {
         <div className="py-6 overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700">
           <ScrollVelocity
             texts={[
-              "SWIFT DZIRE · TOYOTA INNOVA CRYSTA · MARUTI ERTIGA · TEMPO TRAVELLER · LUXURY BUS ·",
-              "VERIFIED CHAUFFEURS · 2,400+ SUCCESSFUL TOURS · 100% ON-TIME GUARANTEE ·",
+              "PRIME SEDAN · MARUTI SUZUKI ERTIGA · TOYOTA INNOVA CRYSTA · FORCE URBANIA · PASSENGER BUS ·",
+              "VERIFIED CHAUFFEURS · SUBJECT TO AVAILABILITY · CONFIRM BEFORE BOOKING ·",
             ]}
             velocity={-1.6}
             className="text-neutral-700 dark:text-neutral-300 font-extrabold tracking-wider text-sm sm:text-lg uppercase"
           />
         </div>
 
-        {/* 8. WHY CHOOSE SRI SADHGURU TRAVELS */}
+        {/* 8. WHY CHOOSE SKY CABS BANGALORE */}
         <ScrollReveal animation="slide-right">
           <SectionWhyChooseUs />
         </ScrollReveal>
@@ -219,7 +235,7 @@ function PageHome() {
         {/* FLUID ANIMATED TRANSITION WAVE */}
         <SectionTransitionWave lineColor="rgba(14, 165, 233, 0.4)" waveAmpX={24} waveAmpY={12} waveSpeedX={0.01} className="opacity-30 dark:opacity-15" />
 
-        {/* 11. COMPANY LEGACY & PROPRIETOR RATHAN KANNA */}
+        {/* 11. SKY CABS BANGALORE STORY & SERVICE LEGACY */}
         <ScrollReveal animation="slide-left">
           <SectionLegacy />
         </ScrollReveal>

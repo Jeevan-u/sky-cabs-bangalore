@@ -25,7 +25,7 @@ const DEMO_DATA: SectionHowItWorkProps["data"] = [
     id: 1,
     img: HIW1img,
     title: "1. Choose Your Vehicle",
-    desc: "Pick from 5-seater sedans, 7-seater Ertiga/Innova, Tempo Travellers, or 50-seater luxury buses based on your group size.",
+    desc: "Pick from Prime Sedan (4+1), 7-seater Maruti Suzuki Ertiga/Innova, Tempo Travellers, or 52-seater luxury buses based on your group size.",
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ const DEMO_DATA: SectionHowItWorkProps["data"] = [
   {
     id: 3,
     img: HIW3img,
-    title: "3. Travel Safe & Happy",
+    title: "3. Reliable Cabs Across Bengaluru",
     desc: "Enjoy punctual doorstep pickup with verified chauffeurs, digital touchscreen duty slip, and seamless GPS-monitored journeys.",
   },
 ];
@@ -50,7 +50,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({
       className={`nc-SectionHowItWork ${className}`}
       data-nc-id="SectionHowItWork"
     >
-      <Heading isCenter desc="Book in 3 simple steps — Your Journey, Our Responsibility">
+      <Heading isCenter desc="Book in 3 simple steps — Safe, Comfortable & On-Time Travel">
         How It Works
       </Heading>
       <div className="mt-16 relative grid md:grid-cols-3 gap-8 lg:gap-10">

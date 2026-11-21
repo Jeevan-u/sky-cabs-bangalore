@@ -9,7 +9,7 @@ export interface Heading2Props {
 
 const Heading2: React.FC<Heading2Props> = ({
   className = "",
-  heading = "Sri Sadhguru Tours & Travels",
+  heading = "Sky Cabs Bangalore",
   subHeading,
 }) => {
   return (
@@ -19,10 +19,10 @@ const Heading2: React.FC<Heading2Props> = ({
         subHeading
       ) : (
         <span className="block text-neutral-500 dark:text-neutral-400 mt-3">
-          50+ Commercial Cabs
+          4+1 to 52-Seater Vehicles
           <span className="mx-2">·</span>
-          Kukatpally, Hyderabad, RGIA Airport & Outstation Circuits
-          <span className="mx-2">·</span>24/7 Available
+          Bengaluru, Kempegowda Airport & Outstation Routes
+          <span className="mx-2">·</span>24/7 · Subject to Availability
         </span>
       )}
     </div>

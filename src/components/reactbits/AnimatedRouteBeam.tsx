@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import SpotlightCard from "./SpotlightCard";
 import MagneticButton from "./MagneticButton";
 import Link from "next/link";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { MapPinIcon, CarIcon, CheckCircleIcon } from "@/components/icons";
 
 interface RouteNode {
@@ -21,57 +21,57 @@ interface RouteNode {
 const POPULAR_DESTINATIONS: RouteNode[] = [
   {
     id: "airport",
-    name: "RGIA Shamshabad Airport",
-    distance: "35 km",
-    duration: "45 Mins",
-    fare: "₹1,199",
-    tag: "Fixed Non-Surge",
-    href: "/shamshabad-airport-taxi",
+    name: "Kempegowda Airport (BLR)",
+    distance: "40 km",
+    duration: "1 Hr",
+    fare: "₹1,399",
+    tag: "Fixed Airport Fare",
+    href: "/bangalore-airport-taxi",
   },
   {
-    id: "srisailam",
-    name: "Srisailam Mallikarjuna",
-    distance: "215 km",
-    duration: "4.5 Hrs",
-    fare: "₹4,999",
-    tag: "Ghat Road Spec",
-    href: "/hyderabad-to-srisailam-cabs",
+    id: "mysuru",
+    name: "Mysuru Palace",
+    distance: "150 km",
+    duration: "3 Hrs",
+    fare: "₹4,499",
+    tag: "Same Day Return",
+    href: "/bangalore-to-mysuru-cabs",
   },
   {
     id: "tirupati",
     name: "Tirupati Balaji Darshan",
-    distance: "555 km",
-    duration: "9.5 Hrs",
-    fare: "₹12,499",
+    distance: "325 km",
+    duration: "6 Hrs",
+    fare: "₹9,999",
     tag: "2-Day Package",
-    href: "/hyderabad-to-tirupati-cabs",
+    href: "/bangalore-to-tirupati-cabs",
   },
   {
-    id: "shirdi",
-    name: "Shirdi Sai Baba Temple",
-    distance: "610 km",
-    duration: "10.5 Hrs",
-    fare: "₹14,999",
-    tag: "Multi-Day Tour",
-    href: "/hyderabad-to-shirdi-cabs",
+    id: "coorg",
+    name: "Coorg (Madikeri)",
+    distance: "260 km",
+    duration: "5.5 Hrs",
+    fare: "₹8,499",
+    tag: "Weekend Getaway",
+    href: "/bangalore-to-coorg-cabs",
   },
   {
-    id: "bangalore",
-    name: "Bangalore Express",
-    distance: "570 km",
-    duration: "8.5 Hrs",
-    fare: "₹13,999",
-    tag: "NH 44 Highway",
-    href: "/hyderabad-outstation-cabs",
+    id: "ooty",
+    name: "Ooty Nilgiris",
+    distance: "265 km",
+    duration: "6 Hrs",
+    fare: "₹9,499",
+    tag: "Hill Station Tour",
+    href: "/bangalore-to-ooty-cabs",
   },
   {
-    id: "yadagirigutta",
-    name: "Yadagirigutta Lakshmi Narasimha",
-    distance: "65 km",
-    duration: "1.5 Hrs",
-    fare: "₹2,499",
-    tag: "Same Day Return",
-    href: "/hyderabad-to-yadagirigutta-cabs",
+    id: "chennai",
+    name: "Chennai Express",
+    distance: "345 km",
+    duration: "6 Hrs",
+    fare: "₹10,999",
+    tag: "Outstation Highway",
+    href: "/bangalore-to-chennai-cabs",
   },
 ];
 
@@ -90,8 +90,8 @@ export const AnimatedRouteBeam: React.FC<{ className?: string }> = ({ className 
             Live Outstation Corridor Radar
           </h3>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 pb-2">
-            Select any destination corridor connected from Hyderabad. Real-time rates, estimated
-            travel times, and verified chauffeurs.
+            Select any destination corridor connected from Bengaluru. Estimated fares and travel
+            times are indicative; confirm availability and the final quote before booking.
           </p>
 
           <div className="space-y-2">
@@ -179,7 +179,7 @@ export const AnimatedRouteBeam: React.FC<{ className?: string }> = ({ className 
                 />
               </svg>
 
-              {/* Origin Node: Hyderabad */}
+              {/* Origin Node: Bengaluru */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="relative z-10 flex flex-col items-center text-center"
@@ -191,8 +191,8 @@ export const AnimatedRouteBeam: React.FC<{ className?: string }> = ({ className 
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
                   </span>
                 </div>
-                <div className="mt-2 text-xs font-bold text-white">Hyderabad Hub</div>
-                <div className="text-[10px] text-neutral-400">Kukatpally / KPHB</div>
+                <div className="mt-2 text-xs font-bold text-white">Bengaluru Hub</div>
+                <div className="text-[10px] text-neutral-400">Begur / Electronic City</div>
               </motion.div>
 
               {/* Vehicle in Transit Pulse */}
@@ -253,7 +253,7 @@ export const AnimatedRouteBeam: React.FC<{ className?: string }> = ({ className 
 
                 <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
                   <a
-                    href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20please%20quote%20for%20Hyderabad%20to%20${encodeURIComponent(
+                    href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20please%20quote%20for%20Bengaluru%20to%20${encodeURIComponent(
                       activeRoute.name
                     )}`}
                     target="_blank"

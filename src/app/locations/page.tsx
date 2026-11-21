@@ -12,15 +12,15 @@ import {
   TruckIcon,
 } from "@heroicons/react/24/outline";
 import { WhatsAppIcon } from "@/components/icons";
-import { SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import { SpotlightCard, StarBorder, ShinyText } from "@/components/reactbits";
 
 export const metadata: Metadata = {
-  title: "Service Locations & 24x7 Cab Hubs | SRI SADHGURU TOURS & TRAVELS",
+  title: "Service Locations & 24x7 Cab Hubs | Sky Cabs Bangalore",
   description:
-    "Explore 24x7 doorstep cab dispatch hubs in Kukatpally, Shamshabad Airport, KPHB Colony, Hitec City, Miyapur, Medchal, and Gandhari/Kamareddy. 15-minute pickup guarantee.",
+    "Explore Sky Cabs Bangalore pickup hubs in Begur, Electronic City, Koramangala, HSR Layout, Whitefield, Indiranagar, Jayanagar and Yelahanka, plus Kempegowda International Airport (BLR) transfers.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/locations",
+    canonical: "https://skycabsbangalore.com/locations",
   },
 };
 
@@ -41,109 +41,124 @@ interface LocationHub {
 
 const LOCATION_HUBS: LocationHub[] = [
   {
-    id: "kukatpally",
-    name: "Kukatpally (Headquarters)",
-    title: "Kukatpally 24x7 Central Hub & Y-Junction",
-    href: "/cabs-in-kukatpally",
-    thumbnail: "/images/hubs/kukatpally-hq.jpg",
-    tag: "Headquarters & Rapid Dispatch",
-    distanceToAirport: "42 KM (via PVNR Expressway)",
+    id: "begur",
+    name: "Begur (Base)",
+    title: "Begur Base & Bengaluru–Hosur Corridor",
+    href: "/cabs-in-begur",
+    thumbnail: "/images/hubs/begur-hub.jpg",
+    tag: "Base Hub & Rapid Dispatch",
+    distanceToAirport: "38 KM (via Airport Road)",
     pickupTime: "10 - 15 Mins",
     description:
-      "Central command hub of Sri Sadhguru Tours & Travels. 20+ commercial cabs & buses stationed 24x7 around Y-Junction, IDL Lake, and JNTU Road.",
-    landmarks: ["Y-Junction", "IDL Lake Road", "JNTU Hyderabad", "Kukatpally Metro"],
-    startingFareAirport: 1299,
-    startingFareLocal: 2199,
-  },
-  {
-    id: "shamshabad",
-    name: "Shamshabad Airport Express",
-    title: "Rajiv Gandhi International Airport (RGIA) Taxi",
-    href: "/shamshabad-airport-taxi",
-    thumbnail: "/images/hubs/shamshabad-airport.jpg",
-    tag: "Fixed Non-Surge Airport Fleet",
-    distanceToAirport: "0 KM (Dedicated Airport Standby)",
-    pickupTime: "5 - 10 Mins",
-    description:
-      "Direct airport pickup and drop transfers with zero surge pricing. Flight tracking included with 45 minutes complimentary wait time for delayed flights.",
-    landmarks: ["Terminal 1 Arrivals", "Aeromall Drop Portico", "Novotel Airport Hub"],
-    startingFareAirport: 1299,
-    startingFareLocal: 2199,
-  },
-  {
-    id: "kphb",
-    name: "KPHB Colony",
-    title: "KPHB Colony Phase 1 to 9 & Nexus Mall",
-    href: "/cabs-in-kphb",
-    thumbnail: "/images/hubs/kphb-colony.jpg",
-    tag: "Residential & Family Corridor",
-    distanceToAirport: "44 KM (via ORR / PVNR)",
-    pickupTime: "10 - 15 Mins",
-    description:
-      "Rapid doorstep cab dispatch across all 9 phases of KPHB Colony, Temple Road, Remedy Hospital, and Nexus Hyderabad Mall.",
-    landmarks: ["Nexus Mall", "Remedy Hospital", "Phase 3 Temple Road", "JNTU Road"],
-    startingFareAirport: 1299,
-    startingFareLocal: 2199,
-  },
-  {
-    id: "hitec-city",
-    name: "Hitec City & Madhapur",
-    title: "Cyber Towers, Mindspace & Financial District",
-    href: "/cabs-in-hitec-city",
-    thumbnail: "/images/hubs/hitec-city.jpg",
-    tag: "IT & Corporate Corridors",
-    distanceToAirport: "35 KM (via Nehru ORR)",
-    pickupTime: "12 - 18 Mins",
-    description:
-      "Corporate shuttles, executive car rentals, and 24/7 IT employee commute for Cyber Towers, Inorbit Mall, Knowledge City, and Gachibowli.",
-    landmarks: ["Cyber Towers", "Mindspace IT Park", "Waverock DLF", "Inorbit Mall"],
+      "Sky Cabs Bangalore is based at #56, Begur. We arrange local rides, airport transfers and outstation trips across Begur, Electronic City and the Hosur corridor.",
+    landmarks: ["Begur Circle", "Electronic City", "Hosa Road", "Anekal Road"],
     startingFareAirport: 1399,
     startingFareLocal: 2299,
   },
   {
-    id: "miyapur",
-    name: "Miyapur Highway Hub",
-    title: "Miyapur Metro Terminal & Allwyn Colony",
-    href: "/cabs-in-miyapur",
-    thumbnail: "/images/hubs/miyapur-hub.jpg",
-    tag: "Metro & Highway Gateway",
-    distanceToAirport: "48 KM (via ORR Exit 3)",
-    pickupTime: "15 Mins",
+    id: "electronic-city",
+    name: "Electronic City",
+    title: "Electronic City Phase 1 & 2 Tech Corridor",
+    href: "/cabs-in-electronic-city",
+    thumbnail: "/images/hubs/electronic-city.jpg",
+    tag: "IT & Corporate Corridor",
+    distanceToAirport: "42 KM (via ORR)",
+    pickupTime: "12 - 18 Mins",
     description:
-      "Strategic transit hub connecting Miyapur Metro, Allwyn Colony, Bollaram Industrial area, and Mumbai Highway corridor.",
-    landmarks: ["Miyapur Metro Terminal", "Allwyn Junction", "Ameenpur Lake", "Bollaram Road"],
+      "Office commutes, airport drops and weekend getaways for Electronic City, Hosa Road and Bommasandra, with vehicles arranged subject to availability.",
+    landmarks: ["Electronic City Phase 1", "Hosa Road", "Bommasandra", "Sarjapur Road"],
+    startingFareAirport: 1499,
+    startingFareLocal: 2299,
+  },
+  {
+    id: "koramangala",
+    name: "Koramangala",
+    title: "Koramangala Blocks & Inner Ring Road",
+    href: "/cabs-in-koramangala",
+    thumbnail: "/images/hubs/electronic-city.jpg",
+    tag: "Neighbourhood & Family Travel",
+    distanceToAirport: "35 KM (via Hennur Road)",
+    pickupTime: "10 - 15 Mins",
+    description:
+      "Doorstep pickups across Koramangala's blocks, 80 Feet Road and BTM Layout for airport runs, local travel and outstation holidays.",
+    landmarks: ["5th Block", "Forum Mall", "80 Feet Road", "BTM Layout"],
     startingFareAirport: 1399,
+    startingFareLocal: 2299,
+  },
+  {
+    id: "hsr-layout",
+    name: "HSR Layout",
+    title: "HSR Layout Sectors 1 to 7 & Sarjapur Road",
+    href: "/cabs-in-hsr-layout",
+    thumbnail: "/images/hubs/electronic-city.jpg",
+    tag: "Residential & ORR Commuter Hub",
+    distanceToAirport: "37 KM (via ORR)",
+    pickupTime: "10 - 15 Mins",
+    description:
+      "Pickups across HSR Layout, Sarjapur Road and the Outer Ring Road for airport transfers and intercity trips to Chennai, Mysuru and Ooty.",
+    landmarks: ["27th Main", "Sarjapur Road", "Silk Board", "Agara Lake"],
+    startingFareAirport: 1399,
+    startingFareLocal: 2299,
+  },
+  {
+    id: "whitefield",
+    name: "Whitefield",
+    title: "Whitefield ITPL, Brookefield & Varthur Road",
+    href: "/cabs-in-whitefield",
+    thumbnail: "/images/hubs/electronic-city.jpg",
+    tag: "Corporate & Residential Hub",
+    distanceToAirport: "40 KM (via ORR)",
+    pickupTime: "12 - 18 Mins",
+    description:
+      "Corporate commutes, airport transfers and outstation cabs for Whitefield, ITPL, Brookefield and the ORR tech corridor.",
+    landmarks: ["ITPL", "Phoenix Marketcity", "Brookefield", "Varthur Road"],
+    startingFareAirport: 1599,
+    startingFareLocal: 2299,
+  },
+  {
+    id: "indiranagar",
+    name: "Indiranagar",
+    title: "Indiranagar 100 Feet Road & Domlur",
+    href: "/cabs-in-indiranagar",
+    thumbnail: "/images/hubs/electronic-city.jpg",
+    tag: "Central Bengaluru Pickups",
+    distanceToAirport: "33 KM (via Old Airport Road)",
+    pickupTime: "10 - 15 Mins",
+    description:
+      "Local rides and outstation cabs across Indiranagar, Domlur and Old Airport Road, with flights from Kempegowda International Airport (BLR).",
+    landmarks: ["100 Feet Road", "Indiranagar Metro", "Domlur", "Old Airport Road"],
+    startingFareAirport: 1399,
+    startingFareLocal: 2299,
+  },
+  {
+    id: "jayanagar",
+    name: "Jayanagar",
+    title: "Jayanagar, JP Nagar & Banashankari",
+    href: "/cabs-in-jayanagar",
+    thumbnail: "/images/hubs/begur-hub.jpg",
+    tag: "South Bengaluru Hub",
+    distanceToAirport: "36 KM (via ORR)",
+    pickupTime: "10 - 15 Mins",
+    description:
+      "South Bengaluru pickups for airport transfers and hill getaways to Mysuru, Coorg and Ooty, with clear fares and clean vehicles.",
+    landmarks: ["4th Block", "JP Nagar", "Banashankari", "Bannerghatta Road"],
+    startingFareAirport: 1399,
+    startingFareLocal: 2299,
+  },
+  {
+    id: "yelahanka",
+    name: "Yelahanka",
+    title: "Yelahanka, Hebbal & Airport Road",
+    href: "/cabs-in-yelahanka",
+    thumbnail: "/images/hubs/hsr-layout-hub.jpg",
+    tag: "North Bengaluru Airport Gateway",
+    distanceToAirport: "22 KM (via NH 44)",
+    pickupTime: "10 - 15 Mins",
+    description:
+      "Close to Devanahalli, Yelahanka is a convenient pickup point for Kempegowda Airport transfers and north Bengaluru outstation routes.",
+    landmarks: ["Yelahanka New Town", "Hebbal", "Manyata Tech Park", "Devanahalli"],
+    startingFareAirport: 1199,
     startingFareLocal: 2199,
-  },
-  {
-    id: "medchal",
-    name: "Medchal ORR Gateway",
-    title: "Medchal, Kompally & NH 44 Outer Hub",
-    href: "/cabs-in-medchal",
-    thumbnail: "/images/hubs/medchal-kompally.jpg",
-    tag: "North Hyderabad Gateway",
-    distanceToAirport: "58 KM (via Outer Ring Road)",
-    pickupTime: "15 - 20 Mins",
-    description:
-      "Serving North Hyderabad, Kompally, Medchal Industrial corridor, and Nagpur Highway outstation routes.",
-    landmarks: ["Oxygen Park", "Medchal Checkpost", "Kompally Junction", "Gundlapochampally"],
-    startingFareAirport: 1699,
-    startingFareLocal: 2499,
-  },
-  {
-    id: "kamareddy-gandhari",
-    name: "Kamareddy & Gandhari Hub",
-    title: "Gandhari Branch & Nizamabad Regional Fleet",
-    href: "/cabs-in-kamareddy-gandhari",
-    thumbnail: "/images/hubs/kamareddy-gandhari.jpg",
-    tag: "Regional District Branch",
-    distanceToAirport: "175 KM",
-    pickupTime: "Scheduled Dispatch",
-    description:
-      "Sri Sadhguru Travels' native regional branch connecting Gandhari, Kamareddy, Banswada, and Nizamabad to Hyderabad.",
-    landmarks: ["Gandhari Bus Stand", "Kamareddy Clock Tower", "NH 44 Toll Gate"],
-    startingFareAirport: 3200,
-    startingFareLocal: 3500,
   },
 ];
 
@@ -157,16 +172,16 @@ export default function ServiceLocationsPage() {
             <StarBorder as="div" color="#f59e0b" speed="3.5s" className="shadow-sm">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-black uppercase tracking-wider text-amber-500">
                 <MapPinIcon className="w-3.5 h-3.5" />
-                <ShinyText text="Hyderabad & Regional Network" speed={2.5} />
+                <ShinyText text="Bengaluru Service Network" speed={2.5} />
               </div>
             </StarBorder>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-neutral-900 dark:text-white leading-tight">
-            SRI SADHGURU SERVICE LOCATIONS & 24X7 HUBS
+            SKY CABS BANGALORE SERVICE LOCATIONS & 24X7 HUBS
           </h1>
           <p className="mt-3 text-xs sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Direct doorstep dispatch across Hyderabad IT corridors, commercial transit junctions, and outstation gateways. Transparent flat rates with guaranteed on-time pickup.
+            Doorstep pickups across Bengaluru's neighbourhoods and IT corridors, plus transfers to Kempegowda International Airport (BLR). Transparent fares and vehicles arranged subject to availability.
           </p>
         </div>
 
@@ -188,7 +203,7 @@ export default function ServiceLocationsPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent" />
-                
+
                 <span className="absolute top-2 left-2 text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500 text-neutral-950 truncate max-w-[85%]">
                   {hub.tag}
                 </span>
@@ -242,7 +257,7 @@ export default function ServiceLocationsPage() {
                     </Link>
 
                     <a
-                      href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20need%20a%20cab%20pickup%20at%20${encodeURIComponent(
+                      href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20need%20a%20cab%20pickup%20at%20${encodeURIComponent(
                         hub.name
                       )}.`}
                       target="_blank"
@@ -256,6 +271,34 @@ export default function ServiceLocationsPage() {
                 </div>
               </div>
             </SpotlightCard>
+          ))}
+        </div>
+
+        {/* Airport & Outstation Quick Links */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 max-w-4xl mx-auto">
+          {[
+            {
+              href: "/bangalore-airport-taxi",
+              title: "Bangalore Airport Taxi",
+              desc: "Transfers to and from Kempegowda International Airport (BLR), Devanahalli.",
+            },
+            {
+              href: "/kempegowda-airport-taxi",
+              title: "Kempegowda Airport Taxi",
+              desc: "Flight-time based pickups and drops at BLR across Bengaluru.",
+            },
+          ].map((link) => (
+            <Link
+              key={link.href}
+              href={link.href as any}
+              className="flex items-center justify-between gap-3 p-4 sm:p-5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-amber-500/50 transition"
+            >
+              <span>
+                <span className="block text-sm font-black text-neutral-900 dark:text-white">{link.title}</span>
+                <span className="block text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">{link.desc}</span>
+              </span>
+              <ArrowRightIcon className="w-4 h-4 text-amber-500 shrink-0" />
+            </Link>
           ))}
         </div>
       </div>

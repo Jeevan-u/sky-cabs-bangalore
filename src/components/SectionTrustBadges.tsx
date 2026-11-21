@@ -55,10 +55,10 @@ const SectionTrustBadges: FC<SectionTrustBadgesProps> = ({ className = "" }) => 
             <SparklesIcon className="w-6 h-6 text-amber-500 flex-shrink-0" />
             <div>
               <h4 className="text-sm font-extrabold text-neutral-900 dark:text-neutral-100">
-                <ShinyText text="Hyderabad's Trusted Commercial Travel Partner" speed={3} />
+                <ShinyText text="Bengaluru's Trusted Commercial Travel Partner" speed={3} />
               </h4>
               <p className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">
-                Operating under Proprietor Rathan Kanna with 50+ commercial vehicles.
+                Operating under Sky Cabs Bangalore with a wide range of vehicles.
               </p>
             </div>
           </div>

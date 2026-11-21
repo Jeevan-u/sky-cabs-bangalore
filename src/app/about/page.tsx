@@ -9,11 +9,11 @@ import SectionClientSay from "@/components/SectionClientSay";
 import SectionFleetOverview from "@/components/SectionFleetOverview";
 
 export const metadata: Metadata = {
-  title: "About Us - 24x7 Cab & Bus Travel Service in Hyderabad",
+  title: "About Us - 24x7 Cab & Bus Travel Service in Bengaluru",
   description:
-    "Learn about Sri Sadhguru Tours & Travels, founded and managed by Sri Rathan Kanna. 50+ commercial vehicles across Kukatpally, KPHB, Miyapur, Hitec City & Gandhari.",
+    "Learn about Sky Cabs Bangalore, founded and managed by Sky Cabs Bangalore. a wide range of vehicles across Begur, Electronic City, Koramangala, Whitefield & Jayanagar.",
   alternates: {
-    canonical: "https://www.srisadhgurutoursandtravels.com/about",
+    canonical: "https://skycabsbangalore.com/about",
   },
 };
 
@@ -27,10 +27,10 @@ const PageAbout: FC<PageAboutProps> = ({}) => {
 
       <div className="container py-16 lg:py-24 space-y-16 lg:space-y-24">
         <SectionHero
-          rightImg="/images/sri-sadhguru-travels-banner.jpg"
-          heading="About Sri Sadhguru Tours & Travels"
+          rightImg="/images/sky-cabs-banner.jpg"
+          heading="About Sky Cabs Bangalore"
           btnText=""
-          subHeading="Founded with central hubs in Kukatpally (Hyderabad) and Gandhari (Kamareddy), Sri Sadhguru Tours & Travels is committed to passenger safety, punctuality, and fair transparent pricing. Led by proprietor Rathan Kanna, we provide 5-seater sedans to 50-seater luxury coaches across South India."
+          subHeading="Founded with central hubs in Begur (Bengaluru) and Jayanagar (Yelahanka), Sky Cabs Bangalore is committed to passenger safety, punctuality, and fair transparent pricing. Led by Sky Cabs Bangalore, we provide Prime Sedan (4+1) to 52-seater luxury coaches across South India."
         />
 
         <SectionStatistic />

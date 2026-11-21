@@ -11,7 +11,7 @@ import {
   ClockIcon,
 } from "@heroicons/react/24/outline";
 import { AirplaneIcon, TempleIcon, WhatsAppIcon } from "@/components/icons";
-import { SADHGURU_FLEET, SADHGURU_CONTACT } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, SKY_CABS_CONTACT } from "@/data/skyCabsFleet";
 import CustomRouteModal from "@/components/CustomRouteModal";
 import SmartLocationInput from "@/components/SmartLocationInput";
 import CustomVehicleSelect from "@/components/CustomVehicleSelect";
@@ -27,21 +27,21 @@ import {
 } from "@/components/reactbits";
 
 const POPULAR_PICKUPS = [
-  "Kukatpally (HQ / Y-Junction)",
-  "KPHB Colony Phase 1-9",
-  "Miyapur Metro Station",
-  "Hitec City / Madhapur",
-  "Gachibowli / Financial Dist",
-  "Shamshabad RGIA Airport",
+  "Begur (HQ / Silk Board Junction)",
+  "Electronic City Phase 1-9",
+  "Koramangala Metro Station",
+  "Whitefield / Marathahalli",
+  "Outer Ring Road / Financial Dist",
+  "Kempegowda International Airport (BLR)",
 ];
 
 const POPULAR_DROPS = [
-  "Shamshabad Airport (RGIA)",
-  "Srisailam Mallikarjuna Temple",
+  "Kempegowda International Airport (BLR)",
+  "Mysuru Palace & Chamundi Hills",
   "Tirupati Balaji Darshan",
-  "Vijayawada Kanaka Durga",
+  "Chennai City",
   "Local City (8h / 80km)",
-  "Shirdi Sai Baba Yatra",
+  "Coorg Weekend Getaway",
 ];
 
 export default function HeroQuickBookingWidget() {
@@ -49,8 +49,8 @@ export default function HeroQuickBookingWidget() {
 
   const [tripType, setTripType] = useState<"airport" | "outstation" | "local">("airport");
   const [vehicleId, setVehicleId] = useState("innova-crysta");
-  const [pickupLocation, setPickupLocation] = useState("Kukatpally, Hyderabad");
-  const [dropLocation, setDropLocation] = useState("Shamshabad Airport (RGIA)");
+  const [pickupLocation, setPickupLocation] = useState("Begur, Bengaluru");
+  const [dropLocation, setDropLocation] = useState("Kempegowda International Airport (BLR)");
 
   const todayStr = new Date().toISOString().split("T")[0];
   const [travelDate, setTravelDate] = useState(todayStr);
@@ -58,7 +58,7 @@ export default function HeroQuickBookingWidget() {
   const [isCustomModalOpen, setIsCustomModalOpen] = useState(false);
 
   const currentVehicle =
-    SADHGURU_FLEET.find((v) => v.id === vehicleId) || SADHGURU_FLEET[2];
+    SKY_CABS_FLEET.find((v) => v.id === vehicleId) || SKY_CABS_FLEET[2];
 
   // Dynamic price calculation
   let estimatedPrice = currentVehicle.airportFlatRate;
@@ -81,7 +81,7 @@ export default function HeroQuickBookingWidget() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Sri Sadhguru Travels, I want to book a ${currentVehicle.name} for ${tripType} trip.\nPickup: ${pickupLocation}\nDrop: ${dropLocation}\nDate: ${travelDate} at ${travelTime}\nEst Fare: ₹${estimatedPrice}. Please confirm availability.`
+    `Hi Sky Cabs Bangalore, I want to book a ${currentVehicle.name} for ${tripType} trip.\nPickup: ${pickupLocation}\nDrop: ${dropLocation}\nDate: ${travelDate} at ${travelTime}\nEst Fare: ₹${estimatedPrice}. Please confirm availability.`
   );
 
   return (
@@ -133,8 +133,8 @@ export default function HeroQuickBookingWidget() {
           activeTab={tripType}
           onChange={(id) => {
             setTripType(id as any);
-            if (id === "airport") setDropLocation("Shamshabad Airport (RGIA)");
-            else if (id === "outstation") setDropLocation("Srisailam Mallikarjuna Temple");
+            if (id === "airport") setDropLocation("Kempegowda International Airport (BLR)");
+            else if (id === "outstation") setDropLocation("Mysuru Mallikarjuna Temple");
             else setDropLocation("Local City (8h / 80km)");
           }}
           pillColor="bg-amber-500 text-neutral-950 font-bold shadow-md"
@@ -154,7 +154,7 @@ export default function HeroQuickBookingWidget() {
           label="Pickup Location"
           value={pickupLocation}
           onChange={(val) => setPickupLocation(val)}
-          placeholder="e.g. Kukatpally, KPHB..."
+          placeholder="e.g. Begur, Electronic City..."
           type="pickup"
         />
 
@@ -163,7 +163,7 @@ export default function HeroQuickBookingWidget() {
           label="Destination / Route"
           value={dropLocation}
           onChange={(val) => setDropLocation(val)}
-          placeholder="e.g. RGIA Airport, Srisailam..."
+          placeholder="e.g. Kempegowda International Airport (BLR), Mysuru..."
           type="drop"
         />
 
@@ -236,7 +236,7 @@ export default function HeroQuickBookingWidget() {
         {/* Buttons */}
         <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
           <a
-            href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=${whatsappMessage}`}
+            href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 sm:flex-none justify-center px-4 py-3 sm:py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition flex items-center gap-1.5 min-h-[48px] active:scale-98 shrink-0"

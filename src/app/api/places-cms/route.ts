@@ -25,9 +25,9 @@ export async function POST(req: NextRequest) {
 
     const hub = await d1Client.createPlaceHub({
       name: name.trim(),
-      href: href?.trim() || "/shamshabad-airport-taxi",
+      href: href?.trim() || "/bangalore-airport-taxi",
       count: Number(count) || 100,
-      thumbnail: thumbnail?.trim() || "/images/hubs/shamshabad-airport.jpg",
+      thumbnail: thumbnail?.trim() || "/images/hubs/kempegowda-airport.jpg",
       is_published: is_published !== false,
     });
 

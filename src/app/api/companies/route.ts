@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     const company = await d1Client.createClientCompany({
       name,
       industry: industry || "Corporate",
-      location: location || "Hyderabad Campus",
+      location: location || "Bengaluru Campus",
       logo_text: logo_text || name.split(" ")[0].toUpperCase(),
       accent_color: accent_color || "#0288d1",
       is_active: Boolean(is_active),

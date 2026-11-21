@@ -129,7 +129,7 @@ export default function ModalEditDriver({
               type="text"
               value={assignedVehicle}
               onChange={(e) => setAssignedVehicle(e.target.value)}
-              placeholder="e.g. TS 09 UB 4455 (Dzire)"
+              placeholder="e.g. KA 09 UB 4455 (Prime Sedan)"
               className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium"
             />
           </div>

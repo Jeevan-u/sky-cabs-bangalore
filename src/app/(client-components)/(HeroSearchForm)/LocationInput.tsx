@@ -69,10 +69,10 @@ const LocationInput: FC<LocationInputProps> = ({
         </h3>
         <div className="mt-2">
           {[
-            "Kukatpally Housing Board (KPHB), Hyderabad",
-            "Shamshabad RGI Airport (RGIA), Hyderabad",
-            "Miyapur Metro Station & Allwyn Colony",
-            "Hitec City / Cyber Towers, Madhapur",
+            "Begur Housing Board (Whitefield), Bengaluru",
+            "Devanahalli RGI Airport (BLR), Bengaluru",
+            "Indiranagar Metro Station & Allwyn Colony",
+            "Whitefield / Phoenix Marketcity, Whitefield",
           ].map((item) => (
             <span
               onClick={() => handleSelectLocation(item)}
@@ -96,10 +96,10 @@ const LocationInput: FC<LocationInputProps> = ({
     return (
       <>
         {[
-          "Srisailam Mallikarjuna Swamy Temple, AP",
+          "Mysuru Palace, Karnataka",
           "Tirupati Balaji Darshan, Andhra Pradesh",
-          "Gandhari & Kamareddy Hub, Telangana",
-          "Yadagirigutta Sri Lakshmi Narasimha Temple",
+          " Jayanagar Hub, Karnataka",
+          "Mysuru Sri Lakshmi Narasimha Temple",
         ].map((item) => (
           <span
             onClick={() => handleSelectLocation(item)}

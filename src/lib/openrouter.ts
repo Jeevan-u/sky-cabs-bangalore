@@ -1,5 +1,5 @@
 /**
- * OpenRouter AI Client for Sri Sadhguru Tours & Travels
+ * OpenRouter AI Client for Sky Cabs Bangalore
  * Centralized AI engine for:
  * - Dynamic Review Generation (/api/generate-review)
  * - Dashboard Odometer OCR & Reading Verification (OcrService)
@@ -28,8 +28,8 @@ export class OpenRouterClient {
   private static readonly DEFAULT_MODEL =
     process.env.OPENROUTER_MODEL || "google/gemini-2.5-flash";
   private static readonly BASE_URL = "https://openrouter.ai/api/v1/chat/completions";
-  private static readonly SITE_URL = "https://www.srisadhgurutoursandtravels.com";
-  private static readonly SITE_TITLE = "Sri Sadhguru Tours & Travels";
+  private static readonly SITE_URL = "https://skycabsbangalore.com/";
+  private static readonly SITE_TITLE = "Sky Cabs Bangalore";
 
   /**
    * Check if OpenRouter is configured

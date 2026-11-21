@@ -4,7 +4,9 @@ import React, { FC, useState, useEffect } from "react";
 import Image from "next/image";
 import Heading from "@/shared/Heading";
 import Badge from "@/shared/Badge";
-import { SADHGURU_FLEET, SADHGURU_CONTACT, FleetVehicle } from "@/data/sadhguruFleet";
+import { SKY_CABS_FLEET, SKY_CABS_CONTACT, FleetVehicle } from "@/data/skyCabsFleet";
+import { getVehiclePhotos } from "@/data/fleetGallery";
+import FleetImageSlider from "@/components/FleetImageSlider";
 import { CheckCircleIcon, WhatsAppIcon } from "@/components/icons";
 import { SpotlightCard, ShinyText, MagneticButton, Float, BorderBeam } from "@/components/reactbits";
 
@@ -13,7 +15,7 @@ export interface SectionFleetOverviewProps {
 }
 
 const SectionFleetOverview: FC<SectionFleetOverviewProps> = ({ className = "" }) => {
-  const [liveFleet, setLiveFleet] = useState<FleetVehicle[]>(SADHGURU_FLEET);
+  const [liveFleet, setLiveFleet] = useState<FleetVehicle[]>(SKY_CABS_FLEET);
 
   useEffect(() => {
     fetch("/api/fleet?published=true")
@@ -31,15 +33,16 @@ const SectionFleetOverview: FC<SectionFleetOverviewProps> = ({ className = "" })
   return (
     <div className={`nc-SectionFleetOverview relative ${className}`}>
       <Heading
-        desc="5-Seater to 50-Seater AC and Non-AC passenger vehicles maintained to pristine condition for solo, family, and group travel."
+        desc="4+1 to 52-Seater AC and Non-AC passenger vehicles maintained to pristine condition for solo, family, and group travel."
         isCenter
       >
-        Sri Sadhguru Fleet & Capacity
+        Sky Cabs Bangalore Fleet & Capacity
       </Heading>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
         {liveFleet.map((vehicle) => {
           const isFeatured = vehicle.id === "innova-crysta" || vehicle.id === "urbania-17";
+          const photos = getVehiclePhotos(vehicle.image, vehicle.id);
           return (
             <SpotlightCard
               key={vehicle.id}
@@ -49,19 +52,29 @@ const SectionFleetOverview: FC<SectionFleetOverviewProps> = ({ className = "" })
               {isFeatured && (
                 <BorderBeam size={220} duration={8} colorFrom="#f59e0b" colorTo="#38bdf8" borderWidth={1.5} />
               )}
-              {/* Image */}
+              {/* Image / Sliding gallery */}
               <div className="relative w-full h-32 sm:h-52 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-                <Image
-                  src={vehicle.image}
-                  alt={vehicle.name}
-                  fill
-                  className={`${
-                    vehicle.image.endsWith(".png")
-                      ? "object-contain p-2 sm:p-3"
-                      : "object-cover"
-                  } group-hover:scale-108 transition-transform duration-500`}
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
+                {photos.length > 1 ? (
+                  <FleetImageSlider
+                    images={photos}
+                    alt={`${vehicle.name} - Sky Cabs Bangalore`}
+                    objectFit={vehicle.image.endsWith(".png") ? "contain" : "cover"}
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    showArrows={false}
+                  />
+                ) : (
+                  <Image
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    fill
+                    className={`${
+                      vehicle.image.endsWith(".png")
+                        ? "object-contain p-2 sm:p-3"
+                        : "object-cover"
+                    } group-hover:scale-108 transition-transform duration-500`}
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                )}
                 <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 scale-90 sm:scale-100 origin-top-left">
                   <Float duration={4} offset={3}>
                     <Badge name={vehicle.capacity} color="blue" />
@@ -108,7 +121,7 @@ const SectionFleetOverview: FC<SectionFleetOverviewProps> = ({ className = "" })
 
                 <MagneticButton pullFactor={0.25} className="w-full sm:w-auto">
                   <a
-                    href={`https://wa.me/${SADHGURU_CONTACT.whatsappNumber}?text=Hi%20Sri%20Sadhguru%20Travels,%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(vehicle.name)}%20(${vehicle.capacity}).`}
+                    href={`https://wa.me/${SKY_CABS_CONTACT.whatsappNumber}?text=Hi%20Sky%20Cabs%20Bangalore,%20I%20would%20like%20to%20inquire%20about%20the%20${encodeURIComponent(vehicle.name)}%20(${vehicle.capacity}).`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full justify-center inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1 sm:py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] sm:text-xs font-bold transition shadow-sm touch-manipulation active:scale-95"
