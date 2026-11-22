@@ -36,7 +36,7 @@ const SectionLegacy: FC<SectionLegacyProps> = ({ className = "" }) => {
             <TiltedCard maxAngle={10} scale={1.03} className="w-full max-w-sm">
               <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-amber-400/40">
                 <Image
-                  src="/images/sky-cabs-banner.jpg"
+                  src="/images/sky-cabs-banner.png"
                   alt="Sky Cabs Bangalore Official Flyer - "
                   fill
                   className="object-cover"

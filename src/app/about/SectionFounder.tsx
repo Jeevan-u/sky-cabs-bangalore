@@ -19,7 +19,7 @@ const FOUNDER_INFO: People[] = [
     id: "1",
     name: "Sky Cabs Bangalore",
     job: "Sky Cabs Bangalore Team",
-    avatar: "/images/sky-cabs-banner.jpg",
+    avatar: "/images/sky-cabs-banner.png",
     desc: "Oversees fleet operations, driver verification, and customer satisfaction across Bengaluru and Yelahanka.",
   },
   {
